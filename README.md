@@ -1,27 +1,63 @@
-# Redwood
+# Redwood-Stripe Example Store
 
-> **NOTICE:** RedwoodJS is very close to a stable version 1.0. In the last two years,
-> the project has matured significantly and is already used in production by a number
-> of startups. We intend to have a 1.0 release candidate before the end of 2021 and
-> to release a truly production-ready 1.0 in early 2022.
+Welcome to the RedwoodJS Example Store!
+This repo is an example of a Redwood-Stripe integration.
 
-## Getting Started
-- [Tutorial](https://redwoodjs.com/tutorial/welcome-to-redwood): getting started and complete overview guide.
-- [Docs](https://redwoodjs.com/docs/introduction): using the Redwood Router, handling assets and files, list of command-line tools, and more.
-- [Redwood Community](https://community.redwoodjs.com): get help, share tips and tricks, and collaborate on everything about RedwoodJS.
+This repo is the second iteration of the Redwood-Stripe project.
+The first can be found in the [redwoodjs-stripe](https://github.com/chrisvdm/redwoodjs-stripe) repo.
 
-### Setup
+The first was focused on integrating Redwood with Stripe from the ground up.
+This presented many technical challenges, namely, how can we make Redwood as a Framework more pluggable.
 
-We use Yarn as our package manager. To get the dependencies installed, just do this in the root directory:
+This project takes the opposite approach by focusing on what a Stripe integration in a Redwood Project would look like.
 
-```terminal
-yarn install
-```
+The thinking is that, in the third iteration, having approached the problem from both low and high-level perspectives, we can converge on a solution.
 
-### Fire it up
+  - [Roadmap](#roadmap)
+  - [Leadership](#leadership)
+  - [Contributing](#contributing)
+    - [Use feature branches](#use-feature-branches)
 
-```terminal
-yarn redwood dev
-```
+## Roadmap
 
-Your browser should open automatically to `http://localhost:8910` to see the web app. Lambda functions run on `http://localhost:8911` and are also proxied to `http://localhost:8910/.redwood/functions/*`.
+Here's a very general roadmap:
+
+- [ ] Write the README
+- [ ] Use work from previous iteration of the project to inform this iteration (this should get us most of the way to a working integration with [Checkout](https://stripe.com/payments/checkout))
+- Do these things before sharing the project with the community:
+  - [ ] Add tests / CI
+  - [ ] Add docs
+  - [ ] Have an official roadmap
+  - [ ] Make it fun / original
+- [ ] Post on the forum (something along the lines of "How to Integrate Redwood with Stripe")
+
+After that, here's some of the other things we're thinking about doing:
+
+- Use [Stripe Elements](https://stripe.com/payments/elements)
+- Livestream / screencasts
+
+## Leadership
+
+- Christine van der Merwe (Chris; [@chrisvdm](https://github.com/chrisvdm))
+- Dominic Saadi (Dom; [@jtoar](https://github.com/jtoar))
+
+Chris is the project lead and Dom is point from the RedwoodJS Core Team.
+Chris and Dom meet biweekly to discuss the status of the project.
+
+## Contributing
+
+Anyone is welcome to contribute! Here's some of our conventions:
+
+### Use feature branches
+
+We use feature branches that start with one of three slash prefixes:
+
+- `feat/`—a brand new feature
+- `bug/`—a bug fix
+- `enhance/`—an improvement to an already-existing feature
+
+Here's some examples of goodly-named branches:
+
+- `feat/add-CONTRIBUTING.md`
+- `bug/fix-webhooks`
+- `enhance/update-stripe-element-styling`
