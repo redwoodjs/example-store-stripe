@@ -1,4 +1,5 @@
 import { logger } from 'src/lib/logger'
+import { stripe } from 'src/lib/stripe'
 
 /**
  * The handler function is your code that processes http request events.
@@ -16,8 +17,6 @@ import { logger } from 'src/lib/logger'
  * @param { Context } context - contains information about the invocation,
  * function, and execution environment.
  */
-
-const stripe = require('stripe')(process.env.STRIPE_SK)
 
 const getCartItems = {
   subscription: [
@@ -50,7 +49,7 @@ const getCartItems = {
   ],
 }
 
-export const handler = async (event, context) => {
+export const handler = async (event, _context) => {
   logger.info('Invoked createCheckoutSession function')
   const mode = JSON.parse(event.body).mode
 

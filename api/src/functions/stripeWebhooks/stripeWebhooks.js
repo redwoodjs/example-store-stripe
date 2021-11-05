@@ -1,4 +1,4 @@
-import handleStripeWebhooks from '../../../../plugin/stripe/lib/handleStripeWebhooks'
+import handleStripeWebhooks from 'src/lib/stripe'
 
 /**
  * The handler function is your code that processes http request events.
