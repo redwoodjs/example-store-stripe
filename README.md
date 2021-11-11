@@ -13,7 +13,7 @@ This project takes the opposite approach by focusing on what a Stripe integratio
 
 The thinking is that, in the third iteration, having approached the problem from both low and high-level perspectives, we can converge on a solution.
 
-  - [Roadmap](https://github.com/redwoodjs/example-store/issues/9)
+  - [Roadmap](#roadmap)
   - [Leadership](#leadership)
   - [Contributing](#contributing)
     - [Use feature branches](#use-feature-branches)
