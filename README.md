@@ -20,21 +20,9 @@ The thinking is that, in the third iteration, having approached the problem from
 
 ## Roadmap
 
-Here's a very general roadmap:
+- 👉 Link to the Roadmap: https://github.com/redwoodjs/example-store/issues/9
 
-- [ ] Write the README
-- [ ] Use work from previous iteration of the project to inform this iteration (this should get us most of the way to a working integration with [Checkout](https://stripe.com/payments/checkout))
-- Do these things before sharing the project with the community:
-  - [ ] Add tests / CI
-  - [ ] Add docs
-  - [ ] Have an official roadmap
-  - [ ] Make it fun / original
-- [ ] Post on the forum (something along the lines of "How to Integrate Redwood with Stripe")
-
-After that, here's some of the other things we're thinking about doing:
-
-- Use [Stripe Elements](https://stripe.com/payments/elements)
-- Livestream / screencasts
+Our Roadmap is constantly evolving. Feel free to suggest something!
 
 ## Leadership
 
