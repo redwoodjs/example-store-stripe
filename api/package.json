@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@redwoodjs/api": "0.38.0",
-    "@redwoodjs/graphql-server": "0.38.0",
+    "@redwoodjs/api": "^0.39.0-rc.94",
+    "@redwoodjs/graphql-server": "^0.39.0-rc.94",
     "stripe": "^8.186.1"
   }
 }
