@@ -31,21 +31,3 @@ Our Roadmap is constantly evolving. Feel free to suggest something!
 
 Chris is the project lead and Dom is point from the RedwoodJS Core Team.
 Chris and Dom meet biweekly to discuss the status of the project.
-
-## Contributing
-
-Anyone is welcome to contribute! Here's some of our conventions:
-
-### Use feature branches
-
-We use feature branches that start with one of three slash prefixes:
-
-- `feat/`—a brand new feature
-- `bug/`—a bug fix
-- `enhance/`—an improvement to an already-existing feature
-
-Here's some examples of goodly-named branches:
-
-- `feat/add-CONTRIBUTING.md`
-- `bug/fix-webhooks`
-- `enhance/update-stripe-element-styling`
