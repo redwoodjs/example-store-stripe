@@ -38,6 +38,33 @@ STRIPE_WEBHOOK_SK=whsec_...
 You only need the webhook secret if you're using webhooks.
 You can get it from the [Stripe CLI](https://stripe.com/docs/stripe-cli).
 
+## Testing your Contribution
+
+We have a small e2e test you can use to test your contribution.
+You'll have to have [playwright](https://playwright.dev/) installed:
+
+```
+npx playwright install
+```
+
+First, start the dev server in the background:
+
+```
+yarn rw dev &
+```
+
+Then, run the e2e test:
+
+```
+yarn rw-test-e2e
+```
+
+If you want to watch the tests as they happen, pass the `--headed` flag:
+
+```
+yarn rw-test-e2e --headed
+```
+
 ## Style Guide
 
 There's a few conventions that we follow.
