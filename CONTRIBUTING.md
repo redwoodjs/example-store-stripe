@@ -24,19 +24,19 @@ Once you've made your account, if you weren't automatically redirected, navigate
 > **Make sure "Test mode" is on**
 >
 > You can toggle "Test mode" on and off with the toggle in the upper right.
-> Make sure it's always on. You should always see the "Test Data" banner.
+> Make sure it's always on. You should always see the orange "Test Data" banner.
 
 Your `.env` should look like:
 
 ```
-STRIPE_SK=sk_test_...
 STRIPE_PK=pk_test_...
+STRIPE_SK=sk_test_...
 # This one isn't strictly necessary.
 STRIPE_WEBHOOK_SK=whsec_...
 ```
 
-> You only need the webhook secret if you're using webhooks.
-> If you need it, you can get it from the [Stripe CLI](https://stripe.com/docs/stripe-cli).
+You only need the webhook secret if you're using webhooks.
+You can get it from the [Stripe CLI](https://stripe.com/docs/stripe-cli).
 
 ## Style Guide
 
