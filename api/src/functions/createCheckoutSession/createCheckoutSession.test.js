@@ -2,25 +2,26 @@ import { mockHttpEvent } from '@redwoodjs/testing/api'
 
 import { handler } from './createCheckoutSession'
 
+import { stripe } from 'src/lib/stripe'
+
+jest.mock('../../lib/stripe')
+
 describe('createCheckoutSession function', () => {
-  it('Should respond with 200', async () => {
+  it('Should create a payment-mode Checkout Session and respond with 200', async () => {
+    stripe.checkout.sessions.create = jest.fn()
+
     const httpEvent = mockHttpEvent({
-      queryStringParameters: {
-        id: '42', // Add parameters here
-      },
+      payload: JSON.stringify({ mode: 'payment' }),
     })
 
     const response = await handler(httpEvent, null)
-    const { data } = JSON.parse(response.body)
 
     expect(response.statusCode).toBe(200)
-    expect(data).toBe('createCheckoutSession function')
-  })
 
-  // You can also use scenarios to test your api functions
-  // See guide here: https://redwoodjs.com/docs/testing#scenarios
-  //
-  // scenario('Scenario test', async () => {
-  //
-  // })
+    expect(stripe.checkout.sessions.create).toHaveBeenCalledWith(
+      expect.objectContaining({
+        mode: 'payment',
+      })
+    )
+  })
 })
