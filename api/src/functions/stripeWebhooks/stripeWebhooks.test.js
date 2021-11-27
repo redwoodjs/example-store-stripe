@@ -18,6 +18,8 @@ describe('stripeWebhooks function', () => {
       2
     )
 
+    process.env.STRIPE_WEBHOOK_SK = 'whsec_test_secret'
+
     /**
      * @see {@link https://github.com/stripe/stripe-node/blob/master/README.md#testing-webhook-signing}
      */
