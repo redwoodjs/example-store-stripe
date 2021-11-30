@@ -7,11 +7,19 @@ const stripe = require('stripe')(process.env.STRIPE_SK)
 
 export default async ({ args }) => {
   const priceResults = []
+  let c = 0
+
+  // Create once-off prices
   for (const price of dummyPrices) {
-    const result = await stripe.prices.create(price, {
-      idempotencyKey: `${price.product_data.id}ik`,
-    })
-    priceResults.push(result)
+    try {
+      const result = await stripe.prices.create(price, {
+        idempotencyKey: `pricesik${c}`,
+      })
+      priceResults.push(result)
+    } catch (err) {
+      console.log(err)
+    }
+    c++
   }
 
   console.log(priceResults)
