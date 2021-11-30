@@ -22,7 +22,9 @@ export default async ({ args }) => {
     c++
   }
 
-  console.log(priceResults)
-  console.log(':: Executing script with args ::')
-  console.log(args)
+  priceResults.length > 0
+    ? console.log('Products and prices seeded')
+    : console.log(
+        'There was an error with seeding Stripe. Please try again later.'
+      )
 }
