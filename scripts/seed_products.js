@@ -12,18 +12,21 @@ export default async ({ args }) => {
   // Create once-off prices
   for (const price of dummyPrices) {
     try {
-      const result = await stripe.prices.create(price, {
-        idempotencyKey: `pricesik${c}`,
-      })
+      const result = await stripe.prices.create(price)
       priceResults.push(result)
     } catch (err) {
-      console.log(err)
+      console.log(err.raw.message)
+      priceResults.push({ error: err.raw.message })
+      // if product exit then escapes the loop
+      break
     }
     c++
   }
 
-  priceResults.length > 0
+  priceResults.length > 1
     ? console.log('Products and prices seeded')
+    : priceResults[0].error === 'Product already exists.'
+    ? console.log('Stripe has already been seeded with Products and Prices')
     : console.log(
         'There was an error with seeding Stripe. Please try again later.'
       )
