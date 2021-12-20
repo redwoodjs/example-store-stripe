@@ -5,7 +5,7 @@ import { stripe } from '$api/src/lib/stripe'
 export default async ({ args }) => {
   const priceResults = []
 
-  // Create once-off prices
+  // Create one-off prices
   for (const price of dummyPrices) {
     try {
       const result = await stripe.prices.create(price)
