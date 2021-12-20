@@ -23,9 +23,9 @@ export default async ({ args }) => {
     c++
   }
 
-  priceResults.length > 1
+  (priceResults.length > 1)
     ? console.log('Products and prices seeded')
-    : priceResults[0].error === 'Product already exists.'
+    : (priceResults[0].error === 'Product already exists.')
     ? console.log('Stripe has already been seeded with Products and Prices')
     : console.log(
         'There was an error with seeding Stripe. Please try again later.'
