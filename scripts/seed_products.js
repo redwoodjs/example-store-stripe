@@ -1,13 +1,9 @@
-// To access your database
-import { db } from '$api/src/lib/db'
 import { dummyPrices } from './dummy/prices'
 
-require('dotenv').config()
-const stripe = require('stripe')(process.env.STRIPE_SK)
+import { stripe } from '$api/src/lib/stripe'
 
 export default async ({ args }) => {
   const priceResults = []
-  let c = 0
 
   // Create once-off prices
   for (const price of dummyPrices) {
@@ -20,7 +16,6 @@ export default async ({ args }) => {
       // If any of the price creations fail, escape the loop
       break
     }
-    c++
   }
 
   (priceResults.length > 1)
