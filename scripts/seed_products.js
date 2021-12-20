@@ -17,7 +17,7 @@ export default async ({ args }) => {
     } catch (err) {
       console.log(err.raw.message)
       priceResults.push({ error: err.raw.message })
-      // if product exit then escapes the loop
+      // If any of the price creations fail, escape the loop
       break
     }
     c++
