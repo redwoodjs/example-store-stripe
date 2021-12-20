@@ -1,16 +1,16 @@
-export const prices = () => {
+export const stripePrices = () => {
   return [
     {
       id: 'dsfsdf',
-      name: 'item 1'
+      nickname: 'item 1'
     },
      {
       id: 'dsfdssef',
-      name: 'item 2'
+      nickname: 'item 2'
     },
       {
       id: 'dsrewr',
-      name: 'item 3'
+      nickname: 'item 3'
     }
   ]
 }

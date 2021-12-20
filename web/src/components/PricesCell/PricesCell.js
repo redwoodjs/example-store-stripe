@@ -2,7 +2,7 @@ export const QUERY = gql`
   query {
     stripePrices {
       id
-      name
+      nickname
     }
   }
 `
@@ -15,10 +15,10 @@ export const Failure = ({ error }) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
-export const Success = ({ prices }) => {
+export const Success = ({ stripePrices }) => {
   return (
     <ul>
-      {prices.map((item) => {
+      {stripePrices.map((item) => {
         return <li key={item.id}>{JSON.stringify(item)}</li>
       })}
     </ul>

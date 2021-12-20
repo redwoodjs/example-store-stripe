@@ -18,5 +18,5 @@ type StripeRecurringPrice {
 }
 
 type Query {
-  stripePrices: [StripePrice!]!
+  stripePrices: [StripePrice!]! @skipAuth
 }`
