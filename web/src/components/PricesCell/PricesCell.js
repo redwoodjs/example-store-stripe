@@ -1,8 +1,9 @@
 export const QUERY = gql`
-  query {
-    stripePrices {
+  query ($priceType: String){
+    stripePrices (priceType: $priceType) {
       id
       nickname
+      product
     }
   }
 `
@@ -16,6 +17,7 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ stripePrices }) => {
+  console.log(stripePrices)
   return (
     <ul>
       {stripePrices.map((item) => {

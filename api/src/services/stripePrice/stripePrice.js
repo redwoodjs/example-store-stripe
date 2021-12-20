@@ -1,16 +1,9 @@
-export const stripePrices = () => {
-  return [
-    {
-      id: 'dsfsdf',
-      nickname: 'item 1'
-    },
-     {
-      id: 'dsfdssef',
-      nickname: 'item 2'
-    },
-      {
-      id: 'dsrewr',
-      nickname: 'item 3'
-    }
-  ]
+import { stripe } from '../../lib/stripe'
+
+//TODO: undefined returns all prices (dependent on Stripe to send the right information)
+export const stripePrices = async ({ priceType }) => {
+  const prices = await stripe.prices.list({
+  type: priceType,
+  });
+  return prices.data
 }

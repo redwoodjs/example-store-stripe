@@ -7,7 +7,7 @@ type StripePrice {
   recurring: StripeRecurringPrice
   type: String
   unit_amount: Int!
-  product: StripeProduct
+  product: String
 }
 
 type StripeRecurringPrice {
@@ -18,5 +18,5 @@ type StripeRecurringPrice {
 }
 
 type Query {
-  stripePrices: [StripePrice!]! @skipAuth
+  stripePrices(priceType: String): [StripePrice!]! @skipAuth
 }`
