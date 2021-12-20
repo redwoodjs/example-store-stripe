@@ -9,7 +9,7 @@ export default async ({ args }) => {
   const priceResults = []
   let c = 0
 
-  // Create once-off prices
+  // Create one-off prices
   for (const price of dummyPrices) {
     try {
       const result = await stripe.prices.create(price)
