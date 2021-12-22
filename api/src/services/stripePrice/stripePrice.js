@@ -7,3 +7,30 @@ export const stripePrices = async ({ priceType }) => {
   });
   return prices.data
 }
+
+export const stripePricesVerbose = async ({ priceType }) => {
+  // Gets Prices of a particular type
+  const pricesResults = await stripe.prices.list({
+  type: priceType,
+  });
+  const priceList = pricesResults.data
+
+  // Extracts list of product IDs
+  const productIDList = priceList.map(price => {
+    return price.product
+  })
+
+  // Gets listed products
+  const productsResults = await stripe.products.list({ ids: productIDList })
+  const productList = productsResults.data
+
+  // Create new verbose list using priceList and ProductResults
+  const pricesVerboseList = priceList.map((price, i) => {
+    return {
+      ...price,
+      product: productList[i]
+    }
+  })
+
+  return pricesVerboseList
+}

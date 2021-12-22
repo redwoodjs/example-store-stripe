@@ -10,6 +10,17 @@ type StripePrice {
   product: String
 }
 
+type StripePriceVerbose {
+   id: String!
+  active: Boolean
+  currency: String
+  nickname: String
+  recurring: StripeRecurringPrice
+  type: String
+  unit_amount: Int!
+  product: StripeProduct
+}
+
 type StripeRecurringPrice {
   aggregate_usage: String
   interval: String
@@ -19,4 +30,5 @@ type StripeRecurringPrice {
 
 type Query {
   stripePrices(priceType: String): [StripePrice!]! @skipAuth
+  stripePricesVerbose(priceType: String): [StripePriceVerbose!]! @skipAuth
 }`
