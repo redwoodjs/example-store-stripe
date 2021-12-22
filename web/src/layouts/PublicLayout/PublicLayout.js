@@ -16,7 +16,7 @@ const PublicLayout = ({ children }) => {
         <SiteWrapper>
           <div className="row space-between bottom-border">
             <Link to={routes.home()}>
-              <h1>The Farm Stall</h1>
+              <h1>SuperPOW!!!</h1>
             </Link>
           </div>
         </SiteWrapper>
