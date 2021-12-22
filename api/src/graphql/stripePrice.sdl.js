@@ -1,24 +1,29 @@
 export const schema = gql`
 type StripePrice {
-  id: String!
+  id: ID!
   active: Boolean
   currency: String
   nickname: String
   recurring: StripeRecurringPrice
-  type: String
+  type: StripePriceType
   unit_amount: Int!
   product: String
 }
 
 type StripePriceVerbose {
-   id: String!
+  id: ID!
   active: Boolean
   currency: String
   nickname: String
   recurring: StripeRecurringPrice
-  type: String
+  type: StripePriceType
   unit_amount: Int!
   product: StripeProduct
+}
+
+enum StripePriceType {
+  one_time
+  recurring
 }
 
 type StripeRecurringPrice {
@@ -29,6 +34,6 @@ type StripeRecurringPrice {
 }
 
 type Query {
-  stripePrices(priceType: String): [StripePrice!]! @skipAuth
-  stripePricesVerbose(priceType: String): [StripePriceVerbose!]! @skipAuth
+  stripePrices(priceType: StripePriceType): [StripePrice!]! @skipAuth
+  stripePricesVerbose(priceType: StripePriceType): [StripePriceVerbose!]! @skipAuth
 }`

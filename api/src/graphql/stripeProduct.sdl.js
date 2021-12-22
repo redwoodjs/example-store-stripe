@@ -1,9 +1,18 @@
 export const schema = gql`
 type StripeProduct {
-  id: String!
+  id: ID!
   active: Boolean
   description: String
   name: String
   images: [String]
+  object: String
+  created: String
+  images: [String]
+  livemode: Boolean
+  statement_descriptor: String
+  tax_code: String
+  unit_label: String
+  updated: String
+  url: String
 }
 `
