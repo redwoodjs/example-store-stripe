@@ -1,5 +1,5 @@
 * {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 .site-header a {
@@ -47,10 +47,30 @@
   justify-content: space-between;
 }
 
-.list--no-style {
+.list {
   padding: 0;
   margin: 0;
   list-style: none;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.list--row .list__item {
+  flex-direction: row;
+  margin-top: 1.2em;
+}
+
+.list--column .list__item {
+  flex-direction: column;
+  margin-left: 1.2em;
+}
+
+.list--column .list__item:first-of-type {
+  margin-left: 0;
+}
+
+.list--row .list__item:first-of-type {
+  margin-top: 0;
 }
 
 .bottom-border {
@@ -67,4 +87,20 @@
 .cart-btn:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.price-item--card {
+  max-width: 250px;
+}
+
+.price-item__figure {
+  max-width: 100%;
+  margin: 0;
+  padding: 0.625em;
+  background-color: aquamarine;
+}
+
+.price-item__figure img {
+  width: 100%;
+  max-width: 230px;
 }
