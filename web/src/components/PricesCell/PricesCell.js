@@ -1,3 +1,7 @@
+import {PriceItem} from 'src/components/PriceItem/PriceItem'
+import {List} from 'src/components/List/List'
+import { array } from 'prop-types'
+
 export const QUERY = gql`
   query ($priceType: StripePriceType){
     stripePricesVerbose (priceType: $priceType) {
@@ -7,6 +11,7 @@ export const QUERY = gql`
         name
         id
         images
+        description
       }
     }
   }
@@ -21,12 +26,8 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ stripePricesVerbose }) => {
-  console.log(stripePricesVerbose)
+
   return (
-    <ul>
-      {stripePricesVerbose.map((item) => {
-        return <li key={item.id}>{JSON.stringify(item)}</li>
-      })}
-    </ul>
+    <List array={stripePricesVerbose} item={PriceItem}/>
   )
 }
