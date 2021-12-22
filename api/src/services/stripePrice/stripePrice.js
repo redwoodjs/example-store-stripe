@@ -31,6 +31,5 @@ export const stripePricesVerbose = async ({ priceType }) => {
       product: productList[i]
     }
   })
-
   return pricesVerboseList
 }

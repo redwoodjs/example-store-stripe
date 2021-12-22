@@ -3,8 +3,7 @@ type StripeProduct {
   id: ID!
   active: Boolean
   description: String
-  name: String
-  images: [String]
+  name: String!
   object: String
   created: String
   images: [String]

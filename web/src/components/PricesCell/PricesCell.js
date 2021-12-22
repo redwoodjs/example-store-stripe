@@ -1,9 +1,13 @@
 export const QUERY = gql`
-  query ($priceType: String){
-    stripePrices (priceType: $priceType) {
+  query ($priceType: StripePriceType){
+    stripePricesVerbose (priceType: $priceType) {
       id
       nickname
-      product
+      product {
+        name
+        id
+        images
+      }
     }
   }
 `
@@ -16,11 +20,11 @@ export const Failure = ({ error }) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
-export const Success = ({ stripePrices }) => {
-  console.log(stripePrices)
+export const Success = ({ stripePricesVerbose }) => {
+  console.log(stripePricesVerbose)
   return (
     <ul>
-      {stripePrices.map((item) => {
+      {stripePricesVerbose.map((item) => {
         return <li key={item.id}>{JSON.stringify(item)}</li>
       })}
     </ul>
