@@ -63,14 +63,14 @@ const StripeCartPage = () => {
 export default StripeCartPage
 
 const retrieveCheckoutSession = async (id) => {
-  const res = await window.fetch(
+  const response = await window.fetch(
     `${window.RWJS_API_URL}/retrieveCheckoutSession`,
     {
       method: 'POST',
       body: JSON.stringify({ id: id }),
     }
   )
-  return res.json()
+  return response.json()
 }
 
 const handleCheckoutSessionCreation = async (mode) => {
