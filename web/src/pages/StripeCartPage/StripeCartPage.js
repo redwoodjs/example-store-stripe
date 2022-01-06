@@ -62,26 +62,20 @@ const StripeCartPage = () => {
 
 export default StripeCartPage
 
-/**
- * This is a hack. There should be a better way.
- */
-const getApiUrl = () =>
-  window.RWJS_API_GRAPHQL_URL.split('/').slice(0, -1).join('/')
-
 const retrieveCheckoutSession = async (id) => {
-  const response = await window.fetch(
-    `${getApiUrl()}/retrieveCheckoutSession`,
+  const res = await window.fetch(
+    `${window.RWJS_API_URL}/retrieveCheckoutSession`,
     {
       method: 'POST',
       body: JSON.stringify({ id: id }),
     }
   )
-  return response.json()
+  return res.json()
 }
 
 const handleCheckoutSessionCreation = async (mode) => {
   const stripey = await loadStripe(process.env.STRIPE_PK)
-  const response = await fetch(`${getApiUrl()}/createCheckoutSession`, {
+  const response = await fetch(`${window.RWJS_API_URL}/createCheckoutSession`, {
     method: 'POST',
     body: JSON.stringify({ mode: mode }),
   })
@@ -99,7 +93,7 @@ const handleCheckoutSessionCreation = async (mode) => {
 // TODO: remove customer id after creating wway to save session info
 const handleCustomerPortalSessionCreation = async (customer) => {
   const response = await window.fetch(
-    `${getApiUrl()}/createCustomerPortalSession`,
+    `${window.RWJS_API_URL}/createCustomerPortalSession`,
     {
       method: 'POST',
       body: JSON.stringify({ customer: customer }),
