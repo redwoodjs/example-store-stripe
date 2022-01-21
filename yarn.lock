@@ -2205,7 +2205,7 @@
   resolved "https://registry.yarnpkg.com/@panva/asn1.js/-/asn1.js-1.0.0.tgz#dd55ae7b8129e02049f009408b97c61ccf9032f6"
   integrity sha512-UdkG3mLEqXgnlKsWanWcgb6dOjUzJ+XC5f+aWw30qrtjxeNUSfKX1cd5FBzOaXQumoe9nIqeZUvrRJS03HCCtw==
 
-"@playwright/test@^1.16.3":
+"@playwright/test@1.16.3":
   version "1.16.3"
   resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.16.3.tgz#99439d07af6a355586393b463fd88315f32d2a57"
   integrity sha512-aJR6d6Fd/y6lq1RWWggcuiivM7offqddOW3te+NGGMxgF2P0xAxU0/xUurwIFnEp7iHwXILSZByzZ6W6fuKPIg==
@@ -2462,7 +2462,7 @@
     split2 "4.1.0"
     yargs "16.2.0"
 
-"@redwoodjs/api@0.41.0", "@redwoodjs/api@^0.41.0":
+"@redwoodjs/api@0.41.0":
   version "0.41.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/api/-/api-0.41.0.tgz#0aa641d5a0b0bcbb32ec237ddb3c8cb511c1e55a"
   integrity sha512-TiBZJoZONzt8qK4ItixtcJ6Q2BVsfG0OEv82jcnL9d+JXTtLI8y4DQFJ4Mmm7cJmnz7f0wmv6FLYAYTFutihjA==
@@ -2521,7 +2521,7 @@
     terminal-link "2.1.1"
     yargs "16.2.0"
 
-"@redwoodjs/core@^0.41.0":
+"@redwoodjs/core@0.41.0":
   version "0.41.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/core/-/core-0.41.0.tgz#ffdb87912f98c3d336a26d5750957286582c1407"
   integrity sha512-BkJAJeudHw+wuhA/PfxaeUQ/bgpGjF8FyDhmB0rDvl15IRlzY3IrgUkKy/edcS+YNK3esioRQeUo+F0NAdxQQw==
@@ -2602,7 +2602,7 @@
     eslint-plugin-react-hooks "4.3.0"
     prettier "2.5.1"
 
-"@redwoodjs/forms@^0.41.0":
+"@redwoodjs/forms@0.41.0":
   version "0.41.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/forms/-/forms-0.41.0.tgz#8fc042d3ce34ea40c33866b00079be65fa8b7691"
   integrity sha512-1fGzAixiHU3ybUnmm0SOzeI8unsU2Ms5dXjjZw/ba0kBWMfPNOssiMI4A0kaDCUyMk4oADZWqAJO3y2V7ID/TQ==
@@ -2612,7 +2612,7 @@
     pascalcase "1.0.0"
     react-hook-form "7.22.2"
 
-"@redwoodjs/graphql-server@0.41.0", "@redwoodjs/graphql-server@^0.41.0":
+"@redwoodjs/graphql-server@0.41.0":
   version "0.41.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/graphql-server/-/graphql-server-0.41.0.tgz#8325cdd681ac32c21e18c7658166f422c14f5e27"
   integrity sha512-KgJHVXoWIeIFd38FWmND6t435/yYvFpSpQd4R8XmqNgsvlIYbJkr0IMPAgn4sTNdncAD+2pUo7BERf3xW8ZNhw==
@@ -2689,7 +2689,7 @@
     mime-types "2.1.34"
     node-fetch "2.6.6"
 
-"@redwoodjs/router@0.41.0", "@redwoodjs/router@^0.41.0":
+"@redwoodjs/router@0.41.0":
   version "0.41.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/router/-/router-0.41.0.tgz#f2f39924f8075051ec80c258fbf2698c891828c1"
   integrity sha512-61C7RIyjrVfUZZ12mCHasrBc/2vKqaR5UGSJOUFhHMVAF06/xg59Zp/Zdk0MzVmWif3j3vBCalICbt3BYdw+Dw==
@@ -2758,7 +2758,7 @@
     ts-toolbelt "9.6.0"
     whatwg-fetch "3.6.2"
 
-"@redwoodjs/web@0.41.0", "@redwoodjs/web@^0.41.0":
+"@redwoodjs/web@0.41.0":
   version "0.41.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/web/-/web-0.41.0.tgz#958f40d1ac9eb3064a378a07f5a06ccd7dc9849b"
   integrity sha512-s2m8jqVMPrbXAWD4LYL8i00QgRbos5n1S9MfjwYOaVLyWpPWjeh6uIB/AJu1apM/2ZM7jzdB18xuyNg5Smmi2w==
@@ -3455,7 +3455,7 @@
     resolve-from "^5.0.0"
     store2 "^2.12.0"
 
-"@stripe/stripe-js@^1.21.1":
+"@stripe/stripe-js@1.21.1":
   version "1.21.1"
   resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.21.1.tgz#e56cd01f889dc06af4a68ebf61d2492a87e80da1"
   integrity sha512-/HhRol0Bia/6L7JstXUOpg3m0U3nBW8c2tvaBE6QdonN+OMusYT9AIqCMR/PyzoF3ROifFJ2kbWT7xQjbKN3tw==
@@ -15887,7 +15887,7 @@ strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
-stripe@^8.186.1:
+stripe@8.186.1:
   version "8.186.1"
   resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.186.1.tgz#fb717cfcb8c2e73c91e3873dc286f3e8442bfb65"
   integrity sha512-BBByVyqKEBY2GNQDLmfwL1RtfsPmjForD+up7tu+P7KYxxvwEzF1gM2Iv4npfOQevGaBmR70sxIWRwn7utS5pg==
