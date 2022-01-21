@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "postUpdateOptions": ["yarnDedupeHighest"],
+  "assignees": ["@jtoar"],
+  "labels": ["release:chore"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true
+    }
+  ]
+}
