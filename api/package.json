@@ -5,6 +5,6 @@
   "dependencies": {
     "@redwoodjs/api": "0.44.0",
     "@redwoodjs/graphql-server": "0.44.0",
-    "stripe": "8.201.0"
+    "stripe": "8.202.0"
   }
 }
