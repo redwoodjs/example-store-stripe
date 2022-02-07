@@ -103,6 +103,7 @@ const retrieveCheckoutSession = async (id) => {
   return response.json()
 }
 
+// eslint-disable-next-line no-unused-vars
 const handleCheckoutSessionCreation = async (mode) => {
   const stripey = await loadStripe(process.env.STRIPE_PK)
   const response = await fetch(`${window.RWJS_API_URL}/createCheckoutSession`, {
