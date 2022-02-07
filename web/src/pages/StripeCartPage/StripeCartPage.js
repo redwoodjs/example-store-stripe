@@ -3,6 +3,7 @@ import React from 'react'
 import { useParams } from '@redwoodjs/router'
 import { useEffect, useState } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
+import { useMutation } from '@redwoodjs/web'
 
 const StripeCartPage = () => {
   const [sessionData, setSessionData] = useState({})
@@ -12,9 +13,38 @@ const StripeCartPage = () => {
   // Neccesary for creating a checkout session
   const checkoutMode = 'payment'
 
-  const onCheckoutButtonClick = () => {
+  const [createCheckoutSession] = useMutation(
+    gql`
+      mutation CreateCheckoutSession($mode: String!) {
+        createCheckoutSession(mode: $mode) {
+          id
+        }
+      }
+    `,
+    {
+      variables: {
+        mode: checkoutMode,
+      },
+    }
+  )
+
+  const onCheckoutButtonClick = async () => {
     // Creates new checkout session dependent on "checkoutMode".
-    handleCheckoutSessionCreation(checkoutMode)
+    const {
+      data: {
+        createCheckoutSession: { id },
+      },
+    } = await createCheckoutSession()
+
+    const stripe = await loadStripe(process.env.STRIPE_PK)
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: id,
+    })
+
+    if (result.error) {
+      console.error(result.error.message)
+    }
   }
 
   const onCustomerPortalButtonClick = () => {
@@ -73,6 +103,7 @@ const retrieveCheckoutSession = async (id) => {
   return response.json()
 }
 
+// eslint-disable-next-line no-unused-vars
 const handleCheckoutSessionCreation = async (mode) => {
   const stripey = await loadStripe(process.env.STRIPE_PK)
   const response = await fetch(`${window.RWJS_API_URL}/createCheckoutSession`, {
