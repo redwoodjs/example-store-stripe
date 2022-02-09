@@ -29,7 +29,7 @@ describe('PricesCell', () => {
 
   it('renders Success successfully', async () => {
     expect(() => {
-      render(<Success prices={standard().prices} />)
+      render(<Success stripePricesVerbose={standard().prices} />)
     }).not.toThrow()
   })
 })
