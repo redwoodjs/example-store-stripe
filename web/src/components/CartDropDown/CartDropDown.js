@@ -1,16 +1,46 @@
 import { List } from '../List/List'
 import { CartDropDownItem } from 'src/components/CartDropDownItem/CartDropDownItem'
 
+import { loadStripe } from '@stripe/stripe-js'
 import { useMutation } from '@redwoodjs/web'
 
-const MUTATION = gql``
-
+const checkoutMode = 'payment'
 export const CartDropDown = () => {
-  const [mutate] = useMutation(MUTATION)
+  // const [mutate] = useMutation(MUTATION)
   const cartItems = [{ item: 'Invisibility' }, { item: 'Flight' }]
 
-  const onCheckoutButtonClick = () => {
-    mutate({})
+  const [createCheckoutSession] = useMutation(
+    gql`
+      mutation CreateCheckoutSession($mode: String!) {
+        createCheckoutSession(mode: $mode) {
+          id
+        }
+      }
+    `,
+    {
+      variables: {
+        mode: checkoutMode,
+      },
+    }
+  )
+
+  const onCheckoutButtonClick = async () => {
+    // Creates new checkout session dependent on "checkoutMode".
+    const {
+      data: {
+        createCheckoutSession: { id },
+      },
+    } = await createCheckoutSession()
+
+    const stripe = await loadStripe(process.env.STRIPE_PK)
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: id,
+    })
+
+    if (result.error) {
+      console.error(result.error.message)
+    }
   }
 
   return (
@@ -20,3 +50,5 @@ export const CartDropDown = () => {
     </div>
   )
 }
+
+const useCheckout = () => {}

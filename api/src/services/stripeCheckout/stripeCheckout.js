@@ -1,5 +1,6 @@
 import { stripe } from 'src/lib/stripe'
 
+// Examples until Cart works
 const getCartItems = {
   subscription: [
     {
@@ -43,7 +44,7 @@ export const createCheckoutSession = async ({ mode }) => {
     line_items: cartItems,
     payment_method_types: ['card'],
     mode: mode,
-    success_url: `http://localhost:8910/stripe-cart?success=true&sessionId={CHECKOUT_SESSION_ID}`,
-    cancel_url: `http://localhost:8910/stripe-cart?success=false`,
+    success_url: `http://localhost:8910?success=true&sessionId={CHECKOUT_SESSION_ID}`,
+    cancel_url: `http://localhost:8910?success=false`,
   })
 }
