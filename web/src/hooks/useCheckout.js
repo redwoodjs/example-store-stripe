@@ -4,7 +4,7 @@ import { useMutation } from '@redwoodjs/web'
 export const useCheckout = (checkoutMode = 'payment') => {
   const [createCheckoutSession] = useMutation(
     gql`
-      mutation CreateCheckoutSession($mode: String!) {
+      mutation CreateCheckoutSession($mode: StripeMode!) {
         createCheckoutSession(mode: $mode) {
           id
         }

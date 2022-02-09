@@ -4,8 +4,8 @@ import { CartDropDownItem } from 'src/components/CartDropDownItem/CartDropDownIt
 import { useCheckout } from 'src/hooks/useCheckout.js'
 
 export const CartDropDown = () => {
+  // Uses graphQL mutation to redirect to Stripe checkout
   const checkout = useCheckout()
-  // const [mutate] = useMutation(MUTATION)
   const cartItems = [{ item: 'Invisibility' }, { item: 'Flight' }]
 
   const onCheckoutButtonClick = async () => {
