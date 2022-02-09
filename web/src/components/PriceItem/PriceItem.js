@@ -22,7 +22,6 @@ export const PriceItem = ({
     // localStorage.setItem('items', ['dfdfgdfg', 'dfdfsfs'])
   }
 
-  console.log('hi')
   return (
     <div className="price-item--card">
       <figure className="price-item__figure">
