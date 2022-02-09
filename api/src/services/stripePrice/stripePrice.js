@@ -3,20 +3,20 @@ import { stripe } from '../../lib/stripe'
 //TODO: undefined returns all prices (dependent on Stripe to send the right information)
 export const stripePrices = async ({ priceType }) => {
   const prices = await stripe.prices.list({
-  type: priceType,
-  });
+    type: priceType,
+  })
   return prices.data
 }
 
 export const stripePricesVerbose = async ({ priceType }) => {
   // Gets Prices of a particular type
   const pricesResults = await stripe.prices.list({
-  type: priceType,
-  });
+    type: priceType,
+  })
   const priceList = pricesResults.data
 
   // Extracts list of product IDs
-  const productIDList = priceList.map(price => {
+  const productIDList = priceList.map((price) => {
     return price.product
   })
 
@@ -28,7 +28,7 @@ export const stripePricesVerbose = async ({ priceType }) => {
   const pricesVerboseList = priceList.map((price, i) => {
     return {
       ...price,
-      product: productList[i]
+      product: productList[i],
     }
   })
   return pricesVerboseList
