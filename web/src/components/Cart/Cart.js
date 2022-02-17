@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-import { CartDropDown } from 'src/components/CartDropDown/CartDropDown'
+import CartDropDown from 'src/components/CartDropDown'
 
-export const Cart = () => {
+const Cart = () => {
   const [isVisible, setVisibility] = useState(false)
   const onCartButtonClick = () => {
     setVisibility(!isVisible)
@@ -15,3 +15,5 @@ export const Cart = () => {
     </>
   )
 }
+
+export default Cart

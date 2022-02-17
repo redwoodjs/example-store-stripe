@@ -1,5 +1,5 @@
-import { PriceItem } from 'src/components/PriceItem/PriceItem'
-import { List } from 'src/components/List/List'
+import PriceItem from 'src/components/PriceItem'
+import List from 'src/components/List'
 // import { array } from 'prop-types'
 
 export const QUERY = gql`

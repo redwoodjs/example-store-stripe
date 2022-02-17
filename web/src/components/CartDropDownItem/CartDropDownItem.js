@@ -1,3 +1,5 @@
-export const CartDropDownItem = ({ item }) => {
+const CartDropDownItem = ({ item }) => {
   return <div>{item}</div>
 }
+
+export default CartDropDownItem

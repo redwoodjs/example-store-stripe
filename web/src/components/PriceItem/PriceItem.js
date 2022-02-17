@@ -1,4 +1,4 @@
-export const PriceItem = ({ product: { images, name } }) => {
+const PriceItem = ({ product: { images, name } }) => {
   // const onCartButtonClick = () => {
   //   // ignore
   // }
@@ -13,3 +13,5 @@ export const PriceItem = ({ product: { images, name } }) => {
     </div>
   )
 }
+
+export default PriceItem

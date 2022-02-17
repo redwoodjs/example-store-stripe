@@ -1,9 +1,9 @@
-import { List } from '../List/List'
-import { CartDropDownItem } from 'src/components/CartDropDownItem/CartDropDownItem'
+import List from 'src/components/List'
+import CartDropDownItem from 'src/components/CartDropDownItem'
 
 import { useCheckout } from 'src/hooks/useCheckout.js'
 
-export const CartDropDown = () => {
+const CartDropDown = () => {
   // Uses graphQL mutation to redirect to Stripe checkout
   const checkout = useCheckout()
   const cartItems = [{ item: 'Invisibility' }, { item: 'Flight' }]
@@ -19,3 +19,5 @@ export const CartDropDown = () => {
     </div>
   )
 }
+
+export default CartDropDown

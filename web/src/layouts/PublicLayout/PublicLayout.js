@@ -1,8 +1,8 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
-import SiteWrapper from 'src/components/SiteWrapper/SiteWrapper'
-import { Cart } from 'src/components/Cart/Cart'
+import SiteWrapper from 'src/components/SiteWrapper'
+import Cart from 'src/components/Cart'
 
 const PublicLayout = ({ children }) => {
   return (

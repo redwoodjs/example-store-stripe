@@ -1,4 +1,4 @@
-export const List = ({ array, item: Item, type = 'column' }) => {
+const List = ({ array, item: Item, type = 'column' }) => {
   return (
     <ul className={`list list--${type}`}>
       {array.map((data, i) => (
@@ -9,3 +9,5 @@ export const List = ({ array, item: Item, type = 'column' }) => {
     </ul>
   )
 }
+
+export default List
