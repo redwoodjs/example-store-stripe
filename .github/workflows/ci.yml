@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Setup node
         uses: actions/setup-node@v2
         with:
@@ -31,7 +31,7 @@ jobs:
         run: yarn rw check
 
       - name: Test
-        run: yarn rw test --no-watch
+        run: yarn rw test --no-watch --no-db-push
 
       - name: Build
         run: yarn rw build
