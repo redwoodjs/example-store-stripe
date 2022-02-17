@@ -2,7 +2,7 @@ export const schema = gql`
   type StripePrice {
     id: ID!
     active: Boolean
-    currency: String
+    currency: Currency
     nickname: String
     recurring: StripeRecurringPrice
     type: StripePriceType

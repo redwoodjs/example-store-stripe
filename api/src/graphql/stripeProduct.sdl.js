@@ -12,6 +12,6 @@ export const schema = gql`
     tax_code: String
     unit_label: String
     updated: String
-    url: String
+    url: URL
   }
 `
