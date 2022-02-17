@@ -10,10 +10,7 @@ export const stripePrices = async ({ priceType }) => {
 
 export const stripePricesVerbose = async ({ priceType }) => {
   // Gets Prices of a particular type
-  const pricesResults = await stripe.prices.list({
-    type: priceType,
-  })
-  const priceList = pricesResults.data
+  const priceList = await stripePrices({ priceType })
 
   // Extracts list of product IDs
   const productIDList = priceList.map((price) => {
