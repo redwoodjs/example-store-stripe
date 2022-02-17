@@ -1,11 +1,18 @@
+import PricesCell from 'src/components/PricesCell'
+
 const HomePage = () => {
   return (
     <>
-      <h2>Produce for Sale</h2>
-      <p>A list of products from Stripe</p>
+      <h2>Super Tokens</h2>
+      <p>These are single-use tokens. Great for emergencies and gifts.</p>
+      <PricesCell priceType="one_time" />
 
-      <h2>Farmer&apos;s Table Subscription</h2>
-      <p>Get a weekly basket of seasonal fruits & veggies grown on The Farm</p>
+      <h2>Super Subs</h2>
+      <p>
+        Monthly subscriptions to superpowers. Great for the career supervillain,
+        hero or parent.
+      </p>
+      <PricesCell priceType="recurring" />
     </>
   )
 }
