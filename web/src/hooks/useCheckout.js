@@ -1,18 +1,22 @@
 import { loadStripe } from '@stripe/stripe-js'
 import { useMutation } from '@redwoodjs/web'
+import { useCart } from 'src/components/CartProvider'
 
-export const useCheckout = (checkoutMode = 'payment') => {
+export const useCheckout = (mode = 'payment') => {
+  const cart = useCart()
+
   const [createCheckoutSession] = useMutation(
     gql`
-      mutation CreateCheckoutSession($mode: StripeMode!) {
-        createCheckoutSession(mode: $mode) {
+      mutation Checkout($mode: Mode!, $cart: [ProductInput!]!) {
+        checkout(mode: $mode, cart: $cart) {
           id
         }
       }
     `,
     {
       variables: {
-        mode: checkoutMode,
+        mode,
+        cart,
       },
     }
   )
@@ -21,7 +25,7 @@ export const useCheckout = (checkoutMode = 'payment') => {
     // Creates new checkout session dependent on "checkoutMode".
     const {
       data: {
-        createCheckoutSession: { id },
+        checkout: { id },
       },
     } = await createCheckoutSession()
 

@@ -13,7 +13,6 @@ import PublicLayout from 'src/layouts/PublicLayout'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/stripe-cart" page={StripeCartPage} name="stripeCart" />
       <Set wrap={PublicLayout}>
         <Route path="/" page={HomePage} name="home" />
       </Set>
