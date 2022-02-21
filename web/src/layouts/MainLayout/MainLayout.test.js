@@ -1,11 +1,11 @@
 import { render } from '@redwoodjs/testing/web'
 
-import PublicLayout from './PublicLayout'
+import MainLayout from './MainLayout'
 
-describe('PublicLayout', () => {
+describe('MainLayout', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<PublicLayout />)
+      render(<MainLayout />)
     }).not.toThrow()
   })
 })

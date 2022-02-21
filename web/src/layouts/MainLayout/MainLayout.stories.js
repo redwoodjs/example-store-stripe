@@ -1,7 +1,7 @@
-import PublicLayout from './PublicLayout'
+import MainLayout from './MainLayout'
 
 export const generated = () => {
-  return <PublicLayout />
+  return <MainLayout />
 }
 
-export default { title: 'Layouts/PublicLayout' }
+export default { title: 'Layouts/MainLayout' }

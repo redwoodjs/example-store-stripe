@@ -5,7 +5,7 @@ import Logo from 'src/components/Logo'
 import SiteWrapper from 'src/components/SiteWrapper'
 import Cart from 'src/components/Cart'
 
-const PublicLayout = ({ children }) => {
+const MainLayout = ({ children }) => {
   return (
     <CartProvider>
       <header>
@@ -24,7 +24,7 @@ const PublicLayout = ({ children }) => {
   )
 }
 
-export default PublicLayout
+export default MainLayout
 
 // Styles
 
