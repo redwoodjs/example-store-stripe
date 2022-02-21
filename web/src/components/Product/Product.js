@@ -32,7 +32,7 @@ const Figure = styled.figure`
   padding: 0.625em;
   background-color: aquamarine;
 
-  & img {
+  & > img {
     width: 100%;
     max-width: 230px;
   }

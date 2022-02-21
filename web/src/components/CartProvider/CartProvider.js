@@ -23,7 +23,7 @@ const cartReducer = (cart, action) => {
       if (product) {
         product.quantity -= 1
       } else {
-        cart.filter((priceId) => priceId !== action.priceId)
+        cart = cart.filter((priceId) => priceId !== action.priceId)
       }
       toast('removed')
       break
@@ -32,6 +32,7 @@ const cartReducer = (cart, action) => {
 }
 
 const CartContext = createContext(null)
+
 const CartDispatchContext = createContext(null)
 
 const CartProvider = ({ children }) => {

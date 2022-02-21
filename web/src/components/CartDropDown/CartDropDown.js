@@ -2,21 +2,18 @@ import styled from 'styled-components'
 
 import { useCart } from 'src/components/CartProvider'
 import List from 'src/components/List'
-import CartDropDownItem from 'src/components/CartDropDownItem'
-
 import { useCheckout } from 'src/hooks/useCheckout.js'
 
 const CartDropDown = () => {
   const cart = useCart()
   const checkout = useCheckout()
 
-  console.log({
-    cart,
-  })
-
   return (
     <Wrapper>
-      <List array={cart} item={CartDropDownItem} />
+      <List
+        array={cart}
+        item={({ item }) => <div>{JSON.stringify(item)}</div>}
+      />
       <button onClick={checkout}>Checkout</button>
     </Wrapper>
   )

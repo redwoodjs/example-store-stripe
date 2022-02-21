@@ -3,9 +3,8 @@ import styled from 'styled-components'
 const List = ({ array, item: Item }) => {
   return (
     <Wrapper>
-      {/* <ul className={`list list--${type}`}> */}
       {array.map((data, i) => (
-        <ListItem key={`${Item.name}-${i}--list__item`}>
+        <ListItem key={`${Item.name}-${i}`}>
           <Item {...data} />
         </ListItem>
       ))}

@@ -22,7 +22,6 @@ export const useCheckout = (mode = 'payment') => {
   )
 
   return async () => {
-    // Creates new checkout session dependent on "checkoutMode".
     const {
       data: {
         checkout: { id },

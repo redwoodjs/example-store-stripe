@@ -25,6 +25,4 @@ export const checkout = async ({ mode, cart }) => {
   })
 }
 
-export const getSession = ({ id }) => {
-  return stripe.checkout.sessions.retrieve(id)
-}
+export const getSession = ({ id }) => stripe.checkout.sessions.retrieve(id)

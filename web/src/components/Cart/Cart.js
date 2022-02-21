@@ -6,13 +6,12 @@ import CartDropDown from 'src/components/CartDropDown'
 
 const Cart = () => {
   const [isVisible, setVisibility] = useState(false)
-  const onCartButtonClick = () => {
-    setVisibility(!isVisible)
-  }
+
+  const toggleVisibility = () => setVisibility(!isVisible)
 
   return (
     <>
-      <Button onClick={onCartButtonClick}>Cart</Button>
+      <Button onClick={toggleVisibility}>Cart</Button>
       {isVisible && <CartDropDown />}
     </>
   )

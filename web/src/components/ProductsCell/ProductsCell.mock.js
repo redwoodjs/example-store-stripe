@@ -6,16 +6,18 @@ export const standard = () => ({
       name: 'Flight',
       description: 'Woo hoo!',
       price: 100_00,
-      image:
+      images: [
         'https://files.stripe.com/links/MDB8YWNjdF8xSzFVWTF…3Rlc3RfanFNckFLN1dJaEt3VW9wcGxSbnZVVFJq00iViXZF5l',
+      ],
     },
     {
       id: 2,
       name: 'Invisibility',
       description: 'Shhh',
       price: 200_00,
-      image:
+      images: [
         'https://files.stripe.com/links/MDB8YWNjdF8xSzFVWTF…3Rlc3RfanFNckFLN1dJaEt3VW9wcGxSbnZVVFJq00iViXZF5l',
+      ],
     },
   ],
 })
