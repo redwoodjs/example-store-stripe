@@ -30,6 +30,9 @@ jobs:
       - name: Check
         run: yarn rw check
 
+      - name: railway
+        run: RAILWAY_TOKEN={{ secrets.RAILWAY_TOKEN }} railway run
+
       - name: debug
         run: echo $DATABASE_URL
 
