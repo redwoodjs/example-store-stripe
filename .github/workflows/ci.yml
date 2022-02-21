@@ -31,7 +31,9 @@ jobs:
         run: yarn rw check
 
       - name: Test
-        run: TEST_DATABASE_URL=${{ secrets.TEST_DATABASE_URL }} yarn rw test --no-watch
+        run: yarn rw test --no-watch
+        env:
+          TEST_DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
 
       - name: Build
         run: yarn rw build
