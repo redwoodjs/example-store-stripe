@@ -30,6 +30,9 @@ jobs:
       - name: Check
         run: yarn rw check
 
+      - name: debug
+        run: echo $DATABASE_URL
+
       - name: Test
         run: yarn rw test --no-watch --no-db-push
 
