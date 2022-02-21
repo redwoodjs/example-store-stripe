@@ -1,5 +1,6 @@
 import { stripe } from 'src/lib/stripe'
 
+// Examples until Cart works
 const getCartItems = {
   subscription: [
     {

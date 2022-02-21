@@ -3,7 +3,13 @@ export const schema = gql`
     id: String!
   }
 
+  enum StripeMode {
+    payment
+    subscription
+    setup
+  }
+
   type Mutation {
-    createCheckoutSession(mode: String!): Session! @skipAuth
+    createCheckoutSession(mode: StripeMode!): Session! @skipAuth
   }
 `

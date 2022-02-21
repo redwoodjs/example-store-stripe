@@ -1,7 +1,8 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
-import SiteWrapper from 'src/components/SiteWrapper/SiteWrapper'
+import SiteWrapper from 'src/components/SiteWrapper'
+import Cart from 'src/components/Cart'
 
 const PublicLayout = ({ children }) => {
   return (
@@ -16,8 +17,9 @@ const PublicLayout = ({ children }) => {
         <SiteWrapper>
           <div className="row space-between bottom-border">
             <Link to={routes.home()}>
-              <h1>The Farm Stall</h1>
+              <h1>SuperPOW!!!</h1>
             </Link>
+            <Cart />
           </div>
         </SiteWrapper>
       </header>
