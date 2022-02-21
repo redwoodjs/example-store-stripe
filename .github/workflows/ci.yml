@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Setup node
         uses: actions/setup-node@v2
         with:
@@ -32,6 +32,8 @@ jobs:
 
       - name: Test
         run: yarn rw test --no-watch
+        env:
+          TEST_DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
 
       - name: Build
         run: yarn rw build
