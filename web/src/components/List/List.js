@@ -1,13 +1,34 @@
-const List = ({ array, item: Item, type = 'column' }) => {
+import styled from 'styled-components'
+
+const List = ({ array, item: Item }) => {
   return (
-    <ul className={`list list--${type}`}>
+    <Wrapper>
       {array.map((data, i) => (
-        <li className="list__item" key={`${Item.name}-${i}--list__item`}>
+        <ListItem key={`${Item.name}-${i}`}>
           <Item {...data} />
-        </li>
+        </ListItem>
       ))}
-    </ul>
+    </Wrapper>
   )
 }
 
 export default List
+
+// Styles
+
+const Wrapper = styled.ul`
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+`
+
+const ListItem = styled.li`
+  flex-direction: row;
+  margin-top: 1.2em;
+
+  &::first-of-type {
+    margin-top: 0;
+  }
+`

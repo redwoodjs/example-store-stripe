@@ -1,18 +1,23 @@
-import PricesCell from 'src/components/PricesCell'
+import ProductsCell from 'src/components/ProductsCell'
+// import SubscriptionsCell from 'src/components/SubscriptionsCell'
 
 const HomePage = () => {
   return (
     <>
-      <h2>Super Tokens</h2>
-      <p>These are single-use tokens. Great for emergencies and gifts.</p>
-      <PricesCell priceType="one_time" />
+      <article>
+        <h2>Super Tokens</h2>
+        <p>These are single-use tokens. Great for emergencies and gifts.</p>
+        <ProductsCell />
+      </article>
 
-      <h2>Super Subs</h2>
-      <p>
-        Monthly subscriptions to superpowers. Great for the career supervillain,
-        hero or parent.
-      </p>
-      <PricesCell priceType="recurring" />
+      <article>
+        <h2>Super Subs</h2>
+        <p>
+          Monthly subscriptions to superpowers. Great for the career
+          supervillain, hero or parent.
+        </p>
+        {/* <SubscriptionsCell /> */}
+      </article>
     </>
   )
 }

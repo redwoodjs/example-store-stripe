@@ -1,8 +1,8 @@
 import { render } from '@redwoodjs/testing/web'
-import { Loading, Empty, Failure, Success } from './PricesCell'
-import { standard } from './PricesCell.mock'
+import { Loading, Empty, Failure, Success } from './ProductsCell'
+import { standard } from './ProductsCell.mock'
 
-describe('PricesCell', () => {
+describe('ProductsCell', () => {
   it('renders Loading successfully', () => {
     expect(() => {
       render(<Loading />)
@@ -29,7 +29,7 @@ describe('PricesCell', () => {
 
   it('renders Success successfully', async () => {
     expect(() => {
-      render(<Success stripePricesVerbose={standard().prices} />)
+      render(<Success {...standard()} />)
     }).not.toThrow()
   })
 })

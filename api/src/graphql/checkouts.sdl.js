@@ -3,13 +3,23 @@ export const schema = gql`
     id: String!
   }
 
-  enum StripeMode {
+  enum Mode {
     payment
     subscription
-    setup
+  }
+
+  input ProductInput {
+    priceId: ID!
+    quantity: Int!
+  }
+
+  type Query {
+    getSession(id: ID!): Session! @skipAuth
   }
 
   type Mutation {
-    createCheckoutSession(mode: StripeMode!): Session! @skipAuth
+    # In GraphQL, we can't reuse types as mutation inputs
+    # (otherwise we'd just type "cart" as "[Product!]!")
+    checkout(mode: Mode!, cart: [ProductInput!]!): Session! @skipAuth
   }
 `

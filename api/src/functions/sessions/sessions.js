@@ -1,5 +1,5 @@
 import { logger } from 'src/lib/logger'
-import { createCheckoutSession } from 'src/services/checkouts'
+import { getSession } from 'src/services/checkouts'
 
 /**
  * The handler function is your code that processes http request events.
@@ -17,18 +17,17 @@ import { createCheckoutSession } from 'src/services/checkouts'
  * @param { Context } context - contains information about the invocation,
  * function, and execution environment.
  */
+export const handler = async ({ body }, _context) => {
+  logger.info('Invoked retrieveCheckoutSession function')
 
-export const handler = async (event, _context) => {
-  logger.info('Invoked createCheckoutSession function')
-  const mode = JSON.parse(event.body).mode
+  const { id } = JSON.parse(body)
 
-  const session = await createCheckoutSession({ mode })
+  const session = await getSession({ id })
 
   return {
     statusCode: 200,
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.STRIPE_SK}`,
     },
     body: JSON.stringify(session),
   }

@@ -1,11 +1,11 @@
 import { render } from '@redwoodjs/testing/web'
 
-import StripeCartPage from './StripeCartPage'
+import MainLayout from './MainLayout'
 
-describe('StripeCartPage', () => {
+describe('MainLayout', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<StripeCartPage />)
+      render(<MainLayout />)
     }).not.toThrow()
   })
 })
