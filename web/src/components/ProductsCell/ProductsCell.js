@@ -9,7 +9,7 @@ export const QUERY = gql`
       description
       images
       price
-      priceId
+      productId
       type
     }
   }

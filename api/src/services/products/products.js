@@ -10,13 +10,13 @@ export const products = async () => {
 
     return {
       // product data
-      id: product.id,
+      id: price.id,
       name: product.name,
       description: product.description,
       images: product.images,
       // price data
       price: price.unit_amount,
-      priceId: price.id,
+      productId: product.id,
       type: price.type,
     }
   })
