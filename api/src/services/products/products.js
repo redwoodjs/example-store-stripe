@@ -17,6 +17,7 @@ export const products = async () => {
       // price data
       price: price.unit_amount,
       priceId: price.id,
+      type: price.type,
     }
   })
 

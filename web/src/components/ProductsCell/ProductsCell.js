@@ -10,6 +10,7 @@ export const QUERY = gql`
       images
       price
       priceId
+      type
     }
   }
 `

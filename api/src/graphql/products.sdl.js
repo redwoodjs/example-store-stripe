@@ -8,6 +8,7 @@ export const schema = gql`
     images: [URL!]!
     price: Int!
     priceId: ID!
+    type: String
   }
 
   type Query {
