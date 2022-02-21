@@ -30,14 +30,8 @@ jobs:
       - name: Check
         run: yarn rw check
 
-      - name: railway
-        run: RAILWAY_TOKEN={{ secrets.RAILWAY_TOKEN }} railway run
-
-      - name: debug
-        run: echo $DATABASE_URL
-
       - name: Test
-        run: yarn rw test --no-watch --no-db-push
+        run: RAILWAY_TOKEN=${{ secrets.RAILWAY_TOKEN }} railway run yarn rw test --no-watch --no-db-push
 
       - name: Build
         run: yarn rw build
