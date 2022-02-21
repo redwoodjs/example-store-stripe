@@ -24,6 +24,9 @@ jobs:
       - name: Setup railway
         run: npm i -g @railway/cli
 
+      - name: debug
+        run: printenv
+
       - name: Install
         run: yarn
 
