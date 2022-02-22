@@ -13,7 +13,7 @@ export const products = async ({ type = 'one_time' }) => {
       id: price.id,
       name: product.name,
       description: product.description,
-      images: product.images,
+      image: product.images[0],
       price: price.unit_amount,
       type: price.type,
     }

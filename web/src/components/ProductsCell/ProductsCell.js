@@ -7,7 +7,7 @@ export const QUERY = gql`
       id
       name
       description
-      images
+      image
       price
       type
     }
