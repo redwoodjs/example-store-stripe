@@ -7,10 +7,15 @@ export const schema = gql`
     description: String!
     images: [URL!]!
     price: Int!
-    priceId: ID!
+    type: String!
+  }
+
+  enum ProductType {
+    one_time
+    recurring
   }
 
   type Query {
-    products: [Product!]! @skipAuth
+    products(type: ProductType): [Product!]! @skipAuth
   }
 `

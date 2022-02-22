@@ -2,14 +2,14 @@ import List from 'src/components/List'
 import Product from 'src/components/Product'
 
 export const QUERY = gql`
-  query Products {
-    products {
+  query Products($type: ProductType) {
+    products(type: $type) {
       id
       name
       description
       images
       price
-      priceId
+      type
     }
   }
 `
