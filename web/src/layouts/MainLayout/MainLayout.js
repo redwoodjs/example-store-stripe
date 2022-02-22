@@ -1,26 +1,16 @@
-import CartProvider from 'src/components/CartProvider'
 import styled from 'styled-components'
 
-import Logo from 'src/components/Logo'
-import SiteWrapper from 'src/components/SiteWrapper'
 import Cart from 'src/components/Cart'
 
 const MainLayout = ({ children }) => {
   return (
-    <CartProvider>
-      <header>
-        <SiteWrapper>
-          <Row>
-            <Logo />
-            <Cart />
-          </Row>
-        </SiteWrapper>
-      </header>
-
-      <main>
-        <SiteWrapper>{children}</SiteWrapper>
-      </main>
-    </CartProvider>
+    <Wrapper>
+      <Row>
+        <Gradient>SuperPOW!!!</Gradient>
+        <Cart />
+      </Row>
+      <Column>{children}</Column>
+    </Wrapper>
   )
 }
 
@@ -28,11 +18,30 @@ export default MainLayout
 
 // Styles
 
-const Row = styled.div`
+const Wrapper = styled.div`
+  padding-top: var(--size-4);
+
+  width: var(--size-15);
+  margin: 0 auto;
+
   display: flex;
-  align-content: baseline;
+  flex-direction: column;
+  gap: var(--size-3);
+`
 
+const Row = styled.header`
+  display: flex;
   justify-content: space-between;
+`
 
-  border-bottom: solid #0a0a0a 1px;
+const Gradient = styled.h1`
+  background: var(--gradient-3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`
+
+const Column = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-3);
 `
