@@ -10,9 +10,10 @@ const Product = ({ name, description, price, priceId, images }) => {
     <Wrapper>
       <Figure>
         <img alt={description} src={image} />
-        <figcaption>{name}</figcaption>
+        <figcaption>
+          {name} {price}
+        </figcaption>
       </Figure>
-      <p>{price}</p>
       <button onClick={addToCart}>Add to Cart</button>
     </Wrapper>
   )
@@ -22,7 +23,7 @@ export default Product
 
 // Styles
 
-const Wrapper = styled.div`
+const Wrapper = styled.article`
   max-width: 250px;
 `
 
