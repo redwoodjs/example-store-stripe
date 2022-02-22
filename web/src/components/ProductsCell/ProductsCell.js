@@ -23,5 +23,5 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ products }) => {
-  return <List array={products} item={Product} />
+  return <List items={products} Component={Product} />
 }
