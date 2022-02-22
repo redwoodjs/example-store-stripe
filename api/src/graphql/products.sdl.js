@@ -7,7 +7,7 @@ export const schema = gql`
     description: String!
     images: [URL!]!
     price: Int!
-    type: String
+    type: String!
   }
 
   enum ProductType {
