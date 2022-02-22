@@ -1,7 +1,8 @@
 import { stripe } from 'src/lib/stripe'
 
-export const products = async () => {
+export const products = async ({ type = 'one_time' }) => {
   const prices = await stripe.prices.list({
+    type,
     expand: ['data.product'],
   })
 

@@ -1,5 +1,4 @@
 import ProductsCell from 'src/components/ProductsCell'
-// import SubscriptionsCell from 'src/components/SubscriptionsCell'
 
 const HomePage = () => {
   return (
@@ -16,7 +15,7 @@ const HomePage = () => {
           Monthly subscriptions to superpowers. Great for the career
           supervillain, hero or parent.
         </p>
-        {/* <SubscriptionsCell /> */}
+        <ProductsCell type={'recurring'} />
       </article>
     </>
   )
