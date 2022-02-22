@@ -1,9 +1,12 @@
 import styled from 'styled-components'
+import { useAddToCart } from 'src/components/CartProvider'
 
-const Product = ({ name, description, price, image }) => {
+const Product = ({ name, description, price, image, priceId }) => {
+  const addToCart = useAddToCart(priceId)
+
   return (
     <article>
-      <Wrapper>
+      <Wrapper onClick={addToCart}>
         <Image alt={description} src={image} />
         <Info>
           <Name>{name}</Name>
@@ -23,6 +26,10 @@ const Wrapper = styled.figure`
   display: flex;
   flex-direction: column;
   gap: var(--size-2);
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const Image = styled.img`
