@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
   }
 
-  html, body {
+  html, body, #redwood-app {
     height: 100%;
   }
 
