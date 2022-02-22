@@ -28,7 +28,6 @@ const Wrapper = styled.div`
 
 const Figure = styled.figure`
   max-width: 100%;
-  margin: 0;
   padding: 0.625em;
   background-color: aquamarine;
 
