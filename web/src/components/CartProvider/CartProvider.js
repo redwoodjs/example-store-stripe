@@ -16,7 +16,7 @@ const cartReducer = (cart, action) => {
       } else {
         cart.push({ priceId: action.priceId, quantity: 1 })
       }
-      toast('added')
+      toast.success('Added to cart')
       break
     }
     case 'removed': {
@@ -25,7 +25,7 @@ const cartReducer = (cart, action) => {
       } else {
         cart = cart.filter((priceId) => priceId !== action.priceId)
       }
-      toast('removed')
+      toast.success('Removed from cart')
       break
     }
   }
