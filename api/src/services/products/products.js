@@ -10,14 +10,11 @@ export const products = async ({ type = 'one_time' }) => {
     const { product } = price
 
     return {
-      // product data
       id: price.id,
       name: product.name,
       description: product.description,
       images: product.images,
-      // price data
       price: price.unit_amount,
-      productId: product.id,
       type: price.type,
     }
   })
