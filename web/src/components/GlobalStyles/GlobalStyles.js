@@ -36,6 +36,10 @@ const GlobalStyles = createGlobalStyle`
   p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
   }
+
+  #redwood-app {
+    isolation: isolate;
+  }
 `
 
 export default GlobalStyles
