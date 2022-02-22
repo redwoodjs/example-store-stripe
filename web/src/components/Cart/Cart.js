@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import { useState } from 'react'
 
 import CartDropDown from 'src/components/CartDropDown'
@@ -24,10 +23,9 @@ export default Cart
 const Button = styled.button`
   border: none;
   background: none;
-  padding: 0 1.2rem;
-  font-size: 1.125em;
+  font-size: var(--font-size-2);
 
-  &::hover {
+  &:hover {
     cursor: pointer;
     text-decoration: underline;
   }
