@@ -35,8 +35,10 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 
-    ${'' /* Our preferred font. */}
-    font-family: 'Trebuchet MS', sans-serif;
+    /*
+      Our preferred font
+    */
+    font-family: var(--font-sans);
   }
 
   /*
