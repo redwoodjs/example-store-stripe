@@ -11,8 +11,8 @@ const CartDropDown = () => {
   return (
     <Wrapper>
       <List
-        array={cart}
-        item={({ item }) => <div>{JSON.stringify(item)}</div>}
+        items={cart}
+        Component={({ item }) => <div>{JSON.stringify(item)}</div>}
       />
       <button onClick={checkout}>Checkout</button>
     </Wrapper>

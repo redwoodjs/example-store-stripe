@@ -1,3 +1,5 @@
+import styled from 'styled-components'
+
 import ProductsCell from 'src/components/ProductsCell'
 
 const HomePage = () => {
@@ -5,16 +7,18 @@ const HomePage = () => {
     <>
       <article>
         <h2>Super Tokens</h2>
-        <p>These are single-use tokens. Great for emergencies and gifts.</p>
+        <Description>
+          These are single-use tokens. Great for emergencies and gifts.
+        </Description>
         <ProductsCell />
       </article>
 
       <article>
         <h2>Super Subs</h2>
-        <p>
+        <Description>
           Monthly subscriptions to superpowers. Great for the career
           supervillain, hero or parent.
-        </p>
+        </Description>
         <ProductsCell type={'recurring'} />
       </article>
     </>
@@ -22,3 +26,7 @@ const HomePage = () => {
 }
 
 export default HomePage
+
+const Description = styled.p`
+  margin-bottom: var(--size-3);
+`

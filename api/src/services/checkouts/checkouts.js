@@ -2,12 +2,12 @@ import { stripe } from 'src/lib/stripe'
 
 /**
  * @param {'payment' | 'subscription'} mode
- * @param {{ priceId: string, quantity: number }} cart
+ * @param {{ id: string, quantity: number }} cart
  */
 export const checkout = async ({ mode, cart }) => {
   // eslint-disable-next-line camelcase
   const line_items = cart.map((product) => ({
-    price: product.priceId,
+    price: product.id,
     quantity: product.quantity,
   }))
 

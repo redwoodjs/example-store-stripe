@@ -9,7 +9,7 @@ export const schema = gql`
   }
 
   input ProductInput {
-    priceId: ID!
+    id: ID!
     quantity: Int!
   }
 

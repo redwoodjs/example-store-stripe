@@ -5,11 +5,11 @@ describe('checkout', () => {
   it('Creates a checkout session given a cart', async () => {
     const cart = [
       {
-        priceId: '123',
+        id: '123',
         quantity: 1,
       },
       {
-        priceId: '456',
+        id: '456',
         quantity: 1,
       },
     ]

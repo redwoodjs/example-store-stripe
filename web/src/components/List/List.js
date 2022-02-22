@@ -1,12 +1,16 @@
+/**
+ * For a write-up on all the ways this could be done,
+ * see https://www.developerway.com/posts/react-component-as-prop-the-right-way
+ */
 import styled from 'styled-components'
 
-const List = ({ array, item: Item }) => {
+const List = ({ items, Component }) => {
   return (
     <Wrapper>
-      {array.map((data, i) => (
-        <ListItem key={`${Item.name}-${i}`}>
-          <Item {...data} />
-        </ListItem>
+      {items.map((item) => (
+        <li key={item.id}>
+          <Component {...item} />
+        </li>
       ))}
     </Wrapper>
   )
@@ -17,18 +21,10 @@ export default List
 // Styles
 
 const Wrapper = styled.ul`
-  padding: 0;
-  margin: 0;
+  /*  ul resets */
   list-style: none;
+  padding: 0;
+
   display: flex;
-  justify-content: flex-start;
-`
-
-const ListItem = styled.li`
-  flex-direction: row;
-  margin-top: 1.2em;
-
-  &::first-of-type {
-    margin-top: 0;
-  }
+  gap: var(--size-3);
 `

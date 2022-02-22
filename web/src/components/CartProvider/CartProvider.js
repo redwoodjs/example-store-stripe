@@ -3,29 +3,29 @@ import { useImmerReducer } from 'use-immer'
 import { toast } from '@redwoodjs/web/toast'
 
 /**
- * @param {Array<{ priceId: string, quantity: number }>} cart
- * @param {{ type: string, priceId: string }} action
+ * @param {Array<{ id: string, quantity: number }>} cart
+ * @param {{ type: string, id: string }} action
  */
 const cartReducer = (cart, action) => {
-  const product = cart.find((product) => product.priceId === action.priceId)
+  const product = cart.find((product) => product.id === action.id)
 
   switch (action.type) {
     case 'added': {
       if (product) {
         product.quantity += 1
       } else {
-        cart.push({ priceId: action.priceId, quantity: 1 })
+        cart.push({ id: action.id, quantity: 1 })
       }
-      toast('added')
+      toast.success('Added to cart')
       break
     }
     case 'removed': {
       if (product) {
         product.quantity -= 1
       } else {
-        cart = cart.filter((priceId) => priceId !== action.priceId)
+        cart = cart.filter((id) => id !== action.id)
       }
-      toast('removed')
+      toast.success('Removed from cart')
       break
     }
   }
@@ -53,14 +53,14 @@ export default CartProvider
 
 const useCart = () => useContext(CartContext)
 
-const useAddToCart = (priceId) => {
+const useAddToCart = (id) => {
   const dispatch = useContext(CartDispatchContext)
-  return () => dispatch({ type: 'added', priceId })
+  return () => dispatch({ type: 'added', id })
 }
 
-const useRemoveFromCart = (priceId) => {
+const useRemoveFromCart = (id) => {
   const dispatch = useContext(CartDispatchContext)
-  return () => dispatch({ type: 'removed', priceId })
+  return () => dispatch({ type: 'removed', id })
 }
 
 export { useCart, useAddToCart, useRemoveFromCart }
