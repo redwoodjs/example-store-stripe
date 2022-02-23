@@ -32,12 +32,13 @@ export default CartDropDown
 
 const Wrapper = styled.div`
   position: absolute;
-  margin-top: var(--size-4);
-
-  padding: var(--size-4);
+  margin-top: var(--size-3);
 
   background-color: var(--gray-1);
   border-radius: var(--radius-2);
+  box-shadow: var(--shadow-3);
+
+  padding: var(--size-3);
 
   display: flex;
   flex-direction: column;
