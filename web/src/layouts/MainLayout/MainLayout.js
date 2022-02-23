@@ -1,22 +1,34 @@
 import styled from 'styled-components'
 
 import Cart from 'src/components/Cart'
+import SiteFooter from 'src/components/SiteFooter'
 
 const MainLayout = ({ children }) => {
   return (
-    <Wrapper>
-      <Row>
-        <Gradient>SuperPOW!!!</Gradient>
-        <Cart />
-      </Row>
-      <Column>{children}</Column>
-    </Wrapper>
+    <SiteWrapper>
+      <Wrapper>
+        <Row>
+          <Gradient>Superstore</Gradient>
+          <Cart />
+        </Row>
+        <Column>{children}</Column>
+      </Wrapper>
+      <SiteFooter />
+    </SiteWrapper>
   )
 }
 
 export default MainLayout
 
 // Styles
+
+const SiteWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 100vh;
+`
 
 const Wrapper = styled.div`
   padding-top: var(--size-4);
