@@ -4,9 +4,13 @@
  */
 import styled from 'styled-components'
 
-const List = ({ items, Component }) => {
+const List = ({ items, Component, direction = 'row' }) => {
   return (
-    <Wrapper>
+    <Wrapper
+      style={{
+        '--direction': direction,
+      }}
+    >
       {items.map((item) => (
         <li key={item.id}>
           <Component {...item} />
@@ -26,5 +30,6 @@ const Wrapper = styled.ul`
   padding: 0;
 
   display: flex;
+  flex-direction: var(--direction);
   gap: var(--size-3);
 `
