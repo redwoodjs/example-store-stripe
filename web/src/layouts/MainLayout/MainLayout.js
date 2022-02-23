@@ -6,7 +6,7 @@ const MainLayout = ({ children }) => {
   return (
     <Wrapper>
       <Row>
-        <Gradient>SuperPOW!!!</Gradient>
+        <Gradient>Superstore</Gradient>
         <Cart />
       </Row>
       <Column>{children}</Column>
