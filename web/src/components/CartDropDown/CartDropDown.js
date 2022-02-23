@@ -17,6 +17,8 @@ const CartDropDown = () => {
   )
 }
 
+export default CartDropDown
+
 const CartItem = ({ image, quantity }) => {
   return (
     <Row>
@@ -25,8 +27,6 @@ const CartItem = ({ image, quantity }) => {
     </Row>
   )
 }
-
-export default CartDropDown
 
 // Styles
 
