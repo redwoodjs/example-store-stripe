@@ -6,6 +6,7 @@ import { createContext, useContext } from 'react'
 import { useSelector } from '@xstate/react'
 import { useMutation } from '@redwoodjs/web'
 import { loadStripe } from '@stripe/stripe-js'
+import { useParams } from '@redwoodjs/router'
 
 const cartMachine = createMachine(
   {
@@ -17,12 +18,7 @@ const cartMachine = createMachine(
     states: {
       restoring: {
         invoke: {
-          src: (_context, _event) => (send) => {
-            send({
-              type: 'RESTORE',
-              cart: JSON.parse(localStorage.getItem('cart')) ?? [],
-            })
-          },
+          src: 'restore',
         },
         on: {
           RESTORE: {
@@ -98,8 +94,24 @@ const CartProvider = ({ children }) => {
     `
   )
 
+  const params = useParams()
+
   const cartService = useInterpret(cartMachine, {
     services: {
+      restore: (_context, _event) => (send) => {
+        if (params?.success === 'true') {
+          send({
+            type: 'RESTORE',
+            cart: [],
+          })
+          return
+        }
+
+        send({
+          type: 'RESTORE',
+          cart: JSON.parse(localStorage.getItem('cart')) ?? [],
+        })
+      },
       checkout: (context, _event) => async () => {
         const {
           data: {
@@ -157,6 +169,27 @@ const useClearCart = () => {
   return () => cartService.send({ type: 'CLEAR' })
 }
 
+const useCanCheckout = () => {
+  const { cartService } = useContext(CartContext)
+
+  const isShopping = useSelector(cartService, (state) =>
+    state.matches('shopping')
+  )
+
+  const hasCartItems = useSelector(cartService, (state) =>
+    Boolean(state.context.cart.length)
+  )
+
+  return isShopping && hasCartItems
+}
+
 export default CartProvider
 
-export { CartContext, useCart, useAddToCart, useCheckout, useClearCart }
+export {
+  CartContext,
+  useCart,
+  useAddToCart,
+  useCheckout,
+  useClearCart,
+  useCanCheckout,
+}

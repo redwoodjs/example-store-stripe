@@ -1,17 +1,25 @@
 import styled from 'styled-components'
 
 import List from 'src/components/List'
-import { useCart, useCheckout, useClearCart } from 'src/components/CartProvider'
+import {
+  useCart,
+  useCheckout,
+  useClearCart,
+  useCanCheckout,
+} from 'src/components/CartProvider'
 
 const CartDropDown = () => {
   const cart = useCart()
   const checkout = useCheckout()
   const clearCart = useClearCart()
+  const canCheckout = useCanCheckout()
 
   return (
     <Wrapper>
       <List items={cart} Component={CartItem} direction={'column'} />
-      <button onClick={checkout}>Checkout</button>
+      <button onClick={checkout} disabled={!canCheckout}>
+        Checkout
+      </button>
       <button onClick={clearCart}>Clear</button>
     </Wrapper>
   )
