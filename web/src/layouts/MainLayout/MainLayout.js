@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Cart from 'src/components/Cart'
-import SiteFooter from 'src/components/SiteFooter'
+import Footer from 'src/components/Footer'
 
 const MainLayout = ({ children }) => {
   return (
@@ -11,7 +11,7 @@ const MainLayout = ({ children }) => {
         <Cart />
       </Row>
       <Column>{children}</Column>
-      <SiteFooter />
+      <Footer />
     </Grid>
   )
 }

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SiteFooter = () => {
+const Footer = () => {
   return (
     <Wrapper>
       <Text>
@@ -28,7 +28,7 @@ const SiteFooter = () => {
   )
 }
 
-export default SiteFooter
+export default Footer
 
 // Styles
 
