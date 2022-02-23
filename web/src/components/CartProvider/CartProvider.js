@@ -122,9 +122,6 @@ const CartProvider = ({ children }) => {
   })
 
   cartService.onTransition((state) => {
-    console.log({
-      state,
-    })
     localStorage.setItem('cart', JSON.stringify(state.context.cart))
   })
 
