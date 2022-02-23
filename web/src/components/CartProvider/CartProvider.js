@@ -13,8 +13,24 @@ const cartMachine = createMachine(
     context: {
       cart: [],
     },
-    initial: 'shopping',
+    initial: 'restoring',
     states: {
+      restoring: {
+        invoke: {
+          src: (_context, _event) => (send) => {
+            send({
+              type: 'RESTORE',
+              cart: JSON.parse(localStorage.getItem('cart')) ?? [],
+            })
+          },
+        },
+        on: {
+          RESTORE: {
+            target: 'shopping',
+            actions: 'restoreCart',
+          },
+        },
+      },
       shopping: {
         on: {
           ADD: {
@@ -41,6 +57,9 @@ const cartMachine = createMachine(
   },
   {
     actions: {
+      restoreCart: assign((context, event) => {
+        context.cart = event.cart
+      }),
       addToCart: assign((context, event) => {
         const item = context.cart.find((item) => item.id === event.item.id)
         if (item) {
@@ -50,7 +69,14 @@ const cartMachine = createMachine(
         }
       }),
       removeFromCart: assign((context, event) => {
-        context.cart = context.cart.filter((item) => item.id !== event.item.id)
+        const item = context.cart.find((item) => item.id === event.item.id)
+        if (item.quantity > 1) {
+          item.quantity -= 1
+        } else {
+          context.cart = context.cart.filter(
+            (item) => item.id !== event.item.id
+          )
+        }
       }),
       clearCart: assign((context, _event) => {
         context.cart = []
@@ -96,6 +122,9 @@ const CartProvider = ({ children }) => {
   })
 
   cartService.onTransition((state) => {
+    console.log({
+      state,
+    })
     localStorage.setItem('cart', JSON.stringify(state.context.cart))
   })
 
@@ -115,20 +144,20 @@ const useCart = () => {
 const useAddToCart = () => {
   const { cartService } = useContext(CartContext)
   return (item) => {
-    cartService.send('ADD', { item })
+    cartService.send({ type: 'ADD', item })
   }
 }
 
 const useCheckout = () => {
   const { cartService } = useContext(CartContext)
   return () => {
-    cartService.send('CHECKOUT')
+    cartService.send({ type: 'CHECKOUT' })
   }
 }
 
 const useClearCart = () => {
   const { cartService } = useContext(CartContext)
-  return () => cartService.send('CLEAR')
+  return () => cartService.send({ type: 'CLEAR' })
 }
 
 export default CartProvider
