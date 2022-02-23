@@ -6,6 +6,6 @@
     "@redwoodjs/api": "0.46.1",
     "@redwoodjs/graphql-server": "0.46.1",
     "graphql-scalars": "1.14.1",
-    "stripe": "8.203.0"
+    "stripe": "8.204.0"
   }
 }
