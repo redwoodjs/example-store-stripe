@@ -1,4 +1,5 @@
-import { createMachine, assign } from 'xstate'
+import { createMachine } from 'xstate'
+import { assign } from '@xstate/immer'
 import { useInterpret } from '@xstate/react'
 import { toast } from '@redwoodjs/web/toast'
 import { createContext, useContext } from 'react'
@@ -40,15 +41,20 @@ const cartMachine = createMachine(
   },
   {
     actions: {
-      addToCart: assign((context, event) => ({
-        cart: [...context.cart, event.item],
-      })),
-      removeFromCart: assign((context, event) => ({
-        cart: context.cart.filter((item) => item.id !== event.item.id),
-      })),
-      clearCart: assign((_context, _event) => ({
-        cart: [],
-      })),
+      addToCart: assign((context, event) => {
+        const item = context.cart.find((item) => item.id === event.item.id)
+        if (item) {
+          item.quantity += 1
+        } else {
+          context.cart.push({ ...event.item, quantity: 1 })
+        }
+      }),
+      removeFromCart: assign((context, event) => {
+        context.cart = context.cart.filter((item) => item.id !== event.item.id)
+      }),
+      clearCart: assign((context, _event) => {
+        context.cart = []
+      }),
     },
   }
 )

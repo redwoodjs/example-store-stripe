@@ -17,11 +17,11 @@ const CartDropDown = () => {
   )
 }
 
-const CartItem = ({ image }) => {
+const CartItem = ({ image, quantity }) => {
   return (
     <Row>
       <CartImage src={image} />
-      <Quantity>1</Quantity>
+      <Quantity>{quantity}</Quantity>
     </Row>
   )
 }
