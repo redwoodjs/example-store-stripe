@@ -7,6 +7,8 @@ import styled from 'styled-components'
 const List = ({ items, Component, direction = 'row' }) => {
   return (
     <Wrapper
+      // This is a pattern Josh Comeau recommends for dynamic styles in styled components.
+      // See https://www.joshwcomeau.com/css/styled-components/.
       style={{
         '--direction': direction,
       }}
