@@ -1,8 +1,16 @@
 import styled from 'styled-components'
 
+import { useState } from 'react'
+
 import ProductsCell from 'src/components/ProductsCell'
+import Overlay from 'src/components/Overlay'
 
 const HomePage = () => {
+  const [isVisible, setOverlayVisibility] = useState(false)
+  const handleOverlayDisplay = () => {
+    setOverlayVisibility(!isVisible)
+  }
+
   return (
     <>
       <article>
@@ -21,6 +29,13 @@ const HomePage = () => {
         </Description>
         <ProductsCell type={'recurring'} />
       </article>
+
+      <button onClick={handleOverlayDisplay}>Show Overlay</button>
+      {isVisible && (
+        <Overlay>
+          <p>derp</p>
+        </Overlay>
+      )}
     </>
   )
 }
