@@ -1,66 +1,195 @@
-import { createContext, useContext } from 'react'
-import { useImmerReducer } from 'use-immer'
+import { createMachine } from 'xstate'
+import { assign } from '@xstate/immer'
+import { useInterpret } from '@xstate/react'
 import { toast } from '@redwoodjs/web/toast'
+import { createContext, useContext } from 'react'
+import { useSelector } from '@xstate/react'
+import { useMutation } from '@redwoodjs/web'
+import { loadStripe } from '@stripe/stripe-js'
+import { useParams } from '@redwoodjs/router'
 
-/**
- * @param {Array<{ id: string, quantity: number }>} cart
- * @param {{ type: string, id: string }} action
- */
-const cartReducer = (cart, action) => {
-  const product = cart.find((product) => product.id === action.id)
-
-  switch (action.type) {
-    case 'added': {
-      if (product) {
-        product.quantity += 1
-      } else {
-        cart.push({ id: action.id, quantity: 1 })
-      }
-      toast.success('Added to cart')
-      break
-    }
-    case 'removed': {
-      if (product) {
-        product.quantity -= 1
-      } else {
-        cart = cart.filter((id) => id !== action.id)
-      }
-      toast.success('Removed from cart')
-      break
-    }
+const cartMachine = createMachine(
+  {
+    id: 'cart',
+    context: {
+      cart: [],
+    },
+    initial: 'restoring',
+    states: {
+      restoring: {
+        invoke: {
+          src: 'restore',
+        },
+        on: {
+          RESTORE: {
+            target: 'shopping',
+            actions: 'restoreCart',
+          },
+        },
+      },
+      shopping: {
+        on: {
+          ADD: {
+            actions: ['addToCart', () => toast.success('Added to cart')],
+          },
+          REMOVE: {
+            actions: [
+              'removeFromCart',
+              () => toast.success('Removed from cart'),
+            ],
+          },
+          CLEAR: {
+            actions: ['clearCart', () => toast.success('Cleared cart')],
+          },
+          CHECKOUT: 'redirecting',
+        },
+      },
+      redirecting: {
+        invoke: {
+          src: 'checkout',
+        },
+      },
+    },
+  },
+  {
+    actions: {
+      restoreCart: assign((context, event) => {
+        context.cart = event.cart
+      }),
+      addToCart: assign((context, event) => {
+        const item = context.cart.find((item) => item.id === event.item.id)
+        if (item) {
+          item.quantity += 1
+        } else {
+          context.cart.push({ ...event.item, quantity: 1 })
+        }
+      }),
+      removeFromCart: assign((context, event) => {
+        const item = context.cart.find((item) => item.id === event.item.id)
+        if (item.quantity > 1) {
+          item.quantity -= 1
+        } else {
+          context.cart = context.cart.filter(
+            (item) => item.id !== event.item.id
+          )
+        }
+      }),
+      clearCart: assign((context, _event) => {
+        context.cart = []
+      }),
+    },
   }
-}
+)
 
-const CartContext = createContext(null)
-
-const CartDispatchContext = createContext(null)
+const CartContext = createContext({})
 
 const CartProvider = ({ children }) => {
-  const [cart, dispatch] = useImmerReducer(cartReducer, [])
+  const [checkout] = useMutation(
+    gql`
+      mutation Checkout($mode: Mode!, $cart: [ProductInput!]!) {
+        checkout(mode: $mode, cart: $cart) {
+          id
+        }
+      }
+    `
+  )
+
+  const params = useParams()
+
+  const cartService = useInterpret(cartMachine, {
+    services: {
+      restore: (_context, _event) => (send) => {
+        if (params?.success === 'true') {
+          send({
+            type: 'RESTORE',
+            cart: [],
+          })
+          return
+        }
+
+        send({
+          type: 'RESTORE',
+          cart: JSON.parse(localStorage.getItem('cart')) ?? [],
+        })
+      },
+      checkout: (context, _event) => async () => {
+        const {
+          data: {
+            checkout: { id },
+          },
+        } = await checkout({
+          variables: {
+            cart: context.cart.map((item) => ({ id: item.id, quantity: 1 })),
+            mode: 'payment',
+          },
+        })
+
+        const stripe = await loadStripe(process.env.STRIPE_PK)
+
+        await stripe.redirectToCheckout({
+          sessionId: id,
+        })
+      },
+    },
+  })
+
+  cartService.onTransition((state) => {
+    localStorage.setItem('cart', JSON.stringify(state.context.cart))
+  })
 
   return (
-    <CartContext.Provider value={cart}>
-      <CartDispatchContext.Provider value={dispatch}>
-        {children}
-      </CartDispatchContext.Provider>
+    <CartContext.Provider value={{ cartService }}>
+      {children}
     </CartContext.Provider>
   )
 }
 
+const useCart = () => {
+  const { cartService } = useContext(CartContext)
+  const cart = useSelector(cartService, (state) => state.context.cart)
+  return cart
+}
+
+const useAddToCart = () => {
+  const { cartService } = useContext(CartContext)
+  return (item) => {
+    cartService.send({ type: 'ADD', item })
+  }
+}
+
+const useCheckout = () => {
+  const { cartService } = useContext(CartContext)
+  return () => {
+    cartService.send({ type: 'CHECKOUT' })
+  }
+}
+
+const useClearCart = () => {
+  const { cartService } = useContext(CartContext)
+  return () => cartService.send({ type: 'CLEAR' })
+}
+
+const useCanCheckout = () => {
+  const { cartService } = useContext(CartContext)
+
+  const isShopping = useSelector(cartService, (state) =>
+    state.matches('shopping')
+  )
+
+  const hasCartItems = useSelector(cartService, (state) =>
+    Boolean(state.context.cart.length)
+  )
+
+  return isShopping && hasCartItems
+}
+
 export default CartProvider
 
-// Hooks
-
-const useCart = () => useContext(CartContext)
-
-const useAddToCart = (id) => {
-  const dispatch = useContext(CartDispatchContext)
-  return () => dispatch({ type: 'added', id })
+export {
+  CartContext,
+  useCart,
+  useAddToCart,
+  useCheckout,
+  useClearCart,
+  useCanCheckout,
 }
-
-const useRemoveFromCart = (id) => {
-  const dispatch = useContext(CartDispatchContext)
-  return () => dispatch({ type: 'removed', id })
-}
-
-export { useCart, useAddToCart, useRemoveFromCart }

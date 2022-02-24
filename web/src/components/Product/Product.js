@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 import { useAddToCart } from 'src/components/CartProvider'
 
-const Product = ({ name, description, price, image, id }) => {
-  const addToCart = useAddToCart(id)
+const Product = ({ id, name, description, price, image }) => {
+  const addToCart = useAddToCart()
 
   return (
     <article>
-      <Wrapper onClick={addToCart}>
+      <Wrapper
+        onClick={() => addToCart({ id, name, description, price, image })}
+      >
         <Image alt={description} src={image} />
         <Info>
           <Name>{name}</Name>
-          <Description>{description}</Description>
           <Price>{price}</Price>
         </Info>
       </Wrapper>
@@ -33,11 +34,11 @@ const Wrapper = styled.figure`
 `
 
 const Image = styled.img`
-  height: var(--size-12);
-
-  object-fit: cover;
+  height: var(--size-13);
+  object-fit: contain;
 
   border-radius: var(--radius-2);
+  background-color: var(--gray-1);
 `
 
 const Info = styled.figcaption`
@@ -46,11 +47,8 @@ const Info = styled.figcaption`
 `
 
 const Name = styled.p`
+  font-size: var(--font-size-3);
   font-weight: var(--font-weight-6);
-`
-
-const Description = styled.p`
-  color: var(--gray-6);
 `
 
 const Price = styled.span`
