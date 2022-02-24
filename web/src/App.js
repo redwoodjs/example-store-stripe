@@ -1,3 +1,5 @@
+import { AuthProvider } from '@redwoodjs/auth'
+
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 import { Toaster } from '@redwoodjs/web/toast'
@@ -11,11 +13,13 @@ import './index.css'
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-      <RedwoodApolloProvider>
-        <Routes />
-        <Toaster />
-        <GlobalStyles />
-      </RedwoodApolloProvider>
+      <AuthProvider type="dbAuth">
+        <RedwoodApolloProvider>
+          <Routes />
+          <Toaster />
+          <GlobalStyles />
+        </RedwoodApolloProvider>
+      </AuthProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
 )
