@@ -14,7 +14,7 @@ export const checkout = async ({ mode, cart }) => {
   return stripe.checkout.sessions.create({
     success_url: `${
       context.request?.headers?.referer ?? 'http://localhost:8910'
-    }?success=true&sessionId={CHECKOUT_SESSION_ID}`,
+    }?success=true`,
     cancel_url: `${
       context.request?.headers?.referer ?? 'http://localhost:8910'
     }?success=false`,

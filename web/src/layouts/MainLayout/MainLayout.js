@@ -1,20 +1,18 @@
 import styled from 'styled-components'
 
 import Cart from 'src/components/Cart'
-import SiteFooter from 'src/components/SiteFooter'
+import Footer from 'src/components/Footer'
 
 const MainLayout = ({ children }) => {
   return (
-    <SiteWrapper>
-      <Wrapper>
-        <Row>
-          <Gradient>Superstore</Gradient>
-          <Cart />
-        </Row>
-        <Column>{children}</Column>
-      </Wrapper>
-      <SiteFooter />
-    </SiteWrapper>
+    <Grid>
+      <Row>
+        <Gradient>SuperPOW!!!</Gradient>
+        <Cart />
+      </Row>
+      <Column>{children}</Column>
+      <Footer />
+    </Grid>
   )
 }
 
@@ -22,23 +20,25 @@ export default MainLayout
 
 // Styles
 
-const SiteWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+const Grid = styled.div`
+  --breathing-room: var(--size-3);
 
-  min-height: 100vh;
-`
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(75ch, 100%)
+    1fr;
+  padding-left: var(--breathing-room);
+  padding-right: var(--breathing-room);
+  row-gap: var(--breathing-room);
 
-const Wrapper = styled.div`
-  padding-top: var(--size-4);
+  & > * {
+    grid-column: 2;
+  }
 
-  width: var(--size-15);
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  gap: var(--size-3);
+  & > *:first-child {
+    padding-top: var(--breathing-room);
+  }
 `
 
 const Row = styled.header`
@@ -55,5 +55,6 @@ const Gradient = styled.h1`
 const Column = styled.main`
   display: flex;
   flex-direction: column;
+
   gap: var(--size-3);
 `
