@@ -29,7 +29,6 @@ const SignupPage = () => {
   }, [])
 
   const onSubmit = async (data) => {
-    console.log(data)
     const response = await signUp({ ...data })
 
     if (response.message) {
@@ -62,7 +61,7 @@ const SignupPage = () => {
                     className="rw-label"
                     errorClassName="rw-label rw-label-error"
                   >
-                    Email
+                    Username
                   </Label>
                   <TextField
                     name="username"
