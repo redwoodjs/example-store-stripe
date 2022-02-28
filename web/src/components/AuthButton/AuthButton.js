@@ -4,13 +4,33 @@ import { User } from 'react-feather'
 import { Link, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 import { toast } from '@redwoodjs/web/toast'
+import { useMutation } from '@redwoodjs/web'
 
 const AuthButton = () => {
-  const { isAuthenticated, logOut } = useAuth()
-  // Login vs Logout
+  const { isAuthenticated, logOut, currentUser } = useAuth()
+
+  const [portal] = useMutation(
+    gql`
+      mutation Portal($userId: ID!) {
+        portal(userId: $userId) {
+          id
+        }
+      }
+    `
+  )
 
   const onLogoutButtonClick = () => {
     logOut().then(() => toast.success('You have been successfully logged out'))
+  }
+
+  const onUserButtonClick = async () => {
+    // create portal session to get temp url
+    // redirect to customer portal
+    const session = currentUser
+    const portalSession = await portal({
+      variables: { userId: session.id },
+    })
+    console.log(portalSession)
   }
 
   return (
@@ -20,7 +40,7 @@ const AuthButton = () => {
           <Button onClick={onLogoutButtonClick}>
             <span>Log Out</span>
           </Button>
-          <Button>
+          <Button onClick={onUserButtonClick}>
             {/* Links to customer portal */}
             <User />
           </Button>
