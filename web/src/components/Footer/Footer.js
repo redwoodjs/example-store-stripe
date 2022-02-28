@@ -38,8 +38,6 @@ const Wrapper = styled.footer`
 
   padding-bottom: var(--font-size-1);
 
-  width: var(--size-15);
-  margin: 0 auto;
   margin-top: var(--font-size-1);
 
   border-top: solid 1px black;
