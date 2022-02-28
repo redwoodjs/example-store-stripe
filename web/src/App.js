@@ -6,6 +6,8 @@ import { Toaster } from '@redwoodjs/web/toast'
 
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
+
+import './scaffold.css'
 import GlobalStyles from 'src/components/GlobalStyles'
 
 import './index.css'
