@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import {
   Form,
   Label,
-  TextField,
+  EmailField,
   PasswordField,
   FieldError,
   Submit,
@@ -61,9 +61,9 @@ const SignupPage = () => {
                     className="rw-label"
                     errorClassName="rw-label rw-label-error"
                   >
-                    Username
+                    Email address
                   </Label>
-                  <TextField
+                  <EmailField
                     name="username"
                     className="rw-input"
                     errorClassName="rw-input rw-input-error"
@@ -71,7 +71,7 @@ const SignupPage = () => {
                     validation={{
                       required: {
                         value: true,
-                        message: 'Username is required',
+                        message: 'Email address is required',
                       },
                     }}
                   />
