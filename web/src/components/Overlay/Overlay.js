@@ -1,11 +1,32 @@
 import styled from 'styled-components'
 
-import { useEffect } from 'react'
+import { useEffect, useState, createContext } from 'react'
 import { createPortal } from 'react-dom'
 
-const overlayRoot = document.getElementById('overlay-root')
+const Overlay = () => {
+  const isVisible = useOverlayVisibility()
+  const OverlayContext = createContext(isVisible)
+  return (
+    <>
+      <div id="overlay-root"></div>
+      {isVisible && (
+        <OverlayPortal>
+          <p>derp</p>
+        </OverlayPortal>
+      )}
+    </>
+  )
+}
 
-const Overlay = ({ children }) => {
+const useOverlayVisibility = (v = false) => {
+  const [isVisible, setVisibility] = useState(v)
+
+  setVisibility(!isVisible)
+  return isVisible
+}
+
+const OverlayPortal = ({ children }) => {
+  const overlayRoot = document.getElementById('overlay-root')
   const el = document.createElement('div')
 
   useEffect(() => {
@@ -15,7 +36,15 @@ const Overlay = ({ children }) => {
       overlayRoot.removeChild(el)
     }
   })
-  return createPortal(<Wrapper>{children}</Wrapper>, el)
+  return createPortal(
+    <Wrapper>
+      {children}
+      <button onClick={useOverlayVisibility(useOverlayVisibility())}>
+        close
+      </button>
+    </Wrapper>,
+    el
+  )
 }
 
 export default Overlay

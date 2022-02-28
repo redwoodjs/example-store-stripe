@@ -5,6 +5,7 @@ import { Toaster } from '@redwoodjs/web/toast'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
 import GlobalStyles from 'src/components/GlobalStyles'
+import Overlay from 'src/components/Overlay'
 
 import './index.css'
 
@@ -14,6 +15,7 @@ const App = () => (
       <RedwoodApolloProvider>
         <Routes />
         <Toaster />
+        <Overlay />
         <GlobalStyles />
       </RedwoodApolloProvider>
     </RedwoodProvider>
