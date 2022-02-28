@@ -33,7 +33,7 @@ const ResetPasswordPage = ({ resetToken }) => {
       }
     }
     validateToken()
-  }, [])
+  }, [resetToken, validateResetToken])
 
   const passwordRef = useRef()
   useEffect(() => {
