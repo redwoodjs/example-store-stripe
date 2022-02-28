@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import Cart from 'src/components/Cart'
+import AuthButton from 'src/components/AuthButton'
 import Footer from 'src/components/Footer'
 
 const MainLayout = ({ children }) => {
@@ -8,7 +9,10 @@ const MainLayout = ({ children }) => {
     <Grid>
       <Row>
         <Gradient>SuperPOW!!!</Gradient>
-        <Cart />
+        <ActionGroup>
+          <AuthButton />
+          <Cart />
+        </ActionGroup>
       </Row>
       <Column>{children}</Column>
       <Footer />
@@ -55,6 +59,12 @@ const Gradient = styled.h1`
 const Column = styled.main`
   display: flex;
   flex-direction: column;
+
+  gap: var(--size-3);
+`
+const ActionGroup = styled.div`
+  display: flex;
+  justify-content: end;
 
   gap: var(--size-3);
 `
