@@ -6,7 +6,7 @@ const AuthLayout = ({ children }) => {
   return (
     <Grid>
       <Row>
-        <Gradient>SuperPOW!!!</Gradient>
+        <Gradient>Superstore</Gradient>
       </Row>
       <Column>{children}</Column>
       <Footer />
