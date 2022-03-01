@@ -13,7 +13,6 @@ const AuthButton = () => {
     gql`
       mutation Portal($userId: ID!) {
         portal(userId: $userId) {
-          id
           url
         }
       }
