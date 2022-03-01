@@ -7,6 +7,7 @@ import { useSelector } from '@xstate/react'
 import { useMutation } from '@redwoodjs/web'
 import { loadStripe } from '@stripe/stripe-js'
 import { useParams } from '@redwoodjs/router'
+import { useAuth } from '@redwoodjs/auth'
 
 const cartMachine = createMachine(
   {
@@ -86,13 +87,19 @@ const CartContext = createContext({})
 const CartProvider = ({ children }) => {
   const [checkout] = useMutation(
     gql`
-      mutation Checkout($mode: Mode!, $cart: [ProductInput!]!) {
-        checkout(mode: $mode, cart: $cart) {
+      mutation Checkout(
+        $mode: Mode!
+        $cart: [ProductInput!]!
+        $customerId: String
+      ) {
+        checkout(mode: $mode, cart: $cart, customerId: $customerId) {
           id
         }
       }
     `
   )
+
+  const { currentUser, isAuthenticated } = useAuth()
 
   const params = useParams()
 
@@ -116,17 +123,25 @@ const CartProvider = ({ children }) => {
         // Dynamically determine checkoutMode based on cart contents
         const mode = determineCheckoutMode(context.cart)
 
+        const checkoutPayload = {
+          variables: {
+            cart: context.cart.map((item) => ({ id: item.id, quantity: 1 })),
+            mode: mode,
+          },
+        }
+
+        // Get customerId from logged in users
+        if (isAuthenticated) {
+          const customerId = currentUser.customerId
+          checkoutPayload.variables.customerId = customerId
+        }
+
         // Create checkout session and return session id
         const {
           data: {
             checkout: { id },
           },
-        } = await checkout({
-          variables: {
-            cart: context.cart.map((item) => ({ id: item.id, quantity: 1 })),
-            mode: mode,
-          },
-        })
+        } = await checkout(checkoutPayload)
 
         // Redirect user to Stripe Checkout page
         const stripe = await loadStripe(process.env.STRIPE_PK)
