@@ -16,7 +16,7 @@ describe('checkout', () => {
 
     stripe.checkout.sessions.create = jest.fn(() => ({ id: 1 }))
 
-    const session = await checkout({ mode: 'payment', cart })
+    const session = await checkout({ mode: 'payment', cart, customerId })
 
     expect(stripe.checkout.sessions.create).toMatchInlineSnapshot(`
       [MockFunction] {
@@ -39,6 +39,7 @@ describe('checkout', () => {
                 "card",
               ],
               "success_url": "http://localhost:8910?success=true",
+              "customer": "cus0000001"
             },
           ],
         ],
