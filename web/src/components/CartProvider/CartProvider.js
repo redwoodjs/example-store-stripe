@@ -113,6 +113,10 @@ const CartProvider = ({ children }) => {
         })
       },
       checkout: (context, _event) => async () => {
+        // Dynamically determine checkoutMode based on cart contents
+        const mode = determineCheckoutMode(context.cart)
+
+        // Create checkout session and return session id
         const {
           data: {
             checkout: { id },
@@ -120,10 +124,11 @@ const CartProvider = ({ children }) => {
         } = await checkout({
           variables: {
             cart: context.cart.map((item) => ({ id: item.id, quantity: 1 })),
-            mode: 'subscription',
+            mode: mode,
           },
         })
 
+        // Redirect user to Stripe Checkout page
         const stripe = await loadStripe(process.env.STRIPE_PK)
 
         await stripe.redirectToCheckout({
@@ -142,6 +147,12 @@ const CartProvider = ({ children }) => {
       {children}
     </CartContext.Provider>
   )
+}
+
+const determineCheckoutMode = (cart) => {
+  const hasRecurring =
+    cart.filter((item) => item.type === 'recurring').length > 0
+  return hasRecurring ? 'subscription' : 'payment'
 }
 
 const useCart = () => {
