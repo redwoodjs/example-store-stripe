@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import { useAddToCart } from 'src/components/CartProvider'
 
-const Product = ({ id, name, description, price, image }) => {
+const Product = ({ id, name, description, price, image, type }) => {
   const addToCart = useAddToCart()
 
   return (
     <article>
       <Wrapper
-        onClick={() => addToCart({ id, name, description, price, image })}
+        onClick={() => addToCart({ id, name, description, price, image, type })}
       >
         <Image alt={description} src={image} />
         <Info>
