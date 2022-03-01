@@ -14,6 +14,7 @@ const AuthButton = () => {
       mutation Portal($userId: ID!) {
         portal(userId: $userId) {
           id
+          url
         }
       }
     `
@@ -25,12 +26,16 @@ const AuthButton = () => {
 
   const onUserButtonClick = async () => {
     // create portal session to get temp url
-    // redirect to customer portal
     const session = currentUser
-    const portalSession = await portal({
+    const {
+      data: {
+        portal: { url },
+      },
+    } = await portal({
       variables: { userId: session.id },
     })
-    console.log(portalSession)
+    // redirect user to Stripe customer portal
+    window.location.replace(url)
   }
 
   return (
