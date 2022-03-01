@@ -120,7 +120,7 @@ const CartProvider = ({ children }) => {
         } = await checkout({
           variables: {
             cart: context.cart.map((item) => ({ id: item.id, quantity: 1 })),
-            mode: 'payment',
+            mode: 'subscription',
           },
         })
 
