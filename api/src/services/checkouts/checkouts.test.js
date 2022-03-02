@@ -28,6 +28,7 @@ describe('checkout', () => {
           Array [
             Object {
               "cancel_url": "http://localhost:8910?success=false",
+              "customer": "cus0000001",
               "line_items": Array [
                 Object {
                   "price": "123",
@@ -43,7 +44,6 @@ describe('checkout', () => {
                 "card",
               ],
               "success_url": "http://localhost:8910?success=true",
-              "customer": "cus0000001"
             },
           ],
         ],
