@@ -7,7 +7,7 @@ export const getCustomerId = async ({ id }) => {
   })
 }
 
-export const getUserByCustomerId = async (customerId) => {
+export const getUserByCustomerId = async ({ customerId }) => {
   return await db.user.findUnique({
     where: {
       customerId: customerId,
@@ -19,9 +19,32 @@ export const getUserByCustomerId = async (customerId) => {
   })
 }
 
+export const updateUserByCustomerId = async ({ customerId, payload }) => {
+  return await db.user.update({
+    where: {
+      customerId: customerId,
+    },
+    data: payload,
+  })
+}
+
 // update db if name and email has changed
 export const handleDBSync = async (customerId, nextName, nextEmail) => {
-  console.log(nextName, nextEmail)
-  const user = getUserByCustomerId(customerId)
-  console.log(user)
+  const { name, email } = await getUserByCustomerId({
+    customerId: customerId,
+  })
+  if (nextEmail !== email || nextName !== name) {
+    const payload = {}
+    if (nextEmail !== email) {
+      payload.email = nextEmail
+    }
+    if (nextName !== name) {
+      payload.name = nextName
+    }
+    return await updateUserByCustomerId({
+      customerId: customerId,
+      payload: payload,
+    })
+  }
+  return
 }

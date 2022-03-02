@@ -27,13 +27,16 @@ export const handler = async (event, context) => {
     'checkout.session.completed': (e) => e.type,
     'checkout.session.async_payment_succeeded': (e) => e.type,
     'checkout.session.async_payment_failed': (e) => e.type,
-    'customer.updated': (e) => {
+    'customer.updated': async (e) => {
       const {
         data: {
           object: { email, name, id },
         },
       } = JSON.parse(e.body)
-      handleDBSync(id, name, email)
+      const results = await handleDBSync(id, name, email)
+      if (results) {
+        console.log('Database has been synced successfully')
+      }
     },
   })
 
