@@ -13,7 +13,7 @@ generator client {
 model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
-  customerId String?
+  customerId String @unique
   name  String?
   hashedPassword String
   salt String
