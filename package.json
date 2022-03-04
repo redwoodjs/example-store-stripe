@@ -25,5 +25,6 @@
   "scripts": {
     "rw-test-e2e": "npx playwright test e2e",
     "rw-seed": "yarn rw exec seed_products --no-prisma"
-  }
+  },
+  "packageManager": "yarn@3.2.0"
 }
