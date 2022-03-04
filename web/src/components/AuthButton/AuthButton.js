@@ -26,16 +26,19 @@ const AuthButton = () => {
 
   const onUserButtonClick = async () => {
     // create portal session to get temp url
-    const session = currentUser
-    const {
-      data: {
-        portal: { url },
-      },
-    } = await portal({
-      variables: { userId: session.id },
-    })
-    // redirect user to Stripe customer portal
-    window.location.replace(url)
+    try {
+      const {
+        data: {
+          portal: { url },
+        },
+      } = await portal({
+        variables: { userId: session.id },
+      })
+      // redirect user to Stripe customer portal
+      window.location.replace(url)
+    } catch (e) {
+      toast.error("Couldn't create a session at this time")
+    }
   }
 
   return (
