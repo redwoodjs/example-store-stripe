@@ -1,8 +1,20 @@
 import styled from 'styled-components'
+import { Redirect, routes } from '@redwoodjs/router'
+import { useAuth } from '@redwoodjs/auth'
 
 import Footer from 'src/components/Footer'
 
 const AuthLayout = ({ children }) => {
+  const { loading, isAuthenticated } = useAuth()
+
+  if (loading) {
+    return null
+  }
+
+  if (isAuthenticated) {
+    return  <Redirect to={routes.home()} />
+  }
+
   return (
     <Grid>
       <Row>
