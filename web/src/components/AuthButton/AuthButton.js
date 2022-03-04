@@ -82,7 +82,7 @@ const LoginLink = styled(Link)`
   align-items: center;
 
   text-decoration: none;
-  color: #000;
+  color: var(--gray-9);
 
   &:hover {
     text-decoration: underline;
@@ -92,7 +92,7 @@ const LoginLink = styled(Link)`
 
 const HLine = styled.div`
   width: 1px;
-  height: 1.5em;
+  height: var(--size-5);
   background-color: var(--gray-6);
 
   display: flex;
