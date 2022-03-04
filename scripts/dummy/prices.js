@@ -1,55 +1,91 @@
 export const dummyPrices = [
   {
-    currency: 'usd',
-    unit_amount: 200,
-    product_data: {
-      name: 'Invisibility',
+    createPrice: {
+      currency: 'usd',
+      unit_amount: 200,
+      product_data: {
+        name: 'Invisibility',
+      },
+    },
+    updateProduct: {
+      description:
+        'Become invisible in the blink of an eye and avoid all those pesky people. Warning: Overuse might cause one to feel transparent and lost',
     },
   },
   {
-    currency: 'usd',
-    unit_amount: 350,
-    product_data: {
-      name: 'Flight',
+    createPrice: {
+      currency: 'usd',
+      unit_amount: 350,
+      product_data: {
+        name: 'Flight',
+      },
+    },
+    updateProduct: {
+      description:
+        'Be able to fly up to 50m into sky and reach a maximum speed of 180km/h.',
     },
   },
   {
-    currency: 'usd',
-    unit_amount: 500,
-    product_data: {
-      name: 'Folding',
+    createPrice: {
+      currency: 'usd',
+      unit_amount: 500,
+      product_data: {
+        name: 'Folding',
+      },
+    },
+    updateProduct: {
+      description:
+        'Be able to fold anything in the universe, whether it be laundry or space itself. Disclaimer: May cause a rip in the space-time continuum if used improperly.',
     },
   },
 
   // SUBSCRIPTIONS
   {
-    currency: 'usd',
-    unit_amount: 1000,
-    product_data: {
-      name: 'Invisibility Subscription',
+    createPrice: {
+      currency: 'usd',
+      unit_amount: 1000,
+      product_data: {
+        name: 'Invisibility Subscription',
+      },
+      recurring: {
+        interval: 'month',
+      },
     },
-    recurring: {
-      interval: 'month',
-    },
-  },
-  {
-    currency: 'usd',
-    unit_amount: 1700,
-    product_data: {
-      name: 'Flight Subscription',
-    },
-    recurring: {
-      interval: 'month',
+    updateProduct: {
+      description:
+        'Become invisible in the blink of an eye and avoid all those pesky people. Warning: Overuse might cause one to feel transparent and lost',
     },
   },
   {
-    currency: 'usd',
-    unit_amount: 3500,
-    product_data: {
-      name: 'Folding Subscription',
+    createPrice: {
+      currency: 'usd',
+      unit_amount: 1700,
+      product_data: {
+        name: 'Flight Subscription',
+      },
+      recurring: {
+        interval: 'month',
+      },
     },
-    recurring: {
-      interval: 'month',
+    updateProduct: {
+      description:
+        'Be able to fly up to 50m into sky and reach a maximum speed of 180km/h.',
+    },
+  },
+  {
+    createPrice: {
+      currency: 'usd',
+      unit_amount: 3500,
+      product_data: {
+        name: 'Folding Subscription',
+      },
+      recurring: {
+        interval: 'month',
+      },
+    },
+    updateProduct: {
+      description:
+        'Be able to fold anything in the universe, whether it be laundry or space itself. Disclaimer: May cause a rip in the space-time continuum if used improperly.',
     },
   },
 ]
