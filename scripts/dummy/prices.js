@@ -3,16 +3,21 @@ export const dummyPrices = [
     currency: 'usd',
     unit_amount: 200,
     product_data: {
-      id: 'prod_sp10X1Y2Z300bxvcx',
-      name: 'Invisibility Test',
+      name: 'Invisibility',
     },
   },
   {
     currency: 'usd',
     unit_amount: 350,
     product_data: {
-      id: 'prod_sp20Z3Y2X100axvcx',
-      name: 'Flight Test',
+      name: 'Flight',
+    },
+  },
+  {
+    currency: 'usd',
+    unit_amount: 500,
+    product_data: {
+      name: 'Folding',
     },
   },
 
@@ -20,7 +25,9 @@ export const dummyPrices = [
   {
     currency: 'usd',
     unit_amount: 1000,
-    product: 'prod_sp10X1Y2Z300bxvcx',
+    product_data: {
+      name: 'Invisibility Subscription',
+    },
     recurring: {
       interval: 'month',
     },
@@ -28,7 +35,19 @@ export const dummyPrices = [
   {
     currency: 'usd',
     unit_amount: 1700,
-    product: 'prod_sp20Z3Y2X100axvcx',
+    product_data: {
+      name: 'Flight Subscription',
+    },
+    recurring: {
+      interval: 'month',
+    },
+  },
+  {
+    currency: 'usd',
+    unit_amount: 3500,
+    product_data: {
+      name: 'Folding Subscription',
+    },
     recurring: {
       interval: 'month',
     },
