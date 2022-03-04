@@ -4,7 +4,7 @@ export const schema = gql`
   type Product {
     id: ID!
     name: String!
-    description: String!
+    description: String
     image: URL!
     price: Int!
     type: String!
