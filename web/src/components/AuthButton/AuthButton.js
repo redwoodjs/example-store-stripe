@@ -26,6 +26,7 @@ const AuthButton = () => {
 
   const onUserButtonClick = async () => {
     // create portal session to get temp url
+    const session = currentUser
     try {
       const {
         data: {
@@ -45,18 +46,14 @@ const AuthButton = () => {
     <>
       {isAuthenticated ? (
         <>
-          <Button onClick={onLogoutButtonClick}>
-            Log Out
-          </Button>
+          <Button onClick={onLogoutButtonClick}>Log Out</Button>
           <Button onClick={onUserButtonClick}>
             {/* Links to customer portal */}
             <User />
           </Button>
         </>
       ) : (
-        <LoginLink to={routes.login()}>
-          Log In
-        </LoginLink>
+        <LoginLink to={routes.login()}>Log In</LoginLink>
       )}
       <HLine />
     </>

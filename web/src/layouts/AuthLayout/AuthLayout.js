@@ -12,7 +12,7 @@ const AuthLayout = ({ children }) => {
   }
 
   if (isAuthenticated) {
-    return  <Redirect to={routes.home()} />
+    return <Redirect to={routes.home()} />
   }
 
   return (
