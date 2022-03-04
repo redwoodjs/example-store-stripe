@@ -21,7 +21,7 @@ const AuthButton = () => {
 
   const onLogoutButtonClick = async () => {
     await logOut()
-    toast.success('You have been successfully logged out')
+    toast.success("You've been successfully logged out")
   }
 
   const onUserButtonClick = async () => {
