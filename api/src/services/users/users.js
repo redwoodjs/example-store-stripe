@@ -30,21 +30,21 @@ export const updateUserByCustomerId = async ({ customerId, payload }) => {
 
 // update db if name and email has changed
 export const handleDBSync = async (customerId, nextName, nextEmail) => {
-  const { name, email } = await getUserByCustomerId({
-    customerId: customerId,
-  })
-  if (nextEmail !== email || nextName !== name) {
-    const payload = {}
-    if (nextEmail !== email) {
-      payload.email = nextEmail
-    }
-    if (nextName !== name) {
-      payload.name = nextName
-    }
-    return await updateUserByCustomerId({
-      customerId: customerId,
-      payload: payload,
-    })
+  const { name, email } = await getUserByCustomerId({ customerId })
+
+  if (nextEmail === email && nextName === name) {
+    return
   }
-  return
+
+  const payload = {}
+
+  if (nextEmail !== email) {
+    payload.email = nextEmail
+  }
+
+  if (nextName !== name) {
+    payload.name = nextName
+  }
+
+  return await updateUserByCustomerId({ customerId, payload })
 }
