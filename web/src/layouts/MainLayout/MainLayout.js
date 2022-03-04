@@ -25,23 +25,21 @@ export default MainLayout
 // Styles
 
 const Grid = styled.div`
-  --breathing-room: var(--size-3);
-
   display: grid;
   grid-template-columns:
     1fr
     min(75ch, 100%)
     1fr;
-  padding-left: var(--breathing-room);
-  padding-right: var(--breathing-room);
-  row-gap: var(--breathing-room);
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+  row-gap: var(--padding);
 
   & > * {
     grid-column: 2;
   }
 
   & > *:first-child {
-    padding-top: var(--breathing-room);
+    padding-top: var(--padding);
   }
 `
 
@@ -60,11 +58,11 @@ const Column = styled.main`
   display: flex;
   flex-direction: column;
 
-  gap: var(--size-3);
+  gap: var(--padding);
 `
 const ActionGroup = styled.div`
   display: flex;
   justify-content: end;
 
-  gap: var(--size-3);
+  gap: var(--padding);
 `

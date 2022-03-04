@@ -2,4 +2,5 @@
 
 :root {
   --link: var(--pink-4);
+  --padding: var(--size-3);
 }
