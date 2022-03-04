@@ -1,5 +1,5 @@
 @import "open-props/style";
 
-html {
+:root {
   --link: var(--pink-4);
 }
