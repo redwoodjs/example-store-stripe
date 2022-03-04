@@ -43,7 +43,7 @@ const AuthButton = () => {
       {isAuthenticated ? (
         <>
           <Button onClick={onLogoutButtonClick}>
-            <span>Log Out</span>
+            Log Out
           </Button>
           <Button onClick={onUserButtonClick}>
             {/* Links to customer portal */}
@@ -52,7 +52,7 @@ const AuthButton = () => {
         </>
       ) : (
         <LoginLink to={routes.login()}>
-          <span>Log In </span>
+          Log In
         </LoginLink>
       )}
       <HLine />
