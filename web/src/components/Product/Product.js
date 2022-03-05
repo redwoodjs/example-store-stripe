@@ -58,8 +58,4 @@ const Name = styled.p`
 
 const Price = styled.span`
   color: var(--gray-6);
-
-  &::before {
-    content: '$';
-  }
 `
