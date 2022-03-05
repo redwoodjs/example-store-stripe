@@ -12,7 +12,12 @@ const Product = ({ id, name, description, price, image, type }) => {
         <Image alt={description} src={image} />
         <Info>
           <Name>{name}</Name>
-          <Price>{(price/100).toLocaleString("en-US", {style:"currency", currency:"USD"})}</Price>
+          <Price>
+            {(price / 100).toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD',
+            })}
+          </Price>
         </Info>
       </Wrapper>
     </article>
