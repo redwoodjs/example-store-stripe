@@ -2,10 +2,10 @@ import { dummyPrices } from './dummy/prices'
 
 import { stripe } from '$api/src/lib/stripe'
 
-export default async ({ args }) => {
+export default async () => {
   const priceResults = []
 
-  // retrieve list
+  // retrieve list of active products. ie. Products that havent been archived
   const products = await stripe.products.list({
     active: true,
   })
@@ -32,7 +32,18 @@ export default async ({ args }) => {
         break
       }
     }
-    //  filter by name and update product description -> Products and prices seeded
+
+    // ERROR HANDLING
+    const errorArray = priceResults.filter((price) => {
+      return 'error' in price
+    })
+    const hasError = errorArray.length > 0
+
+    if (priceResults.length > 0 && !hasError) {
+      console.log('Products have been added to Stripe Store')
+    } else if (hasError) {
+      console.log(errorArray[0].error)
+    }
   } else {
     console.log(
       'Looks like something went wrong and products could not be seeded '
