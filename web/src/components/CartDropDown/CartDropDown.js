@@ -40,18 +40,18 @@ const CartItem = ({ image, quantity }) => {
 
 const Wrapper = styled.div`
   position: absolute;
-  margin-top: var(--size-3);
+  margin-top: var(--padding);
 
   background-color: var(--gray-1);
   border-radius: var(--radius-2);
   box-shadow: var(--shadow-3);
 
-  padding: var(--size-3);
+  padding: var(--padding);
 
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: var(--size-3);
+  gap: var(--padding);
 `
 
 const Row = styled.div`

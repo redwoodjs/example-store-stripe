@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useAddToCart } from 'src/components/CartProvider'
 
-const Product = ({ id, name, description, price, image, type }) => {
+const Product = ({ id, name, description = ' ', price, image, type }) => {
   const addToCart = useAddToCart()
 
   return (
@@ -12,7 +12,12 @@ const Product = ({ id, name, description, price, image, type }) => {
         <Image alt={description} src={image} />
         <Info>
           <Name>{name}</Name>
-          <Price>{price}</Price>
+          <Price>
+            {(price / 100).toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD',
+            })}
+          </Price>
         </Info>
       </Wrapper>
     </article>
@@ -53,8 +58,4 @@ const Name = styled.p`
 
 const Price = styled.span`
   color: var(--gray-6);
-
-  &::before {
-    content: '$';
-  }
 `

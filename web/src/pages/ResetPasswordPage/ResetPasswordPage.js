@@ -12,15 +12,8 @@ import {
 } from '@redwoodjs/forms'
 
 const ResetPasswordPage = ({ resetToken }) => {
-  const { isAuthenticated, reauthenticate, validateResetToken, resetPassword } =
-    useAuth()
+  const { reauthenticate, validateResetToken, resetPassword } = useAuth()
   const [enabled, setEnabled] = useState(true)
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate(routes.home())
-    }
-  }, [isAuthenticated])
 
   useEffect(() => {
     const validateToken = async () => {

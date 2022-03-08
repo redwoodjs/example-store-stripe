@@ -19,40 +19,41 @@ const AuthButton = () => {
     `
   )
 
-  const onLogoutButtonClick = () => {
-    logOut().then(() => toast.success('You have been successfully logged out'))
+  const onLogoutButtonClick = async () => {
+    await logOut()
+    toast.success("You've been successfully logged out")
   }
 
   const onUserButtonClick = async () => {
     // create portal session to get temp url
     const session = currentUser
-    const {
-      data: {
-        portal: { url },
-      },
-    } = await portal({
-      variables: { userId: session.id },
-    })
-    // redirect user to Stripe customer portal
-    window.location.replace(url)
+    try {
+      const {
+        data: {
+          portal: { url },
+        },
+      } = await portal({
+        variables: { userId: session.id },
+      })
+      // redirect user to Stripe customer portal
+      window.location.replace(url)
+    } catch (e) {
+      toast.error("Couldn't create a session at this time")
+    }
   }
 
   return (
     <>
       {isAuthenticated ? (
         <>
-          <Button onClick={onLogoutButtonClick}>
-            <span>Log Out</span>
-          </Button>
+          <Button onClick={onLogoutButtonClick}>Log Out</Button>
           <Button onClick={onUserButtonClick}>
             {/* Links to customer portal */}
             <User />
           </Button>
         </>
       ) : (
-        <LoginLink to={routes.login()}>
-          <span>Log In </span>
-        </LoginLink>
+        <LoginLink to={routes.login()}>Log In</LoginLink>
       )}
       <HLine />
     </>
@@ -82,7 +83,7 @@ const LoginLink = styled(Link)`
   align-items: center;
 
   text-decoration: none;
-  color: #000;
+  color: var(--gray-9);
 
   &:hover {
     text-decoration: underline;
@@ -92,7 +93,7 @@ const LoginLink = styled(Link)`
 
 const HLine = styled.div`
   width: 1px;
-  height: 1.5em;
+  height: var(--size-5);
   background-color: var(--gray-6);
 
   display: flex;

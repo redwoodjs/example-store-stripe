@@ -34,5 +34,5 @@ const Wrapper = styled.ul`
   display: flex;
   flex-direction: var(--direction);
   justify-content: center;
-  gap: var(--size-3);
+  gap: var(--padding);
 `

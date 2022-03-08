@@ -40,7 +40,7 @@ const Wrapper = styled.footer`
 
   margin-top: var(--font-size-1);
 
-  border-top: solid 1px black;
+  border-top: solid 1px var(--gray-9);
 `
 
 const Text = styled.p`

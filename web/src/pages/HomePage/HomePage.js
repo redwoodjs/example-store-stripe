@@ -28,5 +28,5 @@ const HomePage = () => {
 export default HomePage
 
 const Description = styled.p`
-  margin-bottom: var(--size-3);
+  margin-bottom: var(--padding);
 `
