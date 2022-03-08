@@ -8,6 +8,7 @@ export const dummyPrices = [
       },
     },
     updateProduct: {
+      images: ['img/invisibility.png'],
       description:
         'Become invisible in the blink of an eye and avoid all those pesky people. Warning: Overuse might cause one to feel transparent and lost',
     },
@@ -21,6 +22,7 @@ export const dummyPrices = [
       },
     },
     updateProduct: {
+      images: ['img/flight.png'],
       description:
         'Be able to fly up to 50m into sky and reach a maximum speed of 180km/h.',
     },
@@ -34,6 +36,7 @@ export const dummyPrices = [
       },
     },
     updateProduct: {
+      images: ['img/folding.png'],
       description:
         'Be able to fold anything in the universe, whether it be laundry or space itself. Disclaimer: May cause a rip in the space-time continuum if used improperly.',
     },
@@ -52,6 +55,7 @@ export const dummyPrices = [
       },
     },
     updateProduct: {
+      images: ['img/invisibility.png'],
       description:
         'Become invisible in the blink of an eye and avoid all those pesky people. Warning: Overuse might cause one to feel transparent and lost',
     },
@@ -68,6 +72,7 @@ export const dummyPrices = [
       },
     },
     updateProduct: {
+      images: ['img/flight.png'],
       description:
         'Be able to fly up to 50m into sky and reach a maximum speed of 180km/h.',
     },
@@ -84,6 +89,7 @@ export const dummyPrices = [
       },
     },
     updateProduct: {
+      images: ['img/folding.png'],
       description:
         'Be able to fold anything in the universe, whether it be laundry or space itself. Disclaimer: May cause a rip in the space-time continuum if used improperly.',
     },
