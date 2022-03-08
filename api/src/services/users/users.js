@@ -7,8 +7,8 @@ export const getCustomerId = async ({ id }) => {
   })
 }
 
-export const getUserByCustomerId = async ({ customerId }) => {
-  return await db.user.findUnique({
+export const getUserByCustomerId = ({ customerId }) => {
+  return db.user.findUnique({
     where: {
       customerId: customerId,
     },
