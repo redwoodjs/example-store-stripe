@@ -6,13 +6,7 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 import { Form, Label, TextField, Submit, FieldError } from '@redwoodjs/forms'
 
 const ForgotPasswordPage = () => {
-  const { isAuthenticated, forgotPassword } = useAuth()
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate(routes.home())
-    }
-  }, [isAuthenticated])
+  const { forgotPassword } = useAuth()
 
   const usernameRef = useRef()
   useEffect(() => {
