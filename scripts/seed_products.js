@@ -1,4 +1,4 @@
-import { dummyPrices } from './dummy/prices'
+import { dummyItems } from './dummy/items'
 
 import { stripe } from '$api/src/lib/stripe'
 
@@ -16,15 +16,17 @@ export default async () => {
       'It looks like you already have products seeded. Archive ALL the products in your Stripe store and run the script again'
     )
   } else if (products.data.length === 0) {
-    //  create prices from dummy data and then update the created product
-    for (const price of dummyPrices) {
+    for (const item of dummyItems) {
       try {
-        const { product } = await stripe.prices.create(price.createPrice)
-        const result = await stripe.products.update(
-          product,
-          price.updateProduct
-        )
-        priceResults.push(result)
+        // create product from dummy data array
+        // then create price using returned product id
+        const product = await stripe.products.create(item.product)
+        const price = await stripe.prices.create({
+          product: product.id,
+          ...item.price,
+        })
+
+        priceResults.push(price)
       } catch (err) {
         console.log(err.raw.message)
         priceResults.push({ error: err.raw.message })
