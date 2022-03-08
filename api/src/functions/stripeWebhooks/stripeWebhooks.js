@@ -1,5 +1,5 @@
 import { handleStripeWebhooks } from 'src/lib/stripe'
-import { handleDBSync } from 'src/services/users/users'
+import { handleDBSync } from 'src/services/users'
 
 /**
  * The handler function is your code that processes http request events.
