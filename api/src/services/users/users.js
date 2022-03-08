@@ -19,8 +19,8 @@ export const getUserByCustomerId = ({ customerId }) => {
   })
 }
 
-export const updateUserByCustomerId = async ({ customerId, payload }) => {
-  return await db.user.update({
+export const updateUserByCustomerId = ({ customerId, payload }) => {
+  return db.user.update({
     where: {
       customerId: customerId,
     },
