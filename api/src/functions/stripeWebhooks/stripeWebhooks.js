@@ -1,4 +1,5 @@
 import { handleStripeWebhooks } from 'src/lib/stripe'
+import { handleDBSync } from 'src/services/users'
 
 /**
  * The handler function is your code that processes http request events.
@@ -26,6 +27,17 @@ export const handler = async (event, context) => {
     'checkout.session.completed': (e) => e.type,
     'checkout.session.async_payment_succeeded': (e) => e.type,
     'checkout.session.async_payment_failed': (e) => e.type,
+    'customer.updated': async (e) => {
+      const {
+        data: {
+          object: { email, name, id },
+        },
+      } = JSON.parse(e.body)
+      const results = await handleDBSync(id, name, email)
+      if (results) {
+        console.log('Database has been synced successfully')
+      }
+    },
   })
 
   return {
