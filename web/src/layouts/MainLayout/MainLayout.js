@@ -8,7 +8,27 @@ const MainLayout = ({ children }) => {
   return (
     <Grid>
       <Row>
-        <Gradient>Superstore</Gradient>
+        <h1>
+          <Gradient>Superstore</Gradient>
+          <Subtitle>
+            Powered by{' '}
+            <Link
+              href="https://redwoodjs.com"
+              style={{
+                '--color': 'var(--redwood)',
+              }}
+            >
+              RedwoodJS
+            </Link>{' '}
+            and{' '}
+            <Link
+              href="https://stripe.com/"
+              style={{ '--color': 'var(--stripe)' }}
+            >
+              Stripe
+            </Link>
+          </Subtitle>
+        </h1>
         <ActionGroup>
           <AuthButton />
           <Cart />
@@ -48,7 +68,7 @@ const Row = styled.header`
   justify-content: space-between;
 `
 
-const Gradient = styled.h1`
+const Gradient = styled.span`
   background: var(--gradient-3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -65,4 +85,22 @@ const ActionGroup = styled.div`
   justify-content: end;
 
   gap: var(--padding);
+`
+
+const Subtitle = styled.span`
+  font-size: var(--font-size-2);
+  display: block;
+  padding-left: var(--padding);
+
+  color: var(--gray-6);
+`
+
+const Link = styled.a`
+  text-decoration: none;
+  color: var(--color);
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `
