@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { variant } from 'styled-system'
 import { User } from 'react-feather'
 
 import { Link, routes } from '@redwoodjs/router'
@@ -81,21 +80,6 @@ const Button = styled.button`
         stroke: var(--primary);
       }
     }
-
-  variant:({
-    variants: {
-      text: {
-        &:hover {
-          text-decoration: underline;
-        },
-      icon: {
-        &:hover svg {
-          stroke: var(--primary);
-        }
-      }
-    }
-  }
-})
 `
 
 const LoginLink = styled(Link)`
