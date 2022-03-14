@@ -1,24 +1,38 @@
 import styled from 'styled-components'
 import { User, ShoppingCart } from 'react-feather'
 
+import { Link } from '@redwoodjs/router'
+
 const Icons = {
   'user': User,
   'shoppingCart': ShoppingCart
 }
 
-const Button = ({ children = '', icon = '', onClick = () => console.log('Button clicked'), ...args }) => {
+const Button = ({ children = '', icon = '', ...args }) => {
   const Icon = Icons[icon]
-  return (
-    <ButtonStyled onClick={onClick} {...args}>
+
+  const handleOnButtonClick = e => {
+    if (!onClick in args && !to in args) {
+      e.preventDefault()
+    } else if (!onClick in args && to in args) {
+
+    } else {
+      args.onClick
+    }
+  }
+  return !to in args ? (
+    <StyledButton onClick={handleOnButtonClick} {...args}>
       {children} {icon !== '' && (<Icon/>)}
-  </ButtonStyled>
+  </StyledButton>
+  ) : (
+      <StyledLink to={args.to}>{children}</StyledLink>
   )
 }
 
 export default Button
 
-const ButtonStyled = styled.button`
-    background: none;
+const sharedStyles = css`
+background: none;
     border: none;
     padding: 0;
 
@@ -33,4 +47,12 @@ const ButtonStyled = styled.button`
         stroke: var(--primary);
       }
     }
+`
+
+const StyledButton = styled.button`
+  $(sharedStyles)
+`
+
+const StyledLink = styled(Link)`
+  $(sharedStyles)
 `
