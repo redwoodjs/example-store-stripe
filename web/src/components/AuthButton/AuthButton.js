@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { variant } from 'styled-system'
 import { User } from 'react-feather'
 
 import { Link, routes } from '@redwoodjs/router'
@@ -46,8 +47,8 @@ const AuthButton = () => {
     <>
       {isAuthenticated ? (
         <>
-          <Button onClick={onLogoutButtonClick}>Log Out</Button>
-          <Button onClick={onUserButtonClick}>
+          <Button variant='text' onClick={onLogoutButtonClick}>Log Out</Button>
+          <Button variant='icon' onClick={onUserButtonClick}>
             {/* Links to customer portal */}
             <User />
           </Button>
@@ -65,17 +66,36 @@ export default AuthButton
 // Styles
 
 const Button = styled.button`
-  background: none;
-  border: none;
-  padding: 0;
+    background: none;
+    border: none;
+    padding: 0;
 
-  display: inline-flex;
-  align-items: center;
+    display: inline-flex;
+    align-items: center;
 
-  &:hover {
-    cursor: pointer;
-    text-decoration: underline;
+    &:hover {
+      cursor: pointer;
+      color: var(--primary);
+
+      svg {
+        stroke: var(--primary);
+      }
+    }
+
+  variant:({
+    variants: {
+      text: {
+        &:hover {
+          text-decoration: underline;
+        },
+      icon: {
+        &:hover svg {
+          stroke: var(--primary);
+        }
+      }
+    }
   }
+})
 `
 
 const LoginLink = styled(Link)`
