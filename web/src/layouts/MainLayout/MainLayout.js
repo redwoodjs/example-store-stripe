@@ -10,7 +10,10 @@ const MainLayout = ({ children }) => {
       <Row>
         <div>
           <Gradient>Superstore</Gradient>
-          <Subtitle>powered by <TextLink>Redwoodjs</TextLink> + <TextLink>Stripe</TextLink></Subtitle>
+          <Subtitle>
+            powered by <TextLink>Redwoodjs</TextLink> +{' '}
+            <TextLink>Stripe</TextLink>
+          </Subtitle>
         </div>
 
         <ActionGroup>
@@ -79,6 +82,7 @@ const Column = styled.main`
 const ActionGroup = styled.div`
   display: flex;
   justify-content: end;
+  position: relative;
 
   gap: var(--padding);
 `

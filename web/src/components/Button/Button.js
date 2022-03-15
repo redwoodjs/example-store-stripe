@@ -36,6 +36,11 @@ const StyledButton = styled.button`
   display: inline-flex;
   align-items: center;
 
+  &:active {
+    cursor: pointer;
+    color: var(--primary);
+  }
+
   &:hover {
     cursor: pointer;
     color: var(--primary);
@@ -43,6 +48,27 @@ const StyledButton = styled.button`
     svg {
       stroke: var(--primary);
     }
+  }
+  ${(props) =>
+    props.active &&
+    css`
+      cursor: pointer;
+      color: var(--primary);
+
+      svg {
+        stroke: var(--primary);
+      }
+    `}
+
+  ${
+    '' /* &:active {
+    cursor: pointer;
+    color: var(--primary);
+
+    svg {
+      stroke: var(--primary);
+    }
+  } */
   }
 `
 

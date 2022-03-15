@@ -12,8 +12,12 @@ const Cart = () => {
 
   return (
     <>
-      <Button onClick={toggleVisibility} icon="shoppingCart" />
-      {isVisible && <CartDropDown />}
+      <Button
+        onClick={toggleVisibility}
+        icon="shoppingCart"
+        active={isVisible}
+      />
+      {isVisible && <CartDropDown toggleVisibility={toggleVisibility} />}
     </>
   )
 }
