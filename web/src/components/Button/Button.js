@@ -1,58 +1,68 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { User, ShoppingCart } from 'react-feather'
 
 import { Link } from '@redwoodjs/router'
 
 const Icons = {
-  'user': User,
-  'shoppingCart': ShoppingCart
+  user: User,
+  shoppingCart: ShoppingCart,
 }
 
 const Button = ({ children = '', icon = '', ...args }) => {
-  const Icon = Icons[icon]
-
-  const handleOnButtonClick = e => {
-    if (!onClick in args && !to in args) {
-      e.preventDefault()
-    } else if (!onClick in args && to in args) {
-
-    } else {
-      args.onClick
+  const handleOnButtonClick = (e) => {
+    if ('onClick' in args) {
+      args.onClick(e)
     }
   }
-  return !to in args ? (
-    <StyledButton onClick={handleOnButtonClick} {...args}>
-      {children} {icon !== '' && (<Icon/>)}
-  </StyledButton>
-  ) : (
-      <StyledLink to={args.to}>{children}</StyledLink>
-  )
+  const Icon = Icons[icon]
+  if ('to' in args) {
+    return <StyledLink to={args.to}>{children}</StyledLink>
+  } else {
+    return (
+      <StyledButton onClick={handleOnButtonClick} {...args}>
+        {children} {icon !== '' && <Icon />}
+      </StyledButton>
+    )
+  }
 }
 
 export default Button
 
-const sharedStyles = css`
-background: none;
-    border: none;
-    padding: 0;
-
-    display: inline-flex;
-    align-items: center;
-
-    &:hover {
-      cursor: pointer;
-      color: var(--primary);
-
-      svg {
-        stroke: var(--primary);
-      }
-    }
-`
-
 const StyledButton = styled.button`
-  $(sharedStyles)
+  background: none;
+  border: none;
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--primary);
+
+    svg {
+      stroke: var(--primary);
+    }
+  }
 `
 
 const StyledLink = styled(Link)`
-  $(sharedStyles)
+  text-decoration: none;
+  color: inherit;
+
+  background: none;
+  border: none;
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--primary);
+
+    svg {
+      stroke: var(--primary);
+    }
+  }
 `

@@ -6,6 +6,8 @@ import { useAuth } from '@redwoodjs/auth'
 import { toast } from '@redwoodjs/web/toast'
 import { useMutation } from '@redwoodjs/web'
 
+import Button from 'src/components/Button'
+
 const AuthButton = () => {
   const { isAuthenticated, logOut, currentUser } = useAuth()
 
@@ -46,14 +48,11 @@ const AuthButton = () => {
     <>
       {isAuthenticated ? (
         <>
-          <Button variant='text' onClick={onLogoutButtonClick}>Log Out</Button>
-          <Button variant='icon' onClick={onUserButtonClick}>
-            {/* Links to customer portal */}
-            <User />
-          </Button>
+          <Button onClick={onLogoutButtonClick}>Log Out</Button>
+          <Button onClick={onUserButtonClick} icon="user" />
         </>
       ) : (
-        <LoginLink to={routes.login()}>Log In</LoginLink>
+        <Button to={routes.login()}>Log In</Button>
       )}
       <HLine />
     </>
@@ -63,24 +62,6 @@ const AuthButton = () => {
 export default AuthButton
 
 // Styles
-
-const Button = styled.button`
-    background: none;
-    border: none;
-    padding: 0;
-
-    display: inline-flex;
-    align-items: center;
-
-    &:hover {
-      cursor: pointer;
-      color: var(--primary);
-
-      svg {
-        stroke: var(--primary);
-      }
-    }
-`
 
 const LoginLink = styled(Link)`
   display: inline-flex;
