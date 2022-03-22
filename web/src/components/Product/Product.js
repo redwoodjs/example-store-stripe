@@ -3,7 +3,6 @@ import { useAddToCart } from 'src/components/CartProvider'
 
 const Product = ({ id, name, description = ' ', price, image, type }) => {
   const addToCart = useAddToCart()
-  console.log(image)
   return (
     <article>
       <Wrapper

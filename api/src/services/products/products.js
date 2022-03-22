@@ -8,11 +8,10 @@ export const products = async ({ type = 'one_time' }) => {
 
   const itemList = []
   for (const product of products.data) {
-
     // Get a list of prices relating to product
     const prices = await stripe.prices.list({
       type: type,
-      product: product.id
+      product: product.id,
     })
 
     const price = prices.data[0]
@@ -30,5 +29,5 @@ export const products = async ({ type = 'one_time' }) => {
     }
   }
 
- return itemList
+  return itemList
 }

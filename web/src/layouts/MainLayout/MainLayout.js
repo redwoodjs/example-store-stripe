@@ -8,7 +8,14 @@ const MainLayout = ({ children }) => {
   return (
     <Grid>
       <Row>
-        <Gradient>Superstore</Gradient>
+        <div>
+          <Gradient>Superstore</Gradient>
+          <Subtitle>
+            powered by <TextLink>Redwoodjs</TextLink> +{' '}
+            <TextLink>Stripe</TextLink>
+          </Subtitle>
+        </div>
+
         <ActionGroup>
           <AuthButton />
           <Cart />
@@ -50,8 +57,20 @@ const Row = styled.header`
 
 const Gradient = styled.h1`
   background: var(--gradient-3);
+  letter-spacing: 1px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+`
+
+const Subtitle = styled.p`
+  color: var(--gray-6);
+`
+
+const TextLink = styled.a`
+  &:hover {
+    color: var(--primary);
+    cursor: pointer;
+  }
 `
 
 const Column = styled.main`
@@ -63,6 +82,7 @@ const Column = styled.main`
 const ActionGroup = styled.div`
   display: flex;
   justify-content: end;
+  position: relative;
 
   gap: var(--padding);
 `

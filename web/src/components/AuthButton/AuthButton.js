@@ -1,10 +1,11 @@
 import styled from 'styled-components'
-import { User } from 'react-feather'
 
-import { Link, routes } from '@redwoodjs/router'
+import { routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 import { toast } from '@redwoodjs/web/toast'
 import { useMutation } from '@redwoodjs/web'
+
+import Button from 'src/components/Button'
 
 const AuthButton = () => {
   const { isAuthenticated, logOut, currentUser } = useAuth()
@@ -47,13 +48,10 @@ const AuthButton = () => {
       {isAuthenticated ? (
         <>
           <Button onClick={onLogoutButtonClick}>Log Out</Button>
-          <Button onClick={onUserButtonClick}>
-            {/* Links to customer portal */}
-            <User />
-          </Button>
+          <Button onClick={onUserButtonClick} icon="user" />
         </>
       ) : (
-        <LoginLink to={routes.login()}>Log In</LoginLink>
+        <Button to={routes.login()}>Log In</Button>
       )}
       <HLine />
     </>
@@ -63,34 +61,6 @@ const AuthButton = () => {
 export default AuthButton
 
 // Styles
-
-const Button = styled.button`
-  background: none;
-  border: none;
-  padding: 0;
-
-  display: inline-flex;
-  align-items: center;
-
-  &:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-`
-
-const LoginLink = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-
-  text-decoration: none;
-  color: var(--gray-9);
-
-  &:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-`
-
 const HLine = styled.div`
   width: 1px;
   height: var(--size-5);
