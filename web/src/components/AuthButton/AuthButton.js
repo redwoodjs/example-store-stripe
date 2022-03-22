@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { User } from 'react-feather'
 
-import { Link, routes } from '@redwoodjs/router'
+import { routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 import { toast } from '@redwoodjs/web/toast'
 import { useMutation } from '@redwoodjs/web'
@@ -62,20 +61,6 @@ const AuthButton = () => {
 export default AuthButton
 
 // Styles
-
-const LoginLink = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-
-  text-decoration: none;
-  color: var(--gray-9);
-
-  &:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-`
-
 const HLine = styled.div`
   width: 1px;
   height: var(--size-5);

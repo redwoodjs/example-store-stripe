@@ -6,7 +6,7 @@ export const text = () => {
 }
 
 export const icon = () => {
-  return <Button icon='user'/>
+  return <Button icon="user" />
 }
 
 export const link = () => {
