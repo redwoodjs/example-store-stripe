@@ -9,14 +9,14 @@ import {
   useCanCheckout,
 } from 'src/components/CartProvider'
 
-const CartDropDown = () => {
+const CartDropDown = ({ toggleVisibility }) => {
   const cart = useCart()
   const checkout = useCheckout()
   const clearCart = useClearCart()
   const canCheckout = useCanCheckout()
 
   return (
-    <Wrapper>
+    <Wrapper onClick={toggleVisibility}>
       <List items={cart} Component={CartItem} direction={'column'} />
       {!canCheckout && <CenteredText>Your cart is empty</CenteredText>}
       <Row>
