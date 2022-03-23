@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import CartDropDown from 'src/components/CartDropDown'
 import Button from 'src/components/Button'
