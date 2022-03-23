@@ -8,9 +8,20 @@ import { useCart } from 'src/components/CartProvider'
 
 const Cart = () => {
   const [isVisible, setVisibility] = useState(false)
-  const cartLength = useCart().length
+  const cart = useCart()
 
   const toggleVisibility = () => setVisibility(!isVisible)
+  const getCartQuantity = () => {
+    if (cart.length > 0) {
+      const length = cart.reduce((total, item) => {
+        return total + item.quantity
+      }, 0)
+      return length
+    }
+    return 0
+  }
+
+  const quantity = getCartQuantity()
 
   return (
     <>
@@ -18,7 +29,7 @@ const Cart = () => {
         onClick={toggleVisibility}
         icon="shoppingCart"
         active={isVisible}
-        data-items={cartLength}
+        data-quantity={quantity}
       />
       {isVisible && <CartDropDown toggleVisibility={toggleVisibility} />}
     </>
@@ -37,7 +48,7 @@ const IndicatorButton = styled(Button)`
   }
 
     &:after {
-      content: attr(data-items);
+      content: attr(data-quantity);
       display: block;
       position: absolute;
       top: -0.1em;
