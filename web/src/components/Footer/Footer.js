@@ -21,7 +21,7 @@ const Footer = () => {
           href="https://github.com/redwoodjs/example-store"
           target="_blank"
         >
-          Github
+          GitHub
         </TextLink>
       </Text>
     </Wrapper>
