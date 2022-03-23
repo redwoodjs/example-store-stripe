@@ -29,10 +29,12 @@ const MainLayout = ({ children }) => {
             </Link>
           </Subtitle>
         </h1>
-        <ActionGroup>
-          <AuthButton />
-          <Cart />
-        </ActionGroup>
+        <div style={{ paddingTop: '16px' }}>
+          <ActionGroup>
+            <AuthButton />
+            <Cart />
+          </ActionGroup>
+        </div>
       </Row>
       <Column>{children}</Column>
       <Footer />
@@ -69,14 +71,11 @@ const Row = styled.header`
 `
 
 const Gradient = styled.span`
-  background: var(--gradient-3);
+  ${'' /* background: var(--gradient-3); */}
+  background: var(--brand-gradient);
   letter-spacing: 1px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-`
-
-const Subtitle = styled.p`
-  color: var(--gray-6);
 `
 
 const Column = styled.main`
@@ -95,6 +94,7 @@ const ActionGroup = styled.div`
 
 const Subtitle = styled.span`
   font-size: var(--font-size-2);
+  font-weight: 400;
   display: block;
   padding-left: var(--padding);
 
