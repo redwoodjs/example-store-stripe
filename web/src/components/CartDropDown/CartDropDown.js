@@ -27,10 +27,11 @@ const CartDropDown = () => {
 
 export default CartDropDown
 
-const CartItem = ({ image, quantity }) => {
+const CartItem = ({ image, quantity, name }) => {
   return (
     <Row>
       <CartImage src={image} />
+      <p>{name}</p>
       <Quantity>{quantity}</Quantity>
     </Row>
   )
