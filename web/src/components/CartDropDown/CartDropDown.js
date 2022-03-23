@@ -40,7 +40,7 @@ const CartItem = ({ image, quantity }) => {
 
 const Wrapper = styled.div`
   position: absolute;
-  margin-top: var(--padding);
+  top: 100%;
 
   background-color: var(--gray-1);
   border-radius: var(--radius-2);

@@ -1,8 +1,7 @@
-import styled from 'styled-components'
 import { useState } from 'react'
-import { ShoppingCart } from 'react-feather'
 
 import CartDropDown from 'src/components/CartDropDown'
+import Button from 'src/components/Button'
 
 const Cart = () => {
   const [isVisible, setVisibility] = useState(false)
@@ -11,24 +10,14 @@ const Cart = () => {
 
   return (
     <>
-      <Button onClick={toggleVisibility}>
-        <ShoppingCart />
-        {isVisible && <CartDropDown />}
-      </Button>
+      <Button
+        onClick={toggleVisibility}
+        icon="shoppingCart"
+        active={isVisible}
+      />
+      {isVisible && <CartDropDown toggleVisibility={toggleVisibility} />}
     </>
   )
 }
 
 export default Cart
-
-// Styles
-
-const Button = styled.button`
-  background: none;
-  border: none;
-  padding: 0;
-
-  &:hover {
-    cursor: pointer;
-  }
-`

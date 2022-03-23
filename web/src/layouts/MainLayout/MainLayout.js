@@ -70,8 +70,13 @@ const Row = styled.header`
 
 const Gradient = styled.span`
   background: var(--gradient-3);
+  letter-spacing: 1px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+`
+
+const Subtitle = styled.p`
+  color: var(--gray-6);
 `
 
 const Column = styled.main`
@@ -83,6 +88,7 @@ const Column = styled.main`
 const ActionGroup = styled.div`
   display: flex;
   justify-content: end;
+  position: relative;
 
   gap: var(--padding);
 `

@@ -4,6 +4,14 @@
   --link: var(--pink-4);
   --padding: var(--size-3);
 
+
+  /* color pallete */
+  --primary: var(--pink-4);
+  --primary-shade: #EE2997;
+  --primary-tint: #D6B7D7;
+  --secondary: #43FCFD;
+  
+  /* brand colours */
   --redwood: #bf4722;
   --stripe: #635aff;
 }
