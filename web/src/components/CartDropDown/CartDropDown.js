@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import List from 'src/components/List'
+import Button from 'src/components/Button'
 import {
   useCart,
   useCheckout,
@@ -17,20 +18,26 @@ const CartDropDown = () => {
   return (
     <Wrapper>
       <List items={cart} Component={CartItem} direction={'column'} />
-      <button onClick={checkout} disabled={!canCheckout}>
-        Checkout
-      </button>
-      <button onClick={clearCart}>Clear</button>
+      {!canCheckout && <CenteredText>Your cart is empty</CenteredText>}
+      <Row>
+        <Button variant="primary" onClick={checkout} disabled={!canCheckout}>
+          Checkout
+        </Button>
+        <Button variant="secondary" onClick={clearCart}>
+          Clear
+        </Button>
+      </Row>
     </Wrapper>
   )
 }
 
 export default CartDropDown
 
-const CartItem = ({ image, quantity }) => {
+const CartItem = ({ image, quantity, name }) => {
   return (
     <Row>
       <CartImage src={image} />
+      <p>{name}</p>
       <Quantity>{quantity}</Quantity>
     </Row>
   )
@@ -42,9 +49,9 @@ const Wrapper = styled.div`
   position: absolute;
   top: 100%;
 
-  background-color: var(--gray-1);
+  background: var(--white);
   border-radius: var(--radius-2);
-  box-shadow: var(--shadow-3);
+  box-shadow: var(--shadow-4);
 
   padding: var(--padding);
 
@@ -61,8 +68,12 @@ const Row = styled.div`
   gap: var(--size-2);
 `
 
+const CenteredText = styled.p`
+  text-align: center;
+`
+
 const CartImage = styled.img`
-  height: var(--size-8);
+  height: var(--size-7);
 
   border-radius: var(--radius-2);
 `

@@ -33,30 +33,67 @@ const StyledButton = styled.button`
   border: none;
   padding: 0;
 
+  padding: 0.5em var(--padding);
+  border-radius: 2px;
   display: inline-flex;
   align-items: center;
 
   &:active {
     cursor: pointer;
-    color: var(--primary);
   }
 
   &:hover {
     cursor: pointer;
-    color: var(--primary);
-
-    svg {
-      stroke: var(--primary);
-    }
+    background: var(--gray-1);
   }
+
   ${(props) =>
     props.active &&
     css`
       cursor: pointer;
+      background: var(--gray-light);
       color: var(--primary);
 
       svg {
         stroke: var(--primary);
+      }
+    `}
+
+  ${(props) =>
+    props.variant === 'primary' &&
+    css`
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.5em var(--padding);
+
+      &:hover {
+        background: var(--gray-1);
+        color: var(--black);
+      }
+    `}
+
+     ${(props) =>
+    props.variant === 'secondary' &&
+    css`
+      background: var(--gray-dark);
+      color: var(--white);
+      padding: 0.5em var(--padding);
+
+      &:hover {
+        background: var(--gray-light);
+        color: var(--black);
+      }
+    `}
+
+    ${(props) =>
+    props.disabled &&
+    css`
+      background: var(--gray-light);
+      color: var(--gray-dark);
+
+      &:hover {
+        cursor: default;
+        color: var(--gray-dark);
       }
     `}
 `
@@ -69,15 +106,13 @@ const StyledLink = styled(Link)`
   border: none;
   padding: 0;
 
+  padding: 0.5em var(--padding);
   display: inline-flex;
   align-items: center;
 
   &:hover {
     cursor: pointer;
-    color: var(--primary);
-
-    svg {
-      stroke: var(--primary);
-    }
+    background: var(--gray-1);
+    border-radius: 2px;
   }
 `

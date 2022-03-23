@@ -13,4 +13,16 @@ export const link = () => {
   return <Button to={routes.login()}>Login</Button>
 }
 
+export const primary = () => {
+  return <Button variant="primary">Checkout</Button>
+}
+
+export const secondary = () => {
+  return <Button variant="secondary">Cancel</Button>
+}
+
+export const disabled = () => {
+  return <Button disabled>Disabled</Button>
+}
+
 export default { title: 'Components/Button' }
