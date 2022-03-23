@@ -68,6 +68,7 @@ const Grid = styled.div`
 const Row = styled.header`
   display: flex;
   justify-content: space-between;
+  position: relative;
 `
 
 const Gradient = styled.span`
@@ -87,7 +88,6 @@ const Column = styled.main`
 const ActionGroup = styled.div`
   display: flex;
   justify-content: end;
-  position: relative;
 
   gap: var(--padding);
 `

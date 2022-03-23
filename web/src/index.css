@@ -8,7 +8,12 @@
   /* color pallete */
   --primary: #7955ca;
   --primary-tint: #D6B7D7;
-  --secondary: #43FCFD;
+  /* --secondary: #43FCFD; */
+  --secondary: var(--gray-6);
+  --white: #fff;
+  --black: #0a0a0a;
+  --gray-light: var(--gray-1);
+  --gray-dark: var(--gray-5);
 
   /* brand colours */
   --redwood: #bf4722;
