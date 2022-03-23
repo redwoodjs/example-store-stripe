@@ -51,6 +51,7 @@ const StyledButton = styled.button`
     props.active &&
     css`
       cursor: pointer;
+      background: var(--gray-light);
       color: var(--primary);
 
       svg {

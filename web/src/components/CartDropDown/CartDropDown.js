@@ -18,6 +18,7 @@ const CartDropDown = () => {
   return (
     <Wrapper>
       <List items={cart} Component={CartItem} direction={'column'} />
+      {!canCheckout && <CenteredText>Your cart is empty</CenteredText>}
       <Row>
         <Button variant="primary" onClick={checkout} disabled={!canCheckout}>
           Checkout
@@ -65,6 +66,10 @@ const Row = styled.div`
   align-items: center;
 
   gap: var(--size-2);
+`
+
+const CenteredText = styled.p`
+  text-align: center;
 `
 
 const CartImage = styled.img`
