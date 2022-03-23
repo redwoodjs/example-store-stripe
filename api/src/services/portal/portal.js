@@ -12,7 +12,7 @@ export const portal = async ({ userId }) => {
   return await stripe.billingPortal.sessions.create({
     customer: customerId.customerId,
     return_url: `${
-      context.request?.headers?.referer ?? 'http://localhost:8910'
+      context.request?.headers?.referer ?? process.env.DOMAIN_URL
     }`,
   })
 }
