@@ -73,7 +73,7 @@ const CenteredText = styled.p`
 `
 
 const CartImage = styled.img`
-  height: var(--size-8);
+  height: var(--size-7);
 
   border-radius: var(--radius-2);
 `
