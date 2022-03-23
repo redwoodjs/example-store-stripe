@@ -18,7 +18,27 @@ const AuthLayout = ({ children }) => {
   return (
     <Grid>
       <Row>
-        <Gradient>Superstore</Gradient>
+        <h1>
+          <Gradient>Superstore</Gradient>
+          <Subtitle>
+            Powered by{' '}
+            <Link
+              href="https://redwoodjs.com"
+              style={{
+                '--color': 'var(--redwood)',
+              }}
+            >
+              RedwoodJS
+            </Link>{' '}
+            and{' '}
+            <Link
+              href="https://stripe.com/"
+              style={{ '--color': 'var(--stripe)' }}
+            >
+              Stripe
+            </Link>
+          </Subtitle>
+        </h1>
       </Row>
       <Column>{children}</Column>
       <Footer />
@@ -54,8 +74,9 @@ const Row = styled.header`
   justify-content: space-between;
 `
 
-const Gradient = styled.h1`
-  background: var(--gradient-3);
+const Gradient = styled.span`
+  background: var(--brand-gradient);
+  letter-spacing: 1px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `
@@ -65,4 +86,23 @@ const Column = styled.main`
   flex-direction: column;
 
   gap: var(--padding);
+`
+
+const Subtitle = styled.span`
+  font-size: var(--font-size-2);
+  font-weight: 400;
+  display: block;
+  padding-left: var(--padding);
+
+  color: var(--gray-6);
+`
+
+const Link = styled.a`
+  text-decoration: none;
+  color: var(--color);
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `
