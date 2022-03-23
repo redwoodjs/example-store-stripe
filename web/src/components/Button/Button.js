@@ -59,17 +59,6 @@ const StyledButton = styled.button`
         stroke: var(--primary);
       }
     `}
-
-  ${
-    '' /* &:active {
-    cursor: pointer;
-    color: var(--primary);
-
-    svg {
-      stroke: var(--primary);
-    }
-  } */
-  }
 `
 
 const StyledLink = styled(Link)`

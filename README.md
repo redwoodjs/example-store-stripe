@@ -1,28 +1,104 @@
-# Redwood-Stripe Example Store
+# Stripe Example Store
 
-Welcome to the RedwoodJS Example Store!
-This repo is an example of a Redwood-Stripe integration.
+Welcome to the Stripe Example Store!
+This repo is an example of a RedwoodJS-Stripe integration.
+Most startups need a way to process payments.
+We designed this repo to demonstrate how you could go about integrating Stripe into your RedwoodJS project.
+In this repo, you'll see how to:
+- use [Stripe Checkout](https://stripe.com/docs/payments/checkout) to accept [one-time payments](https://stripe.com/docs/payments/accept-a-payment?integration=checkout) and [subscriptions](https://stripe.com/docs/billing/subscriptions/build-subscriptions?ui=checkout)
+- receive notifications by processing webhooks using a serverless function
+- robustly manage app-level state via a persistent cart
+- and more!
 
-This repo is the second iteration of the Redwood-Stripe project.
-The first can be found in the [redwoodjs-stripe](https://github.com/chrisvdm/redwoodjs-stripe) repo.
+Keep reading to get started or check out the [Roadmap](#roadmap) to see the features we've got planned.
 
-The first was focused on integrating Redwood with Stripe from the ground up.
-This presented many technical challenges, namely, how can we make Redwood as a Framework more pluggable.
+## Getting Started
 
-This project takes the opposite approach by focusing on what a Stripe integration in a Redwood Project would look like.
+1. Clone this repo, `cd` into it, and `yarn install`
 
-The thinking is that, in the third iteration, having approached the problem from both low and high-level perspectives, we can converge on a solution.
+```
+git clone git@github.com:redwoodjs/example-store-stripe.git
+cd example-store
+yarn install
+```
 
-  - [Roadmap](#roadmap)
-  - [Leadership](#leadership)
-  - [Contributing](#contributing)
-    - [Use feature branches](#use-feature-branches)
+2. Get your Stripe test keys
+
+To develop on this repo locally, you'll need to populate your `.env` file with a few env vars. The first of those is your Stripe test keys.
+
+You'll need a Stripe account to get your test keys.
+If you don't already have one, you can make one here: https://dashboard.stripe.com/login?redirect=%2Ftest%2Fdashboard.
+
+Once you've made your account, if you weren't automatically redirected, navigate to your [test dashboard](https://dashboard.stripe.com/test/dashboard). You'll find your test keys over on the right:
+
+![image](https://user-images.githubusercontent.com/32992335/143495019-3c6319d3-f793-48c9-86ca-72f4c12f0306.png)
+
+> **Make sure "Test mode" is on**
+>
+> You can toggle "Test mode" on and off with the toggle in the upper right.
+> Make sure it's always on. You should always see the orange "Test Data" banner.
+
+Now that you've got your test keys, your `.env` should look like:
+
+```
+STRIPE_PK=pk_test_...
+STRIPE_SK=sk_test_...
+```
+
+You'll need one more Stripe env var: the Stripe webhook secret (`STRIPE_WEBHOOK_SK`).
+You can get it from the [Stripe CLI](https://stripe.com/docs/stripe-cli):
+
+```
+stripe listen --api-key=sk_test_... --print-secret
+```
+
+Note that the value of the `--api-key` flag should be the same as `STRIPE_SK`.
+
+Now your `.env` file should look like this:
+
+```
+STRIPE_PK=pk_test_...
+STRIPE_SK=sk_test_...
+STRIPE_WEBHOOK_SK=whsec_...
+```
+
+3. Setting up your database
+
+To tie things up, you'll need one more env var.
+The Stripe Example Store uses Postgres, so before you can migrate your database, you'll need to set your `DATABASE_URL` env var.
+
+If you don't already Postgres setup locally, it can be a little tricky to do so.
+If you're on a Mac, [Postgres.app](https://postgresapp.com/) is a tried-and-true solution.
+We don't have recommendations for other platforms, but one thing we do recommend is using [railway.app](https://railway.app/)—even for local development—since it trivializes this whole process.
+
+Once you've added your `DATABASE_URL` to your `.env` file, you're ready to migrate your database:
+
+```
+yarn rw prisma migrate dev
+```
+
+Now you should be able to start the dev server!
+
+```
+yarn rw dev
+```
+
+4. Listening for webhooks
+
+In tandem with the dev server, you'll want to use the stripe CLI to start a process that listens for webhooks:
+
+```
+stripe listen --forward-to 'localhost:8911/stripeWebhooks'
+```
+
+Make sure to pass the serverless function that's going to receive webhooks to the `--forward-to` flag.
 
 ## Roadmap
 
-- 👉 Link to the Roadmap: https://github.com/redwoodjs/example-store/issues/9
+There's a lot more ways we plan to integrate RedwoodJS with Stripe.
+Open an issue or a PR to let us know what features you'd like to see!
 
-Our Roadmap is constantly evolving. Feel free to suggest something!
+- 👉 Link to the Roadmap: https://github.com/redwoodjs/example-store/issues/9
 
 ## Leadership
 
@@ -30,4 +106,13 @@ Our Roadmap is constantly evolving. Feel free to suggest something!
 - Dominic Saadi (Dom; [@jtoar](https://github.com/jtoar))
 
 Chris is the project lead and Dom is point from the RedwoodJS Core Team.
-Chris and Dom meet biweekly to discuss the status of the project.
+
+## History
+
+This repo is the second iteration of the RedwoodJS-Stripe project.
+The first can be found in the [redwoodjs-stripe](https://github.com/chrisvdm/redwoodjs-stripe) repo.
+
+The first was focused on integrating Stripe with RedwoodJS from the ground up.
+This presented many technical challenges, namely, how can we make RedwoodJS a more-pluggable Framework.
+
+This project takes the opposite approach by focusing on what a Stripe integration in a RedwoodJS Project would look like.

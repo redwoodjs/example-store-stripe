@@ -8,18 +8,33 @@ const MainLayout = ({ children }) => {
   return (
     <Grid>
       <Row>
-        <div>
+        <h1>
           <Gradient>Superstore</Gradient>
           <Subtitle>
-            powered by <TextLink>Redwoodjs</TextLink> +{' '}
-            <TextLink>Stripe</TextLink>
+            Powered by{' '}
+            <Link
+              href="https://redwoodjs.com"
+              style={{
+                '--color': 'var(--redwood)',
+              }}
+            >
+              RedwoodJS
+            </Link>{' '}
+            and{' '}
+            <Link
+              href="https://stripe.com/"
+              style={{ '--color': 'var(--stripe)' }}
+            >
+              Stripe
+            </Link>
           </Subtitle>
+        </h1>
+        <div style={{ paddingTop: '16px' }}>
+          <ActionGroup>
+            <AuthButton />
+            <Cart />
+          </ActionGroup>
         </div>
-
-        <ActionGroup>
-          <AuthButton />
-          <Cart />
-        </ActionGroup>
       </Row>
       <Column>{children}</Column>
       <Footer />
@@ -55,22 +70,12 @@ const Row = styled.header`
   justify-content: space-between;
 `
 
-const Gradient = styled.h1`
-  background: var(--gradient-3);
+const Gradient = styled.span`
+  ${'' /* background: var(--gradient-3); */}
+  background: var(--brand-gradient);
   letter-spacing: 1px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-`
-
-const Subtitle = styled.p`
-  color: var(--gray-6);
-`
-
-const TextLink = styled.a`
-  &:hover {
-    color: var(--primary);
-    cursor: pointer;
-  }
 `
 
 const Column = styled.main`
@@ -85,4 +90,23 @@ const ActionGroup = styled.div`
   position: relative;
 
   gap: var(--padding);
+`
+
+const Subtitle = styled.span`
+  font-size: var(--font-size-2);
+  font-weight: 400;
+  display: block;
+  padding-left: var(--padding);
+
+  color: var(--gray-6);
+`
+
+const Link = styled.a`
+  text-decoration: none;
+  color: var(--color);
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `

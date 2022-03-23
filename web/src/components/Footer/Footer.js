@@ -37,7 +37,6 @@ const Wrapper = styled.footer`
   padding: 0;
 
   padding-bottom: var(--font-size-1);
-
   margin-top: var(--font-size-1);
 
   border-top: solid 1px var(--gray-9);
@@ -49,7 +48,7 @@ const Text = styled.p`
 `
 
 const TextLink = styled.a`
-  color: var(--link);
+  color: var(--primary);
   text-decoration: none;
 
   &:hover {

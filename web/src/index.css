@@ -1,13 +1,18 @@
 @import "open-props/style";
 
 :root {
-  --link: var(--pink-4);
+  --link: #7955ca;
   --padding: var(--size-3);
 
+
   /* color pallete */
-  --primary: var(--pink-4);
-  --primary-shade: #EE2997;
+  --primary: #7955ca;
   --primary-tint: #D6B7D7;
   --secondary: #43FCFD;
 
+  /* brand colours */
+  --redwood: #bf4722;
+  --stripe: #635aff;
+
+  --brand-gradient: linear-gradient(-45deg, rgba(191,71,34,1) 0%, rgba(99,90,255,1) 100%);
 }
