@@ -1,44 +1,35 @@
 # Contributing
 
-Anyone is welcome to contribute!
-
-## Getting Started
-
-1. Clone this repo, `cd` into it, and `yarn install`
-
-```
-git clone git@github.com:redwoodjs/example-store.git
-cd example-store
-yarn
-```
-
-2. Get your Stripe test keys
-
-You'll need a Stripe account to get your test keys.
-If you don't already have one, you can make one here: https://dashboard.stripe.com/login?redirect=%2Ftest%2Fdashboard.
-
-Once you've made your account, if you weren't automatically redirected, navigate to your [test dashboard](https://dashboard.stripe.com/test/dashboard). You can get your test keys there:
-
-![image](https://user-images.githubusercontent.com/32992335/143495019-3c6319d3-f793-48c9-86ca-72f4c12f0306.png)
-
-> **Make sure "Test mode" is on**
->
-> You can toggle "Test mode" on and off with the toggle in the upper right.
-> Make sure it's always on. You should always see the orange "Test Data" banner.
-
-Your `.env` should look like:
-
-```
-STRIPE_PK=pk_test_...
-STRIPE_SK=sk_test_...
-# This one isn't strictly necessary.
-STRIPE_WEBHOOK_SK=whsec_...
-```
-
-You only need the webhook secret if you're using webhooks.
-You can get it from the [Stripe CLI](https://stripe.com/docs/stripe-cli).
+Contributions are welcome!
 
 ## Testing your Contribution
+
+There's a few ways you can go about testing your contribution.
+
+### Netlify Deploy Preview
+
+When you open a pull request, Netlify deploys your branch! Check the deploy preview and make sure everything looks ok:
+
+![image](https://user-images.githubusercontent.com/32992335/157901408-eef552f8-c6f8-49aa-b460-5075b622e983.png)
+
+
+### `api` Tests
+
+If your contribution affects the api side, we have a few tests you can run to make sure everything still works:
+
+```
+yarn rw test api
+```
+
+You may need to configure a `TEST_DATABASE_URL`.
+You get your `TEST_DATABASE_URL` the same way you got your `DATABASE_URL`—see the [`README.md`](README.md) for more.
+
+### Manually checking out
+
+While it gets old fast, you can of course test things manually by going through the checkout yourself.
+Just make sure  to use one of stripe's [test cards](https://stripe.com/docs/testing) when filling out your payment information.
+
+<!-- ### Running the E2E Test
 
 We have a small e2e test you can use to test your contribution.
 You'll have to have [playwright](https://playwright.dev/) installed:
@@ -63,7 +54,7 @@ If you want to watch the tests as they happen, pass the `--headed` flag:
 
 ```
 yarn rw-test-e2e --headed
-```
+``` -->
 
 ## Style Guide
 
