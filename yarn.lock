@@ -20034,7 +20034,7 @@ __metadata:
   dependencies:
     "@playwright/test": 1.20.1
     "@redwoodjs/core": 0.50.0
-    styled-system: ^5.1.5
+    styled-system: 5.1.5
   languageName: unknown
   linkType: soft
 
@@ -21385,7 +21385,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-system@npm:^5.1.5":
+"styled-system@npm:5.1.5":
   version: 5.1.5
   resolution: "styled-system@npm:5.1.5"
   dependencies:
