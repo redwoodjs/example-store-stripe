@@ -28,6 +28,6 @@
   },
   "packageManager": "yarn@3.2.0",
   "dependencies": {
-    "styled-system": "^5.1.5"
+    "styled-system": "5.1.5"
   }
 }
