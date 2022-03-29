@@ -15,6 +15,8 @@ import AuthLayout from 'src/layouts/AuthLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/success" page={SuccessPage} name="success" />
+      <Route path="/failure" page={FailurePage} name="failure" />
       <Set wrap={[CartProvider, MainLayout]}>
         <Route path="/" page={HomePage} name="home" />
       </Set>
