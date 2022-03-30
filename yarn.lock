@@ -6670,7 +6670,7 @@ __metadata:
   dependencies:
     "@redwoodjs/api": 0.50.0
     "@redwoodjs/graphql-server": 0.50.0
-    graphql-scalars: 1.16.0
+    graphql-scalars: 1.16.1
     stripe: 8.213.0
   languageName: unknown
   linkType: soft
@@ -12784,6 +12784,17 @@ __metadata:
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: 1e48a49a0f06922e3f1928b664611236a566e289bff20c747c9907a6d16d96903c8052936af01330e8c30deb2e7dd240ce443b5b8ca57a9fc26573430f2f6521
+  languageName: node
+  linkType: hard
+
+"graphql-scalars@npm:1.16.1":
+  version: 1.16.1
+  resolution: "graphql-scalars@npm:1.16.1"
+  dependencies:
+    tslib: ~2.3.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: e656981c3e8dcd915d08c028ae5c5f03d5c2f94e8c4fa8e5a2ddc2fdff4e316572ec3472a5fa8f96f603d2f750c1c0766e704ff0c5f072b24a87b8f08586db15
   languageName: node
   linkType: hard
 
