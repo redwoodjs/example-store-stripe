@@ -4,6 +4,7 @@ export const schema = gql`
     customerId: String
     customerEmail: String
     customerName: String
+    customerSignedUp: Boolean
   }
 
   enum Mode {

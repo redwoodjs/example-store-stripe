@@ -1,4 +1,5 @@
 import { stripe } from 'src/lib/stripe'
+import { db } from 'src/lib/db'
 
 /**
  * @param {'payment' | 'subscription'} mode
@@ -27,13 +28,21 @@ export const checkout = async ({ mode, cart, customerId }) => {
 }
 
 export const getSession = async ({ id }) => {
+  // Get session object
   const session = await stripe.checkout.sessions.retrieve(id)
-  console.log(session)
+
+  // Use customer to find out whether customer has signed up before
+  const user = await db.user.findUnique({
+    where: { email: session.customer_details.email },
+  })
+
+  const isSignedUp = !!user
 
   return {
     id: session.id,
     customerId: session.customer,
     customerName: session.customer_details.name,
     customerEmail: session.customer_details.email,
+    customerSignedUp: isSignedUp,
   }
 }

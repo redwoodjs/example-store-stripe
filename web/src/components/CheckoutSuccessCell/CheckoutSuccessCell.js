@@ -5,8 +5,8 @@ export const QUERY = gql`
     getSession: getSession(id: $id) {
       id
       customerId
-      customerEmail
       customerName
+      customerSignedUp
     }
   }
 `
@@ -25,6 +25,7 @@ export const Success = ({ getSession }) => {
       <h1>Thank you {getSession.customerName} for your purchase</h1>
       <p>Have a SUPER day!</p>
       <Shield />
+      {!getSession.customerSignedUp && <p>Go sign the fuck up</p>}
     </div>
   )
 }
