@@ -72,4 +72,4 @@ const Shield = () => {
   )
 }
 
-export Shield;
+export default Shield

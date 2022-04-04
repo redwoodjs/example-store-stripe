@@ -1,4 +1,4 @@
-import Shield from 'src/components/Shield/shield.svg'
+import SuccessContent from 'src/components/SuccessContent'
 
 export const QUERY = gql`
   query getSuccessQuery($id: ID!) {
@@ -20,12 +20,5 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ getSession }) => {
-  return (
-    <div>
-      <h1>Thank you {getSession.customerName} for your purchase</h1>
-      <p>Have a SUPER day!</p>
-      <Shield />
-      {!getSession.customerSignedUp && <p>Go sign the fuck up</p>}
-    </div>
-  )
+  return <SuccessContent {...getSession} />
 }
