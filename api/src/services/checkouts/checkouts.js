@@ -14,7 +14,7 @@ export const checkout = async ({ mode, cart, customerId }) => {
   return stripe.checkout.sessions.create({
     success_url: `${
       context.request?.headers?.referer ?? process.env.DOMAIN_URL
-    }/success?session_id={CHECKOUT_SESSION_ID}`,
+    }success?sessionId={CHECKOUT_SESSION_ID}`,
     cancel_url: `${
       context.request?.headers?.referer ?? process.env.DOMAIN_URL
     }?failure`,
@@ -26,4 +26,14 @@ export const checkout = async ({ mode, cart, customerId }) => {
   })
 }
 
-export const getSession = ({ id }) => stripe.checkout.sessions.retrieve(id)
+export const getSession = async ({ id }) => {
+  const session = await stripe.checkout.sessions.retrieve(id)
+  console.log(session)
+
+  return {
+    id: session.id,
+    customerId: session.customer,
+    customerName: session.customer_details.name,
+    customerEmail: session.customer_details.email,
+  }
+}

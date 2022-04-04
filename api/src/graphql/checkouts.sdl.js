@@ -1,6 +1,9 @@
 export const schema = gql`
   type Session {
     id: String!
+    customerId: String
+    customerEmail: String
+    customerName: String
   }
 
   enum Mode {
