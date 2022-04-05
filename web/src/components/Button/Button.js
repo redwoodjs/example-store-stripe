@@ -16,7 +16,11 @@ const Button = ({ children = '', icon = '', ...args }) => {
   }
   const Icon = Icons[icon]
   if ('to' in args) {
-    return <StyledLink to={args.to}>{children}</StyledLink>
+    return (
+      <StyledLink to={args.to} {...args}>
+        {children}
+      </StyledLink>
+    )
   } else {
     return (
       <StyledButton onClick={handleOnButtonClick} {...args}>
@@ -102,11 +106,8 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 
-  background: none;
-  border: none;
-  padding: 0;
-
   padding: 0.5em var(--padding);
+  border-radius: 2px;
   display: inline-flex;
   align-items: center;
 

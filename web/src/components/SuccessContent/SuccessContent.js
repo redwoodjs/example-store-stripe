@@ -3,6 +3,7 @@ import { routes } from '@redwoodjs/router'
 
 import Shield from 'src/components/Shield'
 import Button from 'src/components/Button'
+import Banner from 'src/components/Banner'
 
 const SuccessContent = ({ customerName, customerSignedUp }) => {
   return (
@@ -21,9 +22,9 @@ const SuccessContent = ({ customerName, customerSignedUp }) => {
             It looks like you do not have an account yet. Signing up will allow
             you to checkout faster and see better at night.
           </p>
-          <Button to={routes.signup()} variant={'secondary'}>
+          <MarginButton to={routes.signup()} variant={'secondary'}>
             Sign Up
-          </Button>
+          </MarginButton>
         </Banner>
       )}
     </Wrapper>
@@ -70,12 +71,6 @@ const SVGWrapper = styled.div`
   }
 `
 
-const Banner = styled.div`
-  background: var(--primary);
-  border-radius: 0.65em;
+const MarginButton = styled(Button)`
   margin-top: var(--padding);
-  padding: var(--padding);
-  box-shadow: var(--shadow);
-  width: 100%;
-  color: var(--white);
 `
