@@ -27,7 +27,7 @@ describe('checkout', () => {
         "calls": Array [
           Array [
             Object {
-              "cancel_url": "http://localhost:8910?success=false",
+              "cancel_url": "http://localhost:8910/failure",
               "customer": "cus0000001",
               "line_items": Array [
                 Object {
@@ -43,7 +43,7 @@ describe('checkout', () => {
               "payment_method_types": Array [
                 "card",
               ],
-              "success_url": "http://localhost:8910?success=true",
+              "success_url": "http://localhost:8910/success?sessionId={CHECKOUT_SESSION_ID}",
             },
           ],
         ],

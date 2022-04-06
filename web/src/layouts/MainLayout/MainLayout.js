@@ -1,3 +1,4 @@
+import { routes, Link } from '@redwoodjs/router'
 import styled from 'styled-components'
 
 import Cart from 'src/components/Cart'
@@ -9,24 +10,27 @@ const MainLayout = ({ children }) => {
     <Grid>
       <Row>
         <h1>
-          <Gradient>Superstore</Gradient>
+          <NoStyleLink to={routes.home()}>
+            <Gradient>Superstore</Gradient>
+          </NoStyleLink>
+
           <Subtitle>
             Powered by{' '}
-            <Link
+            <ALink
               href="https://redwoodjs.com"
               style={{
                 '--color': 'var(--redwood)',
               }}
             >
               RedwoodJS
-            </Link>{' '}
+            </ALink>{' '}
             and{' '}
-            <Link
+            <ALink
               href="https://stripe.com/"
               style={{ '--color': 'var(--stripe)' }}
             >
               Stripe
-            </Link>
+            </ALink>
           </Subtitle>
         </h1>
         <div style={{ paddingTop: '16px' }}>
@@ -48,10 +52,12 @@ export default MainLayout
 
 const Grid = styled.div`
   display: grid;
+  min-height: 100vh;
   grid-template-columns:
     1fr
     min(75ch, 100%)
     1fr;
+  grid-template-rows: auto 1fr auto;
   padding-left: var(--padding);
   padding-right: var(--padding);
   row-gap: var(--padding);
@@ -78,6 +84,9 @@ const Gradient = styled.span`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `
+const NoStyleLink = styled(Link)`
+  text-decoration: none;
+`
 
 const Column = styled.main`
   display: flex;
@@ -101,7 +110,7 @@ const Subtitle = styled.span`
   color: var(--gray-6);
 `
 
-const Link = styled.a`
+const ALink = styled.a`
   text-decoration: none;
   color: var(--color);
 
