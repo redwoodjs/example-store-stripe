@@ -15,10 +15,10 @@ export const checkout = async ({ mode, cart, customerId }) => {
   return stripe.checkout.sessions.create({
     success_url: `${
       context.request?.headers?.referer ?? process.env.DOMAIN_URL
-    }/success?sessionId={CHECKOUT_SESSION_ID}`,
+    }success?sessionId={CHECKOUT_SESSION_ID}`,
     cancel_url: `${
       context.request?.headers?.referer ?? process.env.DOMAIN_URL
-    }/failure`,
+    }failure`,
     // eslint-disable-next-line camelcase
     line_items,
     mode,
