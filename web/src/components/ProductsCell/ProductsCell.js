@@ -26,6 +26,9 @@ export const Loading = () => (
     <Background>
       <Spinner />
     </Background>
+    <Background>
+      <Spinner />
+    </Background>
   </Wrapper>
 )
 
@@ -36,6 +39,9 @@ export const Failure = ({ error }) => {
 
   return (
     <Wrapper>
+      <Background>
+        <AlertTriangle />
+      </Background>
       <Background>
         <AlertTriangle />
       </Background>
