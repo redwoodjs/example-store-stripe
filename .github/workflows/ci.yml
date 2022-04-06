@@ -16,3 +16,5 @@ jobs:
     steps:
       - name: Redwood Project CI
         uses: redwoodjs/project-ci-action@v0.1.1
+        env:
+          DOMAIN_URL: "http://localhost:8910/"
