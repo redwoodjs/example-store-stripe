@@ -43,7 +43,7 @@ describe('checkout', () => {
               "payment_method_types": Array [
                 "card",
               ],
-              "success_url": "http://localhost:8910/success?sessionId={CHECKOUT_SESSION_ID}"
+              "success_url": "http://localhost:8910/success?sessionId={CHECKOUT_SESSION_ID}",
             },
           ],
         ],
