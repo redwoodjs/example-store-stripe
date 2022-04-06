@@ -34,7 +34,7 @@ jobs:
         run: yarn rw test --no-watch
         env:
           TEST_DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
-          DOMAIN_URL: "http://localhost:8910"
+          DOMAIN_URL: "http://localhost:8910/"
 
       - name: Build
         run: yarn rw build
