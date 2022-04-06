@@ -10,6 +10,8 @@ import Routes from 'src/Routes'
 import './scaffold.css'
 import GlobalStyles from 'src/components/GlobalStyles'
 
+import Modal from 'src/components/Modal'
+
 import './index.css'
 
 const App = () => (
@@ -19,6 +21,7 @@ const App = () => (
         <RedwoodApolloProvider>
           <Routes />
           <Toaster />
+          <Modal />
           <GlobalStyles />
         </RedwoodApolloProvider>
       </AuthProvider>
