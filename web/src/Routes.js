@@ -17,6 +17,8 @@ const Routes = () => {
     <Router>
       <Set wrap={[CartProvider, MainLayout]}>
         <Route path="/" page={HomePage} name="home" />
+        <Route path="/success" page={SuccessPage} name="success" />
+        <Route path="/failure" page={FailurePage} name="failure" />
       </Set>
 
       <Set wrap={AuthLayout}>

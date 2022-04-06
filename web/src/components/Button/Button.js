@@ -16,7 +16,11 @@ const Button = ({ children = '', icon = '', ...args }) => {
   }
   const Icon = Icons[icon]
   if ('to' in args) {
-    return <StyledLink to={args.to}>{children}</StyledLink>
+    return (
+      <StyledLink to={args.to} {...args}>
+        {children}
+      </StyledLink>
+    )
   } else {
     return (
       <StyledButton onClick={handleOnButtonClick} {...args}>
@@ -102,11 +106,8 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 
-  background: none;
-  border: none;
-  padding: 0;
-
   padding: 0.5em var(--padding);
+  border-radius: 2px;
   display: inline-flex;
   align-items: center;
 
@@ -115,4 +116,54 @@ const StyledLink = styled(Link)`
     background: var(--gray-1);
     border-radius: 2px;
   }
+
+  ${(props) =>
+    props.active &&
+    css`
+      cursor: pointer;
+      background: var(--gray-light);
+      color: var(--primary);
+
+      svg {
+        stroke: var(--primary);
+      }
+    `}
+
+  ${(props) =>
+    props.variant === 'primary' &&
+    css`
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.5em var(--padding);
+
+      &:hover {
+        background: var(--gray-1);
+        color: var(--black);
+      }
+    `}
+
+     ${(props) =>
+    props.variant === 'secondary' &&
+    css`
+      background: var(--gray-dark);
+      color: var(--white);
+      padding: 0.5em var(--padding);
+
+      &:hover {
+        background: var(--gray-light);
+        color: var(--black);
+      }
+    `}
+
+    ${(props) =>
+    props.disabled &&
+    css`
+      background: var(--gray-light);
+      color: var(--gray-dark);
+
+      &:hover {
+        cursor: default;
+        color: var(--gray-dark);
+      }
+    `}
 `

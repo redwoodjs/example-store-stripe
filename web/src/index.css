@@ -20,4 +20,7 @@
   --stripe: #635aff;
 
   --brand-gradient: linear-gradient(-45deg, rgba(191,71,34,1) 0%, rgba(99,90,255,1) 100%);
+
+  /* constants */
+  --shadow: var(--shadow-4);
 }

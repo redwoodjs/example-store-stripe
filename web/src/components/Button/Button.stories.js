@@ -25,4 +25,12 @@ export const disabled = () => {
   return <Button disabled>Disabled</Button>
 }
 
+export const linkSecondary = () => {
+  return (
+    <Button to={routes.signup()} variant="secondary">
+      Sign Up
+    </Button>
+  )
+}
+
 export default { title: 'Components/Button' }
