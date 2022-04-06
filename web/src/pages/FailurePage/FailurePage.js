@@ -1,21 +1,44 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
+import styled from 'styled-components'
+
 const FailurePage = () => {
   return (
     <>
       <MetaTags title="Failure" description="Failure page" />
 
-      <h1>FailurePage</h1>
-      <p>
-        Find me in <code>./web/src/pages/FailurePage/FailurePage.js</code>
-      </p>
-      <p>
-        My default route is named <code>failure</code>, link to me with `
-        <Link to={routes.failure()}>Failure</Link>`
-      </p>
+      <Wrapper>
+        <Heading>Oops!</Heading>
+        <Description>Unfortunately your sale did not go through :(</Description>
+      </Wrapper>
     </>
   )
 }
 
 export default FailurePage
+
+const Wrapper = styled.div`
+  background: var(--primary-tint);
+  border-radius: 1em;
+  margin: var(--padding);
+  padding: var(--padding);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
+
+const Heading = styled.h1`
+  color: var(--white);
+  font-size: 60px;
+  text-align: center;
+  letter-spacing: 2px;
+`
+
+const Description = styled.p`
+  color: var(--white);
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+`
