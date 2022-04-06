@@ -14,28 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      - name: Install
-        run: yarn
-
-      - name: Lint
-        run: yarn rw lint
-
-      - name: Check
-        run: yarn rw check
-
-      - name: Test
-        run: yarn rw test --no-watch
+      - name: Redwood Project CI
+        uses: redwoodjs/project-ci-action@v0.1.1
         env:
-          TEST_DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
           DOMAIN_URL: "http://localhost:8910/"
-
-      - name: Build
-        run: yarn rw build
-
