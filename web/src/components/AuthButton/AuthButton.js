@@ -1,5 +1,3 @@
-import styled from 'styled-components'
-
 import { routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 import { toast } from '@redwoodjs/web/toast'
@@ -7,7 +5,7 @@ import { useMutation } from '@redwoodjs/web'
 
 import Button from 'src/components/Button'
 
-const AuthButton = () => {
+const AuthButton = (props) => {
   const { isAuthenticated, logOut, currentUser } = useAuth()
 
   const [portal] = useMutation(
@@ -51,21 +49,12 @@ const AuthButton = () => {
           <Button onClick={onUserButtonClick} icon="user" />
         </>
       ) : (
-        <Button to={routes.login()}>Log In</Button>
+        <Button to={routes.login()} {...props}>
+          Log in
+        </Button>
       )}
-      <HLine />
     </>
   )
 }
 
 export default AuthButton
-
-// Styles
-const HLine = styled.div`
-  width: 1px;
-  height: var(--size-5);
-  background-color: var(--gray-6);
-
-  display: flex;
-  align-self: center;
-`

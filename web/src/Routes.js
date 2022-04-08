@@ -21,7 +21,7 @@ const Routes = () => {
         <Route path="/failure" page={FailurePage} name="failure" />
       </Set>
 
-      <Set wrap={AuthLayout}>
+      <Set wrap={[AuthLayout, CartProvider, MainLayout]}>
         <Route path="/login" page={LoginPage} name="login" />
         <Route path="/signup" page={SignupPage} name="signup" />
         <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />

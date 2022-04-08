@@ -20,7 +20,7 @@ const CartDropDown = ({ toggleVisibility }) => {
       <List items={cart} Component={CartItem} direction={'column'} />
       {!canCheckout && <CenteredText>Your cart is empty</CenteredText>}
       <Row>
-        <Button variant="primary" onClick={checkout} disabled={!canCheckout}>
+        <Button onClick={checkout} disabled={!canCheckout}>
           Checkout
         </Button>
         <Button variant="secondary" onClick={clearCart}>
@@ -47,9 +47,16 @@ const CartItem = ({ image, quantity, name }) => {
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 100%;
 
-  background: var(--white);
+  top: var(--size-8);
+  right: 0px;
+
+  /*
+    Not great
+  */
+  z-index: 1;
+
+  background-color: var(--white);
   border-radius: var(--radius-2);
   box-shadow: var(--shadow-4);
 

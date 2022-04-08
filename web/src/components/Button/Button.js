@@ -1,169 +1,80 @@
 import styled, { css } from 'styled-components'
-import { User, ShoppingCart } from 'react-feather'
-
 import { Link } from '@redwoodjs/router'
 
-const Icons = {
-  user: User,
-  shoppingCart: ShoppingCart,
-}
+const Button = ({ children, ...props }) => {
+  const { to, variant, ...rest } = props
 
-const Button = ({ children = '', icon = '', ...args }) => {
-  const handleOnButtonClick = (e) => {
-    if ('onClick' in args) {
-      args.onClick(e)
-    }
-  }
-  const Icon = Icons[icon]
-  if ('to' in args) {
+  if ('to' in props) {
     return (
-      <StyledLink to={args.to} {...args}>
+      <StyledLink to={to} {...rest}>
         {children}
       </StyledLink>
     )
-  } else {
-    return (
-      <StyledButton onClick={handleOnButtonClick} {...args}>
-        {children} {icon !== '' && <Icon />}
-      </StyledButton>
-    )
+  }
+
+  switch (variant) {
+    case 'secondary':
+      return <SecondaryButton {...rest}>{children}</SecondaryButton>
+    case 'transparent':
+      return <TransparentButton {...rest}>{children}</TransparentButton>
+    default:
+      return <ButtonBase {...rest}>{children}</ButtonBase>
   }
 }
 
 export default Button
 
-const StyledButton = styled.button`
-  background: none;
-  border: none;
-  padding: 0;
-
-  padding: 0.5em var(--padding);
-  border-radius: 2px;
-  display: inline-flex;
-  align-items: center;
-
-  &:active {
-    cursor: pointer;
-  }
-
-  &:hover {
-    cursor: pointer;
-    background: var(--gray-1);
-  }
-
-  ${(props) =>
-    props.active &&
-    css`
-      cursor: pointer;
-      background: var(--gray-light);
-      color: var(--primary);
-
-      svg {
-        stroke: var(--primary);
-      }
-    `}
-
-  ${(props) =>
-    props.variant === 'primary' &&
-    css`
-      background: var(--primary);
-      color: var(--white);
-      padding: 0.5em var(--padding);
-
-      &:hover {
-        background: var(--gray-1);
-        color: var(--black);
-      }
-    `}
-
-     ${(props) =>
-    props.variant === 'secondary' &&
-    css`
-      background: var(--gray-dark);
-      color: var(--white);
-      padding: 0.5em var(--padding);
-
-      &:hover {
-        background: var(--gray-light);
-        color: var(--black);
-      }
-    `}
-
-    ${(props) =>
-    props.disabled &&
-    css`
-      background: var(--gray-light);
-      color: var(--gray-dark);
-
-      &:hover {
-        cursor: default;
-        color: var(--gray-dark);
-      }
-    `}
-`
+// Styles
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: inherit;
 
-  padding: 0.5em var(--padding);
-  border-radius: 2px;
-  display: inline-flex;
-  align-items: center;
+  color: var(--link);
+
+  padding: var(--size-1) var(--size-3);
+  border-radius: var(--radius-2);
 
   &:hover {
     cursor: pointer;
-    background: var(--gray-1);
-    border-radius: 2px;
+    text-decoration: underline;
   }
+`
+
+const ButtonBase = styled.button`
+  padding: var(--size-2) var(--size-3);
+
+  background-color: var(--primary);
+
+  border: none;
+  border-radius: var(--radius-2);
+
+  color: var(--gray-0);
+
+  transition: filter 500ms;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(135%);
+    transition: filter 200ms;
+  }
+`
+
+const SecondaryButton = styled(ButtonBase)`
+  background-color: var(--gray-5);
+
+  &:hover {
+    filter: brightness(115%);
+    transition: filter 200ms;
+  }
+`
+
+const TransparentButton = styled(ButtonBase)`
+  background-color: transparent;
+  border: none;
 
   ${(props) =>
     props.active &&
     css`
-      cursor: pointer;
-      background: var(--gray-light);
-      color: var(--primary);
-
-      svg {
-        stroke: var(--primary);
-      }
-    `}
-
-  ${(props) =>
-    props.variant === 'primary' &&
-    css`
-      background: var(--primary);
-      color: var(--white);
-      padding: 0.5em var(--padding);
-
-      &:hover {
-        background: var(--gray-1);
-        color: var(--black);
-      }
-    `}
-
-     ${(props) =>
-    props.variant === 'secondary' &&
-    css`
-      background: var(--gray-dark);
-      color: var(--white);
-      padding: 0.5em var(--padding);
-
-      &:hover {
-        background: var(--gray-light);
-        color: var(--black);
-      }
-    `}
-
-    ${(props) =>
-    props.disabled &&
-    css`
-      background: var(--gray-light);
-      color: var(--gray-dark);
-
-      &:hover {
-        cursor: default;
-        color: var(--gray-dark);
-      }
+      background-color: var(--gray-3);
     `}
 `

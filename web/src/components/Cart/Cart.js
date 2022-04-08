@@ -1,38 +1,44 @@
 import { useState } from 'react'
 import styled from 'styled-components'
+import { ShoppingCart } from 'react-feather'
 
 import CartDropDown from 'src/components/CartDropDown'
 import Button from 'src/components/Button'
 
 import { useCart } from 'src/components/CartProvider'
 
-const Cart = () => {
+const Cart = (props) => {
   const [isVisible, setVisibility] = useState(false)
-  const cart = useCart()
 
   const toggleVisibility = () => setVisibility(!isVisible)
+
+  const cart = useCart()
+
   const getCartQuantity = () => {
-    if (cart.length > 0) {
-      const length = cart.reduce((total, item) => {
-        return total + item.quantity
-      }, 0)
-      return length
+    if (!cart.length) {
+      return ''
     }
-    return 0
+
+    return cart.reduce((total, item) => {
+      return total + item.quantity
+    }, 0)
   }
 
   const quantity = getCartQuantity()
 
   return (
-    <>
-      <IndicatorButton
+    <div style={{ position: 'relative' }}>
+      <ShoppingCartButton
+        variant="transparent"
         onClick={toggleVisibility}
-        icon="shoppingCart"
         active={isVisible}
         data-quantity={quantity}
-      />
+        {...props}
+      >
+        <StyledShoppingCart />
+      </ShoppingCartButton>
       {isVisible && <CartDropDown toggleVisibility={toggleVisibility} />}
-    </>
+    </div>
   )
 }
 
@@ -40,23 +46,28 @@ export default Cart
 
 /* Styles */
 
-const IndicatorButton = styled(Button)`
-  position: relative;
+const ShoppingCartButton = styled(Button)`
+  &:after {
+    content: attr(data-quantity);
 
-  svg {
-    stroke: var(--primary);
+    position: absolute;
+    top: -4px;
+    right: 2px;
+
+    font-size: var(--font-size-0);
+
+    color: var(--gray-0);
+    background-color: var(--primary);
+
+    padding: 0 calc(var(--size-1) * 1.25);
+    border-radius: var(--radius-round);
+
+    border: var(--border-size-2) solid var(--gray-0);
   }
+`
 
-    &:after {
-      content: attr(data-quantity);
-      display: block;
-      position: absolute;
-      top: -0.1em;
-      right: -0.1em;
-      padding: 0 0.4em;
-      border-radius: 1em;
-      font-size: var(--font-size-0);
-      background: var(--primary);
-      color: var(--white);
+const StyledShoppingCart = styled(ShoppingCart)`
+  transform: translateX(-2px);
 
+  color: var(--primary);
 `
