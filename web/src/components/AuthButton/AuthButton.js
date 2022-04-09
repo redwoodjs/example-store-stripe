@@ -2,6 +2,8 @@ import { routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 import { toast } from '@redwoodjs/web/toast'
 import { useMutation } from '@redwoodjs/web'
+import { User } from 'react-feather'
+import styled from 'styled-components'
 
 import Button from 'src/components/Button'
 
@@ -45,8 +47,12 @@ const AuthButton = (props) => {
     <>
       {isAuthenticated ? (
         <>
-          <Button onClick={onLogoutButtonClick}>Log Out</Button>
-          <Button onClick={onUserButtonClick} icon="user" />
+          <Button onClick={onLogoutButtonClick} {...props}>
+            Log out
+          </Button>
+          <Button variant="transparent" onClick={onUserButtonClick} {...props}>
+            <StyledUser />
+          </Button>
         </>
       ) : (
         <Button to={routes.login()} {...props}>
@@ -58,3 +64,9 @@ const AuthButton = (props) => {
 }
 
 export default AuthButton
+
+// Styles
+
+const StyledUser = styled(User)`
+  color: var(--primary);
+`
