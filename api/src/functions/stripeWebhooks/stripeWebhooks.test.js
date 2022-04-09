@@ -1,8 +1,8 @@
 import { mockHttpEvent } from '@redwoodjs/testing/api'
 
-import { handler } from './stripeWebhooks'
-
 import { stripe } from 'src/lib/stripe'
+
+import { handler } from './stripeWebhooks'
 
 describe('stripeWebhooks function', () => {
   it('Should respond with 200', async () => {

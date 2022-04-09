@@ -1,9 +1,10 @@
-import { routes } from '@redwoodjs/router'
-import { useAuth } from '@redwoodjs/auth'
-import { toast } from '@redwoodjs/web/toast'
-import { useMutation } from '@redwoodjs/web'
 import { User } from 'react-feather'
 import styled from 'styled-components'
+
+import { useAuth } from '@redwoodjs/auth'
+import { routes } from '@redwoodjs/router'
+import { useMutation } from '@redwoodjs/web'
+import { toast } from '@redwoodjs/web/toast'
 
 import Button from 'src/components/Button'
 

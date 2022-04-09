@@ -1,7 +1,7 @@
 // This handles a user coming straight to /login.
 // Unlikely, but still.
-import { Redirect, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
+import { Redirect, routes } from '@redwoodjs/router'
 
 const AuthLayout = ({ children }) => {
   const { loading, isAuthenticated } = useAuth()

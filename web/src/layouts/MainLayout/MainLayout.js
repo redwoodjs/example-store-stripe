@@ -1,5 +1,6 @@
-import { routes, Link } from '@redwoodjs/router'
 import styled from 'styled-components'
+
+import { routes, Link } from '@redwoodjs/router'
 
 import AuthButton from 'src/components/AuthButton'
 import Cart from 'src/components/Cart'
