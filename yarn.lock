@@ -6358,22 +6358,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xstate/react@npm:2.0.1":
-  version: 2.0.1
-  resolution: "@xstate/react@npm:2.0.1"
+"@xstate/react@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@xstate/react@npm:3.0.0"
   dependencies:
     use-isomorphic-layout-effect: ^1.0.0
-    use-subscription: ^1.3.0
+    use-sync-external-store: ^1.0.0
   peerDependencies:
-    "@xstate/fsm": ^1.6.5
-    react: ^16.8.0 || ^17.0.0
-    xstate: ^4.30.3
+    "@xstate/fsm": ^2.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    xstate: ^4.31.0
   peerDependenciesMeta:
     "@xstate/fsm":
       optional: true
     xstate:
       optional: true
-  checksum: c83f53899361c3a2b4f9281c308c7f20b4f9cee15fea983fe77f2f29de6c1837f57aa9a695ed3242462a89057b22daa60273eff422351b554a8b244bd4cd8d94
+  checksum: 021be342854322a1bf119ef98b1af67a0b0397a9681285417026035831c7f9b21336079e10ff47d2d8426f2e3d96339dbe3f702b4075d6010294b2481af01080
   languageName: node
   linkType: hard
 
@@ -22812,14 +22812,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-subscription@npm:^1.3.0":
-  version: 1.5.1
-  resolution: "use-subscription@npm:1.5.1"
-  dependencies:
-    object-assign: ^4.1.1
+"use-sync-external-store@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "use-sync-external-store@npm:1.0.0"
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-  checksum: 0de6185cd5890a0640cd08b616f9de7875c41d51e6570894eb2bb83fa48c6137eaa56c360edb8fb9f7f253b9705e103bca52fbcd9f86b03d07c6467d282758fc
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0-rc
+  checksum: d0f0db476582e7bdc2900553e4a844e990719f47689d450a9a1aa21cff00320880bfc1160b8ff8c192218f3f7e99afec9cbddb9ea2ca2610f23c45a78455535f
   languageName: node
   linkType: hard
 
@@ -23161,7 +23159,7 @@ __metadata:
     "@redwoodjs/web": 1.0.0
     "@stripe/stripe-js": 1.27.0
     "@xstate/immer": 0.3.1
-    "@xstate/react": 2.0.1
+    "@xstate/react": 3.0.0
     immer: 9.0.12
     open-props: 1.3.16
     prop-types: 15.8.1
