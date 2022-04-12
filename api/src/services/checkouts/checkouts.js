@@ -2,10 +2,15 @@ import { db } from 'src/lib/db'
 import { stripe } from 'src/lib/stripe'
 
 /**
- * @param {'payment' | 'subscription'} mode
- * @param {{ id: string, quantity: number }} cart
+ * @param {{
+ *   mode: 'payment' | 'subscription'
+ *   cart: Array<{ id: string, quantity: number }>
+ *   customerId?: string
+ * }}
+ *
+ * @returns {import('stripe').Stripe.Checkout.Session}
  */
-export const checkout = async ({ mode, cart, customerId }) => {
+export const createCheckoutSession = async ({ mode, cart, customerId }) => {
   // eslint-disable-next-line camelcase
   const line_items = cart.map((product) => ({
     price: product.id,
@@ -13,12 +18,9 @@ export const checkout = async ({ mode, cart, customerId }) => {
   }))
 
   return stripe.checkout.sessions.create({
-    success_url: `${
-      context.request?.headers?.referer ?? process.env.DOMAIN_URL
-    }success?sessionId={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${
-      context.request?.headers?.referer ?? process.env.DOMAIN_URL
-    }failure`,
+    // See https://stripe.com/docs/payments/checkout/custom-success-page#modify-success-url.
+    success_url: `${context.event.headers.referer}success?sessionId={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${context.event.headers.referer}failure`,
     // eslint-disable-next-line camelcase
     line_items,
     mode,
@@ -27,22 +29,43 @@ export const checkout = async ({ mode, cart, customerId }) => {
   })
 }
 
-export const getSession = async ({ id }) => {
-  // Get session object
-  const session = await stripe.checkout.sessions.retrieve(id)
+/**
+ * @param {{ id: string }}
+ *
+ * @returns {import('stripe').Stripe.Checkout.Session}
+ */
+export const getCheckoutSession = async ({ id }) => {
+  const checkoutSession = await stripe.checkout.sessions.retrieve(id)
 
-  // Use customer to find out whether customer has signed up before
+  // Find out whether they've signed up
   const user = await db.user.findUnique({
-    where: { email: session.customer_details.email },
+    where: { email: checkoutSession.customer_details.email },
   })
 
   const isSignedUp = !!user
 
   return {
-    id: session.id,
-    customerId: session.customer,
-    customerName: session.customer_details.name,
-    customerEmail: session.customer_details.email,
+    id: checkoutSession.id,
+    customerId: checkoutSession.customer,
+    customerName: checkoutSession.customer_details.name,
+    customerEmail: checkoutSession.customer_details.email,
     customerSignedUp: isSignedUp,
+  }
+}
+
+export const createPaymentIntent = async () => {
+  // need to calc amount and currency?
+
+  // Always decide how much to charge on the server side, a trusted environment, as opposed to the client.
+  // This prevents malicious customers from being able to choose their own prices.
+
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: 1099,
+    currency: 'usd',
+    automatic_payment_methods: { enabled: true },
+  })
+
+  return {
+    clientSecret: paymentIntent.client_secret,
   }
 }

@@ -69,7 +69,7 @@ const Grid = styled.div`
   padding-left: calc(100vw - 100%);
 
   display: grid;
-  row-gap: var(--padding);
+  row-gap: calc(var(--padding) * 2);
 
   /*
     The min function takes two values and returns the smaller of them.

@@ -1,10 +1,10 @@
 export const schema = gql`
-  type Session {
-    id: String!
-    customerId: String
+  type CheckoutSession {
+    id: ID!
+    customerId: ID
     customerEmail: String
     customerName: String
-    customerSignedUp: Boolean
+    customerSignedUp: Boolean!
   }
 
   enum Mode {
@@ -12,19 +12,34 @@ export const schema = gql`
     subscription
   }
 
-  input ProductInput {
+  type PaymentIntent {
+    clientSecret: String!
+  }
+
+  input CartItem {
     id: ID!
     quantity: Int!
   }
 
   type Query {
-    getSession(id: ID!): Session! @skipAuth
+    getCheckoutSession(id: ID!): CheckoutSession! @skipAuth
   }
 
   type Mutation {
-    # In GraphQL, we can't reuse types as mutation inputs
-    # (otherwise we'd just type "cart" as "[Product!]!")
-    checkout(mode: Mode!, cart: [ProductInput!]!, customerId: String): Session!
-      @skipAuth
+    createCheckoutSession(
+      mode: Mode!
+      # In GraphQL, we can't reuse types as mutation inputs.
+      # (Otherwise we'd just type "cart" as "[Product!]!")
+      cart: [CartItem!]!
+      customerId: ID
+    ): CheckoutSession! @skipAuth
+
+    createPaymentIntent(
+      mode: Mode
+      # In GraphQL, we can't reuse types as mutation inputs.
+      # (Otherwise we'd just type "cart" as "[Product!]!")
+      cart: [CartItem]
+      customerId: ID
+    ): PaymentIntent! @skipAuth
   }
 `

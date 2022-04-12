@@ -1,6 +1,3 @@
-import { useRef } from 'react'
-import { useEffect } from 'react'
-
 import { useAuth } from '@redwoodjs/auth'
 import {
   Form,
@@ -17,14 +14,8 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 const SignupPage = () => {
   const { signUp } = useAuth()
 
-  // focus on email box on page load
-  const usernameRef = useRef()
-  useEffect(() => {
-    usernameRef.current.focus()
-  }, [])
-
   const onSubmit = async (data) => {
-    const response = await signUp({ ...data })
+    const response = await signUp(data)
 
     if (response.message) {
       toast(response.message)
@@ -62,7 +53,6 @@ const SignupPage = () => {
                     name="username"
                     className="rw-input"
                     errorClassName="rw-input rw-input-error"
-                    ref={usernameRef}
                     validation={{
                       required: {
                         value: true,

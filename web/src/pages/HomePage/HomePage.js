@@ -1,8 +1,30 @@
+import { useState } from 'react'
+
+import { Elements, PaymentElement } from '@stripe/react-stripe-js'
 import styled from 'styled-components'
 
+import { useMutation } from '@redwoodjs/web'
+
+import { useStripe } from 'src/components/CartProvider'
 import ProductsCell from 'src/components/ProductsCell'
 
 const HomePage = () => {
+  const stripe = useStripe()
+
+  const [clientSecret, setSecret] = useState(undefined)
+
+  const [createPaymentIntent] = useMutation(gql`
+    mutation CreatePaymentIntent(
+      $mode: Mode
+      $cart: [CartItem]
+      $customerId: ID
+    ) {
+      createPaymentIntent(mode: $mode, cart: $cart, customerId: $customerId) {
+        clientSecret
+      }
+    }
+  `)
+
   return (
     <Main>
       <article>
@@ -21,6 +43,38 @@ const HomePage = () => {
         </Description>
         <ProductsCell type={'recurring'} />
       </article>
+
+      <article>
+        <button
+          onClick={async () => {
+            const {
+              data: {
+                createPaymentIntent: { clientSecret },
+              },
+            } = await createPaymentIntent()
+
+            setSecret(clientSecret)
+          }}
+        >
+          checkout with stripe elements
+        </button>
+        {clientSecret && (
+          <Elements
+            stripe={stripe}
+            options={{
+              clientSecret,
+              appearance: {
+                theme: 'stripe',
+              },
+            }}
+          >
+            <form>
+              <PaymentElement />
+              <button>Submit</button>
+            </form>
+          </Elements>
+        )}
+      </article>
     </Main>
   )
 }
@@ -32,7 +86,7 @@ export default HomePage
 const Main = styled.main`
   display: flex;
   flex-direction: column;
-  gap: var(--padding);
+  gap: calc(var(--padding) * 2);
 `
 
 const Description = styled.p`

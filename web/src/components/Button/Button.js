@@ -5,50 +5,81 @@ import { Link } from '@redwoodjs/router'
 const Button = ({ children, ...props }) => {
   const { to, variant, ...rest } = props
 
-  if ('to' in props) {
-    return (
-      <StyledLink to={to} {...rest}>
-        {children}
-      </StyledLink>
-    )
-  }
+  let Component
 
   switch (variant) {
     case 'secondary':
-      return <SecondaryButton {...rest}>{children}</SecondaryButton>
-    case 'transparent':
-      return <TransparentButton {...rest}>{children}</TransparentButton>
+      Component = SecondaryButton
+      break
+    case 'icon':
+      Component = IconButton
+      break
+    case 'link':
+      Component = LinkButton
+      break
     default:
-      return <ButtonBase {...rest}>{children}</ButtonBase>
+      Component = FillButton
   }
+
+  if (to) {
+    return (
+      <Component as={StyledLink} to={to} {...rest}>
+        {children}
+      </Component>
+    )
+  }
+
+  return <Component {...rest}>{children}</Component>
 }
 
 export default Button
 
 // Styles
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-
-  color: var(--link);
-
-  padding: var(--size-1) var(--size-3);
+const BaseButton = styled.button`
+  padding: var(--size-2) var(--size-3);
+  border: none;
   border-radius: var(--radius-2);
 
   &:hover {
     cursor: pointer;
+  }
+`
+
+const SecondaryButton = styled(BaseButton)`
+  background-color: var(--gray-3);
+
+  transition: 500ms;
+
+  &:hover {
+    filter: brightness(105%);
+    transition: filter 200ms;
+  }
+`
+
+const IconButton = styled(BaseButton)`
+  background-color: transparent;
+
+  transition: 500ms;
+
+  &:hover {
+    background-color: var(--gray-2);
+    transition: background-color 200ms;
+  }
+
+  & > svg {
+    color: var(--primary);
+  }
+`
+
+const LinkButton = styled(BaseButton)`
+  &:hover {
     text-decoration: underline;
   }
 `
 
-const ButtonBase = styled.button`
-  padding: var(--size-2) var(--size-3);
-
+const FillButton = styled(BaseButton)`
   background-color: var(--primary);
-
-  border: none;
-  border-radius: var(--radius-2);
-
   color: var(--gray-0);
 
   transition: filter 500ms;
@@ -60,22 +91,13 @@ const ButtonBase = styled.button`
   }
 `
 
-const SecondaryButton = styled(ButtonBase)`
-  background-color: var(--gray-5);
+const StyledLink = styled(Link)`
+  color: var(--link);
+
+  text-decoration: none;
+  display: inline-block;
 
   &:hover {
-    filter: brightness(115%);
-    transition: filter 200ms;
+    text-decoration: underline;
   }
-`
-
-const TransparentButton = styled(ButtonBase)`
-  background-color: transparent;
-  border: none;
-
-  ${(props) =>
-    props.active &&
-    css`
-      background-color: var(--gray-3);
-    `}
 `

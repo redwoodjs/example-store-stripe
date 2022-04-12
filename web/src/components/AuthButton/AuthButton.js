@@ -1,5 +1,4 @@
 import { User } from 'react-feather'
-import styled from 'styled-components'
 
 import { useAuth } from '@redwoodjs/auth'
 import { routes } from '@redwoodjs/router'
@@ -11,34 +10,33 @@ import Button from 'src/components/Button'
 const AuthButton = (props) => {
   const { isAuthenticated, logOut, currentUser } = useAuth()
 
-  const [portal] = useMutation(
+  const onLogoutButtonClick = async () => {
+    await logOut()
+    toast.success("You've been successfully logged out")
+  }
+
+  const [createBillingPortalSession] = useMutation(
     gql`
-      mutation Portal($userId: ID!) {
-        portal(userId: $userId) {
+      mutation CreateBillingPortalSession($userId: ID!) {
+        createBillingPortalSession(userId: $userId) {
           url
         }
       }
     `
   )
 
-  const onLogoutButtonClick = async () => {
-    await logOut()
-    toast.success("You've been successfully logged out")
-  }
-
+  // Create a billing portal session for the current user.
   const onUserButtonClick = async () => {
-    // create portal session to get temp url
-    const session = currentUser
     try {
       const {
         data: {
-          portal: { url },
+          createPortal: { url },
         },
-      } = await portal({
-        variables: { userId: session.id },
+      } = await createBillingPortalSession({
+        variables: { userId: currentUser.id },
       })
-      // redirect user to Stripe customer portal
-      window.location.replace(url)
+
+      window.location.assign(url)
     } catch (e) {
       toast.error("Couldn't create a session at this time")
     }
@@ -51,12 +49,12 @@ const AuthButton = (props) => {
           <Button onClick={onLogoutButtonClick} {...props}>
             Log out
           </Button>
-          <Button variant="transparent" onClick={onUserButtonClick} {...props}>
-            <StyledUser />
+          <Button variant="icon" onClick={onUserButtonClick} {...props}>
+            <User style={{ color: 'var(--primary)' }} />
           </Button>
         </>
       ) : (
-        <Button to={routes.login()} {...props}>
+        <Button variant="link" to={routes.login()} {...props}>
           Log in
         </Button>
       )}
@@ -65,9 +63,3 @@ const AuthButton = (props) => {
 }
 
 export default AuthButton
-
-// Styles
-
-const StyledUser = styled(User)`
-  color: var(--primary);
-`
