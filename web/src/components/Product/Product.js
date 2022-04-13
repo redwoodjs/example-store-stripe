@@ -4,6 +4,7 @@ import { useAddToCart } from 'src/components/CartProvider'
 
 const Product = ({ id, name, description, price, image, type }) => {
   const addToCart = useAddToCart()
+
   return (
     <Wrapper
       onClick={() => addToCart({ id, name, description, price, image, type })}

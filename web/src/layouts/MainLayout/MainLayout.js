@@ -8,49 +8,41 @@ import Footer from 'src/components/Footer'
 
 const MainLayout = ({ children }) => {
   return (
-    <Grid>
+    <Wrapper>
       <Header>
-        <H1>
-          <StyledLink to={routes.home()}>
+        {/* Push the other flex items all the way to the right. */}
+        <h1 style={{ marginRight: 'auto' }}>
+          <TitleLink to={routes.home()}>
             <Gradient>Superstore</Gradient>
-          </StyledLink>
+          </TitleLink>
 
           <Subtitle>
             Powered by{' '}
-            <A
+            <BrandLink
               href="https://redwoodjs.com"
               style={{
                 '--color': 'var(--redwood)',
               }}
             >
               RedwoodJS
-            </A>{' '}
+            </BrandLink>{' '}
             and{' '}
-            <A
+            <BrandLink
               href="https://stripe.com/"
               style={{ '--color': 'var(--stripe)' }}
             >
               Stripe
-            </A>
+            </BrandLink>
           </Subtitle>
-        </H1>
-        <AuthButton
-          style={{ transform: 'translateY(calc(var(--padding) / 2))' }}
-        />
-        <HLine
-          style={{
-            transform: 'translateY(var(--size-2))',
-          }}
-        />
-        <Cart
-          style={{
-            transform: 'translateY(var(--size-2))',
-          }}
-        />
+        </h1>
+        {/* There's some trickiness with optical alignment here. */}
+        <AuthButton />
+        <HLine />
+        <Cart />
       </Header>
       {children}
       <Footer />
-    </Grid>
+    </Wrapper>
   )
 }
 
@@ -58,7 +50,7 @@ export default MainLayout
 
 // Styles
 
-const Grid = styled.div`
+const Wrapper = styled.div`
   height: 100%;
 
   /*
@@ -113,6 +105,9 @@ const Header = styled.header`
     but right now center (instead of baseline) seems to give the best results.
   */
   align-items: center;
+  & > :not(:first-child) {
+    transform: translateY(var(--size-1));
+  }
 
   /*
     The gradient border below the header.
@@ -129,14 +124,7 @@ const Header = styled.header`
   }
 `
 
-const H1 = styled.h1`
-  /*
-    Push the other flex items all the way to the right.
-  */
-  margin-right: auto;
-`
-
-const StyledLink = styled(Link)`
+const TitleLink = styled(Link)`
   text-decoration: none;
 
   font-size: var(--font-size-7);
@@ -172,7 +160,7 @@ const Subtitle = styled.span`
   font-weight: var(--font-weight-4);
 `
 
-const A = styled.a`
+const BrandLink = styled.a`
   text-decoration: none;
   color: var(--color);
 

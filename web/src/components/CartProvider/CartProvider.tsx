@@ -41,6 +41,7 @@ const cartMachine =
   createMachine(
     {
       context: { cart: [], stripe: undefined },
+      // XState typegen. The VSCode extension handles this for us automatically.
       tsTypes: {} as import('./CartProvider.typegen').Typegen0,
       schema: {
         context: {} as {
