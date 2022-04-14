@@ -252,7 +252,7 @@ const CartProvider = ({ children }) => {
               cart: context.cart.map((item) => ({ id: item.id, quantity: 1 })),
               mode,
               // If they're logged in, get `customerId` from `currentUser`
-              ...(isAuthenticated && { customerId: currentUser.id }),
+              ...(isAuthenticated && { customerId: currentUser.customerId }),
             },
           }
 
