@@ -4,15 +4,13 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
+  
   workflow_dispatch:
 
 jobs:
   ci:
+    name: CI
     runs-on: ubuntu-latest
-
     steps:
       - name: Redwood Project CI
         uses: redwoodjs/project-ci-action@v0.1.1
