@@ -13,10 +13,10 @@
     ]
   },
   "dependencies": {
-    "@redwoodjs/auth": "1.0.1",
-    "@redwoodjs/forms": "1.0.1",
-    "@redwoodjs/router": "1.0.1",
-    "@redwoodjs/web": "1.0.1",
+    "@redwoodjs/auth": "1.0.2",
+    "@redwoodjs/forms": "1.0.2",
+    "@redwoodjs/router": "1.0.2",
+    "@redwoodjs/web": "1.0.2",
     "@stripe/stripe-js": "1.27.0",
     "@xstate/immer": "0.3.1",
     "@xstate/react": "2.0.1",
