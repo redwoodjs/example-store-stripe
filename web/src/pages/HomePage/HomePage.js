@@ -4,7 +4,7 @@ import ProductsCell from 'src/components/ProductsCell'
 
 const HomePage = () => {
   return (
-    <>
+    <Wrapper>
       <article>
         <h2>Super Tokens</h2>
         <Description>
@@ -21,11 +21,19 @@ const HomePage = () => {
         </Description>
         <ProductsCell type={'recurring'} />
       </article>
-    </>
+    </Wrapper>
   )
 }
 
 export default HomePage
+
+// Styles
+
+const Wrapper = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--padding) * 2);
+`
 
 const Description = styled.p`
   margin-bottom: var(--padding);

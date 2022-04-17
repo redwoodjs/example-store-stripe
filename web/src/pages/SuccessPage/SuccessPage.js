@@ -1,5 +1,5 @@
-import { MetaTags } from '@redwoodjs/web'
 import { useParams } from '@redwoodjs/router'
+import { MetaTags } from '@redwoodjs/web'
 
 import CheckoutSuccessCell from 'src/components/CheckoutSuccessCell/CheckoutSuccessCell'
 

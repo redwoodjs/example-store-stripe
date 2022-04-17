@@ -1,20 +1,14 @@
-name: CI
+name: ⚙️ CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 
 jobs:
-  ci:
+  redwood-ci:
+    name: 🌲 Redwood CI
     runs-on: ubuntu-latest
-
     steps:
-      - name: Redwood Project CI
+      - name: 🌲 Redwood CI
         uses: redwoodjs/project-ci-action@v0.1.1
-        env:
-          DOMAIN_URL: "http://localhost:8910/"

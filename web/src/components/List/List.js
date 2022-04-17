@@ -27,7 +27,9 @@ export default List
 // Styles
 
 const Wrapper = styled.ul`
-  /*  ul resets */
+  /*
+    <ul> resets.
+  */
   list-style: none;
   padding: 0;
 

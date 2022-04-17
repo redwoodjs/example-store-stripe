@@ -34,11 +34,6 @@ const GlobalStyles = createGlobalStyle`
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-
-    /*
-      Our preferred font
-    */
-    font-family: var(--font-sans);
   }
 
   /*
@@ -68,6 +63,51 @@ const GlobalStyles = createGlobalStyle`
   */
   #redwood-app {
     isolation: isolate;
+  }
+
+  /*
+    ------------------------
+    Design system
+    ------------------------
+  */
+  :root {
+    --link: #7955ca;
+    --padding: var(--size-3);
+
+
+    /*
+      Color pallette
+    */
+    --primary: #7955ca;
+    --primary-tint: #D6B7D7;
+    /* --secondary: #43FCFD; */
+    --secondary: var(--gray-6);
+    --white: #fff;
+    --black: #0a0a0a;
+    --gray-light: var(--gray-1);
+    --gray-dark: var(--gray-5);
+
+    /*
+      Brand colors
+    */
+    --redwood: #bf4722;
+    --stripe: #635aff;
+
+    --brand-gradient: linear-gradient(-45deg, rgba(191,71,34,1) 0%, rgba(99,90,255,1) 100%);
+
+    /*
+      Constants
+    */
+    --shadow: var(--shadow-4);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--gray-0);
+  }
+
+  h2 {
+    color: var(--primary);
   }
 `
 
