@@ -9,7 +9,8 @@
     "editorconfig.editorconfig",
     "prisma.prisma",
     "graphql.vscode-graphql",
-    "statelyai.stately-vscode"
+    "statelyai.stately-vscode",
+    "styled-components.vscode-styled-components"
   ],
   "unwantedRecommendations": []
 }
