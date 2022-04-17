@@ -1,4 +1,4 @@
-name: CI
+name: ⚙️ CI
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
   pull_request:
   
 jobs:
-  ci:
-    name: ⚙️ CI
+  redwood-ci:
+    name: 🌲 Redwood CI
     runs-on: ubuntu-latest
     steps:
       - name: 🌲 Redwood CI
