@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { Redirect, routes } from '@redwoodjs/router'
+
 import { useAuth } from '@redwoodjs/auth'
+import { Redirect, routes } from '@redwoodjs/router'
 
 import Footer from 'src/components/Footer'
 

@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
 import { User, ShoppingCart } from 'react-feather'
+import styled, { css } from 'styled-components'
 
 import { Link } from '@redwoodjs/router'
 

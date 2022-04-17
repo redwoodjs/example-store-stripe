@@ -1,6 +1,6 @@
-import { MetaTags } from '@redwoodjs/web'
-
 import styled from 'styled-components'
+
+import { MetaTags } from '@redwoodjs/web'
 
 const FailurePage = () => {
   return (

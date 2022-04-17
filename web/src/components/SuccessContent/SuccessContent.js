@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+
 import { routes } from '@redwoodjs/router'
 
-import Shield from 'src/components/Shield'
-import Button from 'src/components/Button'
 import Banner from 'src/components/Banner'
+import Button from 'src/components/Button'
+import Shield from 'src/components/Shield'
 
 const SuccessContent = ({ customerName, customerSignedUp }) => {
   return (
