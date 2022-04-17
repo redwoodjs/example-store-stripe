@@ -1,9 +1,9 @@
 import { useState } from 'react'
+
 import styled from 'styled-components'
 
-import CartDropDown from 'src/components/CartDropDown'
 import Button from 'src/components/Button'
-
+import CartDropDown from 'src/components/CartDropDown'
 import { useCart } from 'src/components/CartProvider'
 
 const Cart = () => {

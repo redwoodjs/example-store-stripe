@@ -1,13 +1,15 @@
-import { createMachine } from 'xstate'
-import { assign } from '@xstate/immer'
-import { useInterpret } from '@xstate/react'
-import { toast } from '@redwoodjs/web/toast'
 import { createContext, useContext } from 'react'
-import { useSelector } from '@xstate/react'
-import { useMutation } from '@redwoodjs/web'
+
 import { loadStripe } from '@stripe/stripe-js'
-import { useParams } from '@redwoodjs/router'
+import { assign } from '@xstate/immer'
+import { useSelector } from '@xstate/react'
+import { useInterpret } from '@xstate/react'
+import { createMachine } from 'xstate'
+
 import { useAuth } from '@redwoodjs/auth'
+import { useParams } from '@redwoodjs/router'
+import { useMutation } from '@redwoodjs/web'
+import { toast } from '@redwoodjs/web/toast'
 
 const cartMachine = createMachine(
   {

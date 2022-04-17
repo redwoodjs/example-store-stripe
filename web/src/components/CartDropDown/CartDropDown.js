@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import List from 'src/components/List'
 import Button from 'src/components/Button'
 import {
   useCart,
@@ -8,6 +7,7 @@ import {
   useClearCart,
   useCanCheckout,
 } from 'src/components/CartProvider'
+import List from 'src/components/List'
 
 const CartDropDown = ({ toggleVisibility }) => {
   const cart = useCart()

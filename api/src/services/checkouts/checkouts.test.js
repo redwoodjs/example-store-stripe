@@ -1,4 +1,5 @@
 import { stripe } from 'src/lib/stripe'
+
 import { checkout } from './checkouts'
 
 describe('checkout', () => {

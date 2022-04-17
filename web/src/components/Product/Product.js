@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { useAddToCart } from 'src/components/CartProvider'
 
 const Product = ({ id, name, description = ' ', price, image, type }) => {
