@@ -1,169 +1,103 @@
-import { User, ShoppingCart } from 'react-feather'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { Link } from '@redwoodjs/router'
 
-const Icons = {
-  user: User,
-  shoppingCart: ShoppingCart,
-}
+const Button = ({ children, ...props }) => {
+  const { to, variant, ...rest } = props
 
-const Button = ({ children = '', icon = '', ...args }) => {
-  const handleOnButtonClick = (e) => {
-    if ('onClick' in args) {
-      args.onClick(e)
-    }
+  let Component
+
+  switch (variant) {
+    case 'secondary':
+      Component = SecondaryButton
+      break
+    case 'icon':
+      Component = IconButton
+      break
+    case 'link':
+      Component = LinkButton
+      break
+    default:
+      Component = FillButton
   }
-  const Icon = Icons[icon]
-  if ('to' in args) {
+
+  if (to) {
     return (
-      <StyledLink to={args.to} {...args}>
+      <Component as={StyledLink} to={to} {...rest}>
         {children}
-      </StyledLink>
-    )
-  } else {
-    return (
-      <StyledButton onClick={handleOnButtonClick} {...args}>
-        {children} {icon !== '' && <Icon />}
-      </StyledButton>
+      </Component>
     )
   }
+
+  return <Component {...rest}>{children}</Component>
 }
 
 export default Button
 
-const StyledButton = styled.button`
-  background: none;
+// Styles
+
+const BaseButton = styled.button`
+  padding: var(--size-2) var(--size-3);
   border: none;
-  padding: 0;
-
-  padding: 0.5em var(--padding);
-  border-radius: 2px;
-  display: inline-flex;
-  align-items: center;
-
-  &:active {
-    cursor: pointer;
-  }
+  border-radius: var(--radius-2);
 
   &:hover {
     cursor: pointer;
-    background: var(--gray-1);
+  }
+`
+
+const SecondaryButton = styled(BaseButton)`
+  background-color: var(--gray-3);
+
+  transition: 500ms;
+
+  &:hover {
+    filter: brightness(105%);
+    transition: filter 200ms;
+  }
+`
+
+const IconButton = styled(BaseButton)`
+  background-color: transparent;
+
+  transition: 500ms;
+
+  &:hover {
+    background-color: var(--gray-2);
+    transition: background-color 200ms;
   }
 
-  ${(props) =>
-    props.active &&
-    css`
-      cursor: pointer;
-      background: var(--gray-light);
-      color: var(--primary);
+  & > svg {
+    color: var(--primary);
+  }
+`
 
-      svg {
-        stroke: var(--primary);
-      }
-    `}
+const LinkButton = styled(BaseButton)`
+  &:hover {
+    text-decoration: underline;
+  }
+`
 
-  ${(props) =>
-    props.variant === 'primary' &&
-    css`
-      background: var(--primary);
-      color: var(--white);
-      padding: 0.5em var(--padding);
+const FillButton = styled(BaseButton)`
+  background-color: var(--primary);
+  color: var(--gray-0);
 
-      &:hover {
-        background: var(--gray-1);
-        color: var(--black);
-      }
-    `}
+  transition: filter 500ms;
 
-     ${(props) =>
-    props.variant === 'secondary' &&
-    css`
-      background: var(--gray-dark);
-      color: var(--white);
-      padding: 0.5em var(--padding);
-
-      &:hover {
-        background: var(--gray-light);
-        color: var(--black);
-      }
-    `}
-
-    ${(props) =>
-    props.disabled &&
-    css`
-      background: var(--gray-light);
-      color: var(--gray-dark);
-
-      &:hover {
-        cursor: default;
-        color: var(--gray-dark);
-      }
-    `}
+  &:hover {
+    cursor: pointer;
+    filter: brightness(135%);
+    transition: filter 200ms;
+  }
 `
 
 const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
+  color: var(--link);
 
-  padding: 0.5em var(--padding);
-  border-radius: 2px;
-  display: inline-flex;
-  align-items: center;
+  text-decoration: none;
+  display: inline-block;
 
   &:hover {
-    cursor: pointer;
-    background: var(--gray-1);
-    border-radius: 2px;
+    text-decoration: underline;
   }
-
-  ${(props) =>
-    props.active &&
-    css`
-      cursor: pointer;
-      background: var(--gray-light);
-      color: var(--primary);
-
-      svg {
-        stroke: var(--primary);
-      }
-    `}
-
-  ${(props) =>
-    props.variant === 'primary' &&
-    css`
-      background: var(--primary);
-      color: var(--white);
-      padding: 0.5em var(--padding);
-
-      &:hover {
-        background: var(--gray-1);
-        color: var(--black);
-      }
-    `}
-
-     ${(props) =>
-    props.variant === 'secondary' &&
-    css`
-      background: var(--gray-dark);
-      color: var(--white);
-      padding: 0.5em var(--padding);
-
-      &:hover {
-        background: var(--gray-light);
-        color: var(--black);
-      }
-    `}
-
-    ${(props) =>
-    props.disabled &&
-    css`
-      background: var(--gray-light);
-      color: var(--gray-dark);
-
-      &:hover {
-        cursor: default;
-        color: var(--gray-dark);
-      }
-    `}
 `

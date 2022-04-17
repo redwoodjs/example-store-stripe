@@ -7,7 +7,7 @@ import { useInterpret } from '@xstate/react'
 import { createMachine } from 'xstate'
 
 import { useAuth } from '@redwoodjs/auth'
-import { useParams } from '@redwoodjs/router'
+import { useLocation } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
@@ -17,58 +17,60 @@ const cartMachine = createMachine(
     context: {
       cart: [],
     },
-    initial: 'restoring',
+    initial: 'Restoring cart',
     states: {
-      restoring: {
+      'Restoring cart': {
         invoke: {
-          src: 'restore',
+          src: 'Restore cart',
         },
         on: {
-          RESTORE: {
-            target: 'shopping',
-            actions: 'restoreCart',
+          'Cart restored': {
+            target: 'Shopping',
+            actions: 'Restore cart',
           },
         },
       },
-      shopping: {
+      Shopping: {
         on: {
-          ADD: {
-            actions: ['addToCart', () => toast.success('Added to cart')],
+          'Add to cart': {
+            actions: ['Add to cart', () => toast.success('Added to cart')],
           },
-          REMOVE: {
+          'Remove from cart': {
             actions: [
-              'removeFromCart',
+              'Remove from cart',
               () => toast.success('Removed from cart'),
             ],
           },
-          CLEAR: {
-            actions: ['clearCart', () => toast.success('Cleared cart')],
+          'Clear cart': {
+            actions: ['Clear cart', () => toast.success('Cleared cart')],
           },
-          CHECKOUT: 'redirecting',
+          Checkout: 'Redirecting to Stripe Checkout',
         },
       },
-      redirecting: {
+      'Redirecting to Stripe Checkout': {
         invoke: {
-          src: 'checkout',
+          src: 'Redirect to Stripe Checkout',
         },
       },
     },
   },
   {
     actions: {
-      restoreCart: assign((context, event) => {
+      'Restore cart': assign((context, event) => {
         context.cart = event.cart
       }),
-      addToCart: assign((context, event) => {
+      'Add to cart': assign((context, event) => {
         const item = context.cart.find((item) => item.id === event.item.id)
+
         if (item) {
           item.quantity += 1
         } else {
           context.cart.push({ ...event.item, quantity: 1 })
         }
       }),
-      removeFromCart: assign((context, event) => {
+      'Remove from cart': assign((context, event) => {
         const item = context.cart.find((item) => item.id === event.item.id)
+
         if (item.quantity > 1) {
           item.quantity -= 1
         } else {
@@ -77,7 +79,7 @@ const cartMachine = createMachine(
           )
         }
       }),
-      clearCart: assign((context, _event) => {
+      'Clear cart': assign((context, _event) => {
         context.cart = []
       }),
     },
@@ -103,61 +105,62 @@ const CartProvider = ({ children }) => {
 
   const { currentUser, isAuthenticated } = useAuth()
 
-  const params = useParams()
+  const { pathname } = useLocation()
 
-  const cartService = useInterpret(cartMachine, {
-    services: {
-      restore: (_context, _event) => (send) => {
-        if (params?.success === 'true') {
+  const cartService = useInterpret(
+    cartMachine,
+    {
+      services: {
+        'Restore cart': (_context, _event) => (send) => {
+          let cart = JSON.parse(localStorage.getItem('cart')) ?? []
+
+          // Clear the cart if they just checked out.
+          if (pathname === '/success') {
+            cart = []
+          }
+
           send({
-            type: 'RESTORE',
-            cart: [],
+            type: 'Cart restored',
+            cart,
           })
-          return
-        }
+        },
+        'Redirect to Stripe Checkout': (context, _event) => async () => {
+          // Dynamically determine checkoutMode based on cart contents
+          const mode = determineCheckoutMode(context.cart)
 
-        send({
-          type: 'RESTORE',
-          cart: JSON.parse(localStorage.getItem('cart')) ?? [],
-        })
-      },
-      checkout: (context, _event) => async () => {
-        // Dynamically determine checkoutMode based on cart contents
-        const mode = determineCheckoutMode(context.cart)
+          const checkoutPayload = {
+            variables: {
+              cart: context.cart.map((item) => ({ id: item.id, quantity: 1 })),
+              mode: mode,
+            },
+          }
 
-        const checkoutPayload = {
-          variables: {
-            cart: context.cart.map((item) => ({ id: item.id, quantity: 1 })),
-            mode: mode,
-          },
-        }
+          // Get customerId from logged in users
+          if (isAuthenticated) {
+            const customerId = currentUser.customerId
+            checkoutPayload.variables.customerId = customerId
+          }
 
-        // Get customerId from logged in users
-        if (isAuthenticated) {
-          const customerId = currentUser.customerId
-          checkoutPayload.variables.customerId = customerId
-        }
+          // Create checkout session and return session id
+          const {
+            data: {
+              checkout: { id },
+            },
+          } = await checkout(checkoutPayload)
 
-        // Create checkout session and return session id
-        const {
-          data: {
-            checkout: { id },
-          },
-        } = await checkout(checkoutPayload)
+          // Redirect user to Stripe Checkout page
+          const stripe = await loadStripe(process.env.STRIPE_PK)
 
-        // Redirect user to Stripe Checkout page
-        const stripe = await loadStripe(process.env.STRIPE_PK)
-
-        await stripe.redirectToCheckout({
-          sessionId: id,
-        })
+          await stripe.redirectToCheckout({
+            sessionId: id,
+          })
+        },
       },
     },
-  })
-
-  cartService.onTransition((state) => {
-    localStorage.setItem('cart', JSON.stringify(state.context.cart))
-  })
+    (state) => {
+      localStorage.setItem('cart', JSON.stringify(state.context.cart))
+    }
+  )
 
   return (
     <CartContext.Provider value={{ cartService }}>
@@ -167,10 +170,11 @@ const CartProvider = ({ children }) => {
 }
 
 const determineCheckoutMode = (cart) => {
-  const hasRecurring =
-    cart.filter((item) => item.type === 'recurring').length > 0
+  const hasRecurring = cart.some((item) => item.type === 'recurring')
   return hasRecurring ? 'subscription' : 'payment'
 }
+
+// Hooks
 
 const useCart = () => {
   const { cartService } = useContext(CartContext)
@@ -181,27 +185,27 @@ const useCart = () => {
 const useAddToCart = () => {
   const { cartService } = useContext(CartContext)
   return (item) => {
-    cartService.send({ type: 'ADD', item })
+    cartService.send({ type: 'Add to cart', item })
   }
 }
 
 const useCheckout = () => {
   const { cartService } = useContext(CartContext)
   return () => {
-    cartService.send({ type: 'CHECKOUT' })
+    cartService.send({ type: 'Checkout' })
   }
 }
 
 const useClearCart = () => {
   const { cartService } = useContext(CartContext)
-  return () => cartService.send({ type: 'CLEAR' })
+  return () => cartService.send({ type: 'Clear cart' })
 }
 
 const useCanCheckout = () => {
   const { cartService } = useContext(CartContext)
 
   const isShopping = useSelector(cartService, (state) =>
-    state.matches('shopping')
+    state.matches('Shopping')
   )
 
   const hasCartItems = useSelector(cartService, (state) =>
@@ -210,6 +214,8 @@ const useCanCheckout = () => {
 
   return isShopping && hasCartItems
 }
+
+// Exports
 
 export default CartProvider
 

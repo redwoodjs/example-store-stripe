@@ -1,62 +1,155 @@
-import { useState } from 'react'
-
-import styled from 'styled-components'
+import * as Dialog from '@radix-ui/react-dialog'
+import { ShoppingCart } from 'react-feather'
+import styled, { css } from 'styled-components'
 
 import Button from 'src/components/Button'
-import CartDropDown from 'src/components/CartDropDown'
-import { useCart } from 'src/components/CartProvider'
+import {
+  useCart,
+  useCheckout,
+  useClearCart,
+  useCanCheckout,
+} from 'src/components/CartProvider'
 
-const Cart = () => {
-  const [isVisible, setVisibility] = useState(false)
+const Cart = (props) => {
   const cart = useCart()
 
-  const toggleVisibility = () => setVisibility(!isVisible)
-  const getCartQuantity = () => {
-    if (cart.length > 0) {
-      const length = cart.reduce((total, item) => {
-        return total + item.quantity
-      }, 0)
-      return length
-    }
-    return 0
-  }
+  const quantity = cart.reduce((total, item) => total + item.quantity, 0)
 
-  const quantity = getCartQuantity()
+  const canCheckout = useCanCheckout()
+  const checkout = useCheckout()
+  const clearCart = useClearCart()
 
   return (
-    <>
-      <IndicatorButton
-        onClick={toggleVisibility}
-        icon="shoppingCart"
-        active={isVisible}
-        data-quantity={quantity}
-      />
-      {isVisible && <CartDropDown toggleVisibility={toggleVisibility} />}
-    </>
+    <Dialog.Root>
+      <Dialog.Trigger asChild>
+        <ShoppingCartButton variant="icon" data-quantity={quantity} {...props}>
+          <ShoppingCart style={{ transform: 'translateX(-2px)' }} />
+        </ShoppingCartButton>
+      </Dialog.Trigger>
+
+      <Content>
+        {cart.map((item) => (
+          <CartItem key={item.id} {...item} />
+        ))}
+        {!canCheckout && <CenteredText>Your cart is empty</CenteredText>}
+        <Row style={{ '--gap': 'var(--size-1)' }}>
+          <Button onClick={checkout} disabled={!canCheckout}>
+            Checkout
+          </Button>
+          <Button variant="secondary" onClick={clearCart}>
+            Clear
+          </Button>
+        </Row>
+      </Content>
+    </Dialog.Root>
   )
 }
 
 export default Cart
 
-/* Styles */
+// Styles
 
-const IndicatorButton = styled(Button)`
-  position: relative;
+const ShoppingCartButton = styled(Button)`
+  &[data-state='open'] {
+    background-color: var(--gray-3);
 
-  svg {
-    stroke: var(--primary);
+    &:hover {
+      background-color: var(--gray-4);
+      transition: background-color 200ms;
+    }
   }
 
-    &:after {
-      content: attr(data-quantity);
-      display: block;
-      position: absolute;
-      top: -0.1em;
-      right: -0.1em;
-      padding: 0 0.4em;
-      border-radius: 1em;
-      font-size: var(--font-size-0);
-      background: var(--primary);
-      color: var(--white);
+  /*
+    We only want to apply styles to the after pseudo-element if there's cart items.
+    Maybe there's an easier way.
+  */
+  ${(props) =>
+    props['data-quantity'] &&
+    css`
+      &:after {
+        content: attr(data-quantity);
 
+        position: absolute;
+        top: -4px;
+        right: 2px;
+
+        font-size: var(--font-size-0);
+
+        color: var(--gray-0);
+        background-color: var(--primary);
+
+        padding: 0 calc(var(--size-1) * 1.25);
+        border-radius: var(--radius-round);
+
+        /*
+          For when it overlaps with the cart a little.
+        */
+        border: var(--border-size-2) solid var(--gray-0);
+      }
+    `}
+`
+
+const CartItem = ({ image, quantity, name }) => {
+  return (
+    <Row>
+      <Quantity>{quantity}</Quantity>
+      <CartImage src={image} />
+      <p style={{ fontSize: 'calc(var(--font-size-1) / 1.125)' }}>{name}</p>
+    </Row>
+  )
+}
+
+const Content = styled(Dialog.Content)`
+  position: absolute;
+
+  top: var(--size-10);
+  right: 0px;
+
+  /*
+    Not great.
+  */
+  z-index: 1;
+
+  background-color: var(--white);
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-4);
+
+  padding: var(--padding);
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--padding);
+`
+
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+
+  gap: var(--gap);
+`
+
+const CenteredText = styled.p`
+  text-align: center;
+`
+
+const CartImage = styled.img`
+  margin-right: var(--size-2);
+
+  height: var(--size-7);
+
+  border-radius: var(--radius-2);
+`
+
+const Quantity = styled.p`
+  flex-shrink: 0;
+
+  margin-right: var(--size-1);
+
+  color: var(--gray-6);
+  font-size: var(--font-size-0);
+
+  &::after {
+    content: ' x';
+  }
 `
