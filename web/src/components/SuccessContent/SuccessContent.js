@@ -2,17 +2,19 @@ import styled from 'styled-components'
 
 import { routes } from '@redwoodjs/router'
 
-import Banner from 'src/components/Banner'
 import Button from 'src/components/Button'
 import Shield from 'src/components/Shield'
 
 const SuccessContent = ({ customerName, customerSignedUp }) => {
   return (
     <Wrapper>
-      <Heading>Thank you</Heading>
-      <Description>
-        Have a <Emphasis>SUPER</Emphasis> day, {customerName}!
-      </Description>
+      <div style={{ textAlign: 'center' }}>
+        <Heading>Thank you</Heading>
+        <Description>
+          Have a <span style={{ color: 'var(--primary)' }}>SUPER</span> day,{' '}
+          {customerName}!
+        </Description>
+      </div>
       <SVGWrapper>
         <Shield />
       </SVGWrapper>
@@ -20,12 +22,12 @@ const SuccessContent = ({ customerName, customerSignedUp }) => {
       {!customerSignedUp && (
         <Banner>
           <p>
-            It looks like you do not have an account yet. Signing up will allow
-            you to checkout faster and see better at night.
+            It looks like you don&apos;t have an account yet. Signing up lets
+            you checkout faster and see better at night.
           </p>
-          <MarginButton to={routes.signup()} variant={'secondary'}>
-            Sign Up
-          </MarginButton>
+          <SignupButton variant="secondary" to={routes.signup()}>
+            Sign up
+          </SignupButton>
         </Banner>
       )}
     </Wrapper>
@@ -35,43 +37,45 @@ const SuccessContent = ({ customerName, customerSignedUp }) => {
 export default SuccessContent
 
 const Wrapper = styled.div`
-  background: var(--primary-tint);
-  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: var(--padding);
+
   margin: var(--padding);
   padding: var(--padding);
-  box-shadow: var(--shadow);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+
+  background: var(--primary-tint);
+  border-radius: var(--radius-3);
+
+  color: var(--gray-0);
 `
 
-const Heading = styled.h1`
-  color: var(--white);
-  font-size: 60px;
-  text-align: center;
-  letter-spacing: 2px;
+const Heading = styled.h2`
+  font-size: var(--font-size-8);
+  letter-spacing: var(--font-letterspacing-1);
 `
 
 const Description = styled.p`
-  color: var(--white);
-  text-align: center;
-  font-size: 40px;
-  font-weight: 700;
-`
-
-const Emphasis = styled.span`
-  color: var(--primary);
+  font-size: var(--font-size-5);
+  font-weight: var(--font-weight-7);
 `
 
 const SVGWrapper = styled.div`
-  margin-top: var(--padding);
-
-  & svg {
+  & > svg {
     width: 250px;
     height: 250px;
   }
 `
 
-const MarginButton = styled(Button)`
+const SignupButton = styled(Button)`
+  display: inline-block;
   margin-top: var(--padding);
+`
+
+const Banner = styled.div`
+  padding: var(--padding);
+  background: var(--primary);
+  border-radius: var(--radius-3);
 `

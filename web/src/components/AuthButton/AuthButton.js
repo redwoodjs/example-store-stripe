@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { User } from 'react-feather'
 
 import { useAuth } from '@redwoodjs/auth'
 import { routes } from '@redwoodjs/router'
@@ -7,7 +7,7 @@ import { toast } from '@redwoodjs/web/toast'
 
 import Button from 'src/components/Button'
 
-const AuthButton = () => {
+const AuthButton = (props) => {
   const { isAuthenticated, logOut, currentUser } = useAuth()
 
   const [portal] = useMutation(
@@ -43,29 +43,24 @@ const AuthButton = () => {
     }
   }
 
+  if (!isAuthenticated) {
+    return (
+      <Button variant="link" to={routes.login()} {...props}>
+        Log in
+      </Button>
+    )
+  }
+
   return (
     <>
-      {isAuthenticated ? (
-        <>
-          <Button onClick={onLogoutButtonClick}>Log Out</Button>
-          <Button onClick={onUserButtonClick} icon="user" />
-        </>
-      ) : (
-        <Button to={routes.login()}>Log In</Button>
-      )}
-      <HLine />
+      <Button onClick={onLogoutButtonClick} {...props}>
+        Log out
+      </Button>
+      <Button variant="icon" onClick={onUserButtonClick} {...props}>
+        <User style={{ color: 'var(--primary)' }} />
+      </Button>
     </>
   )
 }
 
 export default AuthButton
-
-// Styles
-const HLine = styled.div`
-  width: 1px;
-  height: var(--size-5);
-  background-color: var(--gray-6);
-
-  display: flex;
-  align-self: center;
-`
