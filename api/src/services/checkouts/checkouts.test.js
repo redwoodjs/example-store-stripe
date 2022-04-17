@@ -2,16 +2,6 @@ import { stripe } from 'src/lib/stripe'
 
 import { checkout } from './checkouts'
 
-jest.mock('@redwoodjs/graphql-server', () => ({
-  context: {
-    event: {
-      headers: {
-        referer: 'http://localhost:8910/',
-      },
-    },
-  },
-}))
-
 describe('checkout', () => {
   it('Creates a checkout session given a cart', async () => {
     const cart = [
@@ -27,11 +17,22 @@ describe('checkout', () => {
 
     stripe.checkout.sessions.create = jest.fn(() => ({ id: 1 }))
 
-    const session = await checkout({
-      mode: 'payment',
-      cart,
-      customerId: 'cus0000001',
-    })
+    const session = await checkout(
+      {
+        mode: 'payment',
+        cart,
+        customerId: 'cus0000001',
+      },
+      {
+        context: {
+          event: {
+            headers: {
+              referer: 'http://localhost:8910/',
+            },
+          },
+        },
+      }
+    )
 
     expect(stripe.checkout.sessions.create).toMatchInlineSnapshot(`
       [MockFunction] {
