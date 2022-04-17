@@ -16,7 +16,16 @@ const App = () => (
       <AuthProvider type="dbAuth">
         <RedwoodApolloProvider>
           <Routes />
-          <Toaster />
+          <Toaster
+            toastOptions={{
+              success: {
+                iconTheme: {
+                  primary: 'var(--primary)',
+                  secondary: 'var(--white)',
+                },
+              },
+            }}
+          />
           <GlobalStyles />
         </RedwoodApolloProvider>
       </AuthProvider>
