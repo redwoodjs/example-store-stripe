@@ -13,12 +13,9 @@ export const checkout = async ({ mode, cart, customerId }) => {
   }))
 
   return stripe.checkout.sessions.create({
-    success_url: `${
-      context.request?.headers?.referer ?? process.env.DOMAIN_URL
-    }success?sessionId={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${
-      context.request?.headers?.referer ?? process.env.DOMAIN_URL
-    }failure`,
+    // See https://stripe.com/docs/payments/checkout/custom-success-page#modify-success-url.
+    success_url: `${context.event.headers.referer}success?sessionId={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${context.event.headers.referer}failure`,
     // eslint-disable-next-line camelcase
     line_items,
     mode,
