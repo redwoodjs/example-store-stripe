@@ -2,6 +2,16 @@ import { stripe } from 'src/lib/stripe'
 
 import { checkout } from './checkouts'
 
+jest.mock('@redwoodjs/graphql-server', () => ({
+  context: {
+    event: {
+      headers: {
+        referer: 'http://localhost:8910/',
+      },
+    },
+  },
+}))
+
 describe('checkout', () => {
   it('Creates a checkout session given a cart', async () => {
     const cart = [
