@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
-  
+
 jobs:
   redwood-ci:
     name: 🌲 Redwood CI
@@ -12,5 +12,3 @@ jobs:
     steps:
       - name: 🌲 Redwood CI
         uses: redwoodjs/project-ci-action@v0.1.1
-        env:
-          DOMAIN_URL: "http://localhost:8910/"
