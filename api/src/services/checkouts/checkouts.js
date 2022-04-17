@@ -1,13 +1,17 @@
-import { context } from '@redwoodjs/graphql-server'
-
 import { db } from 'src/lib/db'
 import { stripe } from 'src/lib/stripe'
 
 /**
- * @param {'payment' | 'subscription'} mode
- * @param {{ id: string, quantity: number }} cart
+ * @type {'payment' | 'subscription'} Mode
+ * @type {{ id: string, quantity: number }} Cart
+ *
+ * @param {{
+ *  mode: Mode
+ *  cart: Cart
+ *  customerId: string
+ * }}
  */
-export const checkout = async ({ mode, cart, customerId }) => {
+export const checkout = async ({ mode, cart, customerId }, { context }) => {
   // eslint-disable-next-line camelcase
   const line_items = cart.map((product) => ({
     price: product.id,
