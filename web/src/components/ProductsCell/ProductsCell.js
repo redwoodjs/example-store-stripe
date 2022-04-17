@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import { AlertTriangle } from 'react-feather'
+import styled from 'styled-components'
 
 import List from 'src/components/List'
 import Product from 'src/components/Product'
