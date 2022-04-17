@@ -102,28 +102,26 @@ export const handler = async (event, context) => {
     //
     // If this returns anything else, it will be returned by the
     // `signUp()` function in the form of: `{ message: 'String here' }`.
-    handler: async ({ username, hashedPassword, salt }) => {
+    handler: async ({ username: email, hashedPassword, salt }) => {
       // get customerID from Stripe using email
-      const customerList = await stripe.customers.list({ email: username })
+      const customerList = await stripe.customers.list({ email })
       let customerId = ''
       let customerName = ''
       if (customerList.length > 0) {
         customerId = customerList[0].id
         customerName = customerList[0].name
       } else {
-        const newCustomer = await stripe.customers.create({
-          email: username,
-        })
+        const newCustomer = await stripe.customers.create({ email })
         customerId = newCustomer.id
       }
 
       // Use Stripe details for adding new user
       return db.user.create({
         data: {
-          email: username,
-          hashedPassword: hashedPassword,
-          salt: salt,
-          customerId: customerId,
+          email,
+          hashedPassword,
+          salt,
+          customerId,
           name: customerName,
         },
       })
@@ -154,6 +152,19 @@ export const handler = async (event, context) => {
       salt: 'salt',
       resetToken: 'resetToken',
       resetTokenExpiresAt: 'resetTokenExpiresAt',
+    },
+
+    // Specifies attributes on the cookie that dbAuth sets in order to remember
+    // who is logged in. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies
+    cookie: {
+      HttpOnly: true,
+      Path: '/',
+      SameSite: 'Strict',
+      Secure: process.env.NODE_ENV !== 'development' ? true : false,
+
+      // If you need to allow other domains (besides the api side) access to
+      // the dbAuth session cookie:
+      // Domain: 'example.com',
     },
 
     forgotPassword: forgotPasswordOptions,
