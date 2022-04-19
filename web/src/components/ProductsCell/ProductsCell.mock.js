@@ -2,22 +2,22 @@
 export const standard = () => ({
   products: [
     {
-      id: 1,
+      description:
+        'Be able to fly up to 50m into sky and reach a maximum speed of 180km/h.',
+      id: 'price_1Kb1YlHMAJHtnk9iwZZxLJjp',
+      image: 'img/flight.png',
       name: 'Flight',
-      description: 'Woo hoo!',
-      price: 100_00,
-      images: [
-        'https://files.stripe.com/links/MDB8YWNjdF8xSzFVWTF…3Rlc3RfanFNckFLN1dJaEt3VW9wcGxSbnZVVFJq00iViXZF5l',
-      ],
+      price: 350,
+      type: 'one_time',
     },
     {
-      id: 2,
-      name: 'Invisibility',
-      description: 'Shhh',
-      price: 200_00,
-      images: [
-        'https://files.stripe.com/links/MDB8YWNjdF8xSzFVWTF…3Rlc3RfanFNckFLN1dJaEt3VW9wcGxSbnZVVFJq00iViXZF5l',
-      ],
+      description:
+        'Become invisible in the blink of an eye and avoid all those pesky people. Warning: Overuse might cause one to feel transparent and lost',
+      id: 'price_1Kb1YnHMAJHtnk9i0Pm1LEW4',
+      image: 'img/invisibility.png',
+      name: 'Invisibility Subscription',
+      price: 1000,
+      type: 'recurring',
     },
   ],
 })

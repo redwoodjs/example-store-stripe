@@ -1,14 +1,15 @@
 import { createPortal, unmountComponentAtNode } from 'react-dom'
 import { useState } from 'react'
 
-const useModal = () => {
-  const el = document.getElementById('modal-wrapper')
+export const usePortal = () => {
+  const el = document.getElementById('portal')
+
   const [portal, setPortal] = useState({
     render: () => null,
     remove: () => null,
   })
 
-  const createModal = React.useCallback((el) => {
+  const renderPortal = React.useCallback((el) => {
     const Portal = ({ children }) => createPortal(children, el)
     const remove = () => unmountComponentAtNode(el)
     return { render: Portal, remove }
@@ -16,12 +17,10 @@ const useModal = () => {
 
   React.useEffect(() => {
     if (el) portal.remove()
-    const newModal = createModal(el)
-    setPortal(newModal)
-    return () => newModal.remove(el)
+    const newPortal = renderPortal(el)
+    setPortal(newPortal)
+    return () => newPortal.remove(el)
   }, [el])
 
   return portal.render
 }
-
-export default useModal

@@ -1,7 +1,30 @@
 import styled from 'styled-components'
+import { useState, useEffect } from 'react'
+import { usePortal } from 'src/components/PortalProvider'
 
-const Modal = () => {
-  return <Wrapper id="modal-wrapper">I am Modal</Wrapper>
+import Button from 'src/components/Button'
+
+const Modal = ({ children, visibility = false }) => {
+  const [isVisible, toggleVisibility] = useState(visibility)
+
+  const ModalPortal = usePortal()
+
+  useEffect(() => {
+    toggleVisibility(visibility)
+  }, [visibility])
+
+  return isVisible ? (
+    <ModalPortal>
+      <Wrapper>
+        <div>
+          <Button variant="primary" onClick={toggleVisibility(false)}>
+            X
+          </Button>
+        </div>
+        {children}
+      </Wrapper>
+    </ModalPortal>
+  ) : null
 }
 
 export default Modal
