@@ -10,7 +10,7 @@ export const getCustomerId = async ({ id }) => {
 export const getUserByCustomerId = ({ customerId }) => {
   return db.user.findUnique({
     where: {
-      customerId: customerId,
+      id: customerId,
     },
     select: {
       name: true,
@@ -22,7 +22,7 @@ export const getUserByCustomerId = ({ customerId }) => {
 export const updateUserByCustomerId = ({ customerId, payload }) => {
   return db.user.update({
     where: {
-      customerId: customerId,
+      id: customerId,
     },
     data: payload,
   })

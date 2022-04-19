@@ -119,10 +119,10 @@ export const handler = async (event, context) => {
       // Use Stripe details for adding new user
       return db.user.create({
         data: {
+          id: customerId,
           email,
           hashedPassword,
           salt,
-          customerId,
           name: customerName,
         },
       })
