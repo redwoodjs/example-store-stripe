@@ -10,7 +10,7 @@ export const getCustomerId = async ({ id }) => {
 export const getUserByCustomerId = ({ id }) => {
   return db.user.findUnique({
     where: {
-      id: id,
+      id,
     },
     select: {
       name: true,
