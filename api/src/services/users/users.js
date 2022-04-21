@@ -3,14 +3,14 @@ import { db } from 'src/lib/db'
 // Only to be used on the api side
 export const getCustomerId = async ({ id }) => {
   return await db.user.findUnique({
-    where: { id: parseInt(id) },
+    where: { id: id },
   })
 }
 
-export const getUserByCustomerId = ({ customerId }) => {
+export const getUserByCustomerId = ({ id }) => {
   return db.user.findUnique({
     where: {
-      customerId: customerId,
+      id,
     },
     select: {
       name: true,
@@ -19,18 +19,18 @@ export const getUserByCustomerId = ({ customerId }) => {
   })
 }
 
-export const updateUserByCustomerId = ({ customerId, payload }) => {
+export const updateUserByCustomerId = ({ id, payload }) => {
   return db.user.update({
     where: {
-      customerId: customerId,
+      id,
     },
     data: payload,
   })
 }
 
 // update db if name and email has changed
-export const handleDBSync = async (customerId, nextName, nextEmail) => {
-  const { name, email } = await getUserByCustomerId({ customerId })
+export const handleDBSync = async (id, nextName, nextEmail) => {
+  const { name, email } = await getUserByCustomerId({ id })
 
   if (nextEmail === email && nextName === name) {
     return
@@ -46,5 +46,5 @@ export const handleDBSync = async (customerId, nextName, nextEmail) => {
     payload.name = nextName
   }
 
-  return await updateUserByCustomerId({ customerId, payload })
+  return await updateUserByCustomerId({ id, payload })
 }

@@ -9,12 +9,12 @@ generator client {
 }
 
 model User {
-  id                  Int       @id @default(autoincrement())
+  id                  String       @id
   email               String    @unique
-  customerId          String?
   name                String?
   hashedPassword      String
   salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
 }
+

@@ -137,7 +137,7 @@ const CartProvider = ({ children }) => {
 
           // Get customerId from logged in users
           if (isAuthenticated) {
-            const customerId = currentUser.customerId
+            const customerId = currentUser.id
             checkoutPayload.variables.customerId = customerId
           }
 

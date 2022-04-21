@@ -24,7 +24,6 @@ export const getCurrentUser = async (session) => {
     where: { id: session.id },
     select: {
       id: true,
-      customerId: true,
     },
   })
 }

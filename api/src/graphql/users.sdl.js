@@ -2,7 +2,6 @@ export const schema = gql`
   type User {
     id: ID!
     email: String!
-    customerId: String
     name: String
   }
 
