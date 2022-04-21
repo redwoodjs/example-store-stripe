@@ -22,7 +22,7 @@ export const getUserByCustomerId = ({ id }) => {
 export const updateUserByCustomerId = ({ id, payload }) => {
   return db.user.update({
     where: {
-      id: id,
+      id,
     },
     data: payload,
   })
