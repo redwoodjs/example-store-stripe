@@ -7,11 +7,11 @@ import { getCustomerId } from '../users/users'
  */
 export const portal = async ({ userId }) => {
   // eslint-disable-next-line camelcase
-  const customerId = await getCustomerId({ id: userId })
+  const customer = await getCustomerId({ id: userId })
 
   // Create Customer Portal session and send temp url to web side
   return await stripe.billingPortal.sessions.create({
-    customer: customerId.customerId,
+    customer: customer.id,
     return_url: `${
       context.request?.headers?.referer ?? process.env.DOMAIN_URL
     }`,

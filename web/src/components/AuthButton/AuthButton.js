@@ -28,6 +28,7 @@ const AuthButton = (props) => {
   const onUserButtonClick = async () => {
     // create portal session to get temp url
     const session = currentUser
+
     try {
       const {
         data: {
