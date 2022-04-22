@@ -7334,7 +7334,7 @@ __metadata:
     "@redwoodjs/api": 1.1.0
     "@redwoodjs/graphql-server": 1.1.0
     graphql-scalars: 1.17.0
-    stripe: 8.218.0
+    stripe: 8.219.0
   languageName: unknown
   linkType: soft
 
@@ -22143,13 +22143,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stripe@npm:8.218.0":
-  version: 8.218.0
-  resolution: "stripe@npm:8.218.0"
+"stripe@npm:8.219.0":
+  version: 8.219.0
+  resolution: "stripe@npm:8.219.0"
   dependencies:
     "@types/node": ">=8.1.0"
     qs: ^6.10.3
-  checksum: 833a54cafd667df72e35c1732cf79c610684e6a56114dee971caa81a19b70eb97f45f23661f7e14163a0ac265b0932b5e6b77367f25894c01e48db1bdfa2e9cc
+  checksum: abfb3ae65a365a53dc484ac2b5fd1aca294446dc925e730213e7a8b436d6f664d55126ef50e66048f37d119c449d73b9c36caf42fa7aa45a90803012e1d7c7fa
   languageName: node
   linkType: hard
 
