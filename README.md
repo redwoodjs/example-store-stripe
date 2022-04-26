@@ -93,6 +93,14 @@ stripe listen --forward-to 'localhost:8911/stripeWebhooks'
 
 Make sure to pass the serverless function that's going to receive webhooks to the `--forward-to` flag.
 
+5. Seeding your Stripe account
+
+To seed your Stripe account with Products and Prices run:
+
+```
+yarn rw-seed
+```
+
 ## Roadmap
 
 There's a lot more ways we plan to integrate RedwoodJS with Stripe.
