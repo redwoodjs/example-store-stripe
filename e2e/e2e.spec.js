@@ -1,67 +1,68 @@
 /* eslint-env node */
-const { exec } = require('child_process')
-const net = require('net')
-const path = require('path')
+// const { exec } = require('child_process')
+// const net = require('net')
+// const path = require('path')
 
-const { test: base, expect } = require('@playwright/test')
+// const { test: base } = require('@playwright/test')
+const { test } = require('@playwright/test')
 
-async function isPortReachable(port, host = 'localhost') {
-  return new Promise((resolve) => {
-    const socket = net.connect(port, host, () => {
-      console.log(`Connected to ${host}:${port}`)
-      socket.end()
-      resolve(true)
-    })
+// async function isPortReachable(port, host = 'localhost') {
+//   return new Promise((resolve) => {
+//     const socket = net.connect(port, host, () => {
+//       console.log(`Connected to ${host}:${port}`)
+//       socket.end()
+//       resolve(true)
+//     })
 
-    socket.on('error', () => {
-      socket.destroy()
-      resolve(false)
-    })
-  })
-}
+//     socket.on('error', () => {
+//       socket.destroy()
+//       resolve(false)
+//     })
+//   })
+// }
 
-async function waitTillPortIsReachable(port, host = 'localhost') {
-  return new Promise((resolve) => {
-    const interval = setInterval(async () => {
-      const portIsReachable = await isPortReachable(port, host)
+// async function waitTillPortIsReachable(port, host = 'localhost') {
+//   return new Promise((resolve) => {
+//     const interval = setInterval(async () => {
+//       const portIsReachable = await isPortReachable(port, host)
 
-      if (portIsReachable) {
-        clearInterval(interval)
-        resolve()
-      }
-    }, 1_000)
-  })
-}
+//       if (portIsReachable) {
+//         clearInterval(interval)
+//         resolve()
+//       }
+//     }, 1_000)
+//   })
+// }
 
-const test = base.extend({
-  // "server" fixture starts automatically for every worker - we pass "auto" for that.
-  server: [
-    async ({}, use) => {
-      const devServerProcess = exec(
-        'yarn rw dev --fwd="--no-open" --no-generate',
-        {
-          cwd: path.resolve(__dirname, '../'),
-        }
-      )
+// const test = base.extend({
+//   // "server" fixture starts automatically for every worker - we pass "auto" for that.
+//   server: [
+//     async ({}, use) => {
+//       const devServerProcess = exec(
+//         'yarn rw dev --fwd="--no-open" --no-generate',
+//         {
+//           cwd: path.resolve(__dirname, '../'),
+//         }
+//       )
 
-      // Pipe out logs so we can debug, when required
-      devServerProcess.stdout.on('data', (data) => {
-        process.stdout.write(data.toString())
-      })
+//       // Pipe out logs so we can debug, when required
+//       devServerProcess.stdout.on('data', (data) => {
+//         process.stdout.write(data.toString())
+//       })
 
-      console.log('')
-      console.log('Waiting for the dev server')
-      await Promise.all([
-        waitTillPortIsReachable(8910),
-        waitTillPortIsReachable(8911),
-      ])
+//       console.log('')
+//       console.log('Waiting for the dev server')
+//       await Promise.all([
+//         waitTillPortIsReachable(8910),
+//         waitTillPortIsReachable(8911),
+//       ])
 
-      console.log('Starting tests')
-      await use()
-    },
-    { scope: 'worker', auto: true },
-  ],
-})
+//       console.log('Starting tests')
+//       await use()
+//     },
+//     { scope: 'worker', auto: true },
+//   ],
+// })
 
 test.describe('checkout', () => {
   test.beforeEach(async ({ page }) => {

@@ -34,8 +34,10 @@ module.exports = {
   // outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   port: 3000,
-  // },
+  webServer: {
+    command: 'yarn rw dev --forward="--no-open"',
+    url: 'http://localhost:8910',
+    timeout: 120 * 1000,
+    reuseExistingServer: !process.env.CI,
+  },
 }
