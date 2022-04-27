@@ -12,3 +12,12 @@ jobs:
     steps:
       - name: 🌲 Redwood CI
         uses: redwoodjs/project-ci-action@v0.1.1
+
+      - run: npx playwright install --with-deps
+
+      - name: 🎭 Playwright E2E Tests
+        run: npx playwright test e2e
+        env:
+          DATABASE_URL: postgresql://test:password@localhost:5432/test
+          STRIPE_PK: ${{ secrets.STRIPE_PK }}
+          STRIPE_SK: ${{ secrets.STRIPE_SK }}
