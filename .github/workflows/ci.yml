@@ -15,7 +15,7 @@ jobs:
 
       - run: npx playwright install --with-deps
 
-      - name: 🎭 Run Playwright E2E Tests
+      - name: 🎭 Playwright E2E Tests
         run: npx playwright test e2e
         env:
           DATABASE_URL: postgresql://test:password@localhost:5432/test
