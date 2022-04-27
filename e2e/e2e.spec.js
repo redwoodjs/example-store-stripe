@@ -121,10 +121,10 @@ test.describe('checkout', () => {
     await page.locator('input[name="billingName"]').fill('playwright')
 
     // Press Tab
-    await page.locator('[placeholder="billingName"]').press('Tab')
+    await page.locator('input[name="billingName"]').press('Tab')
 
     // Press Tab
-    await page.locator('[placeholder="United States"]').press('Tab')
+    await page.locator('select[id="billingCountry"]').press('Tab')
 
     // Fill [placeholder="ZIP"]
     await page.locator('[placeholder="ZIP"]').fill('91304')
