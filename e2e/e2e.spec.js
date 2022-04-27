@@ -115,8 +115,19 @@ test.describe('checkout', () => {
     // Press Tab
     await page.locator('[placeholder="CVC"]').press('Tab')
 
+    await page.pause()
+
     // Fill input[name="billingName"]
     await page.locator('input[name="billingName"]').fill('playwright')
+
+    // Press Tab
+    await page.locator('[placeholder="billingName"]').press('Tab')
+
+    // Press Tab
+    await page.locator('[placeholder="United States"]').press('Tab')
+
+    // Fill [placeholder="ZIP"]
+    await page.locator('[placeholder="ZIP"]').fill('91304')
 
     // Click [data-testid="hosted-payment-submit-button"]
     await Promise.all([
