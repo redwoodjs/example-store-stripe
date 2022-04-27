@@ -20878,6 +20878,7 @@ __metadata:
   dependencies:
     "@playwright/test": 1.21.1
     "@redwoodjs/core": 1.2.0
+    enquirer: 2.3.6
     styled-system: 5.1.5
   languageName: unknown
   linkType: soft

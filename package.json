@@ -9,7 +9,8 @@
   },
   "devDependencies": {
     "@playwright/test": "1.21.1",
-    "@redwoodjs/core": "1.2.0"
+    "@redwoodjs/core": "1.2.0",
+    "enquirer": "2.3.6"
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config",
@@ -60,8 +61,7 @@
     "seed": "yarn rw exec seed"
   },
   "scripts": {
-    "rw-test-e2e": "npx playwright test e2e",
-    "rw-seed": "yarn rw exec seed_products --no-prisma"
+    "rw-test-e2e": "npx playwright test e2e"
   },
   "packageManager": "yarn@3.2.0",
   "dependencies": {
