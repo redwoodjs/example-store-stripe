@@ -19,3 +19,5 @@ jobs:
         run: npx playwright test e2e
         env:
           DATABASE_URL: postgresql://test:password@localhost:5432/test
+          STRIPE_PK: ${{ secrets.STRIPE_PK }}
+          STRIPE_SK: ${{ secrets.STRIPE_SK }}
