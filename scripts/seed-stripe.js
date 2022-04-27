@@ -1,55 +1,90 @@
-import { dummyItems } from './dummy/items'
+/**
+ * Types
+ *
+ * @typedef {{
+ *  currency: string,
+ *  unit_amount: number,
+ *  recurring?: {
+ *    interval: 'month',
+ *  }
+ * }} Price
+ *
+ * @typedef {{
+ *  name: string
+ *  description: string
+ *  prices: Price[]
+ * }} Superpower
+ */
+import { execSync } from 'child_process'
+import fs from 'fs'
+import path from 'path'
 
-import { stripe } from '$api/src/lib/stripe'
+import { stripe } from 'api/src/lib/stripe'
+import { prompt } from 'enquirer'
 
 export default async () => {
-  const priceResults = []
-
-  // retrieve list of active products. ie. Products that havent been archived
-  const products = await stripe.products.list({
+  console.log('Getting products')
+  const { data: products } = await stripe.products.list({
     active: true,
   })
 
-  // Check length
-  if (products.data.length > 0) {
-    console.log(
-      'It looks like you already have products seeded. Archive ALL the products in your Stripe store and run the script again'
-    )
-  } else if (products.data.length === 0) {
-    for (const item of dummyItems) {
-      try {
-        // create product from dummy data array
-        // then create price using returned product id
-        const product = await stripe.products.create(item.product)
-        const price = await stripe.prices.create({
-          product: product.id,
-          ...item.price,
-        })
+  const hasProducts = Boolean(products.length)
 
-        priceResults.push(price)
-      } catch (err) {
-        console.log(err.raw.message)
-        priceResults.push({ error: err.raw.message })
-        // If any of the price creations fail, escape the loop
-        break
-      }
-    }
+  if (hasProducts) {
+    console.log('Found products')
 
-    // ERROR HANDLING
-    const errorArray = priceResults.filter((price) => {
-      return 'error' in price
+    const { shouldArchiveProducts } = await prompt({
+      name: 'shouldArchiveProducts',
+      type: 'confirm',
+      message:
+        'It looks like you already have products and prices. Do you want to archive and re-seed them?',
     })
-    const hasError = errorArray.length > 0
 
-    if (priceResults.length > 0 && !hasError) {
-      console.log('Products have been added to Stripe Store')
-    } else if (hasError) {
-      console.log(errorArray[0].error)
+    if (!shouldArchiveProducts) {
+      console.log('Exiting')
+      process.exit(1)
     }
-  } else {
-    console.log(
-      'Looks like something went wrong and products could not be seeded '
-    )
-    return
+
+    console.log('Archiving products')
+    for (const product of products) {
+      await stripe.products.update(product.id, { active: false })
+    }
+  }
+
+  console.log('Seeding products')
+
+  /** @type {Superpower[]} */
+  const superpowers = JSON.parse(
+    fs.readFileSync(path.join(__dirname, 'superpowers.json'), 'utf-8')
+  )
+
+  for (const superpower of superpowers) {
+    const { prices, ...productData } = superpower
+
+    console.log(`Creating ${productData.name}`)
+    const product = await stripe.products.create(productData)
+
+    for (const price of prices) {
+      await stripe.prices.create({
+        product: product.id,
+        ...price,
+      })
+    }
+  }
+
+  console.log('Done')
+  console.log(
+    'Remember to add the images in the web/public/img directory to the products in the Stripe dashboard'
+  )
+
+  const { shouldOpenDashboard } = await prompt({
+    name: 'shouldOpenDashboard',
+    type: 'confirm',
+    message: 'Do you want to open the Stripe dashboard now?',
+  })
+
+  if (shouldOpenDashboard) {
+    console.log('Opening dashboard')
+    execSync('open https://dashboard.stripe.com/test/products?active=true')
   }
 }
