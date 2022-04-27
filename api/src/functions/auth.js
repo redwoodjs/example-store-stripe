@@ -1,6 +1,7 @@
 import { DbAuthHandler } from '@redwoodjs/api'
 
 import { db } from 'src/lib/db'
+import { sendEmail } from 'src/lib/email'
 import { stripe } from 'src/lib/stripe'
 
 export const handler = async (event, context) => {
@@ -18,7 +19,13 @@ export const handler = async (event, context) => {
     // address in a toast message so the user will know it worked and where
     // to look for the email.
     handler: (user) => {
-      return user
+      const res = sendEmail({
+        to: user.email,
+        subject: 'Reset SuperStore Password',
+        text: 'text',
+        html: `<div><p><a href="${process.env.DOMAIN}reset-password?resetToken=${user.resetToken}">https://example.com/reset-password?resetToken=${user.resetToken}</a></p></div>`,
+      })
+      return res
     },
 
     // How long the resetToken is valid for, in seconds (default is 24 hours)

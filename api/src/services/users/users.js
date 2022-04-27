@@ -1,4 +1,5 @@
 import { db } from 'src/lib/db'
+import { sendEmail } from 'src/lib/email'
 
 // Only to be used on the api side
 export const getCustomerId = async ({ id }) => {
