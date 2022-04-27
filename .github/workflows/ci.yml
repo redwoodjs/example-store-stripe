@@ -12,3 +12,6 @@ jobs:
     steps:
       - name: 🌲 Redwood CI
         uses: redwoodjs/project-ci-action@v0.1.1
+
+      - name: 🎭 Playwright E2E Tests
+        run: npx playwright test e2e
