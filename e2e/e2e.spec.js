@@ -1,68 +1,5 @@
-/* eslint-env node */
-// const { exec } = require('child_process')
-// const net = require('net')
-// const path = require('path')
-
-// const { test: base } = require('@playwright/test')
+/* eslint-env node, es2021 */
 const { test } = require('@playwright/test')
-
-// async function isPortReachable(port, host = 'localhost') {
-//   return new Promise((resolve) => {
-//     const socket = net.connect(port, host, () => {
-//       console.log(`Connected to ${host}:${port}`)
-//       socket.end()
-//       resolve(true)
-//     })
-
-//     socket.on('error', () => {
-//       socket.destroy()
-//       resolve(false)
-//     })
-//   })
-// }
-
-// async function waitTillPortIsReachable(port, host = 'localhost') {
-//   return new Promise((resolve) => {
-//     const interval = setInterval(async () => {
-//       const portIsReachable = await isPortReachable(port, host)
-
-//       if (portIsReachable) {
-//         clearInterval(interval)
-//         resolve()
-//       }
-//     }, 1_000)
-//   })
-// }
-
-// const test = base.extend({
-//   // "server" fixture starts automatically for every worker - we pass "auto" for that.
-//   server: [
-//     async ({}, use) => {
-//       const devServerProcess = exec(
-//         'yarn rw dev --fwd="--no-open" --no-generate',
-//         {
-//           cwd: path.resolve(__dirname, '../'),
-//         }
-//       )
-
-//       // Pipe out logs so we can debug, when required
-//       devServerProcess.stdout.on('data', (data) => {
-//         process.stdout.write(data.toString())
-//       })
-
-//       console.log('')
-//       console.log('Waiting for the dev server')
-//       await Promise.all([
-//         waitTillPortIsReachable(8910),
-//         waitTillPortIsReachable(8911),
-//       ])
-
-//       console.log('Starting tests')
-//       await use()
-//     },
-//     { scope: 'worker', auto: true },
-//   ],
-// })
 
 test.describe('checkout', () => {
   test.beforeEach(async ({ page }) => {
@@ -82,7 +19,7 @@ test.describe('checkout', () => {
 
     // Click text=Checkout
     await Promise.all([
-      page.waitForNavigation(/*{ url: 'https://checkout.stripe.com/pay/cs_test_a1ns5U8OaLJgoNLkqBE6RZGJ4kHKvyLqVcHmt1YUvSnmXIMMlsAF04t4PA#fidkdWxOYHwnPyd1blpxYHZxWjA0TXBVNnNPcV1oQU80R3J3R2ZVVF9DQX9pTmxgX3FzVDJpaDN8T2YzYjVHUTd0f1ZXUzVPYn9xSW9VbGlJYHJkbDYxbnJhU2Y0UGpfbXV0THR9anZ8UTFoNTVcMTxJZ25fZicpJ2hsYXYnP34nYnBsYSc%2FJ2MxMTUzYGFjKD03NjwoMWA1Myg8ZGY3KDxmMmE2NmA8PTYwZjUxPDIzYCcpJ2hwbGEnPycxNmBgZDc2NChhNDFmKDEzMDMoZzdkNig8ZjwzN2c3MjNmMjA1PTQzYz0nKSd2bGEnPycwZGNjMTAzNygyMTEwKDEzM2MoZDc1MihkNjw1Y2Y8M2Y0MjNjNzwzYGMneCknZ2BxZHYnP15YKSdpZHxqcHFRfHVgJz8ndmxrYmlgWmxxYGgnKSd3YGNgd3dgd0p3bGJsayc%2FJ21xcXU%2FKippamZkaW1qdnE%2FPTw0NSd4JSUl' }*/),
+      page.waitForNavigation(),
       page.locator('text=Checkout').click(),
     ])
 
@@ -115,8 +52,6 @@ test.describe('checkout', () => {
     // Press Tab
     await page.locator('[placeholder="CVC"]').press('Tab')
 
-    await page.pause()
-
     // Fill input[name="billingName"]
     await page.locator('input[name="billingName"]').fill('playwright')
 
@@ -136,3 +71,71 @@ test.describe('checkout', () => {
     ])
   })
 })
+
+// ------------------------
+// Leaving this here for now in case we need to use it again.
+// ------------------------
+//
+// const { exec } = require('child_process')
+// const net = require('net')
+// const path = require('path')
+//
+// const { test: base } = require('@playwright/test')
+//
+// async function isPortReachable(port, host = 'localhost') {
+//   return new Promise((resolve) => {
+//     const socket = net.connect(port, host, () => {
+//       console.log(`Connected to ${host}:${port}`)
+//       socket.end()
+//       resolve(true)
+//     })
+//
+//     socket.on('error', () => {
+//       socket.destroy()
+//       resolve(false)
+//     })
+//   })
+// }
+//
+// async function waitTillPortIsReachable(port, host = 'localhost') {
+//   return new Promise((resolve) => {
+//     const interval = setInterval(async () => {
+//       const portIsReachable = await isPortReachable(port, host)
+//
+//       if (portIsReachable) {
+//         clearInterval(interval)
+//         resolve()
+//       }
+//     }, 1_000)
+//   })
+// }
+//
+// const test = base.extend({
+//   // "server" fixture starts automatically for every worker - we pass "auto" for that.
+//   server: [
+//     async ({}, use) => {
+//       const devServerProcess = exec(
+//         'yarn rw dev --fwd="--no-open" --no-generate',
+//         {
+//           cwd: path.resolve(__dirname, '../'),
+//         }
+//       )
+//
+//       // Pipe out logs so we can debug, when required
+//       devServerProcess.stdout.on('data', (data) => {
+//         process.stdout.write(data.toString())
+//       })
+//
+//       console.log('')
+//       console.log('Waiting for the dev server')
+//       await Promise.all([
+//         waitTillPortIsReachable(8910),
+//         waitTillPortIsReachable(8911),
+//       ])
+//
+//       console.log('Starting tests')
+//       await use()
+//     },
+//     { scope: 'worker', auto: true },
+//   ],
+// })
