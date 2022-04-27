@@ -22,8 +22,8 @@ export const handler = async (event, context) => {
       const res = sendEmail({
         to: user.email,
         subject: 'Reset SuperStore Password',
-        text: 'text',
-        html: `<div><p><a href="${process.env.DOMAIN}reset-password?resetToken=${user.resetToken}">https://example.com/reset-password?resetToken=${user.resetToken}</a></p></div>`,
+        text: `Copy the following link into your browser to reset your password: ${process.env.DOMAIN_URL}reset-password?resetToken=${user.resetToken}`,
+        html: `<div><h2>Reset Password</h2><p>Follow the link below to reset your password. </p><p><a href="${process.env.DOMAIN_URL}reset-password?resetToken=${user.resetToken}">${process.env.DOMAIN_URL}reset-password?resetToken=${user.resetToken}</a></p></div>`,
       })
       return res
     },

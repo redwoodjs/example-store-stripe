@@ -23,7 +23,5 @@ export const sendEmail = async ({ to, subject, text, html }) => {
     html, // html body
   })
 
-  console.log(info)
-
   return info
 }
