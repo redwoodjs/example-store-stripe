@@ -22,7 +22,12 @@ const Cart = (props) => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <ShoppingCartButton variant="icon" data-quantity={quantity} {...props}>
+        <ShoppingCartButton
+          aria-label="Open cart"
+          variant="icon"
+          data-quantity={quantity}
+          {...props}
+        >
           <ShoppingCart style={{ transform: 'translateX(-2px)' }} />
         </ShoppingCartButton>
       </Dialog.Trigger>

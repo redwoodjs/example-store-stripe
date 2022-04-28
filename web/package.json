@@ -29,5 +29,8 @@
     "react-feather": "2.0.9",
     "styled-components": "5.3.5",
     "xstate": "4.31.0"
+  },
+  "devDependencies": {
+    "@testing-library/user-event": "^14.1.1"
   }
 }
