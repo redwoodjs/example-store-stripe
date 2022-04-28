@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 import { routes, Link } from '@redwoodjs/router'
 
-const Branding = () => {
+const Branding = ({ style }) => {
   return (
-    <h1 style={{ marginRight: 'auto' }}>
+    <h1 style={style}>
       <TitleLink to={routes.home()}>
         <Gradient>Superstore</Gradient>
       </TitleLink>
