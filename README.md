@@ -1,9 +1,9 @@
-# Stripe Example Store
+# Stripe Superstore
 
-Welcome to the Stripe Example Store!
+Welcome to the Stripe Superstore!
 This repo is an example of a RedwoodJS-Stripe integration.
-Most startups need a way to process payments.
-We designed this repo to demonstrate how you could go about integrating Stripe into your RedwoodJS project.
+Since most startups need to accept payments,
+we designed this repo to demonstrate how you could go about integrating Stripe into your RedwoodJS project.
 In this repo, you'll see how to:
 - use [Stripe Checkout](https://stripe.com/docs/payments/checkout) to accept [one-time payments](https://stripe.com/docs/payments/accept-a-payment?integration=checkout) and [subscriptions](https://stripe.com/docs/billing/subscriptions/build-subscriptions?ui=checkout)
 - receive notifications by processing webhooks using a serverless function
@@ -29,7 +29,7 @@ To develop on this repo locally, you'll need to populate your `.env` file with a
 You'll need a Stripe account to get your test keys.
 If you don't already have one, you can make one here: https://dashboard.stripe.com/login?redirect=%2Ftest%2Fdashboard.
 
-Once you've made your account, if you weren't automatically redirected, navigate to your [test dashboard](https://dashboard.stripe.com/test/dashboard). You'll find your test keys over on the right:
+Once you've made your account, if you weren't automatically redirected, navigate to your [test dashboard](https://dashboard.stripe.com/test/dashboard). You'll find your test keys on the right side of the page:
 
 ![image](https://user-images.githubusercontent.com/32992335/143495019-3c6319d3-f793-48c9-86ca-72f4c12f0306.png)
 
@@ -46,7 +46,7 @@ STRIPE_SK=sk_test_...
 ```
 
 You'll need one more Stripe env var: the Stripe webhook secret (`STRIPE_WEBHOOK_SK`).
-You can get it from the [Stripe CLI](https://stripe.com/docs/stripe-cli):
+You can get it from the [Stripe CLI](https://stripe.com/docs/stripe-cli) (see the link for installation instructions):
 
 ```
 stripe listen --api-key=sk_test_... --print-secret
@@ -62,12 +62,20 @@ STRIPE_SK=sk_test_...
 STRIPE_WEBHOOK_SK=whsec_...
 ```
 
-3. Setting up your database
+3. Seeding your Stripe account
 
-To tie things up, you'll need one more env var.
-The Stripe Example Store uses Postgres, so before you can migrate your database, you'll need to set your `DATABASE_URL` env var.
+Now that you've got a Stripe account, you'll want to populate it with products and prices:
 
-If you don't already Postgres setup locally, it can be a little tricky to do so.
+```
+yarn rw exec seed_stripe --no-prisma
+```
+
+4. Setting up your database
+
+You'll need one more env var.
+The Stripe Superstore uses Postgres, so before you can migrate your database, you'll need to set your `DATABASE_URL` env var.
+
+If you don't already have Postgres setup locally, it can be a little tricky to do so.
 If you're on a Mac, [Postgres.app](https://postgresapp.com/) is a tried-and-true solution.
 We don't have recommendations for other platforms, but one thing we do recommend is using [railway.app](https://railway.app/)—even for local development—since it trivializes this whole process.
 
@@ -83,7 +91,7 @@ Now you should be able to start the dev server!
 yarn rw dev
 ```
 
-4. Listening for webhooks
+5. Listening for webhooks
 
 In tandem with the dev server, you'll want to use the stripe CLI to start a process that listens for webhooks:
 
@@ -93,18 +101,10 @@ stripe listen --forward-to 'localhost:8911/stripeWebhooks'
 
 Make sure to pass the serverless function that's going to receive webhooks to the `--forward-to` flag.
 
-5. Seeding your Stripe account
-
-To seed your Stripe account with Products and Prices run:
-
-```
-yarn rw-seed
-```
-
 ## Roadmap
 
 There's a lot more ways we plan to integrate RedwoodJS with Stripe.
-Open an issue or a PR to let us know what features you'd like to see!
+Open an issue to let us know what features you'd like to see!
 
 - 👉 Link to the Roadmap: https://github.com/redwoodjs/example-store/issues/9
 
@@ -121,6 +121,6 @@ This repo is the second iteration of the RedwoodJS-Stripe project.
 The first can be found in the [redwoodjs-stripe](https://github.com/chrisvdm/redwoodjs-stripe) repo.
 
 The first was focused on integrating Stripe with RedwoodJS from the ground up.
-This presented many technical challenges, namely, how can we make RedwoodJS a more-pluggable Framework.
+This presented many technical challenges, namely, how can we make RedwoodJS a more-pluggable framework.
 
 This project takes the opposite approach by focusing on what a Stripe integration in a RedwoodJS Project would look like.
