@@ -1,5 +1,5 @@
 import CartProvider from 'src/components/CartProvider'
-import MainLayout from 'src/components/Grid'
+import MainLayout from 'src/layouts/MainLayout'
 
 import HomePage from './HomePage'
 
