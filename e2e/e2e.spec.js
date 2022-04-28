@@ -1,12 +1,17 @@
 /* eslint-env node, es2021 */
 const { test } = require('@playwright/test')
 
-test.describe('checkout', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:8910')
-  })
+test.beforeEach(async ({ page }) => {
+  await page.goto('http://localhost:8910')
+})
 
-  test('success', async ({ page }) => {
+const user = {
+  email: 'playwright@e2e.com',
+  name: 'Playwright',
+}
+
+test.describe('checkout', () => {
+  test('one_time', async ({ page }) => {
     // Click text=Folding$5.00Flight$3.50Invisibility$2.00 >> img[alt="Fold anything in the universe\, whether it be laundry or spacetime itself\. Disclaimer\: May cause a rip in the spacetime continuum if used improperly\."]
     await page
       .locator(
@@ -23,54 +28,89 @@ test.describe('checkout', () => {
       page.locator('text=Checkout').click(),
     ])
 
-    // Click input[name="email"]
-    await page.locator('input[name="email"]').click()
+    await doCheckout(page, user)
 
-    // Fill input[name="email"]
-    await page.locator('input[name="email"]').fill('playwright@e2e.com')
+    // Success page has billingName
+    await page.locator('p', { hasText: user.name })
+  })
 
-    // Press Tab
-    await page.locator('input[name="email"]').press('Tab')
-
-    // Fill [placeholder="\31 234 1234 1234 1234"]
+  test('recurring', async ({ page }) => {
+    // Click text=Folding$35.00Flight$17.00Invisibility$10.00 >> img[alt="Fold anything in the universe\, whether it be laundry or spacetime itself\. Disclaimer\: May cause a rip in the spacetime continuum if used improperly\."]
     await page
-      .locator('[placeholder="\\31 234 1234 1234 1234"]')
-      .fill('4242 4242 4242 42424')
+      .locator(
+        'text=Folding$35.00Flight$17.00Invisibility$10.00 >> img[alt="Fold anything in the universe\\, whether it be laundry or spacetime itself\\. Disclaimer\\: May cause a rip in the spacetime continuum if used improperly\\."]'
+      )
+      .click()
 
-    // Press Tab
-    await page.locator('[placeholder="\\31 234 1234 1234 1234"]').press('Tab')
+    // Click button
+    await page.locator('button').click()
 
-    // Fill [placeholder="MM \/ YY"]
-    await page.locator('[placeholder="MM \\/ YY"]').fill('12 / 24')
-
-    // Press Tab
-    await page.locator('[placeholder="MM \\/ YY"]').press('Tab')
-
-    // Fill [placeholder="CVC"]
-    await page.locator('[placeholder="CVC"]').fill('424')
-
-    // Press Tab
-    await page.locator('[placeholder="CVC"]').press('Tab')
-
-    // Fill input[name="billingName"]
-    await page.locator('input[name="billingName"]').fill('playwright')
-
-    // Press Tab
-    await page.locator('input[name="billingName"]').press('Tab')
-
-    // Press Tab
-    await page.locator('select[id="billingCountry"]').press('Tab')
-
-    // Fill [placeholder="ZIP"]
-    await page.locator('[placeholder="ZIP"]').fill('91304')
-
-    // Click [data-testid="hosted-payment-submit-button"]
+    // Click text=Checkout
     await Promise.all([
-      page.waitForNavigation(/*{ url: 'http://localhost:8910/success?sessionId=cs_test_a1ns5U8OaLJgoNLkqBE6RZGJ4kHKvyLqVcHmt1YUvSnmXIMMlsAF04t4PA' }*/),
-      page.locator('[data-testid="hosted-payment-submit-button"]').click(),
+      page.waitForNavigation(),
+      page.locator('text=Checkout').click(),
     ])
+
+    await doCheckout(page, user)
+
+    // Success page has billingName
+    await page.locator('p', { hasText: user.name })
+
+    // Click text=Sign up
+    await page.locator('text=Sign up').click()
+
+    // Fill input[name="username"]
+    await page.locator('input[name="username"]').fill(user.email)
+
+    // Fill input[name="password"]
+    await page.locator('input[name="password"]').fill('1234')
+
+    // Click text=Sign Up
+    await Promise.all([
+      page.waitForNavigation(),
+      page.locator('text=Sign Up').click(),
+    ])
+
+    // Click text=Sign Up
+    await Promise.all([
+      page.waitForNavigation(),
+      page.locator('button >> nth=1').click(),
+    ])
+
+    await page.locator(`text=${user.email}`)
   })
 })
+
+async function doCheckout(page, { email, name }) {
+  // Fill input[name="email"]
+  await page.locator('input[name="email"]').fill(email)
+
+  // Fill [placeholder="\31 234 1234 1234 1234"]
+  await page
+    .locator('[placeholder="\\31 234 1234 1234 1234"]')
+    .fill('4242 4242 4242 42424')
+
+  // Fill [placeholder="MM \/ YY"]
+  await page.locator('[placeholder="MM \\/ YY"]').fill('12 / 24')
+
+  // Fill [placeholder="CVC"]
+  await page.locator('[placeholder="CVC"]').fill('424')
+
+  // Fill input[name="billingName"]
+  await page.locator('input[name="billingName"]').fill(name)
+
+  // Select US
+  await page.locator('[aria-label="Country or region"]').selectOption('US')
+
+  // Fill [placeholder="ZIP"]
+  await page.locator('[placeholder="ZIP"]').fill('12345')
+
+  // Click [data-testid="hosted-payment-submit-button"]
+  await Promise.all([
+    page.waitForNavigation(),
+    page.locator('[data-testid="hosted-payment-submit-button"]').click(),
+  ])
+}
 
 // ------------------------
 // Leaving this here for now in case we need to use it again.
