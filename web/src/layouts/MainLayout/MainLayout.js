@@ -10,7 +10,7 @@ const MainLayout = ({ children }) => {
     <Wrapper>
       <Header>
         {/* Push the other flex items all the way to the right. */}
-        <Branding />
+        <Branding style={{ marginRight: 'auto' }} />
         <AuthButton />
         <HLine />
         <Cart />

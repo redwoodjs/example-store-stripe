@@ -9,8 +9,8 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
+import AuthRedirect from 'src/components/AuthRedirect'
 import CartProvider from 'src/components/CartProvider'
-import AuthLayout from 'src/layouts/AuthLayout'
 import MainLayout from 'src/layouts/MainLayout'
 
 const Routes = () => {
@@ -21,7 +21,7 @@ const Routes = () => {
         <Route path="/success" page={SuccessPage} name="success" />
         <Route path="/failure" page={FailurePage} name="failure" />
 
-        <Set wrap={AuthLayout}>
+        <Set wrap={AuthRedirect}>
           <Route path="/login" page={LoginPage} name="login" />
           <Route path="/signup" page={SignupPage} name="signup" />
           <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
