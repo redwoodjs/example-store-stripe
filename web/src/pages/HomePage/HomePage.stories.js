@@ -1,4 +1,5 @@
-import Grid from 'src/components/Grid'
+import CartProvider from 'src/components/CartProvider'
+import MainLayout from 'src/components/Grid'
 
 import HomePage from './HomePage'
 
@@ -10,9 +11,11 @@ export default {
   title: 'Pages/HomePage',
   decorators: [
     (Story) => (
-      <Grid>
-        <Story />
-      </Grid>
+      <CartProvider>
+        <MainLayout>
+          <Story />
+        </MainLayout>
+      </CartProvider>
     ),
   ],
 }
