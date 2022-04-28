@@ -20884,8 +20884,8 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@playwright/test": 1.21.1
-    nodemailer: ^6.7.3
     "@redwoodjs/core": 1.2.0
+    nodemailer: ^6.7.3
     styled-system: 5.1.5
   languageName: unknown
   linkType: soft
