@@ -1,10 +1,9 @@
 // Define your own mock data here:
 export const standard = () => ({
   getSession: {
-    id: 42,
-    customerName: 'John Smith',
-    customerEmail: 'johnsmith@gmail.com',
+    id: 'cus_42',
+    customerName: 'Redwood Cone',
+    customerEmail: 'cone@redwoodjs.com',
     customerSignedUp: false,
-    customerId: 'cus_46546456546',
   },
 })
