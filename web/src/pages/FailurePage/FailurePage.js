@@ -18,6 +18,8 @@ const FailurePage = () => {
 export default FailurePage
 
 const Wrapper = styled.div`
+  height: fit-content;
+
   background: var(--primary-tint);
   border-radius: 1em;
   margin: var(--padding);

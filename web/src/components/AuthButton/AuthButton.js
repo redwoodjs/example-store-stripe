@@ -26,19 +26,17 @@ const AuthButton = (props) => {
   }
 
   const onUserButtonClick = async () => {
-    // create portal session to get temp url
-    const session = currentUser
-
     try {
       const {
         data: {
           portal: { url },
         },
       } = await portal({
-        variables: { userId: session.id },
+        variables: { userId: currentUser.id },
       })
-      // redirect user to Stripe customer portal
-      window.location.replace(url)
+
+      // Redirect user to Stripe customer portal
+      window.location.assign(url)
     } catch (e) {
       toast.error("Couldn't create a session at this time")
     }
@@ -57,7 +55,12 @@ const AuthButton = (props) => {
       <Button onClick={onLogoutButtonClick} {...props}>
         Log out
       </Button>
-      <Button variant="icon" onClick={onUserButtonClick} {...props}>
+      <Button
+        aria-label="Start billing portal session"
+        variant="icon"
+        onClick={onUserButtonClick}
+        {...props}
+      >
         <User style={{ color: 'var(--primary)' }} />
       </Button>
     </>

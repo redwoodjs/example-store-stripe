@@ -1,4 +1,8 @@
-import { render } from '@redwoodjs/testing/web'
+import userEvent from '@testing-library/user-event'
+
+import { render, screen } from '@redwoodjs/testing/web'
+
+import CartProvider, { useCart } from 'src/components/CartProvider'
 
 import { Loading, Empty, Failure, Success } from './ProductsCell'
 import { standard } from './ProductsCell.mock'
@@ -22,15 +26,36 @@ describe('ProductsCell', () => {
     }).not.toThrow()
   })
 
-  // When you're ready to test the actual output of your component render
-  // you could test that, for example, certain text is present:
-  //
-  // 1. import { screen } from '@redwoodjs/testing/web'
-  // 2. Add test: expect(screen.getByText('Hello, world')).toBeInTheDocument()
+  it('renders Success successfully and clicking products adds them to the cart', async () => {
+    const { products } = standard()
 
-  it('renders Success successfully', async () => {
-    expect(() => {
-      render(<Success {...standard()} />)
-    }).not.toThrow()
+    const Quantity = () => {
+      const cart = useCart()
+      const quantity = cart.reduce((total, item) => total + item.quantity, 0)
+      return <div data-testid="cart">{quantity}</div>
+    }
+
+    const { user } = setup(
+      <CartProvider>
+        <Success products={products} />
+        <Quantity />
+      </CartProvider>
+    )
+
+    for (const product of products) {
+      const productEl = screen.getByText(product.name)
+      expect(productEl).toBeInTheDocument()
+      await user.click(productEl)
+    }
+
+    expect(screen.getByTestId('cart')).toHaveTextContent(products.length)
   })
 })
+
+// See https://testing-library.com/docs/user-event/intro#writing-tests-with-userevent
+function setup(jsx) {
+  return {
+    user: userEvent.setup(),
+    ...render(jsx),
+  }
+}

@@ -37,6 +37,8 @@ const SuccessContent = ({ customerName, customerSignedUp }) => {
 export default SuccessContent
 
 const Wrapper = styled.div`
+  height: fit-content;
+
   display: flex;
   flex-direction: column;
   align-items: center;
