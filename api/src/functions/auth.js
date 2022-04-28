@@ -18,8 +18,8 @@ export const handler = async (event, context) => {
     // You could use this return value to, for example, show the email
     // address in a toast message so the user will know it worked and where
     // to look for the email.
-    handler: (user) => {
-      const res = sendEmail({
+    handler: async (user) => {
+      const res = await sendEmail({
         to: user.email,
         subject: 'Reset Superstore Password',
         text: `Copy the following link into your browser to reset your password: ${process.env.DOMAIN_URL}reset-password?resetToken=${user.resetToken}`,
