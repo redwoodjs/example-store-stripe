@@ -9,8 +9,8 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
+import AuthRedirect from 'src/components/AuthRedirect'
 import CartProvider from 'src/components/CartProvider'
-import AuthRedirect from 'src/layouts/AuthRedirect'
 import MainLayout from 'src/layouts/MainLayout'
 
 const Routes = () => {
