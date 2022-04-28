@@ -5534,7 +5534,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:14.1.1, @testing-library/user-event@npm:^14.1.1":
+"@testing-library/user-event@npm:14.1.1":
   version: 14.1.1
   resolution: "@testing-library/user-event@npm:14.1.1"
   peerDependencies:
@@ -23983,7 +23983,7 @@ __metadata:
     "@redwoodjs/router": 1.2.0
     "@redwoodjs/web": 1.2.0
     "@stripe/stripe-js": 1.29.0
-    "@testing-library/user-event": ^14.1.1
+    "@testing-library/user-event": 14.1.1
     "@xstate/immer": 0.3.1
     "@xstate/react": 3.0.0
     immer: 9.0.12
