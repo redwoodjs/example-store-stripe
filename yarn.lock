@@ -7334,6 +7334,7 @@ __metadata:
     "@redwoodjs/api": 1.2.0
     "@redwoodjs/graphql-server": 1.2.0
     graphql-scalars: 1.17.0
+    nodemailer: ^6.7.3
     stripe: 8.219.0
   languageName: unknown
   linkType: soft
@@ -20885,7 +20886,6 @@ __metadata:
   dependencies:
     "@playwright/test": 1.21.1
     "@redwoodjs/core": 1.2.0
-    nodemailer: ^6.7.3
     styled-system: 5.1.5
   languageName: unknown
   linkType: soft

@@ -65,7 +65,6 @@
   },
   "packageManager": "yarn@3.2.0",
   "dependencies": {
-    "nodemailer": "^6.7.3",
     "styled-system": "5.1.5"
   }
 }
