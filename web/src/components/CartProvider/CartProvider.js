@@ -202,7 +202,7 @@ const useClearCart = () => {
 }
 
 const useRemoveFromCart = () => {
-  const { cartService } = useContext(CartContext);
+  const { cartService } = useContext(CartContext)
   return (item) => cartService.send({ type: 'Remove from cart', item })
 }
 
@@ -231,5 +231,5 @@ export {
   useCheckout,
   useClearCart,
   useCanCheckout,
-  useRemoveFromCart
+  useRemoveFromCart,
 }

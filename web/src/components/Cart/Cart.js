@@ -8,7 +8,7 @@ import {
   useCheckout,
   useClearCart,
   useCanCheckout,
-  useRemoveFromCart
+  useRemoveFromCart,
 } from 'src/components/CartProvider'
 
 const Cart = (props) => {
@@ -106,11 +106,11 @@ const RemoveCartButton = styled(Button)`
 const CartItem = ({ image, quantity, name, id }) => {
   const removeFromCart = useRemoveFromCart()
   return (
-    <Row style={{ width: '100%'}}>
+    <Row style={{ width: '100%' }}>
       <Quantity>{quantity}</Quantity>
       <CartImage src={image} />
       <p style={{ fontSize: 'calc(var(--font-size-1) / 1.125)' }}>{name}</p>
-      <RemoveCartButton style={{ marginLeft: 'auto'}}>
+      <RemoveCartButton style={{ marginLeft: 'auto' }}>
         <Trash onClick={() => removeFromCart({ id })} />
       </RemoveCartButton>
     </Row>
