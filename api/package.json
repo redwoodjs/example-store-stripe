@@ -7,6 +7,6 @@
     "@redwoodjs/graphql-server": "1.2.1",
     "graphql-scalars": "1.17.0",
     "nodemailer": "6.7.4",
-    "stripe": "8.219.0"
+    "stripe": "8.220.0"
   }
 }
