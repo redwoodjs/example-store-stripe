@@ -1,5 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog'
-import { ShoppingCart, Trash } from 'react-feather'
+import { ShoppingCart, Trash2 } from 'react-feather'
 import styled, { css } from 'styled-components'
 
 import Button from 'src/components/Button'
@@ -95,11 +95,10 @@ const ShoppingCartButton = styled(Button)`
     `}
 `
 
-const RemoveCartButton = styled(Button)`
+const RemoveFromCartButton = styled(Button)`
   background-color: var(--red-7);
 
   &:hover {
-    background-color: var(--red-6);
     transition: background-color 200ms;
   }
 `
@@ -110,9 +109,12 @@ const CartItem = ({ image, quantity, name, id }) => {
       <Quantity>{quantity}</Quantity>
       <CartImage src={image} />
       <p style={{ fontSize: 'calc(var(--font-size-1) / 1.125)' }}>{name}</p>
-      <RemoveCartButton style={{ marginLeft: 'auto' }}>
-        <Trash onClick={() => removeFromCart({ id })} />
-      </RemoveCartButton>
+      <RemoveFromCartButton
+        style={{ marginLeft: 'auto' }}
+        onClick={() => removeFromCart({ id })}
+      >
+        <Trash2 style={{ width: 'var(--size-4)' }} />
+      </RemoveFromCartButton>
     </Row>
   )
 }
