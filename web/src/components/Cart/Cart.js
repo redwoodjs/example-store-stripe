@@ -95,13 +95,6 @@ const ShoppingCartButton = styled(Button)`
     `}
 `
 
-const RemoveFromCartButton = styled(Button)`
-  background-color: var(--red-7);
-
-  &:hover {
-    transition: background-color 200ms;
-  }
-`
 const CartItem = ({ image, quantity, name, id }) => {
   const removeFromCart = useRemoveFromCart()
   return (
@@ -109,12 +102,14 @@ const CartItem = ({ image, quantity, name, id }) => {
       <Quantity>{quantity}</Quantity>
       <CartImage src={image} />
       <p style={{ fontSize: 'calc(var(--font-size-1) / 1.125)' }}>{name}</p>
-      <RemoveFromCartButton
-        style={{ marginLeft: 'auto' }}
+      <ShoppingCartButton
+        aria-label={`remove ${name} from cart`}
+        variant="icon"
         onClick={() => removeFromCart({ id })}
+        style={{ marginLeft: 'auto' }}
       >
         <Trash2 style={{ width: 'var(--size-4)' }} />
-      </RemoveFromCartButton>
+      </ShoppingCartButton>
     </Row>
   )
 }
