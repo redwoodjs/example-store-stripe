@@ -67,7 +67,7 @@ STRIPE_WEBHOOK_SK=whsec_...
 Now that you've got a Stripe account, you'll want to populate it with products and prices:
 
 ```
-yarn rw exec seed_stripe --no-prisma
+yarn rw exec seed-stripe --no-prisma
 ```
 
 4. Setting up your database
