@@ -1,5 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog'
-import { ShoppingCart } from 'react-feather'
+import { ShoppingCart, Trash2 } from 'react-feather'
 import styled, { css } from 'styled-components'
 
 import Button from 'src/components/Button'
@@ -8,6 +8,7 @@ import {
   useCheckout,
   useClearCart,
   useCanCheckout,
+  useRemoveFromCart,
 } from 'src/components/CartProvider'
 
 const Cart = (props) => {
@@ -94,12 +95,21 @@ const ShoppingCartButton = styled(Button)`
     `}
 `
 
-const CartItem = ({ image, quantity, name }) => {
+const CartItem = ({ image, quantity, name, id }) => {
+  const removeFromCart = useRemoveFromCart()
   return (
-    <Row>
+    <Row style={{ width: '100%' }}>
       <Quantity>{quantity}</Quantity>
       <CartImage src={image} />
       <p style={{ fontSize: 'calc(var(--font-size-1) / 1.125)' }}>{name}</p>
+      <Button
+        aria-label={`Remove ${name} from cart`}
+        variant="icon"
+        onClick={() => removeFromCart({ id })}
+        style={{ marginLeft: 'auto' }}
+      >
+        <Trash2 style={{ width: 'var(--size-4)' }} />
+      </Button>
     </Row>
   )
 }
