@@ -102,14 +102,14 @@ const CartItem = ({ image, quantity, name, id }) => {
       <Quantity>{quantity}</Quantity>
       <CartImage src={image} />
       <p style={{ fontSize: 'calc(var(--font-size-1) / 1.125)' }}>{name}</p>
-      <ShoppingCartButton
-        aria-label={`remove ${name} from cart`}
+      <Button
+        aria-label={`Remove ${name} from cart`}
         variant="icon"
         onClick={() => removeFromCart({ id })}
         style={{ marginLeft: 'auto' }}
       >
         <Trash2 style={{ width: 'var(--size-4)' }} />
-      </ShoppingCartButton>
+      </Button>
     </Row>
   )
 }
