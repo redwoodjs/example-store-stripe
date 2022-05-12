@@ -31,6 +31,6 @@
     "xstate": "4.32.0"
   },
   "devDependencies": {
-    "@testing-library/user-event": "14.1.1"
+    "@testing-library/user-event": "14.2.0"
   }
 }
