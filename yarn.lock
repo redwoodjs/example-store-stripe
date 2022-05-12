@@ -14298,10 +14298,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"immer@npm:9.0.13":
-  version: 9.0.13
-  resolution: "immer@npm:9.0.13"
-  checksum: f716f3129fa5d8ae48698a72446a9b5d0c7c6af1637bc8facd77f3ac0f41f81b376bf1df402beb72f3c0841d442f5a3b303d134aa97be268924ad0ca6ec91714
+"immer@npm:9.0.14":
+  version: 9.0.14
+  resolution: "immer@npm:9.0.14"
+  checksum: 8407cfd9fbf651dae954e44fea0148f1801a4961ad94e3d28abd36d38327a32b3a5d90ef4979b5f940d9ae2ef8c89127809d6706fb59cec17b404c29ec56d4d8
   languageName: node
   linkType: hard
 
@@ -24178,7 +24178,7 @@ __metadata:
     "@testing-library/user-event": 14.1.1
     "@xstate/immer": 0.3.1
     "@xstate/react": 3.0.0
-    immer: 9.0.13
+    immer: 9.0.14
     open-props: 1.3.16
     prop-types: 15.8.1
     react: 17.0.2
