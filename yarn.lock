@@ -19891,14 +19891,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-feather@npm:2.0.9":
-  version: 2.0.9
-  resolution: "react-feather@npm:2.0.9"
+"react-feather@npm:2.0.10":
+  version: 2.0.10
+  resolution: "react-feather@npm:2.0.10"
   dependencies:
     prop-types: ^15.7.2
   peerDependencies:
-    react: ^16.8.6 || ^17
-  checksum: 933be9460904ce67a8f2aaf95393004137abc8e02a226baef0608409e52021939b49d7a679be3386889e04b5df2c4b95f57a744f9599adbfc62d0dfd96a6e1c2
+    react: ">=16.8.6"
+  checksum: bcc312ab39a710d8fa6fb611fde2affb38cf183fa5215d46c78577d88950ecb9181b59e4b57d7683f543d25725a39deb0c2ad9a9f29cab1a44bf4cbca46e6b8e
   languageName: node
   linkType: hard
 
@@ -23905,7 +23905,7 @@ __metadata:
     prop-types: 15.8.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-feather: 2.0.9
+    react-feather: 2.0.10
     styled-components: 5.3.5
     xstate: 4.32.1
   languageName: unknown
