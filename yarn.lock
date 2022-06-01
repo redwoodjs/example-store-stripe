@@ -7294,7 +7294,7 @@ __metadata:
     "@redwoodjs/graphql-server": 1.5.1
     graphql-scalars: 1.17.0
     nodemailer: 6.7.5
-    stripe: 9.5.0
+    stripe: 9.6.0
   languageName: unknown
   linkType: soft
 
@@ -22084,13 +22084,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stripe@npm:9.5.0":
-  version: 9.5.0
-  resolution: "stripe@npm:9.5.0"
+"stripe@npm:9.6.0":
+  version: 9.6.0
+  resolution: "stripe@npm:9.6.0"
   dependencies:
     "@types/node": ">=8.1.0"
     qs: ^6.10.3
-  checksum: 294201b13be0a6ff446e1e624db79b116ce0d44cb684369c985f376de6c5c5c334d2fed82fecc28f49971f5bf0dcb78e465734d21c5d37c653f04d50b8fdfcc0
+  checksum: 7e03d9d2c1a64049c6dc0b71c73df3b780d3801f7289f245ceb3eaae79dd4c493e8c3e088e30fe554fce87f992753f0a3b6d628ecbd7c3006ab7760558f45399
   languageName: node
   linkType: hard
 
