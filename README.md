@@ -2,9 +2,10 @@
 
 Welcome to the Stripe Superstore!
 This repo is an example of a RedwoodJS-Stripe integration.
-Since most startups need to accept payments,
-we designed this repo to demonstrate how you could go about integrating Stripe into your RedwoodJS project.
+Since most startups need to accept payments, we designed this repo to demonstrate how you could go about integrating Stripe into your RedwoodJS project.
+
 In this repo, you'll see how to:
+
 - use [Stripe Checkout](https://stripe.com/docs/payments/checkout) to accept [one-time payments](https://stripe.com/docs/payments/accept-a-payment?integration=checkout) and [subscriptions](https://stripe.com/docs/billing/subscriptions/build-subscriptions?ui=checkout)
 - receive notifications by processing webhooks using a serverless function
 - robustly manage app-level state via a persistent cart
@@ -14,29 +15,55 @@ Keep reading to get started or check out the [Roadmap](#roadmap) to see the feat
 
 ## Getting Started
 
-1. Clone this repo, `cd` into it, and `yarn install`
+### Step 1
 
-```
+Clone this repo, `cd` into it, and `yarn install`
+
+```zsh
 git clone git@github.com:redwoodjs/example-store-stripe.git
-cd example-store
+cd example-store-stripe
 yarn install
 ```
 
-2. Get your Stripe test keys
+### Step 2
+
+Get your Stripe test keys
 
 To develop on this repo locally, you'll need to populate your `.env` file with a few env vars. The first of those is your Stripe test keys.
 
-You'll need a Stripe account to get your test keys.
-If you don't already have one, you can make one here: https://dashboard.stripe.com/login?redirect=%2Ftest%2Fdashboard.
+First time visitor gets greeted like:
 
-Once you've made your account, if you weren't automatically redirected, navigate to your [test dashboard](https://dashboard.stripe.com/test/dashboard). You'll find your test keys on the right side of the page:
+<img width="857" alt="image" src="https://user-images.githubusercontent.com/2712405/173251273-00b09fa6-6b3a-40ac-9e94-48c6c4d4584d.png">
 
-![image](https://user-images.githubusercontent.com/32992335/143495019-3c6319d3-f793-48c9-86ca-72f4c12f0306.png)
+Note the text "Start here" with an arrow that points to the button **`Start now >`**. Click on that button results with the invitation to either create a new account or login to existing one>
 
-> **Make sure "Test mode" is on**
->
-> You can toggle "Test mode" on and off with the toggle in the upper right.
-> Make sure it's always on. You should always see the orange "Test Data" banner.
+<img width="1003" alt="image" src="https://user-images.githubusercontent.com/2712405/173251542-d41392da-737e-4725-86dd-edebe3f2bfce.png">
+
+Assuming that the account was already created, Stripe prompts with the second step authentication
+
+<p align="center">
+<img width="540" alt="image" src="https://user-images.githubusercontent.com/2712405/173251771-0b04f284-1c80-4889-855e-a8e6473f35bb.png"/>
+<br/>
+<b></b>
+</p>
+<br/>
+
+Providing the correct code, Stripe starts at the Home page (upper left corner).
+
+<img width="1060" alt="image" src="https://user-images.githubusercontent.com/2712405/173252864-55bde170-6646-419f-a99b-cd62d5a75606.png">
+
+Note the Developers toggle (upper right corner) - turning the toggle on results with the **`Stripe developers dashboard overview`**
+
+<img width="972" alt="image" src="https://user-images.githubusercontent.com/2712405/173253184-b15c051f-dea7-41b0-8424-124fa359f487.png">
+
+Changing the selection from **`Overview`** to **`API keys`** provides the access to the API keys - the data needed to do anything of interest with Strapi.
+
+<img width="995" alt="image" src="https://user-images.githubusercontent.com/2712405/173253889-146a0bf0-bd36-4518-9469-503da12ec411.png">
+
+### Make sure "Test mode" is on
+
+You can toggle "Test mode" on and off with the toggle in the upper right.
+Make sure it's always on. You should always see the orange "Test Data" banner.
 
 Now that you've got your test keys, your `.env` should look like:
 
@@ -62,15 +89,19 @@ STRIPE_SK=sk_test_...
 STRIPE_WEBHOOK_SK=whsec_...
 ```
 
-3. Seeding your Stripe account
+### Step 3
 
-Now that you've got a Stripe account, you'll want to populate it with products and prices:
+Seeding your Stripe account
+
+Now  that you've got a Stripe account, you'll want to populate it with products and prices:
 
 ```
 yarn rw exec seed-stripe --no-prisma
 ```
 
-4. Setting up your database
+### Step 4
+
+Setting up your database
 
 You'll need one more env var.
 The Stripe Superstore uses Postgres, so before you can migrate your database, you'll need to set your `DATABASE_URL` env var.
