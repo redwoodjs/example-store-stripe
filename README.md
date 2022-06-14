@@ -33,47 +33,74 @@ To develop on this repo locally, you'll need to populate your `.env` file with a
 
 First time visitor gets greeted like:
 
-<img width="857" alt="image" src="https://user-images.githubusercontent.com/2712405/173251273-00b09fa6-6b3a-40ac-9e94-48c6c4d4584d.png">
+<p align="center">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/2712405/173251273-00b09fa6-6b3a-40ac-9e94-48c6c4d4584d.png"/>
+<br/>
+<b>Image 1</b>
+</p>
+<br/>
 
-Note the text "Start here" with an arrow that points to the button **`Start now >`**. Click on that button results with the invitation to either create a new account or login to existing one>
+Note the text "Start here" with an arrow that points to the button **`Start now >`**.
+Click on that button results with the invitation to either **create** a new account or **login** to existing one>
 
-<img width="1003" alt="image" src="https://user-images.githubusercontent.com/2712405/173251542-d41392da-737e-4725-86dd-edebe3f2bfce.png">
+<p align="center">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/2712405/173251542-d41392da-737e-4725-86dd-edebe3f2bfce.png"/>
+<br/>
+<b>Image 2</b>
+</p>
+<br/>
 
 Assuming that the account was already created, Stripe prompts with the second step authentication
 
 <p align="center">
-<img width="540" alt="image" src="https://user-images.githubusercontent.com/2712405/173251771-0b04f284-1c80-4889-855e-a8e6473f35bb.png"/>
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/2712405/173251771-0b04f284-1c80-4889-855e-a8e6473f35bb.png"/>
 <br/>
-<b></b>
+<b>Image 3</b>
 </p>
 <br/>
 
-Providing the correct code, Stripe starts at the Home page (upper left corner).
+Once providing the correct code, Stripe starts with the Home page (upper left corner).
 
-<img width="1060" alt="image" src="https://user-images.githubusercontent.com/2712405/173252864-55bde170-6646-419f-a99b-cd62d5a75606.png">
+<p align="center">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/2712405/173252864-55bde170-6646-419f-a99b-cd62d5a75606.png"/>
+<br/>
+<b>Image 4</b>
+</p>
+<br/>
 
 Note the Developers toggle (upper right corner) - turning the toggle on results with the **`Stripe developers dashboard overview`**
 
-<img width="972" alt="image" src="https://user-images.githubusercontent.com/2712405/173253184-b15c051f-dea7-41b0-8424-124fa359f487.png">
+<p align="center">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/2712405/173253184-b15c051f-dea7-41b0-8424-124fa359f487.png"/>
+<br/>
+<b>Image 4</b>
+</p>
+<br/>
 
-Changing the selection from **`Overview`** to **`API keys`** provides the access to the API keys - the data needed to do anything of interest with Strapi.
+Changing the selection from **`Overview`** to **`API keys`** provides the access to the API keys - the data needed to do anything of interest with Stripe.
 
-<img width="995" alt="image" src="https://user-images.githubusercontent.com/2712405/173253889-146a0bf0-bd36-4518-9469-503da12ec411.png">
+<p align="center">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/2712405/173253889-146a0bf0-bd36-4518-9469-503da12ec411.png"/>
+<br/>
+<b>Image 5</b>
+</p>
 
 ### Make sure "Test mode" is on
 
-You can toggle "Test mode" on and off with the toggle in the upper right.
-Make sure it's always on. You should always see the orange "Test Data" banner.
+You can toggle "Test mode" on and off with the toggle in the upper right. Make sure it's always on. You should always see the orange "Test Data" banner.
 
-Now that you've got your test keys, your `.env` should look like:
+Now that you've got your test keys, your `.env` (with proprietary information masked out), should look like:
 
-```
-STRIPE_PK=pk_test_...
-STRIPE_SK=sk_test_...
-```
+<p align="center">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/2712405/173458298-f7cbb5dc-658d-48dc-a3eb-4dbe0d56d186.png"/>
+<br/>
+<b>Image 6</b>
+</p>
+<br/>
 
-You'll need one more Stripe env var: the Stripe webhook secret (`STRIPE_WEBHOOK_SK`).
-You can get it from the [Stripe CLI](https://stripe.com/docs/stripe-cli) (see the link for installation instructions):
+The Stripe webhook secret (`STRIPE_WEBHOOK_SK`) is obtained from the Stripe CLI (see
+[Get started with the Stripe CLI](https://stripe.com/docs/stripe-cli) installation instructions)
+and observe that the sk_test_... represents the incomplete string,
 
 ```
 stripe listen --api-key=sk_test_... --print-secret
@@ -81,63 +108,92 @@ stripe listen --api-key=sk_test_... --print-secret
 
 Note that the value of the `--api-key` flag should be the same as `STRIPE_SK`.
 
-Now your `.env` file should look like this:
-
-```
-STRIPE_PK=pk_test_...
-STRIPE_SK=sk_test_...
-STRIPE_WEBHOOK_SK=whsec_...
-```
-
+___
 ### Step 3
 
 Seeding your Stripe account
 
 Now  that you've got a Stripe account, you'll want to populate it with products and prices:
 
-```
-yarn rw exec seed-stripe --no-prisma
-```
+`yarn rw exec seed-stripe --no-prisma`
+
+___
+
 
 ### Step 4
 
 Setting up your database
 
-You'll need one more env var.
-The Stripe Superstore uses Postgres, so before you can migrate your database, you'll need to set your `DATABASE_URL` env var.
+#### Step 4.1 - setting the database on macOS
 
-If you don't already have Postgres setup locally, it can be a little tricky to do so.
-If you're on a Mac, [Postgres.app](https://postgresapp.com/) is a tried-and-true solution.
-We don't have recommendations for other platforms, but one thing we do recommend is using [railway.app](https://railway.app/)—even for local development—since it trivializes this whole process.
+The Stripe Superstore uses Postgres, so if you do not have it setup locally, the following paragraphs,
+inspired by this YouTube presentation [How to Install PostgreSQL and PgAdmin 4 on Mac OS](https://www.youtube.com/watch?v=u3w2Rrp9HIQ) are for you.
+
+1: Point the browser to https://www.postgresql.org/.
+
+2: Click on the download link.
+
+3: Click on macOS link on the download page
+
+4: Click on [download the installer](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) link to get EDB certified installer.
+
+5: On the page [Download PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) pick the version 14.3 for mac OSX.
+
+6: Follow the [installation instructions](https://www.enterprisedb.com/postgres-tutorials/installation-postgresql-mac-os).
+
+7: run the downloaded postgresql-14.3-1-osx.dmg package which will start EDB PostgreSQL Setup Wizard. Take all default settings that are proposed by the wizard.
+
+8: Once the Wizard finishes, you can verify the installation of all component by issuing the command `ps -ef | grep postgres`. You should see:
+
+```zsh
+nik$ ps -ef | grep postgres
+  504 48772 48771   0  6:54PM ??         0:00.00 postgres: logger
+  504 48774 48771   0  6:54PM ??         0:00.01 postgres: checkpointer
+  504 48775 48771   0  6:54PM ??         0:00.02 postgres: background writer
+  504 48776 48771   0  6:54PM ??         0:00.02 postgres: walwriter
+  504 48777 48771   0  6:54PM ??         0:00.03 postgres: autovacuum launcher
+  504 48778 48771   0  6:54PM ??         0:00.16 postgres: stats collector
+  504 48779 48771   0  6:54PM ??         0:00.00 postgres: logical replication launcher
+  501 49879  2395   0  8:26PM ttys002    0:00.00 grep postgres
+```
+
+___
+#### Step 4.2 - setting the database on Windows
+
+TBD
+___
 
 Once you've added your `DATABASE_URL` to your `.env` file, you're ready to migrate your database:
 
-```
-yarn rw prisma migrate dev
-```
+`yarn rw prisma migrate dev`
+___
 
-Now you should be able to start the dev server!
+### Step 5
 
-```
-yarn rw dev
-```
-
-5. Listening for webhooks
+Listening for webhooks
 
 In tandem with the dev server, you'll want to use the stripe CLI to start a process that listens for webhooks:
 
-```
-stripe listen --forward-to 'localhost:8911/stripeWebhooks'
-```
+`stripe listen --forward-to localhost:8911/stripeWebhooks`
 
 Make sure to pass the serverless function that's going to receive webhooks to the `--forward-to` flag.
+In this app this serverless function's URL is <localhost:8911/stripeWebhooks> and the source is at `/Users/nik/dev/work/redwood/stripe/rw-integration/example-store-stripe/api/src/functions/stripeWebhooks`.
+
+**Note:** you would need to replace the starting part of the path (`/Users/nik/dev/work/redwood/stripe/rw-integration`) with your own equivalent.
+
+Now you should be able to start the dev server!
+
+`yarn rw dev`
+
+Here is the [reference to the log](https://github.com/redwoodjs/example-store-stripe/discussions/243#discussioncomment-2909682) created on the console when running this command.
+___
 
 ## Roadmap
 
 There's a lot more ways we plan to integrate RedwoodJS with Stripe.
 Open an issue to let us know what features you'd like to see!
 
-- 👉 Link to the Roadmap: https://github.com/redwoodjs/example-store/issues/9
+- 👉 Link to the Roadmap: <https://github.com/redwoodjs/example-store/issues/9>
 
 ## Leadership
 
