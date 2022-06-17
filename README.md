@@ -158,6 +158,7 @@ nik$ ps -ef | grep postgres
 ```
 
 ___
+
 #### Step 4.2 - setting the database on Windows
 
 TBD
