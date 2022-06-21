@@ -6,6 +6,8 @@ import { navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 
+import Button from 'src/components/Button'
+
 const ForgotPasswordPage = () => {
   const { forgotPassword } = useAuth()
 
@@ -68,9 +70,7 @@ const ForgotPasswordPage = () => {
                     <FieldError name="username" className="rw-field-error" />
                   </div>
 
-                  <div className="rw-button-group">
-                    <Submit className="rw-button rw-button-blue">Submit</Submit>
-                  </div>
+                  <Button>Submit</Button>
                 </Form>
               </div>
             </div>
