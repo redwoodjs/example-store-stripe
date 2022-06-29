@@ -14,44 +14,7 @@
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config",
-    "root": true,
-    "rules": {
-      "import/order": [
-        "error",
-        {
-          "newlines-between": "always",
-          "pathGroupsExcludedImportTypes": [
-            "react"
-          ],
-          "pathGroups": [
-            {
-              "pattern": "react",
-              "group": "builtin",
-              "position": "after"
-            },
-            {
-              "pattern": "@redwoodjs/**",
-              "group": "external",
-              "position": "after"
-            },
-            {
-              "pattern": "src/lib/test",
-              "group": "parent",
-              "position": "before"
-            },
-            {
-              "pattern": "src/**",
-              "group": "parent",
-              "position": "before"
-            }
-          ],
-          "alphabetize": {
-            "order": "asc",
-            "caseInsensitive": true
-          }
-        }
-      ]
-    }
+    "root": true
   },
   "engines": {
     "node": ">=14.17 <=16.x",
