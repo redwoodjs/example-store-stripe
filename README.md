@@ -27,7 +27,6 @@ yarn install
 
 ### Step 2
 
-Get your Stripe test keys
 
 To develop on this repo locally, you'll need to populate your `.env` file with a few env vars. The first of those is your Stripe test keys.
 
