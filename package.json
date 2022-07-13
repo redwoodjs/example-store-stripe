@@ -8,7 +8,7 @@
     ]
   },
   "devDependencies": {
-    "@playwright/test": "1.23.2",
+    "@playwright/test": "1.23.3",
     "@redwoodjs/core": "2.1.0",
     "enquirer": "2.3.6"
   },
