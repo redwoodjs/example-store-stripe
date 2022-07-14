@@ -8,50 +8,13 @@
     ]
   },
   "devDependencies": {
-    "@playwright/test": "1.22.2",
-    "@redwoodjs/core": "1.5.2",
+    "@playwright/test": "1.23.3",
+    "@redwoodjs/core": "2.1.0",
     "enquirer": "2.3.6"
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config",
-    "root": true,
-    "rules": {
-      "import/order": [
-        "error",
-        {
-          "newlines-between": "always",
-          "pathGroupsExcludedImportTypes": [
-            "react"
-          ],
-          "pathGroups": [
-            {
-              "pattern": "react",
-              "group": "builtin",
-              "position": "after"
-            },
-            {
-              "pattern": "@redwoodjs/**",
-              "group": "external",
-              "position": "after"
-            },
-            {
-              "pattern": "src/lib/test",
-              "group": "parent",
-              "position": "before"
-            },
-            {
-              "pattern": "src/**",
-              "group": "parent",
-              "position": "before"
-            }
-          ],
-          "alphabetize": {
-            "order": "asc",
-            "caseInsensitive": true
-          }
-        }
-      ]
-    }
+    "root": true
   },
   "engines": {
     "node": ">=14.17 <=16.x",
