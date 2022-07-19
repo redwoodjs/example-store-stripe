@@ -1,5 +1,4 @@
-import { useRef } from 'react'
-import { useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 
 import { useAuth } from '@redwoodjs/auth'
 import {
@@ -7,12 +6,13 @@ import {
   Label,
   EmailField,
   PasswordField,
-  Submit,
   FieldError,
 } from '@redwoodjs/forms'
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
+
+import Button from 'src/components/Button'
 
 const LoginPage = () => {
   const { logIn } = useAuth()
@@ -102,9 +102,7 @@ const LoginPage = () => {
 
                   <FieldError name="password" className="rw-field-error" />
 
-                  <div className="rw-button-group">
-                    <Submit className="rw-button rw-button-blue">Login</Submit>
-                  </div>
+                  <Button>Login</Button>
                 </Form>
               </div>
             </div>

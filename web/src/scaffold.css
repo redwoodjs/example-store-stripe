@@ -215,6 +215,7 @@
 .rw-input {
   display: block;
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   width: 100%;
   padding: 0.5rem;
   border-width: 1px;
