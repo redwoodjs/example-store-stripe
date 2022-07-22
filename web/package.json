@@ -13,7 +13,7 @@
     ]
   },
   "dependencies": {
-    "@radix-ui/react-dialog": "0.1.7",
+    "@radix-ui/react-dialog": "1.0.0",
     "@redwoodjs/auth": "2.1.0",
     "@redwoodjs/forms": "2.1.0",
     "@redwoodjs/router": "2.1.0",
