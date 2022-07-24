@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Link } from '@redwoodjs/router'
 
-const Button = ({ children, ...props }) => {
+const Button = React.forwardRef(({ children, ...props }, ref) => {
   const { to, variant, ...rest } = props
 
   let Component
@@ -23,14 +23,18 @@ const Button = ({ children, ...props }) => {
 
   if (to) {
     return (
-      <Component as={StyledLink} to={to} {...rest}>
+      <Component as={StyledLink} to={to} {...rest} ref={ref}>
         {children}
       </Component>
     )
   }
 
-  return <Component {...rest}>{children}</Component>
-}
+  return (
+    <Component {...rest} ref={ref}>
+      {children}
+    </Component>
+  )
+})
 
 export default Button
 
