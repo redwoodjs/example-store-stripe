@@ -31,12 +31,10 @@ If you don't already have one, you can make one here: https://dashboard.stripe.c
 
 Once you've made your account, if you weren't automatically redirected, navigate to your [test dashboard](https://dashboard.stripe.com/test/dashboard). You'll find your test keys on the right side of the page:
 
-![image](https://user-images.githubusercontent.com/32992335/143495019-3c6319d3-f793-48c9-86ca-72f4c12f0306.png)
+![image](https://user-images.githubusercontent.com/30793/180631063-97aa9cca-6343-4c8d-a0ae-28c1bb9e5e70.png)
 
-> **Make sure "Test mode" is on**
->
-> You can toggle "Test mode" on and off with the toggle in the upper right.
-> Make sure it's always on. You should always see the orange "Test Data" banner.
+> If you've activated your account, you can toggle "Test mode" on and off with the toggle in the upper right.
+> Make sure it's always on.
 
 Now that you've got your test keys, your `.env` should look like:
 
