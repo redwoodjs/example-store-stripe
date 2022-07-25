@@ -104,11 +104,11 @@ Make sure to pass the serverless function that's going to receive webhooks to th
 6. Testing
 
 This project comes with a full test suite. To be able to run it
-(`yarn rw test`) you need to configure a test database. To do that you first
-have to create another database, just like you did in step 5. Then you add a
-new variable to your `.env` file called `TEST_DATABASE_URL`
+(`yarn rw test`) you need to configure a test database. To do that,
+create another database, just like you did in step 5. Then add a
+new variable to your `.env` file called `TEST_DATABASE_URL`.
+You should end up having something like this in your `.env` file:
 
-So you'd have something like this in your `.env` file
 
 ```
 DATABASE_URL=postgres://postgres:password@localhost:5432/db-name
