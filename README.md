@@ -109,7 +109,6 @@ create another database, just like you did in step 5. Then add a
 new variable to your `.env` file called `TEST_DATABASE_URL`.
 You should end up having something like this in your `.env` file:
 
-
 ```
 DATABASE_URL=postgres://postgres:password@localhost:5432/db-name
 TEST_DATABASE_URL=postgres://postgres:password@localhost:5432/db-name-test
