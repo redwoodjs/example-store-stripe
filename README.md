@@ -72,12 +72,12 @@ yarn rw exec seed-stripe --no-prisma
 
 4. Authentication
 
-We've begun working on adding user login. For that we're using Redwood's
+We've started working on adding user login. For that we're using Redwood's
 [dbAuth](https://redwoodjs.com/docs/auth/dbauth). So far we've only added
-login, logout and reset password pages. There is no extra functionality for
+login, logout, and reset password pages. There's no extra functionality for
 authenticated users.
 
-For dbAuth to work properly you need to generate a secret key and save it as an
+For dbAuth to work properly, you need to generate a secret key and save it as an
 environment variable:
 
 ```
@@ -115,7 +115,7 @@ stripe listen --forward-to 'localhost:8911/stripeWebhooks'
 
 Make sure to pass the serverless function that's going to receive webhooks to the `--forward-to` flag.
 
-6. Testing
+7. Testing
 
 This project comes with a full test suite. To be able to run it
 (`yarn rw test`) you need to configure a test database. To do that,
