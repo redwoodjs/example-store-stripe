@@ -101,6 +101,19 @@ stripe listen --forward-to 'localhost:8911/stripeWebhooks'
 
 Make sure to pass the serverless function that's going to receive webhooks to the `--forward-to` flag.
 
+6. Testing
+
+This project comes with a full test suite. To be able to run it
+(`yarn rw test`) you need to configure a test database. To do that,
+create another database, just like you did in step 5. Then add a
+new variable to your `.env` file called `TEST_DATABASE_URL`.
+You should end up having something like this in your `.env` file:
+
+```
+DATABASE_URL=postgres://postgres:password@localhost:5432/db-name
+TEST_DATABASE_URL=postgres://postgres:password@localhost:5432/db-name-test
+```
+
 ## Roadmap
 
 There's a lot more ways we plan to integrate RedwoodJS with Stripe.
