@@ -70,7 +70,21 @@ Now that you've got a Stripe account, you'll want to populate it with products a
 yarn rw exec seed-stripe --no-prisma
 ```
 
-4. Setting up your database
+4. Authentication
+
+We've started working on adding user login. For that we're using Redwood's
+[dbAuth](https://redwoodjs.com/docs/auth/dbauth). So far we've only added
+login, logout, and reset password pages. There's no extra functionality for
+authenticated users.
+
+For dbAuth to work properly, you need to generate a secret key and save it as an
+environment variable:
+
+```
+echo "SESSION_SECRET=$(yarn rw g secret --raw)" >> .env
+```
+
+5. Setting up your database
 
 You'll need one more env var.
 The Stripe Superstore uses Postgres, so before you can migrate your database, you'll need to set your `DATABASE_URL` env var.
@@ -91,7 +105,7 @@ Now you should be able to start the dev server!
 yarn rw dev
 ```
 
-5. Listening for webhooks
+6. Listening for webhooks
 
 In tandem with the dev server, you'll want to use the stripe CLI to start a process that listens for webhooks:
 
@@ -101,7 +115,7 @@ stripe listen --forward-to 'localhost:8911/stripeWebhooks'
 
 Make sure to pass the serverless function that's going to receive webhooks to the `--forward-to` flag.
 
-6. Testing
+7. Testing
 
 This project comes with a full test suite. To be able to run it
 (`yarn rw test`) you need to configure a test database. To do that,
