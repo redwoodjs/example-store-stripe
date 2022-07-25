@@ -33,7 +33,7 @@ Once you've made your account, if you weren't automatically redirected, navigate
 
 ![image](https://user-images.githubusercontent.com/30793/180631063-97aa9cca-6343-4c8d-a0ae-28c1bb9e5e70.png)
 
-> If you have activtaed your account you can toggle "Test mode" on and off with the toggle in the upper right.
+> If you've activated your account, you can toggle "Test mode" on and off with the toggle in the upper right.
 > Make sure it's always on.
 
 Now that you've got your test keys, your `.env` should look like:
