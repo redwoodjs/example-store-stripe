@@ -17977,10 +17977,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"open-props@npm:1.4.4":
-  version: 1.4.4
-  resolution: "open-props@npm:1.4.4"
-  checksum: 5ee2861a4d7426670a96e79dc11317391dc09a8dac02a68bda0f40082ba488dd54f3fc2c98a8b3263ac1b2f78a4d4da1193d5c365bb321afd4c0dd00e426b4d9
+"open-props@npm:1.4.5":
+  version: 1.4.5
+  resolution: "open-props@npm:1.4.5"
+  checksum: 35ca714bc5c7c6180560f38c41d71354d94aa115ebf82ecac6dbd2b02c4f9d41c3dabfcebf1b380a494fdc05f7c7f01fa7cf3b17b20407e7690fef1200fe9986
   languageName: node
   linkType: hard
 
@@ -23786,7 +23786,7 @@ __metadata:
     "@xstate/immer": 0.3.1
     "@xstate/react": 3.0.0
     immer: 9.0.15
-    open-props: 1.4.4
+    open-props: 1.4.5
     prop-types: 15.8.1
     react: 17.0.2
     react-dom: 17.0.2
