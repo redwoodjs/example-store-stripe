@@ -6864,22 +6864,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xstate/react@npm:3.0.0":
-  version: 3.0.0
-  resolution: "@xstate/react@npm:3.0.0"
+"@xstate/react@npm:3.0.1":
+  version: 3.0.1
+  resolution: "@xstate/react@npm:3.0.1"
   dependencies:
     use-isomorphic-layout-effect: ^1.0.0
     use-sync-external-store: ^1.0.0
   peerDependencies:
     "@xstate/fsm": ^2.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    xstate: ^4.31.0
+    xstate: ^4.33.0
   peerDependenciesMeta:
     "@xstate/fsm":
       optional: true
     xstate:
       optional: true
-  checksum: 021be342854322a1bf119ef98b1af67a0b0397a9681285417026035831c7f9b21336079e10ff47d2d8426f2e3d96339dbe3f702b4075d6010294b2481af01080
+  checksum: cc62cf1868e2019be6022982b6d9bf5b4fbf763aeb9de03bd0aef96523bb4cf3cfca28356b138f7d3a36f2ecb234aeb615907f2a28969f0fc9793baf5bcb62c4
   languageName: node
   linkType: hard
 
@@ -23793,7 +23793,7 @@ __metadata:
     "@stripe/stripe-js": 1.35.0
     "@testing-library/user-event": 14.4.2
     "@xstate/immer": 0.3.1
-    "@xstate/react": 3.0.0
+    "@xstate/react": 3.0.1
     immer: 9.0.15
     open-props: 1.4.5
     prop-types: 15.8.1
