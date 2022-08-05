@@ -23801,7 +23801,7 @@ __metadata:
     react-dom: 17.0.2
     react-feather: 2.0.10
     styled-components: 5.3.5
-    xstate: 4.32.1
+    xstate: 4.33.0
   languageName: unknown
   linkType: soft
 
@@ -24464,10 +24464,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xstate@npm:4.32.1":
-  version: 4.32.1
-  resolution: "xstate@npm:4.32.1"
-  checksum: 120ecac3e0310c43dc3a5edb87512cf8bcf81c5ca4ce0f53d50c0508e5fa9ab56ea954e600af908e1bbd1bfe0601a09efbaa0044b80113b5bad4bbb6fb2d4424
+"xstate@npm:4.33.0":
+  version: 4.33.0
+  resolution: "xstate@npm:4.33.0"
+  checksum: a03868903da1fa4376b4aaedec0d58a3a07c4bb61105ac25fab3b218fb2f743f7a8f2102e812a3015ec77e10c6ee01d0bdf1dcb5ab5e44d711fda28c0e6cde78
   languageName: node
   linkType: hard
 
