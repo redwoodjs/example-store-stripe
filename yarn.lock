@@ -5497,12 +5497,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:14.4.1":
-  version: 14.4.1
-  resolution: "@testing-library/user-event@npm:14.4.1"
+"@testing-library/user-event@npm:14.4.2":
+  version: 14.4.2
+  resolution: "@testing-library/user-event@npm:14.4.2"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: 00d1c913bfd995618de6b23a0cef0d1a2350b233b6b1907bcf3b1254df90aa150df9a62b1a1f43d43b388f6c25cc4203afa44d3e841ad42204ff2886e41239aa
+  checksum: 020dc0b8692e35a3008836f1848be914cb3d3167ca3e8fb78eface7e8da4e1f3fa40e19d2b49246dc3ed7bb861500735906c8183a82a3adbc3d9238477e7eef7
   languageName: node
   linkType: hard
 
@@ -23791,7 +23791,7 @@ __metadata:
     "@redwoodjs/router": 2.2.0
     "@redwoodjs/web": 2.2.0
     "@stripe/stripe-js": 1.35.0
-    "@testing-library/user-event": 14.4.1
+    "@testing-library/user-event": 14.4.2
     "@xstate/immer": 0.3.1
     "@xstate/react": 3.0.0
     immer: 9.0.15
