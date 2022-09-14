@@ -36,33 +36,33 @@ describe('checkout', () => {
 
     expect(stripe.checkout.sessions.create).toMatchInlineSnapshot(`
       [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {
+        "calls": [
+          [
+            {
               "cancel_url": "http://localhost:8910/failure",
               "customer": "cus0000001",
-              "line_items": Array [
-                Object {
+              "line_items": [
+                {
                   "price": "123",
                   "quantity": 1,
                 },
-                Object {
+                {
                   "price": "456",
                   "quantity": 1,
                 },
               ],
               "mode": "payment",
-              "payment_method_types": Array [
+              "payment_method_types": [
                 "card",
               ],
               "success_url": "http://localhost:8910/success?sessionId={CHECKOUT_SESSION_ID}",
             },
           ],
         ],
-        "results": Array [
-          Object {
+        "results": [
+          {
             "type": "return",
-            "value": Object {
+            "value": {
               "id": 1,
             },
           },
