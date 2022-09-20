@@ -28,6 +28,7 @@
   },
   "packageManager": "yarn@3.2.3",
   "dependencies": {
+    "redwoodjs-stripe": "^0.1.0-rc.1",
     "styled-system": "5.1.5"
   }
 }
