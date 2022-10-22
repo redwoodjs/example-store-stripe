@@ -7431,7 +7431,7 @@ __metadata:
   dependencies:
     "@redwoodjs/api": 2.2.4
     "@redwoodjs/graphql-server": 2.2.4
-    graphql-scalars: 1.19.0
+    graphql-scalars: 1.20.0
     nodemailer: 6.8.0
     stripe: 9.16.0
   languageName: unknown
@@ -13461,14 +13461,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-scalars@npm:1.19.0":
-  version: 1.19.0
-  resolution: "graphql-scalars@npm:1.19.0"
+"graphql-scalars@npm:1.20.0":
+  version: 1.20.0
+  resolution: "graphql-scalars@npm:1.20.0"
   dependencies:
     tslib: ~2.4.0
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: e79a1a4a34a3138f28aa7163dcd8e21ac6c1f1efc0aa5da193cb5f0b276194a892744e58d4d43328ff3f1788122923852137f03b317b9497735d394ae0c2beb6
+  checksum: 2a32ef3458ab7a293ff11c540ee7054f1e1f5dcacb301f9c652c29f988333952539ef61a9448919756004a3b743720d93f39575db65914d59b65b051e9c1c076
   languageName: node
   linkType: hard
 
