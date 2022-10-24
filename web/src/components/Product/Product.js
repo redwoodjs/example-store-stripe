@@ -2,15 +2,15 @@ import styled from 'styled-components'
 
 import { useAddToCart } from 'src/components/CartProvider'
 
-const Product = ({ id, name, description, price, image, type }) => {
+const Product = ({ id, name, description, price, images, type }) => {
   const addToCart = useAddToCart()
 
   return (
     <Wrapper
-      onClick={() => addToCart({ id, name, description, price, image, type })}
+      onClick={() => addToCart({ id, name, description, price, images, type })}
     >
       <div style={{ overflow: 'hidden' }}>
-        <Image alt={description} src={image} />
+        <Image alt={description} src={images[0]} />
       </div>
       <ProductInfo>
         <Name>{name}</Name>

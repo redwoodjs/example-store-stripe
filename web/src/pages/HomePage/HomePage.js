@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import ProductsCell from 'src/components/ProductsCell'
+// import ProductsCell from 'src/components/ProductsCell'
+import StripeItemsCell from 'src/components/StripeItemsCell'
 
 const HomePage = () => {
   return (
@@ -10,7 +11,13 @@ const HomePage = () => {
         <Description>
           These are single-use tokens. Great for emergencies and gifts.
         </Description>
-        <ProductsCell />
+        <StripeItemsCell
+          params={{
+            productParams: { active: true },
+            priceParams: { type: 'one_time' },
+          }}
+        />
+        {/* <ProductsCell /> */}
       </article>
 
       <article>
@@ -19,7 +26,7 @@ const HomePage = () => {
           Monthly subscriptions to superpowers. Great for the career
           supervillain, hero or parent.
         </Description>
-        <ProductsCell type={'recurring'} />
+        {/* <ProductsCell type={'recurring'} /> */}
       </article>
     </Wrapper>
   )

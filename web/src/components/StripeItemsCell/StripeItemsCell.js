@@ -1,7 +1,10 @@
-import { useStripeCart } from 'redwoodjs-stripe/web'
+import { AlertTriangle } from 'react-feather'
+import styled from 'styled-components'
 
-import { Icon } from './Icon'
-import './styles.css'
+import List from 'src/components/List'
+import Product from 'src/components/Product'
+import Spinner from 'src/components/Spinner'
+
 /*
   Fetches an array of products and their prices filtered via params.
   Available params can be found in Stripe API documentation (https://stripe.com/docs/api/products/list)
@@ -30,67 +33,63 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => (
+  <Wrapper>
+    <Background>
+      <Spinner />
+    </Background>
+    <Background>
+      <Spinner />
+    </Background>
+    <Background>
+      <Spinner />
+    </Background>
+  </Wrapper>
+)
 
 export const Empty = () => <div>Empty</div>
 
-export const Failure = ({ error }) => (
-  <div style={{ color: 'red' }}>Error: {error.message}</div>
-)
+export const Failure = ({ error }) => {
+  console.error(error.stack)
+
+  return (
+    <Wrapper>
+      <Background>
+        <AlertTriangle />
+      </Background>
+      <Background>
+        <AlertTriangle />
+      </Background>
+      <Background>
+        <AlertTriangle />
+      </Background>
+    </Wrapper>
+  )
+}
 
 export const Success = ({ stripeItems }) => {
-  return (
-    <ul className="rws-products__list">
-      {stripeItems.map((item) => {
-        return (
-          <li
-            className="rws-products__list__item"
-            key={`stripe-products-cell-${item.id}`}
-          >
-            <StripeItem {...item} />
-          </li>
-        )
-      })}
-    </ul>
-  )
+  return <List items={stripeItems} Component={Product} />
 }
 
-const StripeItem = ({ name, price, id, images, type }) => {
-  const { addToCart } = useStripeCart()
+// Styles
 
-  const onAddToCartButtonClick = (item) => {
-    addToCart(item)
-  }
-  return (
-    <>
-      <div className="rws-product">
-        <img className="rws-product__img" src={images[0]} alt="" />
-        <div className="rws-product__data">
-          <div className="rws-product__text-wrapper">
-            <p className="rws-product__text">{name}</p>
-            <p className="rws-product__text">
-              {(price / 100).toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'USD',
-              })}
-            </p>
-          </div>
+const Wrapper = styled.div`
+  width: 100%;
 
-          <button
-            className="rws-button"
-            onClick={() =>
-              onAddToCartButtonClick({
-                name: name,
-                id: id,
-                price: price,
-                type: type,
-              })
-            }
-          >
-            <Icon name="plus" />
-          </button>
-        </div>
-      </div>
-    </>
-  )
-}
+  display: flex;
+  justify-content: center;
+  gap: var(--padding);
+
+  height: var(--size-13);
+`
+
+const Background = styled.div`
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--gray-1);
+  border-radius: var(--radius-2);
+
+  display: grid;
+  place-content: center;
+`
