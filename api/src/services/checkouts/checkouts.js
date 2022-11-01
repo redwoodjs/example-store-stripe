@@ -11,24 +11,24 @@ import { stripe } from 'src/lib/stripe'
  *  customerId: string
  * }}
  */
-export const checkout = async ({ mode, cart, customerId }, { context }) => {
-  // eslint-disable-next-line camelcase
-  const line_items = cart.map((product) => ({
-    price: product.id,
-    quantity: product.quantity,
-  }))
+// export const checkout = async ({ mode, cart, customerId }, { context }) => {
+//   // eslint-disable-next-line camelcase
+//   const line_items = cart.map((product) => ({
+//     price: product.id,
+//     quantity: product.quantity,
+//   }))
 
-  return stripe.checkout.sessions.create({
-    // See https://stripe.com/docs/payments/checkout/custom-success-page#modify-success-url.
-    success_url: `${context.event.headers.referer}success?sessionId={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${context.event.headers.referer}failure`,
-    // eslint-disable-next-line camelcase
-    line_items,
-    mode,
-    payment_method_types: ['card'],
-    customer: customerId,
-  })
-}
+//   return stripe.checkout.sessions.create({
+//     // See https://stripe.com/docs/payments/checkout/custom-success-page#modify-success-url.
+//     success_url: `${context.event.headers.referer}success?sessionId={CHECKOUT_SESSION_ID}`,
+//     cancel_url: `${context.event.headers.referer}failure`,
+//     // eslint-disable-next-line camelcase
+//     line_items,
+//     mode,
+//     payment_method_types: ['card'],
+//     customer: customerId,
+//   })
+// }
 
 export const getSession = async ({ id }) => {
   // Get session object

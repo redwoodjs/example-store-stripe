@@ -7,17 +7,19 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
+import { StripeProvider } from 'redwoodjs-stripe/web'
+
 import { Router, Route, Set } from '@redwoodjs/router'
 
 import AuthRedirect from 'src/components/AuthRedirect'
-import CartProvider from 'src/components/CartProvider'
+// import CartProvider from 'src/components/CartProvider'
 import MainLayout from 'src/layouts/MainLayout'
 
 const Routes = () => {
   return (
     <Router>
       <Route path="/stripe-demo" page={StripeDemoPage} name="stripeDemo" />
-      <Set wrap={[CartProvider, MainLayout]}>
+      <Set wrap={[StripeProvider, MainLayout]} customer={{ search: '' }}>
         <Route path="/" page={HomePage} name="home" />
         <Route path="/success" page={SuccessPage} name="success" />
         <Route path="/failure" page={FailurePage} name="failure" />

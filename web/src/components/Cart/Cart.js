@@ -1,32 +1,17 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { ShoppingCart, Trash2 } from 'react-feather'
-import {
-  useStripeCart,
-  useStripeCheckout,
-  useStripeCustomerPortal,
-  StripeProvider,
-} from 'redwoodjs-stripe/web'
+import { useStripeCart, useStripeCheckout } from 'redwoodjs-stripe/web'
 import styled, { css } from 'styled-components'
 
 import Button from 'src/components/Button'
-import {
-  // useCart,
-  // useCheckout,
-  // useClearCart,
-  useCanCheckout,
-  useRemoveFromCart,
-} from 'src/components/CartProvider'
 
 const Cart = (props) => {
-  // const cart = useCart()
   const { clearCart, cart } = useStripeCart()
   const { checkout } = useStripeCheckout()
 
   const quantity = cart.reduce((total, item) => total + item.quantity, 0)
 
-  const canCheckout = useCanCheckout()
-  // const checkout = useCheckout()
-  // const clearCart = useClearCart()
+  const canCheckout = cart.length > 0
 
   return (
     <Dialog.Root>
@@ -104,7 +89,7 @@ const ShoppingCartButton = styled(Button)`
 `
 
 const CartItem = ({ image, quantity, name, id }) => {
-  const removeFromCart = useRemoveFromCart()
+  const { removeFromCart } = useStripeCart()
   return (
     <Row style={{ width: '100%' }}>
       <Quantity>{quantity}</Quantity>
@@ -113,7 +98,7 @@ const CartItem = ({ image, quantity, name, id }) => {
       <Button
         aria-label={`Remove ${name} from cart`}
         variant="icon"
-        onClick={() => removeFromCart({ id })}
+        onClick={() => removeFromCart(id)}
         style={{ marginLeft: 'auto' }}
       >
         <Trash2 style={{ width: 'var(--size-4)' }} />

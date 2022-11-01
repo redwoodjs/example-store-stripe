@@ -7,10 +7,12 @@ const Product = ({ id, name, description, price, images, type }) => {
   // const addToCart = useAddToCart()
   const { addToCart } = useStripeCart()
 
+  const onProductClick = () => {
+    addToCart({ id, name, description, price, images, type })
+  }
+
   return (
-    <Wrapper
-      onClick={() => addToCart({ id, name, description, price, images, type })}
-    >
+    <Wrapper onClick={onProductClick}>
       <div style={{ overflow: 'hidden' }}>
         <Image alt={description} src={images[0]} />
       </div>
