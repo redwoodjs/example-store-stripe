@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-// import ProductsCell from 'src/components/ProductsCell'
 import StripeItemsCell from 'src/components/StripeItemsCell'
 
 const HomePage = () => {

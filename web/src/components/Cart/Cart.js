@@ -1,24 +1,32 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { ShoppingCart, Trash2 } from 'react-feather'
+import {
+  useStripeCart,
+  useStripeCheckout,
+  useStripeCustomerPortal,
+  StripeProvider,
+} from 'redwoodjs-stripe/web'
 import styled, { css } from 'styled-components'
 
 import Button from 'src/components/Button'
 import {
-  useCart,
-  useCheckout,
-  useClearCart,
+  // useCart,
+  // useCheckout,
+  // useClearCart,
   useCanCheckout,
   useRemoveFromCart,
 } from 'src/components/CartProvider'
 
 const Cart = (props) => {
-  const cart = useCart()
+  // const cart = useCart()
+  const { clearCart, cart } = useStripeCart()
+  const { checkout } = useStripeCheckout()
 
   const quantity = cart.reduce((total, item) => total + item.quantity, 0)
 
   const canCheckout = useCanCheckout()
-  const checkout = useCheckout()
-  const clearCart = useClearCart()
+  // const checkout = useCheckout()
+  // const clearCart = useClearCart()
 
   return (
     <Dialog.Root>

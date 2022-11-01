@@ -1,9 +1,11 @@
+import { useStripeCart } from 'redwoodjs-stripe/web'
 import styled from 'styled-components'
 
-import { useAddToCart } from 'src/components/CartProvider'
+// import { useAddToCart } from 'src/components/CartProvider'
 
 const Product = ({ id, name, description, price, images, type }) => {
-  const addToCart = useAddToCart()
+  // const addToCart = useAddToCart()
+  const { addToCart } = useStripeCart()
 
   return (
     <Wrapper
