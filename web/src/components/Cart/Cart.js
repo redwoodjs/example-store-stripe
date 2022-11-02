@@ -11,7 +11,20 @@ const Cart = (props) => {
 
   const quantity = cart.reduce((total, item) => total + item.quantity, 0)
 
+  const domain = process.env.DOMAIN_URL
+
   const canCheckout = cart.length > 0
+
+  const onCheckoutButtonClick = () => {
+    checkout({
+      successUrl: `${domain}?success=true&sessionId={CHECKOUT_SESSION_ID}`,
+      cancelUrl: `${domain}?success=false`,
+    })
+  }
+
+  const onClearCartButtonClick = () => {
+    clearCart()
+  }
 
   return (
     <Dialog.Root>
@@ -32,10 +45,10 @@ const Cart = (props) => {
         ))}
         {!canCheckout && <CenteredText>Your cart is empty</CenteredText>}
         <Row style={{ '--gap': 'var(--size-1)' }}>
-          <Button onClick={checkout} disabled={!canCheckout}>
+          <Button onClick={onCheckoutButtonClick} disabled={!canCheckout}>
             Checkout
           </Button>
-          <Button variant="secondary" onClick={clearCart}>
+          <Button variant="secondary" onClick={onClearCartButtonClick}>
             Clear
           </Button>
         </Row>
@@ -90,6 +103,11 @@ const ShoppingCartButton = styled(Button)`
 
 const CartItem = ({ image, quantity, name, id }) => {
   const { removeFromCart } = useStripeCart()
+
+  const onRemoveFromCartButtonClick = () => {
+    removeFromCart(id)
+  }
+
   return (
     <Row style={{ width: '100%' }}>
       <Quantity>{quantity}</Quantity>
@@ -98,7 +116,7 @@ const CartItem = ({ image, quantity, name, id }) => {
       <Button
         aria-label={`Remove ${name} from cart`}
         variant="icon"
-        onClick={() => removeFromCart(id)}
+        onClick={onRemoveFromCartButtonClick}
         style={{ marginLeft: 'auto' }}
       >
         <Trash2 style={{ width: 'var(--size-4)' }} />
