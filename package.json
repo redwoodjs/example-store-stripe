@@ -8,7 +8,7 @@
     ]
   },
   "devDependencies": {
-    "@playwright/test": "1.25.2",
+    "@playwright/test": "1.27.1",
     "@redwoodjs/core": "2.2.4",
     "enquirer": "2.3.6"
   },
@@ -26,7 +26,7 @@
   "scripts": {
     "rw-test-e2e": "npx playwright test e2e"
   },
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@3.2.4",
   "dependencies": {
     "redwoodjs-stripe": "^0.1.0-rc.2",
     "styled-system": "5.1.5"
