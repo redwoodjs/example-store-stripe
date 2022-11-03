@@ -13,22 +13,22 @@
     ]
   },
   "dependencies": {
-    "@radix-ui/react-dialog": "1.0.0",
     "@redwoodjs/auth": "^3.0.0-rc.320",
     "@redwoodjs/forms": "^3.0.0-rc.320",
     "@redwoodjs/router": "^3.0.0-rc.320",
     "@redwoodjs/web": "^3.0.0-rc.320",
-    "@stripe/stripe-js": "1.36.0",
+    "@radix-ui/react-dialog": "1.0.2",
+    "@stripe/stripe-js": "1.42.1",
     "@xstate/immer": "0.3.1",
     "@xstate/react": "3.0.1",
-    "immer": "9.0.15",
-    "open-props": "1.4.14",
+    "immer": "9.0.16",
+    "open-props": "1.4.21",
     "prop-types": "15.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-feather": "2.0.10",
-    "styled-components": "5.3.5",
-    "xstate": "4.33.6"
+    "styled-components": "5.3.6",
+    "xstate": "4.34.0"
   },
   "devDependencies": {
     "@testing-library/user-event": "14.4.3"
