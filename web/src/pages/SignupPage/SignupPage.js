@@ -6,7 +6,7 @@ import {
   Label,
   EmailField,
   PasswordField,
-  FieldError
+  FieldError,
 } from '@redwoodjs/forms'
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
@@ -25,7 +25,7 @@ const SignupPage = () => {
 
   const onSubmit = async (data) => {
     const response = await signUp({ ...data })
-
+    console.log(response)
     if (response.message) {
       toast(response.message)
     } else if (response.error) {

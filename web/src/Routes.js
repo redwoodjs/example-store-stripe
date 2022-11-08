@@ -9,13 +9,15 @@
 
 import { StripeProvider } from 'redwoodjs-stripe/web'
 
+import { useAuth } from '@redwoodjs/auth'
 import { Router, Route, Set } from '@redwoodjs/router'
 
 import AuthRedirect from 'src/components/AuthRedirect'
-// import CartProvider from 'src/components/CartProvider'
 import MainLayout from 'src/layouts/MainLayout'
 
 const Routes = () => {
+  const { currentUser } = useAuth()
+  console.log('CURRENT USER: ', currentUser)
   return (
     <Router>
       <Route path="/stripe-demo" page={StripeDemoPage} name="stripeDemo" />

@@ -23,15 +23,16 @@ const LoginPage = () => {
   }, [])
 
   const onSubmit = async (data) => {
-    const response = await logIn({ ...data })
+    console.log(data)
+    // const response = await logIn({ ...data })
 
-    if (response.message) {
-      toast(response.message)
-    } else if (response.error) {
-      toast.error(response.error)
-    } else {
-      toast.success('Welcome back!')
-    }
+    // if (response.message) {
+    //   toast(response.message)
+    // } else if (response.error) {
+    //   toast.error(response.error)
+    // } else {
+    //   toast.success('Welcome back!')
+    // }
   }
 
   return (
