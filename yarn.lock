@@ -11245,7 +11245,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:16.0.2":
+"dotenv@npm:16.0.2, dotenv@npm:^16.0.0":
   version: 16.0.2
   resolution: "dotenv@npm:16.0.2"
   checksum: e9b64fa45f0b693875db50f1876c1202be8e936500aa664478247ab06b2fe8096cc1ab238919771dbdd1f65490b7efe65b61401d3cd61bcea88eab7c2bf06964
@@ -11256,13 +11256,6 @@ __metadata:
   version: 14.3.2
   resolution: "dotenv@npm:14.3.2"
   checksum: cb428358aa3a8da735be727f8a9de56e148ddf97d84a75e528039dc90e55787688766e48204a50b8326ba1ebaa6e039584c1019dfc28fa144e68145d8cbe5946
-  languageName: node
-  linkType: hard
-
-"dotenv@npm:^16.0.0":
-  version: 16.0.1
-  resolution: "dotenv@npm:16.0.1"
-  checksum: 8afd5d776ea6968f5c28ca374ddb1fe6a7afabe062d32354478e6ea0fe8da341945a3da71defe513403623fa6871ac880d1d100bb08f80be1ae170e99e1b9293
   languageName: node
   linkType: hard
 
