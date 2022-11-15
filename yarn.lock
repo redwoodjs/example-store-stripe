@@ -5584,10 +5584,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stripe/stripe-js@npm:1.42.1":
-  version: 1.42.1
-  resolution: "@stripe/stripe-js@npm:1.42.1"
-  checksum: e0daac27bf078f9a239d5c9a4dac3166b8373064e82afa30ec93e5da8c1a14f97e64706dcea706c2f73fe8a66f2a08b9cf8867fd87f63cd1273b8be15942b4d8
+"@stripe/stripe-js@npm:1.44.1":
+  version: 1.44.1
+  resolution: "@stripe/stripe-js@npm:1.44.1"
+  checksum: c6aebbd1653fbc710a394674f81850425d6cc71eb7b05839dc2455e619b2eb1b02b50a0a3012aad4666e67d852b67c4b94063ef1da051acfb594ccbc3220360c
   languageName: node
   linkType: hard
 
@@ -7604,7 +7604,7 @@ __metadata:
   dependencies:
     "@redwoodjs/api": 3.4.0
     "@redwoodjs/graphql-server": 3.4.0
-    graphql-scalars: 1.20.0
+    graphql-scalars: 1.20.1
     nodemailer: 6.8.0
     stripe: 9.16.0
   languageName: unknown
@@ -13720,14 +13720,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-scalars@npm:1.20.0":
-  version: 1.20.0
-  resolution: "graphql-scalars@npm:1.20.0"
+"graphql-scalars@npm:1.20.1":
+  version: 1.20.1
+  resolution: "graphql-scalars@npm:1.20.1"
   dependencies:
     tslib: ~2.4.0
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 2a32ef3458ab7a293ff11c540ee7054f1e1f5dcacb301f9c652c29f988333952539ef61a9448919756004a3b743720d93f39575db65914d59b65b051e9c1c076
+  checksum: 06f525f9343d997ea35412e094970b6db61ac05cd48d93376db57a3126ad906db5c27f7df5f13d01b26e89d26f90e316f652a908e790adef084751999ed48ce3
   languageName: node
   linkType: hard
 
@@ -24250,7 +24250,7 @@ __metadata:
     "@redwoodjs/forms": 3.4.0
     "@redwoodjs/router": 3.4.0
     "@redwoodjs/web": 3.4.0
-    "@stripe/stripe-js": 1.42.1
+    "@stripe/stripe-js": 1.44.1
     "@testing-library/user-event": 14.4.3
     "@xstate/immer": 0.3.1
     "@xstate/react": 3.0.1
