@@ -4,7 +4,6 @@ import { DbAuthHandler } from '@redwoodjs/api'
 
 import { db } from 'src/lib/db'
 import { sendEmail } from 'src/lib/email'
-// import { stripe } from 'src/lib/stripe'
 
 export const handler = async (event, context) => {
   const forgotPasswordOptions = {

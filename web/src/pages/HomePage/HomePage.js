@@ -25,8 +25,7 @@ const HomePage = () => {
       </article>
 
       <article>
-        <h2>Super Subs</h2>
-        <Description>
+           
           Monthly subscriptions to superpowers. Great for the career
           supervillain, hero or parent.
         </Description>
