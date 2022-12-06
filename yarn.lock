@@ -20612,9 +20612,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redwoodjs-stripe@npm:^0.1.0-rc.2":
-  version: 0.1.0-rc.2
-  resolution: "redwoodjs-stripe@npm:0.1.0-rc.2"
+"redwoodjs-stripe@npm:^0.1.0-rc.3":
+  version: 0.1.0-rc.3
+  resolution: "redwoodjs-stripe@npm:0.1.0-rc.3"
   dependencies:
     "@stripe/stripe-js": 1.29.0
     cli-testing-library: ^1.0.4
@@ -20634,7 +20634,7 @@ __metadata:
     react-dom: 17.0.2
   bin:
     redwoodjs-stripe: src/cli/cli.js
-  checksum: 87129f642df1d6a5dad8a989e650d705c1445c03e507e78e00ddbac88533028fbef308e49f81ebdd3439e59596503d212ed2330b67fecff899894465dd4d1dde
+  checksum: f6354d4f5ad3d1a185fccd9d54ac6457736b48f46a324173f082cb77cb686e24d931fbacc39bd87ba1dbd4b20e3b016db54cdf8ab97992673541325eb4447ffd
   languageName: node
   linkType: hard
 
@@ -21175,7 +21175,7 @@ __metadata:
     "@playwright/test": 1.27.1
     "@redwoodjs/core": 3.4.0
     enquirer: 2.3.6
-    redwoodjs-stripe: ^0.1.0-rc.2
+    redwoodjs-stripe: ^0.1.0-rc.3
     styled-system: 5.1.5
   languageName: unknown
   linkType: soft

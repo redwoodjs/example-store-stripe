@@ -16,8 +16,8 @@ import AuthRedirect from 'src/components/AuthRedirect'
 import MainLayout from 'src/layouts/MainLayout'
 
 const Routes = () => {
-  const { currentUser } = useAuth()
-  console.log('CURRENT USER: ', currentUser)
+  // const { currentUser } = useAuth()
+  // console.log('CURRENT USER: ', currentUser)
   return (
     <Router>
       <Route path="/stripe-demo" page={StripeDemoPage} name="stripeDemo" />
