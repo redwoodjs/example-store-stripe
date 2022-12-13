@@ -28,7 +28,7 @@ export const handler = async (event, _context) => {
     statusCode: 200,
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.STRIPE_SK}`,
+      Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
     },
     body: JSON.stringify(session),
   }
