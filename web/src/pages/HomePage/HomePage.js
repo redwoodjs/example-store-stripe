@@ -1,14 +1,8 @@
 import styled from 'styled-components'
 
-import { useAuth } from '@redwoodjs/auth'
-
 import StripeItemsCell from 'src/components/StripeItemsCell'
 
 const HomePage = () => {
-  const { currentUser, isAuthenticated, loading } = useAuth()
-  console.log('HOMEPAGE:', currentUser)
-  console.log('logged in?:', isAuthenticated)
-  console.log('loading...', loading)
   return (
     <Wrapper>
       <article>

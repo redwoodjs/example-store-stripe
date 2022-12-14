@@ -16,12 +16,17 @@ import AuthRedirect from 'src/components/AuthRedirect'
 import MainLayout from 'src/layouts/MainLayout'
 
 const Routes = () => {
-  // const { currentUser } = useAuth()
-  // console.log('CURRENT USER: ', currentUser)
+  // Getting logged in user id
+  // For this app User's ids are the same as their Stripe id
+  const { currentUser, isAuthenticated } = useAuth()
+
+  // Create stripeSearchString based on whether or not an user is logged in
+  const stripeSearchString = isAuthenticated ? ` email: ${currentUser.id}` : ''
+
   return (
     <Router>
       <Route path="/stripe-demo" page={StripeDemoPage} name="stripeDemo" />
-      <Set wrap={[StripeProvider, MainLayout]} customer={{ search: '' }}>
+      <Set wrap={[StripeProvider, MainLayout]} customer={{ search: stripeSearchString }}>
         <Route path="/" page={HomePage} name="home" />
         <Route path="/success" page={SuccessPage} name="success" />
         <Route path="/failure" page={FailurePage} name="failure" />

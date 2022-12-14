@@ -7,6 +7,8 @@ import Button from 'src/components/Button'
 
 const Cart = (props) => {
   const { clearCart, cart } = useStripeCart()
+  const stuff = useStripeCart()
+  console.log(stuff)
   const { checkout } = useStripeCheckout()
 
   const quantity = cart.reduce((total, item) => total + item.quantity, 0)
