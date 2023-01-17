@@ -10,7 +10,12 @@ const HomePage = () => {
         <Description>
           These are single-use tokens. Great for emergencies and gifts.
         </Description>
-        <ProductsCell />
+        <ProductsCell
+          params={{
+            productParams: { active: true },
+            priceParams: { type: 'one_time' },
+          }}
+        />
       </article>
 
       <article>
@@ -19,7 +24,12 @@ const HomePage = () => {
           Monthly subscriptions to superpowers. Great for the career
           supervillain, hero or parent.
         </Description>
-        <ProductsCell type={'recurring'} />
+        <ProductsCell
+          params={{
+            productParams: { active: true },
+            priceParams: { type: 'recurring' },
+          }}
+        />
       </article>
     </Wrapper>
   )
