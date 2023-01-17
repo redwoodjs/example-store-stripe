@@ -1,4 +1,7 @@
+import { StripeProvider } from 'redwoodjs-stripe/web'
 import styled from 'styled-components'
+
+import { useAuth } from '@redwoodjs/auth'
 
 import AuthButton from 'src/components/AuthButton'
 import Branding from 'src/components/Branding/Branding'
@@ -7,18 +10,37 @@ import Footer from 'src/components/Footer'
 import Grid from 'src/components/Grid'
 
 const MainLayout = ({ children }) => {
+  /*
+    Passing the authenticated user to StripeProvider for use for Stripe Checkout and Stripe Portals
+    User needs to manage authentication of customers
+  */
+  const { currentUser, isAuthenticated } = useAuth()
+  let authUser = currentUser || {
+    email: null,
+    name: null,
+  }
   return (
-    <Grid>
-      <Header>
-        {/* Push the other flex items all the way to the right. */}
-        <Branding style={{ marginRight: 'auto' }} />
-        <AuthButton />
-        <HLine />
-        <Cart />
-      </Header>
-      {children}
-      <Footer />
-    </Grid>
+    <StripeProvider
+      customer={{
+        search: isAuthenticated ? `email: "${authUser.email}"` : '',
+        create: {
+          email: authUser.email,
+          name: authUser.name,
+        },
+      }}
+    >
+      <Grid>
+        <Header>
+          {/* Push the other flex items all the way to the right. */}
+          <Branding style={{ marginRight: 'auto' }} />
+          <AuthButton />
+          <HLine />
+          <Cart />
+        </Header>
+        {children}
+        <Footer />
+      </Grid>
+    </StripeProvider>
   )
 }
 
