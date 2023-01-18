@@ -1,20 +1,24 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { ShoppingCart, Trash2 } from 'react-feather'
-import { useStripeCart } from 'redwoodjs-stripe/web'
+import { useStripeCart, useStripeCheckout } from 'redwoodjs-stripe/web'
 import styled, { css } from 'styled-components'
 
 import Button from 'src/components/Button'
-import { useCheckout } from 'src/components/CartProvider'
 
 const Cart = (props) => {
   const { cart, clearCart } = useStripeCart()
+  const { checkout } = useStripeCheckout()
+
+  const domain = process.env.DOMAIN_URL
 
   const quantity = cart.reduce((total, item) => total + item.quantity, 0)
   const canCheckout = cart.length > 0
-  const checkout = useCheckout()
 
-  const onCheckoutButtonClick = () => {
-    checkout()
+  const onCheckoutButtonClick = async () => {
+    await checkout({
+      successUrl: `${domain}success?sessionId={CHECKOUT_SESSION_ID}`,
+      cancelUrl: `${domain}failure`,
+    })
   }
 
   const onClearCartButtonClick = () => {
