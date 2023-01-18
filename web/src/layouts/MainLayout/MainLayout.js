@@ -14,34 +14,14 @@ const MainLayout = ({ children }) => {
     Passing the authenticated user to StripeProvider for use for Stripe Checkout and Stripe Portals
     User needs to manage authentication of customers
   */
-  const { currentUser, isAuthenticated, userMetadata } = useAuth()
-  let authUser = currentUser || {
-    email: null,
-    name: null,
-  }
+  const { userMetadata } = useAuth()
 
   const customer = {
     id: userMetadata,
-    search: isAuthenticated ? `id: "${userMetadata}"` : '',
-    create: {
-      email: authUser.email,
-      name: authUser.name,
-    },
   }
-
-  const customerTry = {
-    id: userMetadata,
-  }
-
-  // const hasID = customerTry.id !== '' && !!customerTry.id
-  // const hasSearch = customerTry.search !== '' && !!customerTry.search
-
-  // console.log('hasID: ', hasID)
-  // console.log(hasID ? 'retrieve' : 'search')
-  // console.log(!hasSearch || !hasID ? 'do not continue' : 'fetch customer')
 
   return (
-    <StripeProvider customer={customerTry}>
+    <StripeProvider customer={customer}>
       <Grid>
         <Header>
           {/* Push the other flex items all the way to the right. */}
