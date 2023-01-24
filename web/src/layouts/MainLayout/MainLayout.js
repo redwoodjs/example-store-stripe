@@ -16,8 +16,6 @@ const MainLayout = ({ children }) => {
   */
   const { userMetadata } = useAuth()
 
-  console.log(userMetadata)
-
   const customer = {
     id: userMetadata,
   }
