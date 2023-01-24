@@ -1,3 +1,8 @@
+import {
+  stripeCustomerSearch,
+  createStripeCustomer,
+} from 'redwoodjs-stripe/api'
+
 import { DbAuthHandler } from '@redwoodjs/api'
 
 import { db } from 'src/lib/db'
@@ -112,14 +117,17 @@ export const handler = async (event, context) => {
     // `signUp()` function in the form of: `{ message: 'String here' }`.
     handler: async ({ username: email, hashedPassword, salt }) => {
       // get customerID from Stripe using email
-      const customerList = await stripe.customers.list({ email })
+      // const customerList = await stripe.customers.list({ email })
+      const customer = await stripeCustomerSearch({
+        query: `email: \"${email}\"`,
+      })
       let customerId = ''
       let customerName = ''
-      if (customerList.length > 0) {
-        customerId = customerList[0].id
-        customerName = customerList[0].name
+      if (customer !== undefined) {
+        customerId = customer.id
+        customerName = customer.name
       } else {
-        const newCustomer = await stripe.customers.create({ email })
+        const newCustomer = await createStripeCustomer({ email })
         customerId = newCustomer.id
       }
 
