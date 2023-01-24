@@ -15,7 +15,6 @@ import MainLayout from 'src/layouts/MainLayout'
 const Routes = () => {
   return (
     <Router>
-      {/* <Route path="/stripe-demo" page={StripeDemoPage} name="stripeDemo" /> */}
       <Set wrap={MainLayout}>
         <Route path="/" page={HomePage} name="home" />
         <Route path="/success" page={SuccessPage} name="success" />
