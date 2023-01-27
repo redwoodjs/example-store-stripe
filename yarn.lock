@@ -7760,7 +7760,7 @@ __metadata:
     "@redwoodjs/api": 3.8.0
     "@redwoodjs/graphql-server": 3.8.0
     graphql-scalars: 1.20.1
-    nodemailer: 6.9.0
+    nodemailer: 6.9.1
     stripe: 10.17.0
   languageName: unknown
   linkType: soft
@@ -17776,10 +17776,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemailer@npm:6.9.0":
-  version: 6.9.0
-  resolution: "nodemailer@npm:6.9.0"
-  checksum: 1464b9dd68cc6c5f7bd6e5d4075aed095943f9b742a093b82c5d97bce86fbc91693a98e2c5e036227a7566c4128fc0a28c91b7e225448a47729b97d48988915d
+"nodemailer@npm:6.9.1":
+  version: 6.9.1
+  resolution: "nodemailer@npm:6.9.1"
+  checksum: adeaef441e31025776e8b1fa818e4b260850fbb60150f6ff7210e4de443bb32f0881a8a4967c42bb108d620f68f18369a42db29fe7cdec5e4ec09b0ddd51b19c
   languageName: node
   linkType: hard
 
