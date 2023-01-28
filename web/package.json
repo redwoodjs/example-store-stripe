@@ -20,7 +20,7 @@
     "@redwoodjs/web": "3.8.0",
     "@stripe/stripe-js": "1.46.0",
     "@xstate/immer": "0.3.1",
-    "@xstate/react": "3.0.2",
+    "@xstate/react": "3.1.0",
     "immer": "9.0.19",
     "open-props": "1.5.5",
     "prop-types": "15.8.1",
