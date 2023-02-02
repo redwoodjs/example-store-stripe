@@ -11,7 +11,7 @@ const SuccessContent = ({ isSignedUp }) => {
       <div style={{ textAlign: 'center' }}>
         <Heading>Thank you</Heading>
         <Description>
-          Have a <span style={{ color: 'var(--primary)' }}>SUPER</span> day, !
+          Have a <span style={{ color: 'var(--primary)' }}>SUPER</span> day!
         </Description>
       </div>
       <SVGWrapper>

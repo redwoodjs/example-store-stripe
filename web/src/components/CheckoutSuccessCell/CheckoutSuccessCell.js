@@ -21,6 +21,8 @@ export const Failure = ({ error }) => (
 
 export const Success = ({ retrieveStripeCheckoutSession }) => {
   const { userMetadata } = useAuth()
+
+  // Compares authentication data to session data to determine whether is logged in
   const isSignedUp = userMetadata === retrieveStripeCheckoutSession.customer
   return (
     <SuccessContent
