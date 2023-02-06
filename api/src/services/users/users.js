@@ -32,7 +32,17 @@ export const updateUserByCustomerId = ({ id, payload }) => {
 export const handleDBSync = async (id, nextName, nextEmail) => {
   const customer = await getUserByCustomerId({ id })
 
-  if (nextEmail === customer.email && nextName === customer.name) {
+  if (!customer) {
+    console.error('It seems this customer is not in your database.')
+    return
+  }
+
+  if (
+    !!customer.email &&
+    nextEmail === customer.email &&
+    !!customer.name &&
+    nextName === customer.name
+  ) {
     return
   }
 
