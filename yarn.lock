@@ -3888,6 +3888,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@parcel/core@npm:^2.8.3":
+  version: 2.8.3
+  resolution: "@parcel/core@npm:2.8.3"
+  dependencies:
+    "@mischnic/json-sourcemap": ^0.1.0
+    "@parcel/cache": 2.8.3
+    "@parcel/diagnostic": 2.8.3
+    "@parcel/events": 2.8.3
+    "@parcel/fs": 2.8.3
+    "@parcel/graph": 2.8.3
+    "@parcel/hash": 2.8.3
+    "@parcel/logger": 2.8.3
+    "@parcel/package-manager": 2.8.3
+    "@parcel/plugin": 2.8.3
+    "@parcel/source-map": ^2.1.1
+    "@parcel/types": 2.8.3
+    "@parcel/utils": 2.8.3
+    "@parcel/workers": 2.8.3
+    abortcontroller-polyfill: ^1.1.9
+    base-x: ^3.0.8
+    browserslist: ^4.6.6
+    clone: ^2.1.1
+    dotenv: ^7.0.0
+    dotenv-expand: ^5.1.0
+    json5: ^2.2.0
+    msgpackr: ^1.5.4
+    nullthrows: ^1.1.1
+    semver: ^5.7.1
+  checksum: f244d137253bed80aff30f0864cc9064c119cda2da9279560362d5fd6cb9405f7f68d81782f2fad708d02de94e105243b8f4d06d29ad71654eb547bc98ffa4f3
+  languageName: node
+  linkType: hard
+
 "@parcel/diagnostic@npm:2.8.3":
   version: 2.8.3
   resolution: "@parcel/diagnostic@npm:2.8.3"
@@ -8382,6 +8414,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"abortcontroller-polyfill@npm:^1.1.9":
+  version: 1.7.5
+  resolution: "abortcontroller-polyfill@npm:1.7.5"
+  checksum: d7a5ab6fda4f9a54f22ddeb233a2564d2f4f857ec17be25fee21a91bb5090bee57c630c454634b5c4b93fc06bd90d592d1f2fc69f77cd28791ac0fe361feb7d2
+  languageName: node
+  linkType: hard
+
 "abstract-logging@npm:^2.0.1":
   version: 2.0.1
   resolution: "abstract-logging@npm:2.0.1"
@@ -9664,6 +9703,15 @@ __metadata:
   version: 1.0.2
   resolution: "balanced-match@npm:1.0.2"
   checksum: 9308baf0a7e4838a82bbfd11e01b1cb0f0cf2893bc1676c27c2a8c0e70cbae1c59120c3268517a8ae7fb6376b4639ef81ca22582611dbee4ed28df945134aaee
+  languageName: node
+  linkType: hard
+
+"base-x@npm:^3.0.8":
+  version: 3.0.9
+  resolution: "base-x@npm:3.0.9"
+  dependencies:
+    safe-buffer: ^5.0.1
+  checksum: e6bbeae30b24f748b546005affb710c5fbc8b11a83f6cd0ca999bd1ab7ad3a22e42888addc40cd145adc4edfe62fcfab4ebc91da22e4259aae441f95a77aee1a
   languageName: node
   linkType: hard
 
@@ -12578,6 +12626,13 @@ __metadata:
   version: 14.3.2
   resolution: "dotenv@npm:14.3.2"
   checksum: cb428358aa3a8da735be727f8a9de56e148ddf97d84a75e528039dc90e55787688766e48204a50b8326ba1ebaa6e039584c1019dfc28fa144e68145d8cbe5946
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "dotenv@npm:7.0.0"
+  checksum: 4d834d09d23ebd284e701c4204172659a7dcd51116f11c29c575ae6d918ccd4760a3383bdfd83cfbed42f061266b787f8e56452b952638867ea5476be875eb27
   languageName: node
   linkType: hard
 
@@ -22652,6 +22707,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@parcel/core": ^2.8.3
     "@playwright/test": 1.29.2
     "@redwoodjs/core": 3.8.0
     enquirer: 2.3.6
