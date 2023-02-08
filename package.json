@@ -28,7 +28,6 @@
   },
   "packageManager": "yarn@3.3.1",
   "dependencies": {
-    "@babel/eslint-parser": "^7.19.1",
     "@parcel/core": "^2.8.3",
     "redwoodjs-stripe": "^0.1.0-rc.5",
     "styled-system": "5.1.5"
