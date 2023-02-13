@@ -4469,15 +4469,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.29.2":
-  version: 1.29.2
-  resolution: "@playwright/test@npm:1.29.2"
+"@playwright/test@npm:1.30.0":
+  version: 1.30.0
+  resolution: "@playwright/test@npm:1.30.0"
   dependencies:
     "@types/node": "*"
-    playwright-core: 1.29.2
+    playwright-core: 1.30.0
   bin:
     playwright: cli.js
-  checksum: b78ff2ba515950aeb7e318734d42ec988eb981f2d3f666899408e9252e925a85a84309ec0fd83e5e36764048a1a08befdaa6a68fcc03d9b6a9969418f6eaecec
+  checksum: 4022492dacfd57d2d9a6a7ade7753660f9f47199d0a47b110b0ecf21f167fb9c5a017a9a1fdf89b97810545ac86620218cabd6f4717cd468af030c5bd9128059
   languageName: node
   linkType: hard
 
@@ -8319,22 +8319,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xstate/react@npm:3.0.2":
-  version: 3.0.2
-  resolution: "@xstate/react@npm:3.0.2"
+"@xstate/react@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@xstate/react@npm:3.1.2"
   dependencies:
     use-isomorphic-layout-effect: ^1.0.0
     use-sync-external-store: ^1.0.0
   peerDependencies:
     "@xstate/fsm": ^2.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    xstate: ^4.35.2
+    xstate: ^4.35.4
   peerDependenciesMeta:
     "@xstate/fsm":
       optional: true
     xstate:
       optional: true
-  checksum: 953235132fe28364b2cabd45b230486ca79ad7fcb1e0814c92f70700742bb68f4805309c99f1d0499443a17590cd746168695368dc80c6ef727e0b5003d40685
+  checksum: 637083711fe06fe827950e03fc21de03d562def824911c9c2ba803293e90c84624b67a2263a375ea3834b2c9ac22de639e33d5d2d5a953fbf0da5dc886a20c04
   languageName: node
   linkType: hard
 
@@ -8772,8 +8772,8 @@ __metadata:
     "@redwoodjs/api": 3.8.0
     "@redwoodjs/graphql-server": 3.8.0
     graphql-scalars: 1.20.1
-    nodemailer: 6.9.0
-    stripe: 10.17.0
+    nodemailer: 6.9.1
+    stripe: 11.10.0
   languageName: unknown
   linkType: soft
 
@@ -15683,10 +15683,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"immer@npm:9.0.18":
-  version: 9.0.18
-  resolution: "immer@npm:9.0.18"
-  checksum: d32e3cd051f2922a39b0c34a903285efe42b315d6abed289f35a2aa18fbfebfae71f340d331f1389c083ce4a27aaa9cb4ffe365b4cd78c5cf752d27335d96e5a
+"immer@npm:9.0.19":
+  version: 9.0.19
+  resolution: "immer@npm:9.0.19"
+  checksum: 69a5f5c1f03471e74adacb7dfc21bdb08156c3d958035142a71e318295d2dcbbd245d9f280fd6cdd54b94bcc642b3f6c2fb1169a97be31ff63a59b2f0469be78
   languageName: node
   linkType: hard
 
@@ -19493,10 +19493,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemailer@npm:6.9.0":
-  version: 6.9.0
-  resolution: "nodemailer@npm:6.9.0"
-  checksum: 1464b9dd68cc6c5f7bd6e5d4075aed095943f9b742a093b82c5d97bce86fbc91693a98e2c5e036227a7566c4128fc0a28c91b7e225448a47729b97d48988915d
+"nodemailer@npm:6.9.1":
+  version: 6.9.1
+  resolution: "nodemailer@npm:6.9.1"
+  checksum: adeaef441e31025776e8b1fa818e4b260850fbb60150f6ff7210e4de443bb32f0881a8a4967c42bb108d620f68f18369a42db29fe7cdec5e4ec09b0ddd51b19c
   languageName: node
   linkType: hard
 
@@ -19873,10 +19873,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"open-props@npm:1.5.3":
-  version: 1.5.3
-  resolution: "open-props@npm:1.5.3"
-  checksum: 7cc20eedfbab5a12b2409cd0bd3b156bb71c7687d55f5640d71ef3d230570b1fb060c8f1514f88d4c14c18159eae708ca44b6c85724f193d7beaeb3159615e97
+"open-props@npm:1.5.5":
+  version: 1.5.5
+  resolution: "open-props@npm:1.5.5"
+  checksum: 39a98e3dfa76c88d146ee229e2a6a31ea22cb936005c55eda57a858bc194db40c0048aac1a91e0715589ac18e0bc83fa101d96044da262da37a39dbf209e94bd
   languageName: node
   linkType: hard
 
@@ -20635,12 +20635,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.29.2":
-  version: 1.29.2
-  resolution: "playwright-core@npm:1.29.2"
+"playwright-core@npm:1.30.0":
+  version: 1.30.0
+  resolution: "playwright-core@npm:1.30.0"
   bin:
     playwright: cli.js
-  checksum: 203e1333414652bd8c90ee81d83702bf1b261dd4c296db622ed51d83bcdae2212bcf9f12c6e3a34f21646f09ea86122d40624b8ecda3a266b316f40417c209af
+  checksum: cad74ca8ff028f4e65336323f7eec54497e344810c2f2e9c1ffaf836dcc20eb15c073aae6c5e994eaf800b75ea0f0817ffb60ff7ecaadc59229df54779d5f429
   languageName: node
   linkType: hard
 
@@ -22652,7 +22652,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@playwright/test": 1.29.2
+    "@playwright/test": 1.30.0
     "@redwoodjs/core": 3.8.0
     enquirer: 2.3.6
     redwoodjs-stripe: ^0.1.0-rc.5
@@ -23985,13 +23985,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stripe@npm:10.17.0":
-  version: 10.17.0
-  resolution: "stripe@npm:10.17.0"
+"stripe@npm:11.10.0":
+  version: 11.10.0
+  resolution: "stripe@npm:11.10.0"
   dependencies:
     "@types/node": ">=8.1.0"
     qs: ^6.11.0
-  checksum: b3a105ead492ce0f85269884dc0232aec731ef8a1353104ab4e66026b9d7a3ff02c511c9f120f054e9732a76afe7e3e5e7ee862bc7c5345c4dee6477a5c53bbd
+  checksum: e50b7f671f608557a6dec74ae817c13df73ded75f586e2c5069e6acf86d5e459753695c59454226e8ede3ab7df00915f6a5becda8e7153226ea2eacbd7fb87a2
   languageName: node
   linkType: hard
 
@@ -25870,15 +25870,15 @@ __metadata:
     "@stripe/stripe-js": 1.46.0
     "@testing-library/user-event": 14.4.3
     "@xstate/immer": 0.3.1
-    "@xstate/react": 3.0.2
-    immer: 9.0.18
-    open-props: 1.5.3
+    "@xstate/react": 3.1.2
+    immer: 9.0.19
+    open-props: 1.5.5
     prop-types: 15.8.1
     react: 17.0.2
     react-dom: 17.0.2
     react-feather: 2.0.10
     styled-components: 5.3.6
-    xstate: 4.35.2
+    xstate: 4.35.4
   languageName: unknown
   linkType: soft
 
@@ -26581,10 +26581,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xstate@npm:4.35.2":
-  version: 4.35.2
-  resolution: "xstate@npm:4.35.2"
-  checksum: bcd82f9eb9bc09456352720c6d7eb2ef465a602dab9842a70e8b2a59ed787b4aa436a1bfcf25ceef49d8661ef313ec850d7b9dabf15c0673edd180a5d3d944c5
+"xstate@npm:4.35.4":
+  version: 4.35.4
+  resolution: "xstate@npm:4.35.4"
+  checksum: bb9568a93fbedddf14df407e158add9af6cc74fa1b9fcc8097384c3548acb661c045078882240c2f9e65e90e898010159fce4661cb5838308f323cf7de7d9ab7
   languageName: node
   linkType: hard
 
