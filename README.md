@@ -1,7 +1,7 @@
 # Stripe Superstore
 
 Welcome to the Stripe Superstore!
-This repo is an example of a RedwoodJS-Stripe integration.
+This repo is an example of a RedwoodJS-Stripe integration using the [redwoodjs-stripe](https://www.npmjs.com/package/redwoodjs-stripe) plugin.
 Since most startups need to accept payments,
 we designed this repo to demonstrate how you could go about integrating Stripe into your RedwoodJS project.
 In this repo, you'll see how to:
@@ -39,8 +39,8 @@ Once you've made your account, if you weren't automatically redirected, navigate
 Now that you've got your test keys, your `.env` should look like:
 
 ```
-STRIPE_PK=pk_test_...
-STRIPE_SK=sk_test_...
+STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_SECRET_KEY=sk_test_...
 ```
 
 You'll need one more Stripe env var: the Stripe webhook secret (`STRIPE_WEBHOOK_SK`).
@@ -55,9 +55,9 @@ Note that the value of the `--api-key` flag should be the same as `STRIPE_SK`.
 Now your `.env` file should look like this:
 
 ```
-STRIPE_PK=pk_test_...
-STRIPE_SK=sk_test_...
-STRIPE_WEBHOOK_SK=whsec_...
+STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_KEY=whsec_...
 ```
 
 3. Seeding your Stripe account
@@ -142,10 +142,12 @@ Chris is the project lead and Dom is point from the RedwoodJS Core Team.
 
 ## History
 
-This repo is the second iteration of the RedwoodJS-Stripe project.
+This repo is the third iteration of the RedwoodJS-Stripe project, though it used to be the second.
 The first can be found in the [redwoodjs-stripe](https://github.com/chrisvdm/redwoodjs-stripe) repo.
 
 The first was focused on integrating Stripe with RedwoodJS from the ground up.
 This presented many technical challenges, namely, how can we make RedwoodJS a more-pluggable framework.
 
-This project takes the opposite approach by focusing on what a Stripe integration in a RedwoodJS Project would look like.
+The second project takes the opposite approach by focusing on what a Stripe integration in a RedwoodJS Project would look like sans plugin.
+
+This iteration combines the findings of the first and second iterations to build the redwoodjs-stripe plugin and then uses the plugin in this example store.
