@@ -12645,9 +12645,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.284":
-  version: 1.4.289
-  resolution: "electron-to-chromium@npm:1.4.289"
-  checksum: f40054c1f8c64ffa6ff658c5e57f3490bd6d0b6330325de0f30c55841afd077e02766a6ab841e7bd20bc19f1b7f7f407de77f88b367fe9c77ca0475b2a94ff81
+  version: 1.4.295
+  resolution: "electron-to-chromium@npm:1.4.295"
+  checksum: 23acd072f6111ea38c6ee6d39f7e17819b568ee2db0be26688866e9a6c7035f682d40657b0b267c13378ee6097c855750cae3f957d54aa55b602f1910617660e
   languageName: node
   linkType: hard
 
@@ -23985,23 +23985,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stripe@npm:11.10.0":
+"stripe@npm:11.10.0, stripe@npm:^11.9.1":
   version: 11.10.0
   resolution: "stripe@npm:11.10.0"
   dependencies:
     "@types/node": ">=8.1.0"
     qs: ^6.11.0
   checksum: e50b7f671f608557a6dec74ae817c13df73ded75f586e2c5069e6acf86d5e459753695c59454226e8ede3ab7df00915f6a5becda8e7153226ea2eacbd7fb87a2
-  languageName: node
-  linkType: hard
-
-"stripe@npm:^11.9.1":
-  version: 11.9.1
-  resolution: "stripe@npm:11.9.1"
-  dependencies:
-    "@types/node": ">=8.1.0"
-    qs: ^6.11.0
-  checksum: 2a8c50c2f3475207acb3550e44c358c02b2331e8dc3cc7d4332d2967e51b5210840dad0a1f247c584e78ecacb06050c0e91e88add8be18f9b5283656d2c73c86
   languageName: node
   linkType: hard
 
