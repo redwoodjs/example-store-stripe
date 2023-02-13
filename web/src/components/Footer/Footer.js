@@ -11,7 +11,11 @@ const Footer = () => {
       <Link href="https://stripe.com/" target="_blank" rel="noreferrer">
         Stripe
       </Link>{' '}
-      | View the repository on{' '}
+      | Made with the{' '}
+      <Link href="https://github.com/chrisvdm/redwoodjs-stripe" target="_blank">
+        redwoodjs-stripe
+      </Link>{' '}
+      plugin. View the repository on{' '}
       <Link href="https://github.com/redwoodjs/example-store" target="_blank">
         GitHub
       </Link>
