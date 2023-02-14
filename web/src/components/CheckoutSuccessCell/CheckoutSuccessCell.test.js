@@ -36,7 +36,13 @@ describe('CheckoutSuccessCell', () => {
 
   it('renders Success successfully', async () => {
     expect(() => {
-      render(<Success checkoutSuccess={standard().checkoutSuccess} />)
+      render(
+        <Success
+          retrieveStripeCheckoutSession={
+            standard().retrieveStripeCheckoutSession
+          }
+        />
+      )
     }).not.toThrow()
   })
 })

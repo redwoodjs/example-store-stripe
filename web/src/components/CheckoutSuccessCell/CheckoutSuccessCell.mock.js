@@ -1,9 +1,11 @@
 // Define your own mock data here:
 export const standard = () => ({
-  getSession: {
+  retrieveStripeCheckoutSession: {
     id: 'cus_42',
-    customerName: 'Redwood Cone',
-    customerEmail: 'cone@redwoodjs.com',
-    customerSignedUp: false,
+    customer: {
+      name: 'Redwood Cone',
+      email: 'cone@redwoodjs.com',
+    },
   },
+  isSignedUp: false,
 })
