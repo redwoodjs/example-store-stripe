@@ -14,7 +14,7 @@ const SuccessPage = () => {
   // OnMount clear the cart contents
   useEffect(() => {
     clearCart()
-  }, [])
+  })
 
   return (
     <>
