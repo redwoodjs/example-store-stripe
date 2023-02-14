@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🌲 Redwood CI
-        uses: redwoodjs/project-ci-action@v0.1.1
+        uses: redwoodjs/project-ci-action@main
 
       - run: npx playwright install --with-deps
 
