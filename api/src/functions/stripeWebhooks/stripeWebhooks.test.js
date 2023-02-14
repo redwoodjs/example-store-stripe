@@ -1,6 +1,6 @@
-import { mockHttpEvent } from '@redwoodjs/testing/api'
+import { stripe } from 'redwoodjs-stripe/api'
 
-import { stripe } from 'src/lib/stripe'
+import { mockHttpEvent } from '@redwoodjs/testing/api'
 
 import { handler } from './stripeWebhooks'
 
