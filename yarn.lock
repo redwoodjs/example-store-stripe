@@ -7325,13 +7325,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xstate/immer@npm:0.3.1":
-  version: 0.3.1
-  resolution: "@xstate/immer@npm:0.3.1"
+"@xstate/immer@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@xstate/immer@npm:0.3.2"
   peerDependencies:
     immer: ^9.0.6
-    xstate: ^4.29.0
-  checksum: 7ddad771fcc1e1f045131c1fc5060d2151d295ee0b5513d3ea270967f341d7a17da2f888a93e708c9733edbaeb2745c49891a22e71da225a0e10ada16e281487
+    xstate: ^4.36.0
+  checksum: 9c88a867c98a89071f91c25c1ab1255dae0f22de1cb46a2e3877fd92182ed0b81f175b8ec4790ad145ce59f3a951e463e979e5b12118c6b02585adb92d120277
   languageName: node
   linkType: hard
 
@@ -23917,7 +23917,7 @@ __metadata:
     "@redwoodjs/web": 3.8.0
     "@stripe/stripe-js": 1.46.0
     "@testing-library/user-event": 14.4.3
-    "@xstate/immer": 0.3.1
+    "@xstate/immer": 0.3.2
     "@xstate/react": 3.2.1
     immer: 9.0.19
     open-props: 1.5.5
