@@ -209,7 +209,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:7.19.1":
+"@babel/eslint-parser@npm:7.19.1, @babel/eslint-parser@npm:^7.19.1":
   version: 7.19.1
   resolution: "@babel/eslint-parser@npm:7.19.1"
   dependencies:
@@ -10004,24 +10004,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-testing-library@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "cli-testing-library@npm:1.0.4"
-  dependencies:
-    "@babel/code-frame": ^7.10.4
-    "@babel/runtime": ^7.12.5
-    jest-matcher-utils: ^27.4.2
-    lz-string: ^1.4.4
-    pretty-format: ^27.0.2
-    redent: ^3.0.0
-    slice-ansi: ^4.0.0
-    strip-ansi: ^6.0.1
-    strip-final-newline: ^2.0.0
-    tree-kill: ^1.2.2
-  checksum: ecb2786575025d16a43f57b27759b03febce1cd1b98eead134efa9eaab121d7fa881f0f6596cc210e09151a2c0de842756dfa6f94c965ca5d693a9f314986947
-  languageName: node
-  linkType: hard
-
 "cli-truncate@npm:2.1.0, cli-truncate@npm:^2.1.0":
   version: 2.1.0
   resolution: "cli-truncate@npm:2.1.0"
@@ -11526,13 +11508,6 @@ __metadata:
     detect: bin/detect-port.js
     detect-port: bin/detect-port.js
   checksum: f2b204ad3a9f8e8b53fea35fcc97469f31a8e3e786a2f59fbc886397e33b5f130c5f964bf001b9a64d990047c3824f6a439308461ff19801df04ab48a754639e
-  languageName: node
-  linkType: hard
-
-"diff-sequences@npm:^27.5.1":
-  version: 27.5.1
-  resolution: "diff-sequences@npm:27.5.1"
-  checksum: a52566d891b89a666f48ba69f54262fa8293ae6264ae04da82c7bf3b6661cba75561de0729f18463179d56003cc0fd69aa09845f2c2cd7a353b1ec1e1a96beb9
   languageName: node
   linkType: hard
 
@@ -15940,18 +15915,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-diff@npm:^27.5.1":
-  version: 27.5.1
-  resolution: "jest-diff@npm:27.5.1"
-  dependencies:
-    chalk: ^4.0.0
-    diff-sequences: ^27.5.1
-    jest-get-type: ^27.5.1
-    pretty-format: ^27.5.1
-  checksum: 48f008c7b4ea7794108319eb61050315b1723e7391cb01e4377c072cadcab10a984cb09d2a6876cb65f100d06c970fd932996192e092b26006f885c00945e7ad
-  languageName: node
-  linkType: hard
-
 "jest-diff@npm:^29.3.1":
   version: 29.3.1
   resolution: "jest-diff@npm:29.3.1"
@@ -16021,13 +15984,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-get-type@npm:^27.5.1":
-  version: 27.5.1
-  resolution: "jest-get-type@npm:27.5.1"
-  checksum: 42ee0101336bccfc3c1cff598b603c6006db7876b6117e5bd4a9fb7ffaadfb68febdb9ae68d1c47bc3a4174b070153fc6cfb59df995dcd054e81ace5028a7269
-  languageName: node
-  linkType: hard
-
 "jest-get-type@npm:^29.2.0":
   version: 29.2.0
   resolution: "jest-get-type@npm:29.2.0"
@@ -16090,18 +16046,6 @@ __metadata:
     jest-get-type: ^29.2.0
     pretty-format: ^29.3.1
   checksum: d9d6e107a49cf44d748936a60a3190175b76e5d9aabd9c40c0196dafa8941fd6cb3ef60e57a85f65f5ce466d28b14ad7fceea83f81ec1e8769ae9cde5ceb901a
-  languageName: node
-  linkType: hard
-
-"jest-matcher-utils@npm:^27.4.2":
-  version: 27.5.1
-  resolution: "jest-matcher-utils@npm:27.5.1"
-  dependencies:
-    chalk: ^4.0.0
-    jest-diff: ^27.5.1
-    jest-get-type: ^27.5.1
-    pretty-format: ^27.5.1
-  checksum: a2f082062e8bedc9cfe2654177a894ca43768c6db4c0f4efc0d6ec195e305a99e3d868ff54cc61bcd7f1c810d8ee28c9ac6374de21715dc52f136876de739a73
   languageName: node
   linkType: hard
 
@@ -20123,7 +20067,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^27.0.2, pretty-format@npm:^27.5.1":
+"pretty-format@npm:^27.0.2":
   version: 27.5.1
   resolution: "pretty-format@npm:27.5.1"
   dependencies:
@@ -20933,12 +20877,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redwoodjs-stripe@npm:^0.1.0-rc.6":
+"redwoodjs-stripe@file:.yalc/redwoodjs-stripe::locator=root-workspace-0b6124%40workspace%3A.":
   version: 0.1.0-rc.6
-  resolution: "redwoodjs-stripe@npm:0.1.0-rc.6"
+  resolution: "redwoodjs-stripe@file:.yalc/redwoodjs-stripe#.yalc/redwoodjs-stripe::hash=3a1069&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@stripe/stripe-js": 1.29.0
-    cli-testing-library: ^1.0.4
     envfile: ^6.17.0
     fs-extra: ^10.1.0
     listr: ^0.14.3
@@ -20954,8 +20897,8 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
   bin:
-    redwoodjs-stripe: src/cli/cli.js
-  checksum: d1149920ab2b08150c22da0505c7aabedc1b0264e7320d52a46c8437bb8906d1a184b501e56543a50e0598b600256686a8bb3ea63211bca72b9a2f7c1dd08cb1
+    redwoodjs-stripe: ./src/cli/cli.js
+  checksum: e3fd4c6debb66b6f9b00c8e708cd340f2b6fc7e27debab64217056ed9d803cbf7ce56e30ae0b4075027bf297997e05fe84612145f0754c8adf854dca42a56e74
   languageName: node
   linkType: hard
 
@@ -21499,10 +21442,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@babel/eslint-parser": ^7.19.1
     "@playwright/test": 1.30.0
     "@redwoodjs/core": 3.8.0
     enquirer: 2.3.6
-    redwoodjs-stripe: ^0.1.0-rc.6
+    redwoodjs-stripe: "file:.yalc/redwoodjs-stripe"
     styled-system: 5.1.5
   languageName: unknown
   linkType: soft
