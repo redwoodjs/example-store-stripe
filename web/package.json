@@ -19,7 +19,7 @@
     "@redwoodjs/router": "3.8.0",
     "@redwoodjs/web": "3.8.0",
     "@stripe/stripe-js": "1.46.0",
-    "@xstate/immer": "0.3.1",
+    "@xstate/immer": "0.3.2",
     "@xstate/react": "3.2.1",
     "immer": "9.0.19",
     "open-props": "1.5.5",
