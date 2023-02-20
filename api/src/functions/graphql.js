@@ -1,4 +1,4 @@
-import { stripeSchemas, stripeServices } from 'redwoodjs-stripe/api'
+import { stripeSchemas, stripeServices } from '@redwoodjs-stripe/api'
 
 import { createGraphQLHandler } from '@redwoodjs/graphql-server'
 

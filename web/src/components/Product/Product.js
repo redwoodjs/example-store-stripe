@@ -1,4 +1,4 @@
-import { useStripeCart } from 'redwoodjs-stripe/web'
+import { useStripeCart } from '@redwoodjs-stripe/web'
 import styled from 'styled-components'
 
 const Product = ({ id, name, description, price, images, type }) => {

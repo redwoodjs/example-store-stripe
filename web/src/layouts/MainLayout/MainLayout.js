@@ -1,4 +1,4 @@
-import { StripeProvider } from 'redwoodjs-stripe/web'
+import { StripeProvider } from '@redwoodjs-stripe/web'
 import styled from 'styled-components'
 
 import { useAuth } from '@redwoodjs/auth'
