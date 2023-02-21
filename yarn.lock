@@ -10004,24 +10004,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-testing-library@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "cli-testing-library@npm:1.0.4"
-  dependencies:
-    "@babel/code-frame": ^7.10.4
-    "@babel/runtime": ^7.12.5
-    jest-matcher-utils: ^27.4.2
-    lz-string: ^1.4.4
-    pretty-format: ^27.0.2
-    redent: ^3.0.0
-    slice-ansi: ^4.0.0
-    strip-ansi: ^6.0.1
-    strip-final-newline: ^2.0.0
-    tree-kill: ^1.2.2
-  checksum: ecb2786575025d16a43f57b27759b03febce1cd1b98eead134efa9eaab121d7fa881f0f6596cc210e09151a2c0de842756dfa6f94c965ca5d693a9f314986947
-  languageName: node
-  linkType: hard
-
 "cli-truncate@npm:2.1.0, cli-truncate@npm:^2.1.0":
   version: 2.1.0
   resolution: "cli-truncate@npm:2.1.0"
@@ -20085,7 +20067,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^27.0.2, pretty-format@npm:^27.5.1":
+"pretty-format@npm:^27.0.2":
   version: 27.5.1
   resolution: "pretty-format@npm:27.5.1"
   dependencies:
@@ -20895,12 +20877,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redwoodjs-stripe@npm:^0.1.0-rc.6":
-  version: 0.1.0-rc.6
-  resolution: "redwoodjs-stripe@npm:0.1.0-rc.6"
+"redwoodjs-stripe@npm:^0.1.0-rc.11":
+  version: 0.1.0-rc.11
+  resolution: "redwoodjs-stripe@npm:0.1.0-rc.11"
   dependencies:
     "@stripe/stripe-js": 1.29.0
-    cli-testing-library: ^1.0.4
     envfile: ^6.17.0
     fs-extra: ^10.1.0
     listr: ^0.14.3
@@ -20910,14 +20891,12 @@ __metadata:
     yargs: ^17.5.1
   peerDependencies:
     "@apollo/client": 3.x
-    "@redwoodjs/core": 4.x
-    "@redwoodjs/web": 4.x
     graphql-tag: 2.x
     react: 17.0.2
     react-dom: 17.0.2
   bin:
     redwoodjs-stripe: src/cli/cli.js
-  checksum: d1149920ab2b08150c22da0505c7aabedc1b0264e7320d52a46c8437bb8906d1a184b501e56543a50e0598b600256686a8bb3ea63211bca72b9a2f7c1dd08cb1
+  checksum: db76059f6e67cb78db82ee84ce3c0166ef94598b8b960513ddb062651b4a00ed1a7778041935e80a8359d3f57c512c6a998364e675681516a2e639f7e5c0e0a4
   languageName: node
   linkType: hard
 
@@ -21465,7 +21444,7 @@ __metadata:
     "@playwright/test": 1.30.0
     "@redwoodjs/core": 3.8.0
     enquirer: 2.3.6
-    redwoodjs-stripe: ^0.1.0-rc.6
+    redwoodjs-stripe: ^0.1.0-rc.11
     styled-system: 5.1.5
   languageName: unknown
   linkType: soft
@@ -22788,13 +22767,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stripe@npm:11.10.0, stripe@npm:^11.9.1":
+"stripe@npm:11.10.0":
   version: 11.10.0
   resolution: "stripe@npm:11.10.0"
   dependencies:
     "@types/node": ">=8.1.0"
     qs: ^6.11.0
   checksum: e50b7f671f608557a6dec74ae817c13df73ded75f586e2c5069e6acf86d5e459753695c59454226e8ede3ab7df00915f6a5becda8e7153226ea2eacbd7fb87a2
+  languageName: node
+  linkType: hard
+
+"stripe@npm:^11.9.1":
+  version: 11.11.0
+  resolution: "stripe@npm:11.11.0"
+  dependencies:
+    "@types/node": ">=8.1.0"
+    qs: ^6.11.0
+  checksum: 1ea42eb3895b488b0f04ef8ed967cb4e9b38cc80642465ff72c2ff650b036d0980a964c8811975aecf44b0a0f5dc9475ea9590d98b1be8baa5509782cc9f6074
   languageName: node
   linkType: hard
 
