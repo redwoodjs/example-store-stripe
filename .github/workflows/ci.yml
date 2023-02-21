@@ -20,7 +20,7 @@ jobs:
         env:
           DATABASE_URL: postgresql://test:password@localhost:5432/test
           STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
-          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+          STRIPE_SECRET_KEY: ${{ STRIPE_SECRET_KEY }}
           SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
           STRIPE_WEBHOOK_KEY: ${{ secrets.STRIPE_WEBHOOK_KEY }}
 
