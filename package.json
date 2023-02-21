@@ -29,9 +29,7 @@
   },
   "packageManager": "yarn@3.4.1",
   "dependencies": {
-    "@redwoodjs-stripe/api": "^0.1.0-rc.9",
-    "@redwoodjs-stripe/cli": "^0.1.0-rc.9",
-    "@redwoodjs-stripe/web": "^0.1.0-rc.9",
+    "redwoodjs-stripe": "^0.1.0-rc.6",
     "styled-system": "5.1.5"
   }
 }

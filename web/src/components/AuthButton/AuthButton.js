@@ -1,5 +1,5 @@
 import { User } from 'react-feather'
-import { useStripeCustomerPortal } from '@redwoodjs-stripe/web'
+import { useStripeCustomerPortal } from 'redwoodjs-stripe/web'
 
 import { useAuth } from '@redwoodjs/auth'
 import { routes } from '@redwoodjs/router'

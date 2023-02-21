@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { useStripeCart } from '@redwoodjs-stripe/web'
+import { useStripeCart } from 'redwoodjs-stripe/web'
 
 import { useParams } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'

@@ -1,6 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { ShoppingCart, Trash2 } from 'react-feather'
-import { useStripeCart, useStripeCheckout } from '@redwoodjs-stripe/web'
+import { useStripeCart, useStripeCheckout } from 'redwoodjs-stripe/web'
 import styled, { css } from 'styled-components'
 
 import Button from 'src/components/Button'

@@ -1,7 +1,7 @@
 import {
   stripeCustomerSearch,
   createStripeCustomer,
-} from '@redwoodjs-stripe/api'
+} from 'redwoodjs-stripe/api'
 
 import { DbAuthHandler } from '@redwoodjs/api'
 

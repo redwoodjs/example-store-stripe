@@ -1,4 +1,4 @@
-import { stripe } from '@redwoodjs-stripe/api'
+import { stripe } from 'redwoodjs-stripe/api'
 
 import { mockHttpEvent } from '@redwoodjs/testing/api'
 
