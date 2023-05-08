@@ -36,7 +36,8 @@ module.exports = {
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'yarn rw dev --forward="--no-open"',
+    command:
+      'yarn rw dev --forward="--no-open" 2>&1 | tee /tmp/example-store-e2e-web-server.log',
     url: 'http://localhost:8910',
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,

@@ -33,4 +33,11 @@ jobs:
           path: test-results/
           retention-days: 30
 
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: example-store-e2e-web-server.log
+          path:  /tmp/example-store-e2e-web-server.log
+          retention-days: 30
+
 
