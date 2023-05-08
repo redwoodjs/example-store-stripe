@@ -14,15 +14,16 @@ jobs:
         uses: redwoodjs/project-ci-action@main
 
       - run: npx playwright install --with-deps
+      - run: cat <<EOT >> .env
+          DATABASE_URL=postgresql://test:password@localhost:5432/test
+          STRIPE_PUBLISHABLE_KEY=${{ secrets.STRIPE_PUBLISHABLE_KEY }}
+          STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}
+          SESSION_SECRET=${{ secrets.SESSION_SECRET }}
+          STRIPE_WEBHOOK_KEY=${{ secrets.STRIPE_WEBHOOK_KEY }}
+          EOT
 
       - name: 🎭 Playwright E2E Tests
         run: npx playwright test e2e
-        env:
-          DATABASE_URL: postgresql://test:password@localhost:5432/test
-          STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
-          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
-          SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
-          STRIPE_WEBHOOK_KEY: ${{ secrets.STRIPE_WEBHOOK_KEY }}
 
       - uses: actions/upload-artifact@v3
         if: always()
