@@ -4188,19 +4188,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs-stripe/api@npm:0.1.0-rc.9.monorepo-test.4":
-  version: 0.1.0-rc.9.monorepo-test.4
-  resolution: "@redwoodjs-stripe/api@npm:0.1.0-rc.9.monorepo-test.4"
+"@redwoodjs-stripe/api@npm:0.1.0-rc.9.monorepo-test.6":
+  version: 0.1.0-rc.9.monorepo-test.6
+  resolution: "@redwoodjs-stripe/api@npm:0.1.0-rc.9.monorepo-test.6"
   dependencies:
     fs-extra: ^10.1.0
     stripe: ^11.9.1
-  checksum: 6e1cd587005a4101b02126749f7cd2e783d0acc4384b95fa036deeac1eea1d0dabe7bb54f4265ee6947d05c6ab2a891ced26018dcc95a1a861da56ca6efa6090
+  checksum: 194b3aec73c8a5bae93576e453895765bb0d3afc5256fd74846418ec41fecb11c2a751066f2501f610216304c7e865cef072ba405b72d1b7ff456a4ae70fdf40
   languageName: node
   linkType: hard
 
-"@redwoodjs-stripe/web@npm:0.1.0-rc.9.monorepo-test.4":
-  version: 0.1.0-rc.9.monorepo-test.4
-  resolution: "@redwoodjs-stripe/web@npm:0.1.0-rc.9.monorepo-test.4"
+"@redwoodjs-stripe/web@npm:0.1.0-rc.9.monorepo-test.6":
+  version: 0.1.0-rc.9.monorepo-test.6
+  resolution: "@redwoodjs-stripe/web@npm:0.1.0-rc.9.monorepo-test.6"
   dependencies:
     tmp-promise: ^3.0.3
   peerDependencies:
@@ -4210,7 +4210,7 @@ __metadata:
     graphql-tag: 2.x
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: c209b57add26e7e3ab5b4f9162ca764164f96e28dd53a8f954ef7a2f8c1ee833faf4452117c567c4f99ab6657cb51d9ff6be762f532a3582c1a7b46850e0be45
+  checksum: e61eaf6d29324826ab21503ade1a59b40d42881c21d9c2beaf8236019a96b87a215dd8ac0ba18349e1f8e058cef7cf2365cb346df1639ca34ab2e4e623734604
   languageName: node
   linkType: hard
 
@@ -7996,7 +7996,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "api@workspace:api"
   dependencies:
-    "@redwoodjs-stripe/api": 0.1.0-rc.9.monorepo-test.4
+    "@redwoodjs-stripe/api": 0.1.0-rc.9.monorepo-test.6
     "@redwoodjs/api": 3.8.0
     "@redwoodjs/graphql-server": 3.8.0
     graphql-scalars: 1.20.1
@@ -24271,7 +24271,7 @@ __metadata:
   resolution: "web@workspace:web"
   dependencies:
     "@radix-ui/react-dialog": 1.0.2
-    "@redwoodjs-stripe/web": 0.1.0-rc.9.monorepo-test.4
+    "@redwoodjs-stripe/web": 0.1.0-rc.9.monorepo-test.6
     "@redwoodjs/auth": 3.8.0
     "@redwoodjs/forms": 3.8.0
     "@redwoodjs/router": 3.8.0
