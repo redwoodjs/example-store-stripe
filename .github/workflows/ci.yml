@@ -14,7 +14,9 @@ jobs:
         uses: redwoodjs/project-ci-action@main
 
       - run: npx playwright install --with-deps
-      - run: cat <<EOT >> .env
+
+      - name: Write vars to .env
+        run: cat <<EOT >> .env
           DATABASE_URL=postgresql://test:password@localhost:5432/test
           STRIPE_PUBLISHABLE_KEY=${{ secrets.STRIPE_PUBLISHABLE_KEY }}
           STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}
