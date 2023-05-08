@@ -14,13 +14,14 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "1.0.2",
+    "@redwoodjs-stripe/web": "../../tmp/redwoodjs-stripe-web-0.1.0-rc.9.tgz",
     "@redwoodjs/auth": "3.8.0",
     "@redwoodjs/forms": "3.8.0",
     "@redwoodjs/router": "3.8.0",
     "@redwoodjs/web": "3.8.0",
-    "@stripe/stripe-js": "1.46.0",
-    "@xstate/immer": "0.3.1",
-    "@xstate/react": "3.1.2",
+    "@stripe/stripe-js": "1.47.0",
+    "@xstate/immer": "0.3.2",
+    "@xstate/react": "3.2.1",
     "immer": "9.0.19",
     "open-props": "1.5.5",
     "prop-types": "15.8.1",
@@ -28,7 +29,7 @@
     "react-dom": "17.0.2",
     "react-feather": "2.0.10",
     "styled-components": "5.3.6",
-    "xstate": "4.35.4"
+    "xstate": "4.37.0"
   },
   "devDependencies": {
     "@testing-library/user-event": "14.4.3"

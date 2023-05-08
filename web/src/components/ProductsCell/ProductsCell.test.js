@@ -1,5 +1,5 @@
+import { StripeProvider, useStripeCart } from '@redwoodjs-stripe/web'
 import userEvent from '@testing-library/user-event'
-import { StripeProvider, useStripeCart } from 'redwoodjs-stripe/web'
 
 import { render, screen } from '@redwoodjs/testing/web'
 
