@@ -15,16 +15,14 @@ jobs:
 
       - run: npx playwright install --with-deps
 
-      - name: Write vars to .env
-        run: |
-          echo 'DATABASE_URL=postgresql://test:password@localhost:5432/test' >> .env
-          echo 'STRIPE_PUBLISHABLE_KEY=${{ secrets.STRIPE_PUBLISHABLE_KEY }}' >> .env
-          echo 'STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}' >> .env
-          echo 'SESSION_SECRET=${{ secrets.SESSION_SECRET }}' >> .env
-          echo 'STRIPE_WEBHOOK_KEY=${{ secrets.STRIPE_WEBHOOK_KEY }}' >> .env
-
       - name: 🎭 Playwright E2E Tests
         run: npx playwright test e2e
+        env:
+          DATABASE_URL: postgresql://test:password@localhost:5432/test
+          STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
+          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+          SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+          STRIPE_WEBHOOK_KEY: ${{ secrets.STRIPE_WEBHOOK_KEY }}
 
       - uses: actions/upload-artifact@v3
         if: always()
