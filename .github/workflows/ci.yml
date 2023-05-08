@@ -19,6 +19,7 @@ jobs:
         run: npx playwright test e2e
         env:
           DATABASE_URL: postgresql://test:password@localhost:5432/test
+          DOMAIN_URL: http://localhost:8910/
           STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
           STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
           SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
