@@ -29,7 +29,6 @@
   },
   "packageManager": "yarn@3.4.1",
   "dependencies": {
-    "@redwoodjs-stripe/cli": "../tmp/redwoodjs-stripe-cli-0.1.0-rc.9.tgz",
     "styled-system": "5.1.5"
   }
 }
