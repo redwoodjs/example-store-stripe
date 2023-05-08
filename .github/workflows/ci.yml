@@ -18,7 +18,6 @@ jobs:
       - name: Write vars to .env
         run: |
           echo 'DATABASE_URL=postgresql://test:password@localhost:5432/test' >> .env
-          echo 'DOMAIN_URL=http://localhost:8910/' >> .env
           echo 'STRIPE_PUBLISHABLE_KEY=${{ secrets.STRIPE_PUBLISHABLE_KEY }}' >> .env
           echo 'STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}' >> .env
           echo 'SESSION_SECRET=${{ secrets.SESSION_SECRET }}' >> .env
