@@ -46,10 +46,7 @@ test.describe('checkout', () => {
     await page.locator('button').click()
 
     // Click text=Checkout
-    await Promise.all([
-      page.waitForNavigation(),
-      page.locator('text=Checkout').click(),
-    ])
+    await page.locator('text=Checkout').click()
 
     await doCheckout(page, user)
 
@@ -66,16 +63,10 @@ test.describe('checkout', () => {
     await page.locator('input[name="password"]').fill('1234')
 
     // Click text=Sign Up
-    await Promise.all([
-      page.waitForNavigation(),
-      page.locator('text=Sign Up').click(),
-    ])
+    await page.locator('text=Sign Up').click()
 
     // Click text=Sign Up
-    await Promise.all([
-      page.waitForNavigation(),
-      page.locator('button >> nth=1').click(),
-    ])
+    await page.locator('button >> nth=1').click()
 
     await page.locator(`text=${user.email}`)
   })
