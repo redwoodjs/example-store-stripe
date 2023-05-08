@@ -23,10 +23,7 @@ test.describe('checkout', () => {
     await page.locator('button').click()
 
     // Click text=Checkout
-    await Promise.all([
-      page.waitForNavigation(),
-      page.locator('text=Checkout').click(),
-    ])
+    await page.locator('text=Checkout').click()
 
     await doCheckout(page, user)
 
