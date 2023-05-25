@@ -1,8 +1,8 @@
+import { StripeProvider } from '@redwoodjs-stripe/web'
 import userEvent from '@testing-library/user-event'
 
 import { screen, render } from '@redwoodjs/testing/web'
 
-import CartProvider from 'src/components/CartProvider'
 import MainLayout from 'src/layouts/MainLayout'
 
 import HomePage from './HomePage'
@@ -16,11 +16,11 @@ describe('HomePage', () => {
 
   it('clicking products adds them to the cart', async () => {
     const { user } = setup(
-      <CartProvider>
+      <StripeProvider>
         <MainLayout>
           <HomePage />
         </MainLayout>
-      </CartProvider>
+      </StripeProvider>
     )
 
     const productEl = await screen.findByText('Folding')

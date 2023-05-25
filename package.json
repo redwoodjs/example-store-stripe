@@ -18,7 +18,7 @@
   },
   "engines": {
     "node": ">=14.17 <=18.14",
-    "yarn": ">=1.15 <2"
+    "yarn": ">=1.15 <=3"
   },
   "prisma": {
     "seed": "yarn rw exec seed"

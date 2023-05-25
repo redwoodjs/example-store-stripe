@@ -9,7 +9,7 @@
   title = "Superstore"
   port = 8910
   apiUrl = "/.netlify/functions"
-  includeEnvironmentVariables = ['STRIPE_PK'] # any ENV vars that should be available to the web side, see https://redwoodjs.com/docs/environment-variables#web
+  includeEnvironmentVariables = ['STRIPE_PUBLISHABLE_KEY', 'DOMAIN_URL'] # any ENV vars that should be available to the web side, see https://redwoodjs.com/docs/environment-variables#web
 [api]
   port = 8911
 [browser]

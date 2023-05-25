@@ -1,6 +1,6 @@
-import { mockHttpEvent } from '@redwoodjs/testing/api'
+import { stripe } from '@redwoodjs-stripe/api'
 
-import { stripe } from 'src/lib/stripe'
+import { mockHttpEvent } from '@redwoodjs/testing/api'
 
 import { handler } from './stripeWebhooks'
 
@@ -18,14 +18,14 @@ describe('stripeWebhooks function', () => {
       2
     )
 
-    process.env.STRIPE_WEBHOOK_SK = 'whsec_test_secret'
+    process.env.STRIPE_WEBHOOK_KEY = 'whsec_test_secret'
 
     /**
      * @see {@link https://github.com/stripe/stripe-node/blob/master/README.md#testing-webhook-signing}
      */
     const header = stripe.webhooks.generateTestHeaderString({
       payload,
-      secret: process.env.STRIPE_WEBHOOK_SK,
+      secret: process.env.STRIPE_WEBHOOK_KEY,
     })
 
     const httpEvent = mockHttpEvent({

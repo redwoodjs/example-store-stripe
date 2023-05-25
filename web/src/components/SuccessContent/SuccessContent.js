@@ -5,21 +5,20 @@ import { routes } from '@redwoodjs/router'
 import Button from 'src/components/Button'
 import Shield from 'src/components/Shield'
 
-const SuccessContent = ({ customerName, customerSignedUp }) => {
+const SuccessContent = ({ isSignedUp }) => {
   return (
     <Wrapper>
       <div style={{ textAlign: 'center' }}>
         <Heading>Thank you</Heading>
         <Description>
-          Have a <span style={{ color: 'var(--primary)' }}>SUPER</span> day,{' '}
-          {customerName}!
+          Have a <span style={{ color: 'var(--primary)' }}>SUPER</span> day!
         </Description>
       </div>
       <SVGWrapper>
         <Shield />
       </SVGWrapper>
 
-      {!customerSignedUp && (
+      {!isSignedUp && (
         <Banner>
           <p>
             It looks like you don&apos;t have an account yet. Signing up lets

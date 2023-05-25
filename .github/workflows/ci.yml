@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🌲 Redwood CI
-        uses: redwoodjs/project-ci-action@v0.1.1
+        uses: redwoodjs/project-ci-action@main
 
       - run: npx playwright install --with-deps
 
@@ -19,8 +19,23 @@ jobs:
         run: npx playwright test e2e
         env:
           DATABASE_URL: postgresql://test:password@localhost:5432/test
-          STRIPE_PK: ${{ secrets.STRIPE_PK }}
-          STRIPE_SK: ${{ secrets.STRIPE_SK }}
+          STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
+          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
           SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+          STRIPE_WEBHOOK_KEY: ${{ secrets.STRIPE_WEBHOOK_KEY }}
+
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-results
+          path: test-results/
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: example-store-e2e-web-server.log
+          path:  /tmp/example-store-e2e-web-server.log
+          retention-days: 30
 
 

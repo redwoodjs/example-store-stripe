@@ -6,12 +6,12 @@ import Product from 'src/components/Product'
 import Spinner from 'src/components/Spinner'
 
 export const QUERY = gql`
-  query Products($type: ProductType) {
-    products(type: $type) {
+  query StripeItems($params: StripeItemsParamsInput) {
+    stripeItems(params: $params) {
       id
       name
       description
-      image
+      images
       price
       type
     }
@@ -34,9 +34,7 @@ export const Loading = () => (
 
 export const Empty = () => <div>Empty</div>
 
-export const Failure = ({ error }) => {
-  console.error(error.stack)
-
+export const Failure = () => {
   return (
     <Wrapper>
       <Background>
@@ -52,8 +50,8 @@ export const Failure = ({ error }) => {
   )
 }
 
-export const Success = ({ products }) => {
-  return <List items={products} Component={Product} />
+export const Success = ({ stripeItems }) => {
+  return <List items={stripeItems} Component={Product} />
 }
 
 // Styles

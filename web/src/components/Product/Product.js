@@ -1,14 +1,22 @@
+import { useStripeCart } from '@redwoodjs-stripe/web'
 import styled from 'styled-components'
 
-import { useAddToCart } from 'src/components/CartProvider'
+const Product = ({ id, name, description, price, images, type }) => {
+  const { addToCart } = useStripeCart()
+  const image = images[0]
 
-const Product = ({ id, name, description, price, image, type }) => {
-  const addToCart = useAddToCart()
+  const onWrapperClick = () => {
+    // Adds item to Stripe Cart
+    addToCart({
+      name: name,
+      id: id,
+      price: price,
+      type: type,
+    })
+  }
 
   return (
-    <Wrapper
-      onClick={() => addToCart({ id, name, description, price, image, type })}
-    >
+    <Wrapper onClick={onWrapperClick}>
       <div style={{ overflow: 'hidden' }}>
         <Image alt={description} src={image} />
       </div>

@@ -1,8 +1,7 @@
+import { StripeProvider, useStripeCart } from '@redwoodjs-stripe/web'
 import userEvent from '@testing-library/user-event'
 
 import { render, screen } from '@redwoodjs/testing/web'
-
-import CartProvider, { useCart } from 'src/components/CartProvider'
 
 import { Loading, Empty, Failure, Success } from './ProductsCell'
 import { standard } from './ProductsCell.mock'
@@ -27,28 +26,28 @@ describe('ProductsCell', () => {
   })
 
   it('renders Success successfully and clicking products adds them to the cart', async () => {
-    const { products } = standard()
+    const { stripeItems } = standard()
 
     const Quantity = () => {
-      const cart = useCart()
+      const { cart } = useStripeCart()
       const quantity = cart.reduce((total, item) => total + item.quantity, 0)
       return <div data-testid="cart">{quantity}</div>
     }
 
     const { user } = setup(
-      <CartProvider>
-        <Success products={products} />
+      <StripeProvider>
+        <Success stripeItems={stripeItems} />
         <Quantity />
-      </CartProvider>
+      </StripeProvider>
     )
 
-    for (const product of products) {
-      const productEl = screen.getByText(product.name)
+    for (const item of stripeItems) {
+      const productEl = screen.getByText(item.name)
       expect(productEl).toBeInTheDocument()
       await user.click(productEl)
     }
 
-    expect(screen.getByTestId('cart')).toHaveTextContent(products.length)
+    expect(screen.getByTestId('cart')).toHaveTextContent(stripeItems.length)
   })
 })
 
