@@ -5248,19 +5248,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs-stripe/api@npm:0.1.0-rc.9.monorepo-test.6":
-  version: 0.1.0-rc.9.monorepo-test.6
-  resolution: "@redwoodjs-stripe/api@npm:0.1.0-rc.9.monorepo-test.6"
+"@redwoodjs-stripe/api@npm:0.1.0-rc.10":
+  version: 0.1.0-rc.10
+  resolution: "@redwoodjs-stripe/api@npm:0.1.0-rc.10"
   dependencies:
     fs-extra: ^10.1.0
     stripe: ^11.9.1
-  checksum: 194b3aec73c8a5bae93576e453895765bb0d3afc5256fd74846418ec41fecb11c2a751066f2501f610216304c7e865cef072ba405b72d1b7ff456a4ae70fdf40
+  checksum: c0527d23f5199d4194adf2a760ed87217e20ba8109acee7f9773dabfafc3f7cfa32016ff04abdaedb65f6724db79bba2f9cda65055318630ef588d6468faccf5
   languageName: node
   linkType: hard
 
-"@redwoodjs-stripe/web@npm:0.1.0-rc.9.monorepo-test.6":
-  version: 0.1.0-rc.9.monorepo-test.6
-  resolution: "@redwoodjs-stripe/web@npm:0.1.0-rc.9.monorepo-test.6"
+"@redwoodjs-stripe/web@npm:0.1.0-rc.10":
+  version: 0.1.0-rc.10
+  resolution: "@redwoodjs-stripe/web@npm:0.1.0-rc.10"
   dependencies:
     tmp-promise: ^3.0.3
   peerDependencies:
@@ -5270,7 +5270,7 @@ __metadata:
     graphql-tag: 2.x
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: e61eaf6d29324826ab21503ade1a59b40d42881c21d9c2beaf8236019a96b87a215dd8ac0ba18349e1f8e058cef7cf2365cb346df1639ca34ab2e4e623734604
+  checksum: 681518f5f9d86958d300d3d65aeb2d7497e6f5bd8344ed8ad9357d7c14a0ab5e3b183db4d62042b4e467ea7de4229dc67889dd3b693255d2a7f3007e4dd2fdea
   languageName: node
   linkType: hard
 
@@ -9385,7 +9385,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "api@workspace:api"
   dependencies:
-    "@redwoodjs-stripe/api": 0.1.0-rc.9.monorepo-test.6
+    "@redwoodjs-stripe/api": 0.1.0-rc.10
     "@redwoodjs/api": 5.2.3
     "@redwoodjs/graphql-server": 5.2.3
     graphql-scalars: 1.20.1
@@ -26312,7 +26312,7 @@ __metadata:
   resolution: "web@workspace:web"
   dependencies:
     "@radix-ui/react-dialog": 1.0.2
-    "@redwoodjs-stripe/web": 0.1.0-rc.9.monorepo-test.6
+    "@redwoodjs-stripe/web": 0.1.0-rc.10
     "@redwoodjs/auth": 5.2.3
     "@redwoodjs/forms": 5.2.3
     "@redwoodjs/router": 5.2.3
