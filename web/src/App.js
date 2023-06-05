@@ -14,6 +14,8 @@ const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
       <AuthProvider type="dbAuth">
+        {/* {' '}
+        problem */}
         <RedwoodApolloProvider>
           <Routes />
           <Toaster
