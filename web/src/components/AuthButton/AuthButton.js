@@ -1,7 +1,7 @@
 import { useStripeCustomerPortal } from '@redwoodjs-stripe/web'
 import { User } from 'react-feather'
 
-import { useAuth } from '@redwoodjs/auth'
+import { useAuth } from 'src/auth'
 import { routes } from '@redwoodjs/router'
 import { toast } from '@redwoodjs/web/toast'
 
