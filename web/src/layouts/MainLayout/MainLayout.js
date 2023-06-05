@@ -2,7 +2,6 @@ import { StripeProvider } from '@redwoodjs-stripe/web'
 import styled from 'styled-components'
 
 import { useAuth } from 'src/auth'
-
 import AuthButton from 'src/components/AuthButton'
 import Branding from 'src/components/Branding/Branding'
 import Cart from 'src/components/Cart'
