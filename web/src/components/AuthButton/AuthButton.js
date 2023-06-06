@@ -1,10 +1,10 @@
 import { useStripeCustomerPortal } from '@redwoodjs-stripe/web'
 import { User } from 'react-feather'
 
-import { useAuth } from '@redwoodjs/auth'
 import { routes } from '@redwoodjs/router'
 import { toast } from '@redwoodjs/web/toast'
 
+import { useAuth } from 'src/auth'
 import Button from 'src/components/Button'
 
 const AuthButton = (props) => {

@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { useAuth } from '@redwoodjs/auth'
 import { Form, Label, PasswordField, FieldError } from '@redwoodjs/forms'
 import { navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 
+import { useAuth } from 'src/auth'
 import Button from 'src/components/Button'
 
 const ResetPasswordPage = ({ resetToken }) => {
