@@ -4416,7 +4416,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs-stripe/api@npm:0.1.0-rc.10":
+"@redwoodjs-stripe/api@npm:^0.1.0-rc.10":
   version: 0.1.0-rc.10
   resolution: "@redwoodjs-stripe/api@npm:0.1.0-rc.10"
   dependencies:
@@ -4426,9 +4426,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs-stripe/web@npm:0.1.0-rc.10":
-  version: 0.1.0-rc.10
-  resolution: "@redwoodjs-stripe/web@npm:0.1.0-rc.10"
+"@redwoodjs-stripe/web@npm:^0.1.0-rc.12":
+  version: 0.1.0-rc.12
+  resolution: "@redwoodjs-stripe/web@npm:0.1.0-rc.12"
   dependencies:
     tmp-promise: ^3.0.3
   peerDependencies:
@@ -4438,7 +4438,7 @@ __metadata:
     graphql-tag: 2.x
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: 681518f5f9d86958d300d3d65aeb2d7497e6f5bd8344ed8ad9357d7c14a0ab5e3b183db4d62042b4e467ea7de4229dc67889dd3b693255d2a7f3007e4dd2fdea
+  checksum: 705a979071ba37632149ac901950c35acaca17121180a42c47b38599a891e9ad4cef9925b2bb4ced82193d45572bf7d2e5a6413972aeac052ac3a19cd6fba33e
   languageName: node
   linkType: hard
 
@@ -8350,7 +8350,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "api@workspace:api"
   dependencies:
-    "@redwoodjs-stripe/api": 0.1.0-rc.10
+    "@redwoodjs-stripe/api": ^0.1.0-rc.10
     "@redwoodjs/api": 5.2.3
     "@redwoodjs/graphql-server": 5.2.3
     graphql-scalars: 1.20.1
@@ -24772,7 +24772,7 @@ __metadata:
   resolution: "web@workspace:web"
   dependencies:
     "@radix-ui/react-dialog": 1.0.2
-    "@redwoodjs-stripe/web": 0.1.0-rc.10
+    "@redwoodjs-stripe/web": ^0.1.0-rc.12
     "@redwoodjs/auth": 5.2.3
     "@redwoodjs/forms": 5.2.3
     "@redwoodjs/router": 5.2.3

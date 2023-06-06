@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "1.0.2",
-    "@redwoodjs-stripe/web": "0.1.0-rc.10",
+    "@redwoodjs-stripe/web": "^0.1.0-rc.12",
     "@redwoodjs/auth": "5.2.3",
     "@redwoodjs/forms": "5.2.3",
     "@redwoodjs/router": "5.2.3",
