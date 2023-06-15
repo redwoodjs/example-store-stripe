@@ -20,14 +20,13 @@ import { db } from './db'
  * seen if someone were to open the Web Inspector in their browser.
  */
 export const getCurrentUser = async (session) => {
-  // if (!session || typeof session.id !== 'number') {
   if (!session || typeof session.id !== 'string') {
     throw new Error('Invalid session')
   }
 
   return await db.user.findUnique({
     where: { id: session.id },
-    select: { id: true },
+    select: { id: true, stripeId: true },
   })
 }
 

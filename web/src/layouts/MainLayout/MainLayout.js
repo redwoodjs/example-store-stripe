@@ -13,8 +13,16 @@ const MainLayout = ({ children }) => {
     Passing the authenticated user to StripeProvider for use for Stripe Checkout and Stripe Portals
     User needs to manage authentication of customers
   */
-  const { userMetadata } = useAuth()
+  const { userMetadata, getCurrentUser } = useAuth()
 
+  const getUserEmail = async () => {
+    const { id } = await getCurrentUser()
+    console.log(id)
+  }
+
+  console.log(useAuth())
+
+  getUserEmail()
   const customer = {
     id: userMetadata,
   }

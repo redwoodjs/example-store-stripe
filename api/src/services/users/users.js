@@ -1,4 +1,49 @@
+import {
+  stripeCustomerSearch,
+  createStripeCustomer,
+} from '@redwoodjs-stripe/api'
+
 import { db } from 'src/lib/db'
+
+export const addStripeId = async ({ id }) => {
+  let stripeId = ''
+  const { email } = getCustomerEmail({ id })
+
+  // get customerID from Stripe using email
+  const {id} = await stripeCustomerSearch({
+    query: `email: \"${user.email}\"`,
+  })
+
+  if (customer == undefined) {
+    const newCustomer = await createStripeCustomer({ email })
+    stripeId = newCustomer.id
+  } else {
+    stripeId = customer.id
+  }
+
+  return await updateStripeId({
+    id,
+    stripeId: stripeId,
+  })
+}
+
+export const getCustomerEmail = ({ id }) => {
+  return db.user.findUnique({
+    where: { id },
+    select: { email },
+  })
+}
+
+export const updateStripeId = ({ id, stripeId }) => {
+  return db.user.update({
+    where: {
+      id,
+    },
+    data: {
+      stripeId,
+    },
+  })
+}
 
 // Only to be used on the api side
 export const getCustomerId = async ({ id }) => {
