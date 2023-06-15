@@ -1,7 +1,7 @@
 import { StripeProvider, useStripeCart } from '@redwoodjs-stripe/web'
 import userEvent from '@testing-library/user-event'
 
-import { render, screen } from '@redwoodjs/testing/web'
+import { act, render, screen } from '@redwoodjs/testing/web'
 
 import { Loading, Empty, Failure, Success } from './ProductsCell'
 import { standard } from './ProductsCell.mock'
@@ -44,7 +44,10 @@ describe('ProductsCell', () => {
     for (const item of stripeItems) {
       const productEl = screen.getByText(item.name)
       expect(productEl).toBeInTheDocument()
-      await user.click(productEl)
+
+      await act(async () => {
+        await user.click(productEl)
+      })
     }
 
     expect(screen.getByTestId('cart')).toHaveTextContent(stripeItems.length)

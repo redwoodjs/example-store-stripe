@@ -1,7 +1,7 @@
 import { StripeProvider } from '@redwoodjs-stripe/web'
 import userEvent from '@testing-library/user-event'
 
-import { screen, render } from '@redwoodjs/testing/web'
+import { screen, render, act } from '@redwoodjs/testing/web'
 
 import MainLayout from 'src/layouts/MainLayout'
 
@@ -23,8 +23,11 @@ describe('HomePage', () => {
       </StripeProvider>
     )
 
-    const productEl = await screen.findByText('Folding')
-    await user.click(productEl)
+    const productEl = (await screen.findAllByText('Folding'))[1]
+
+    await act(async () => {
+      await user.click(productEl)
+    })
 
     const cartButton = screen.getByLabelText('Open cart')
     expect(cartButton.dataset.quantity).toBe('1')
