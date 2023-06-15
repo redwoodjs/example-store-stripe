@@ -9,12 +9,13 @@ generator client {
 }
 
 model User {
-  id                  String       @id
+  id                  String @id @default(uuid())
   email               String    @unique
   name                String?
   hashedPassword      String
   salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
+  stripeId            String?
 }
 
