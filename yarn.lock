@@ -4198,9 +4198,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs-stripe/web@npm:0.1.0-rc.9.monorepo-test.6":
-  version: 0.1.0-rc.9.monorepo-test.6
-  resolution: "@redwoodjs-stripe/web@npm:0.1.0-rc.9.monorepo-test.6"
+"@redwoodjs-stripe/web@npm:0.1.0-rc.14":
+  version: 0.1.0-rc.14
+  resolution: "@redwoodjs-stripe/web@npm:0.1.0-rc.14"
   dependencies:
     tmp-promise: ^3.0.3
   peerDependencies:
@@ -4210,7 +4210,7 @@ __metadata:
     graphql-tag: 2.x
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: e61eaf6d29324826ab21503ade1a59b40d42881c21d9c2beaf8236019a96b87a215dd8ac0ba18349e1f8e058cef7cf2365cb346df1639ca34ab2e4e623734604
+  checksum: ec09cdddbff855b77318f1e2aae042b4fde62356b5009b9054e4f70f66f2de1e05bac8e35b28d22ec230fb4550935c793b06cc74a3ae0ef57ea7b1e4bd581546
   languageName: node
   linkType: hard
 
@@ -24271,7 +24271,7 @@ __metadata:
   resolution: "web@workspace:web"
   dependencies:
     "@radix-ui/react-dialog": 1.0.2
-    "@redwoodjs-stripe/web": 0.1.0-rc.9.monorepo-test.6
+    "@redwoodjs-stripe/web": 0.1.0-rc.14
     "@redwoodjs/auth": 3.8.0
     "@redwoodjs/forms": 3.8.0
     "@redwoodjs/router": 3.8.0
