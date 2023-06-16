@@ -5,13 +5,14 @@ import {
 
 import { db } from 'src/lib/db'
 
-export const addStripeId = async ({ id }) => {
+// Checks whether newly created user is a stripe Customer and adds their Stripe Customer Id to User
+export const addStripeId = async ({ userId }) => {
   let stripeId = ''
-  const { email } = getCustomerEmail({ id })
+  const { email } = getCustomerEmail({ userId })
 
   // get customerID from Stripe using email
-  const {id} = await stripeCustomerSearch({
-    query: `email: \"${user.email}\"`,
+  const customer = await stripeCustomerSearch({
+    query: `email: \"${email}\"`,
   })
 
   if (customer == undefined) {
@@ -22,7 +23,7 @@ export const addStripeId = async ({ id }) => {
   }
 
   return await updateStripeId({
-    id,
+    id: userId,
     stripeId: stripeId,
   })
 }
@@ -30,7 +31,9 @@ export const addStripeId = async ({ id }) => {
 export const getCustomerEmail = ({ id }) => {
   return db.user.findUnique({
     where: { id },
-    select: { email },
+    select: {
+      email: true,
+    },
   })
 }
 

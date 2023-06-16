@@ -8,6 +8,7 @@ export const schema = gql`
 
   type Mutation {
     updateStripeId(id: ID!): User @requireAuth
+    addStripeId(id: ID!): User @requireAuth
   }
 
   type Query {
