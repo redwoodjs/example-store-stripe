@@ -21,21 +21,24 @@ const MainLayout = ({ children }) => {
   const [customer, setCustomer] = useState('')
 
   useEffect(() => {
+    // Gets Stripe Customer ID if email is linked to a Stripe Customer email.
+    // If not then a new Stripe Customer is created with email address and
+    // Stripe Customer is returned. Logic lives on the api side
     const getUserStripeId = async () => {
       const { id, stripeId } = await getCurrentUser()
       if (!stripeId) {
         const user = await addStripeId(id)
         return user.stripeId
       }
-
       return stripeId
     }
 
     ;(async () => {
+      // Check if user is authenticated and already has Stripe Customer ID retrieved
       const customer =
         isAuthenticated && customer === ''
-          ? await getUserStripeId().then((v) => {
-              return v
+          ? await getUserStripeId().then((stripeCustomerId) => {
+              return stripeCustomerId
             })
           : ''
 
