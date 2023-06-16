@@ -16,7 +16,6 @@ import Button from 'src/components/Button'
 
 const SignupPage = () => {
   const { signUp } = useAuth()
-  const saveStripeId = useStripeID()
 
   // focus on email box on page load
   const usernameRef = useRef()
@@ -34,8 +33,6 @@ const SignupPage = () => {
     } else {
       // user is signed in automatically
       toast.success('Welcome!')
-
-      // get and store stripeID
     }
   }
 
@@ -113,57 +110,6 @@ const SignupPage = () => {
       </main>
     </>
   )
-}
-
-const useStripeID = () => {
-  const FETCH_AND_STORE_STRIPEID = gql`
-    query fetchAndStoreStripeId($id: String!) {
-      fetchAndStoreStripeId(id: $id) {
-        stripeId
-      }
-    }
-  `
-  // Fetch and store Stripe id to db
-  const [fetchNStore] = useMutation(
-    gql`
-      mutation fetchAndStoreStripeId(
-        $cart: [ProductInput!]!
-        $successUrl: String
-        $cancelUrl: String
-        $customer: StripeCustomerInput
-        $mode: StripeCheckoutModeEnum
-      ) {
-        checkout(
-          cart: $cart
-          successUrl: $successUrl
-          cancelUrl: $cancelUrl
-          customer: $customer
-          mode: $mode
-        ) {
-          id
-          url
-        }
-      }
-    `
-  )
-
-  return async (id) => {
-    const client = useApolloClient()
-
-    // create query
-    const result = await client.query({
-      query: FETCH_AND_STORE_STRIPEID,
-      variables: {
-        id: id,
-      },
-    })
-
-    if (result.error) {
-      throw result.error
-    }
-
-    return result.data?.retrieveStripeCheckoutSession ?? null
-  }
 }
 
 export default SignupPage

@@ -7,25 +7,27 @@ import Branding from 'src/components/Branding/Branding'
 import Cart from 'src/components/Cart'
 import Footer from 'src/components/Footer'
 import Grid from 'src/components/Grid'
+import useStripeId from 'src/lib/useStripeId'
 
 const MainLayout = ({ children }) => {
   /*
     Passing the authenticated user to StripeProvider for use for Stripe Checkout and Stripe Portals
     User needs to manage authentication of customers
   */
-  const { userMetadata, getCurrentUser } = useAuth()
+  const { getCurrentUser } = useAuth()
+  const { addStripeId } = useStripeId()
 
-  const getUserEmail = async () => {
-    const { id } = await getCurrentUser()
-    console.log(id)
+  const getUserStripeId = async () => {
+    const { id, stripeId } = await getCurrentUser()
+    if (!stripeId) {
+      const user = await addStripeId(id)
+      console.log(user)
+    }
   }
 
-  console.log(useAuth())
+  getUserStripeId()
 
-  getUserEmail()
-  const customer = {
-    id: userMetadata,
-  }
+  const customer = ''
 
   return (
     <StripeProvider customer={customer}>
