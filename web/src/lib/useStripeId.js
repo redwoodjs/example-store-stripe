@@ -25,8 +25,7 @@ const useStripeId = () => {
       }
 
       const { data } = await addStripeId(payload)
-      console.log('foo:', data)
-      return addStripeId
+      return data
     },
   }
 }

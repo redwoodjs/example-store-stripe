@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+
 import { StripeProvider } from '@redwoodjs-stripe/web'
 import styled from 'styled-components'
 
@@ -14,23 +16,35 @@ const MainLayout = ({ children }) => {
     Passing the authenticated user to StripeProvider for use for Stripe Checkout and Stripe Portals
     User needs to manage authentication of customers
   */
-  const { getCurrentUser } = useAuth()
+  const { getCurrentUser, isAuthenticated } = useAuth()
   const { addStripeId } = useStripeId()
+  const [customer, setCustomer] = useState('')
 
-  const getUserStripeId = async () => {
-    const { id, stripeId } = await getCurrentUser()
-    if (!stripeId) {
-      const user = await addStripeId(id)
-      console.log(user)
+  useEffect(() => {
+    const getUserStripeId = async () => {
+      const { id, stripeId } = await getCurrentUser()
+      if (!stripeId) {
+        const user = await addStripeId(id)
+        return user.stripeId
+      }
+
+      return stripeId
     }
-  }
 
-  getUserStripeId()
+    ;(async () => {
+      const customer =
+        isAuthenticated && customer === ''
+          ? await getUserStripeId().then((v) => {
+              return v
+            })
+          : ''
 
-  const customer = ''
+      setCustomer(customer)
+    })()
+  }, [isAuthenticated, getCurrentUser, addStripeId])
 
   return (
-    <StripeProvider customer={customer}>
+    <StripeProvider customer={{ id: customer }}>
       <Grid>
         <Header>
           {/* Push the other flex items all the way to the right. */}

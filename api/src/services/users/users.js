@@ -6,9 +6,9 @@ import {
 import { db } from 'src/lib/db'
 
 // Checks whether newly created user is a stripe Customer and adds their Stripe Customer Id to User
-export const addStripeId = async ({ userId }) => {
+export const addStripeId = async ({ id: userId }) => {
   let stripeId = ''
-  const { email } = getCustomerEmail({ userId })
+  const { email } = await getCustomerEmail({ id: userId })
 
   // get customerID from Stripe using email
   const customer = await stripeCustomerSearch({
@@ -16,7 +16,7 @@ export const addStripeId = async ({ userId }) => {
   })
 
   if (customer == undefined) {
-    const newCustomer = await createStripeCustomer({ email })
+    const newCustomer = await createStripeCustomer({ data: { email: email } })
     stripeId = newCustomer.id
   } else {
     stripeId = customer.id
@@ -28,8 +28,8 @@ export const addStripeId = async ({ userId }) => {
   })
 }
 
-export const getCustomerEmail = ({ id }) => {
-  return db.user.findUnique({
+export const getCustomerEmail = async ({ id }) => {
+  return await db.user.findUnique({
     where: { id },
     select: {
       email: true,
@@ -37,14 +37,10 @@ export const getCustomerEmail = ({ id }) => {
   })
 }
 
-export const updateStripeId = ({ id, stripeId }) => {
+export const updateStripeId = async ({ id, stripeId }) => {
   return db.user.update({
-    where: {
-      id,
-    },
-    data: {
-      stripeId,
-    },
+    data: { stripeId },
+    where: { id },
   })
 }
 
