@@ -34,17 +34,17 @@ const MainLayout = ({ children }) => {
     }
 
     ;(async () => {
-      // Check if user is authenticated and already has Stripe Customer ID retrieved
-      const customer =
-        isAuthenticated && customer === ''
-          ? await getUserStripeId().then((stripeCustomerId) => {
-              return stripeCustomerId
-            })
-          : ''
-
-      setCustomer(customer)
+      // Check if user is authenticated
+      if (isAuthenticated && customer === '') {
+        const customerId = await getUserStripeId().then((stripeCustomerId) => {
+          return stripeCustomerId
+        })
+        setCustomer(customerId)
+      } else if (!isAuthenticated && customer !== '') {
+        setCustomer('')
+      }
     })()
-  }, [isAuthenticated, getCurrentUser, addStripeId])
+  }, [isAuthenticated, getCurrentUser, addStripeId, customer])
 
   return (
     <StripeProvider customer={{ id: customer }}>
