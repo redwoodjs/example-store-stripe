@@ -22,7 +22,7 @@
     "@stripe/stripe-js": "1.47.0",
     "@xstate/immer": "0.3.2",
     "@xstate/react": "3.2.1",
-    "immer": "9.0.19",
+    "immer": "9.0.21",
     "open-props": "1.5.9",
     "prop-types": "15.8.1",
     "react": "17.0.2",
