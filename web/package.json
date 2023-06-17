@@ -19,7 +19,7 @@
     "@redwoodjs/forms": "3.8.0",
     "@redwoodjs/router": "3.8.0",
     "@redwoodjs/web": "3.8.0",
-    "@stripe/stripe-js": "1.47.0",
+    "@stripe/stripe-js": "1.54.0",
     "@xstate/immer": "0.3.3",
     "@xstate/react": "3.2.2",
     "immer": "9.0.21",
