@@ -6670,10 +6670,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stripe/stripe-js@npm:1.47.0":
-  version: 1.47.0
-  resolution: "@stripe/stripe-js@npm:1.47.0"
-  checksum: bc604bbf525d4eb736112f8ef60dead57887ccdd94ef5bdb1774996f24587329358a5bb341f57ae26c05d411ed753c8c4966ec8ccb40ec1f795ee57dafde767b
+"@stripe/stripe-js@npm:1.54.0":
+  version: 1.54.0
+  resolution: "@stripe/stripe-js@npm:1.54.0"
+  checksum: c11e7369ea9dbcf45958af2067a0f6e132451e7eb2be869134e513b046db4864469bd153a577e0dac8916c9fef01f13223f972178f8e1453f338dc0c0b7485cf
   languageName: node
   linkType: hard
 
@@ -8341,32 +8341,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xstate/immer@npm:0.3.2":
-  version: 0.3.2
-  resolution: "@xstate/immer@npm:0.3.2"
+"@xstate/immer@npm:0.3.3":
+  version: 0.3.3
+  resolution: "@xstate/immer@npm:0.3.3"
   peerDependencies:
-    immer: ^9.0.6
-    xstate: ^4.36.0
-  checksum: 9c88a867c98a89071f91c25c1ab1255dae0f22de1cb46a2e3877fd92182ed0b81f175b8ec4790ad145ce59f3a951e463e979e5b12118c6b02585adb92d120277
+    immer: ^9.0.6 || ^10
+    xstate: ^4.37.2
+  checksum: fdc03683da3c002aec12eeb25c902fd3e89af6931fc853242a4693bb20dfe5870ef929cf49d24055395534ca4479e921cf5ba565de5bb286059692b75861ab4f
   languageName: node
   linkType: hard
 
-"@xstate/react@npm:3.2.1":
-  version: 3.2.1
-  resolution: "@xstate/react@npm:3.2.1"
+"@xstate/react@npm:3.2.2":
+  version: 3.2.2
+  resolution: "@xstate/react@npm:3.2.2"
   dependencies:
-    use-isomorphic-layout-effect: ^1.0.0
+    use-isomorphic-layout-effect: ^1.1.2
     use-sync-external-store: ^1.0.0
   peerDependencies:
     "@xstate/fsm": ^2.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    xstate: ^4.36.0
+    xstate: ^4.37.2
   peerDependenciesMeta:
     "@xstate/fsm":
       optional: true
     xstate:
       optional: true
-  checksum: efcebbd03769c1559ba686e0134967ac932dbef17586408c385c95782004182b8b637ce2fd8fb7a6a5a26368bde448568936ae1a9848e8d89b50a9bfc9d73b4e
+  checksum: 3aab6169295fcbd77a217535d8674557165c5a931fc70c61824df89fdd0e54fe89468b7ca2690f78a3c0ad0612d1f9913b29c4667af06db0682d396a092c4f82
   languageName: node
   linkType: hard
 
@@ -8803,7 +8803,7 @@ __metadata:
     "@redwoodjs/auth-dbauth-api": 5.3.1
     "@redwoodjs/graphql-server": 5.3.1
     graphql-scalars: 1.22.2
-    nodemailer: 6.9.1
+    nodemailer: 6.9.3
     stripe: 11.12.0
   languageName: unknown
   linkType: soft
@@ -15603,10 +15603,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"immer@npm:9.0.19":
-  version: 9.0.19
-  resolution: "immer@npm:9.0.19"
-  checksum: 69a5f5c1f03471e74adacb7dfc21bdb08156c3d958035142a71e318295d2dcbbd245d9f280fd6cdd54b94bcc642b3f6c2fb1169a97be31ff63a59b2f0469be78
+"immer@npm:9.0.21":
+  version: 9.0.21
+  resolution: "immer@npm:9.0.21"
+  checksum: 03ea3ed5d4d72e8bd428df4a38ad7e483ea8308e9a113d3b42e0ea2cc0cc38340eb0a6aca69592abbbf047c685dbda04e3d34bf2ff438ab57339ed0a34cc0a05
   languageName: node
   linkType: hard
 
@@ -19045,10 +19045,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemailer@npm:6.9.1":
-  version: 6.9.1
-  resolution: "nodemailer@npm:6.9.1"
-  checksum: adeaef441e31025776e8b1fa818e4b260850fbb60150f6ff7210e4de443bb32f0881a8a4967c42bb108d620f68f18369a42db29fe7cdec5e4ec09b0ddd51b19c
+"nodemailer@npm:6.9.3":
+  version: 6.9.3
+  resolution: "nodemailer@npm:6.9.3"
+  checksum: a51f8ca46bf8960915f74b7d0c050e498bc5a76d2e5b376ce7abe638da997c246f4a828d231e8845de5eabf189aa23dd92af2dfe63ed04c9c194f3c014ad955d
   languageName: node
   linkType: hard
 
@@ -24865,7 +24865,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-isomorphic-layout-effect@npm:^1.0.0":
+"use-isomorphic-layout-effect@npm:^1.1.2":
   version: 1.1.2
   resolution: "use-isomorphic-layout-effect@npm:1.1.2"
   peerDependencies:
@@ -25244,18 +25244,18 @@ __metadata:
     "@redwoodjs/forms": 5.3.1
     "@redwoodjs/router": 5.3.1
     "@redwoodjs/web": 5.3.1
-    "@stripe/stripe-js": 1.47.0
+    "@stripe/stripe-js": 1.54.0
     "@testing-library/user-event": 14.4.3
-    "@xstate/immer": 0.3.2
-    "@xstate/react": 3.2.1
-    immer: 9.0.19
+    "@xstate/immer": 0.3.3
+    "@xstate/react": 3.2.2
+    immer: 9.0.21
     open-props: 1.5.9
     prop-types: 15.8.1
     react: 18.2.0
     react-dom: 18.2.0
     react-feather: 2.0.10
     styled-components: 5.3.11
-    xstate: 4.37.0
+    xstate: 4.37.2
   languageName: unknown
   linkType: soft
 
@@ -25980,10 +25980,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xstate@npm:4.37.0":
-  version: 4.37.0
-  resolution: "xstate@npm:4.37.0"
-  checksum: db4a657b7b950684e2b83517a45158a4e401bc79e53801847db9cb1331136c64c3e15d0d7e82916ab4c275523d59d1a28190daadf556778a0c9b270e26cf1fc6
+"xstate@npm:4.37.2":
+  version: 4.37.2
+  resolution: "xstate@npm:4.37.2"
+  checksum: a72427cb24c26d6c8adb627be08b1ad34fe39673cf2feca9c81a959b6dec25f0acfdcf2783bebe42c722e3f862ef8d00009a3d1b9bac03c55b29e1cb97cf67d5
   languageName: node
   linkType: hard
 
