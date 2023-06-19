@@ -1,6 +1,5 @@
 import { useRef, useEffect } from 'react'
 
-import { useAuth } from '@redwoodjs/auth'
 import {
   Form,
   Label,
@@ -12,6 +11,7 @@ import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 
+import { useAuth } from 'src/auth'
 import Button from 'src/components/Button'
 
 const LoginPage = () => {
