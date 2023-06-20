@@ -4818,12 +4818,12 @@ __metadata:
   linkType: hard
 
 "@redwoodjs-stripe/api@npm:^0.1.0-rc.14":
-  version: 0.1.0-rc.14
-  resolution: "@redwoodjs-stripe/api@npm:0.1.0-rc.14"
+  version: 0.1.0-rc.15
+  resolution: "@redwoodjs-stripe/api@npm:0.1.0-rc.15"
   dependencies:
     fs-extra: ^10.1.0
     stripe: ^11.9.1
-  checksum: af49d4163f289f293899b51ac5e82a30fe086ca65005b9ca631599142a363d5f132495ee56542cdf9debf5bd9fb0bb77ffb8a0785eaed34cfddc63200b106785
+  checksum: 007d7d90599f582d8669e64ee19dba6e864d1a549277dc9348c656f0351a6b62e1d25cd96c99131a8ea48bbae388a9ab4d6dd16042d981f67885a4b248a8b2b6
   languageName: node
   linkType: hard
 
