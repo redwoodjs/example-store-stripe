@@ -26,7 +26,7 @@
   "scripts": {
     "rw-test-e2e": "npx playwright test e2e"
   },
-  "packageManager": "yarn@3.6.0",
+  "packageManager": "yarn@3.6.1",
   "dependencies": {
     "styled-system": "5.1.5"
   }
