@@ -4655,12 +4655,11 @@ __metadata:
   linkType: hard
 
 "@redwoodjs-stripe/api@npm:^0.1.0-rc.14":
-  version: 0.1.0-rc.15
-  resolution: "@redwoodjs-stripe/api@npm:0.1.0-rc.15"
+  version: 0.1.0-rc.19
+  resolution: "@redwoodjs-stripe/api@npm:0.1.0-rc.19"
   dependencies:
-    fs-extra: ^10.1.0
-    stripe: ^11.9.1
-  checksum: 007d7d90599f582d8669e64ee19dba6e864d1a549277dc9348c656f0351a6b62e1d25cd96c99131a8ea48bbae388a9ab4d6dd16042d981f67885a4b248a8b2b6
+    stripe: ^11.18.0
+  checksum: bdbcc5aea91b2707daf8a2dd348fead6eba754a107e815dd0a1c36eeeb8ab49ce222ea97bc17d7944537132c3ba71c6fbd5d99f310e79e9b89837286035a6c94
   languageName: node
   linkType: hard
 
@@ -23299,7 +23298,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stripe@npm:^11.9.1":
+"stripe@npm:^11.18.0":
   version: 11.18.0
   resolution: "stripe@npm:11.18.0"
   dependencies:
