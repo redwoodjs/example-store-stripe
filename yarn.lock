@@ -4665,18 +4665,13 @@ __metadata:
   linkType: hard
 
 "@redwoodjs-stripe/web@npm:^0.1.0-rc.14":
-  version: 0.1.0-rc.14
-  resolution: "@redwoodjs-stripe/web@npm:0.1.0-rc.14"
-  dependencies:
-    tmp-promise: ^3.0.3
+  version: 0.1.0-rc.19
+  resolution: "@redwoodjs-stripe/web@npm:0.1.0-rc.19"
   peerDependencies:
-    "@apollo/client": 3.x
-    "@redwoodjs/core": 4.x
-    "@redwoodjs/web": 4.x
-    graphql-tag: 2.x
-    react: 17.0.2
-    react-dom: 17.0.2
-  checksum: ec09cdddbff855b77318f1e2aae042b4fde62356b5009b9054e4f70f66f2de1e05bac8e35b28d22ec230fb4550935c793b06cc74a3ae0ef57ea7b1e4bd581546
+    "@redwoodjs/web": ^5.4.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: d45588cc3ad60a70657a1f244877e543900791dd1b05a22247a136ba7ae757eb231e50428c20556794750e394731a1a1fa41c9f1ffe7fa1047c8c463e41e3c44
   languageName: node
   linkType: hard
 
@@ -23812,16 +23807,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tmp-promise@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "tmp-promise@npm:3.0.3"
-  dependencies:
-    tmp: ^0.2.0
-  checksum: 23b47dcb2e82b14bbd8f61ed7a9d9353cdb6a6f09d7716616cfd27d0087040cd40152965a518e598d7aabe1489b9569bf1eebde0c5fadeaf3ec8098adcebea4e
-  languageName: node
-  linkType: hard
-
-"tmp@npm:0.2.1, tmp@npm:^0.2.0":
+"tmp@npm:0.2.1":
   version: 0.2.1
   resolution: "tmp@npm:0.2.1"
   dependencies:
