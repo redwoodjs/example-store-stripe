@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 
-import SpinnerSVG from './spinner.svg'
+import SpinnerSVG from './SpinnerSVG'
 
 const turn = keyframes`
   from {
