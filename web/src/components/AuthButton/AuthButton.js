@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import {
   useStripeCustomerPortal,
   useStripeCustomer,
-  useStripeSubscriptions,
+  // useStripeSubscriptions,
 } from '@redwoodjs-stripe/web'
 import { User } from 'react-feather'
 
@@ -14,7 +14,6 @@ import { useAuth } from 'src/auth'
 import Button from 'src/components/Button'
 
 const AuthButton = (props) => {
-  // const { listStripeSubscriptions } = useStripeSubscriptions()
   const { customer, retrieveStripeCustomer } = useStripeCustomer({
     retrieveFragment: gql`
       fragment CustomerSubscriptionFragment on StripeCustomer {
@@ -35,16 +34,6 @@ const AuthButton = (props) => {
     createStripeCustomerPortalConfig,
     defaultConfig,
   } = useStripeCustomerPortal()
-
-  // useEffect(() => {
-  //   if (customer?.id) {
-  //     listStripeSubscriptions({
-  //       customer: customer.id,
-  //     }).then((r) => {
-  //       console.log(r)
-  //     })
-  //   }
-  // }, [listStripeSubscriptions, customer?.id])
 
   useEffect(() => {
     // can use isAuthenticated
