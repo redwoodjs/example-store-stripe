@@ -1,4 +1,10 @@
-import { useStripeCustomerPortal } from '@redwoodjs-stripe/web'
+import { useEffect } from 'react'
+
+import {
+  useStripeCustomerPortal,
+  useStripeCustomer,
+  useStripeSubscriptions,
+} from '@redwoodjs-stripe/web'
 import { User } from 'react-feather'
 
 import { routes } from '@redwoodjs/router'
@@ -8,12 +14,48 @@ import { useAuth } from 'src/auth'
 import Button from 'src/components/Button'
 
 const AuthButton = (props) => {
+  // const { listStripeSubscriptions } = useStripeSubscriptions()
+  const { customer, retrieveStripeCustomer } = useStripeCustomer({
+    retrieveFragment: gql`
+      fragment CustomerSubscriptionFragment on StripeCustomer {
+        id
+        subscriptions {
+          id
+        }
+        cash_balance {
+          object
+        }
+      }
+    `,
+  })
+
   const { isAuthenticated, logOut } = useAuth()
   const {
     redirectToStripeCustomerPortal,
     createStripeCustomerPortalConfig,
     defaultConfig,
   } = useStripeCustomerPortal()
+
+  // useEffect(() => {
+  //   if (customer?.id) {
+  //     listStripeSubscriptions({
+  //       customer: customer.id,
+  //     }).then((r) => {
+  //       console.log(r)
+  //     })
+  //   }
+  // }, [listStripeSubscriptions, customer?.id])
+
+  useEffect(() => {
+    // can use isAuthenticated
+    if (customer?.id) {
+      retrieveStripeCustomer(null, {
+        expand: ['subscriptions', 'cash_balance'],
+      }).then((r) => {
+        console.log(r)
+      })
+    }
+  }, [customer?.id, retrieveStripeCustomer])
 
   const onLogoutButtonClick = async () => {
     await logOut()

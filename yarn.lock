@@ -4654,29 +4654,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs-stripe/api@npm:^0.1.0-rc.14":
-  version: 0.1.0-rc.15
-  resolution: "@redwoodjs-stripe/api@npm:0.1.0-rc.15"
+"@redwoodjs-stripe/api@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@redwoodjs-stripe/api@npm:1.0.1"
   dependencies:
-    fs-extra: ^10.1.0
-    stripe: ^11.9.1
-  checksum: 007d7d90599f582d8669e64ee19dba6e864d1a549277dc9348c656f0351a6b62e1d25cd96c99131a8ea48bbae388a9ab4d6dd16042d981f67885a4b248a8b2b6
+    stripe: ^11.18.0
+  checksum: 8d5384572569ee1283fc1a84ccfab49a7a47a52ec25e713a2ad01b26e9d764c8eacd74ee3b7bb92ced9f89c3af16af415e538356358ffcec1f37f3f6a67be361
   languageName: node
   linkType: hard
 
-"@redwoodjs-stripe/web@npm:^0.1.0-rc.14":
-  version: 0.1.0-rc.14
-  resolution: "@redwoodjs-stripe/web@npm:0.1.0-rc.14"
-  dependencies:
-    tmp-promise: ^3.0.3
+"@redwoodjs-stripe/web@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@redwoodjs-stripe/web@npm:1.0.1"
   peerDependencies:
-    "@apollo/client": 3.x
-    "@redwoodjs/core": 4.x
-    "@redwoodjs/web": 4.x
-    graphql-tag: 2.x
-    react: 17.0.2
-    react-dom: 17.0.2
-  checksum: ec09cdddbff855b77318f1e2aae042b4fde62356b5009b9054e4f70f66f2de1e05bac8e35b28d22ec230fb4550935c793b06cc74a3ae0ef57ea7b1e4bd581546
+    "@redwoodjs/web": ^5.4.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: c8a3ec0f3c8344e78af78e521130bb7d578fadbb72969a1d8024ebf1fe97b11e5f3af489936eaa546321ae7665fe4b2ba8fa328d1b51a3a13ecd0252593ffe2a
   languageName: node
   linkType: hard
 
@@ -8655,7 +8649,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "api@workspace:api"
   dependencies:
-    "@redwoodjs-stripe/api": ^0.1.0-rc.14
+    "@redwoodjs-stripe/api": ^1.0.1
     "@redwoodjs/api": 5.4.2
     "@redwoodjs/auth-dbauth-api": 5.4.2
     "@redwoodjs/graphql-server": 5.4.2
@@ -23299,7 +23293,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stripe@npm:^11.9.1":
+"stripe@npm:^11.18.0":
   version: 11.18.0
   resolution: "stripe@npm:11.18.0"
   dependencies:
@@ -23812,16 +23806,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tmp-promise@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "tmp-promise@npm:3.0.3"
-  dependencies:
-    tmp: ^0.2.0
-  checksum: 23b47dcb2e82b14bbd8f61ed7a9d9353cdb6a6f09d7716616cfd27d0087040cd40152965a518e598d7aabe1489b9569bf1eebde0c5fadeaf3ec8098adcebea4e
-  languageName: node
-  linkType: hard
-
-"tmp@npm:0.2.1, tmp@npm:^0.2.0":
+"tmp@npm:0.2.1":
   version: 0.2.1
   resolution: "tmp@npm:0.2.1"
   dependencies:
@@ -25098,7 +25083,7 @@ __metadata:
   resolution: "web@workspace:web"
   dependencies:
     "@radix-ui/react-dialog": 1.0.4
-    "@redwoodjs-stripe/web": ^0.1.0-rc.14
+    "@redwoodjs-stripe/web": ^1.0.1
     "@redwoodjs/auth": 5.4.2
     "@redwoodjs/auth-dbauth-web": 5.4.2
     "@redwoodjs/forms": 5.4.2
