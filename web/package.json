@@ -30,7 +30,7 @@
     "react-dom": "18.2.0",
     "react-feather": "2.0.10",
     "styled-components": "6.1.8",
-    "xstate": "4.38.0"
+    "xstate": "4.38.3"
   },
   "devDependencies": {
     "@testing-library/user-event": "14.4.3"
