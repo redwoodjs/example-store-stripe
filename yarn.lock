@@ -5727,20 +5727,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:^7.1.14":
-  version: 7.20.1
-  resolution: "@types/babel__core@npm:7.20.1"
-  dependencies:
-    "@babel/parser": ^7.20.7
-    "@babel/types": ^7.20.7
-    "@types/babel__generator": "*"
-    "@types/babel__template": "*"
-    "@types/babel__traverse": "*"
-  checksum: c83402fc7ef8abd1f94ffe350b8bde9a35ccb6c3624bc8e39b6a7e1a675d112f6b70ac1b05391a579ca3b126baffe66b0b94f954edef086c4482b97d293c3659
-  languageName: node
-  linkType: hard
-
-"@types/babel__core@npm:^7.20.5":
+"@types/babel__core@npm:^7.1.14, @types/babel__core@npm:^7.20.5":
   version: 7.20.5
   resolution: "@types/babel__core@npm:7.20.5"
   dependencies:
@@ -7292,7 +7279,7 @@ __metadata:
     "@redwoodjs/auth-dbauth-api": 7.1.2
     "@redwoodjs/graphql-server": 7.1.2
     graphql-scalars: 1.22.2
-    nodemailer: 6.9.3
+    nodemailer: 6.9.13
     stripe: 12.18.0
   languageName: unknown
   linkType: soft
@@ -16235,10 +16222,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemailer@npm:6.9.3":
-  version: 6.9.3
-  resolution: "nodemailer@npm:6.9.3"
-  checksum: a51f8ca46bf8960915f74b7d0c050e498bc5a76d2e5b376ce7abe638da997c246f4a828d231e8845de5eabf189aa23dd92af2dfe63ed04c9c194f3c014ad955d
+"nodemailer@npm:6.9.13":
+  version: 6.9.13
+  resolution: "nodemailer@npm:6.9.13"
+  checksum: 4d6899f45abb7760a7d3b4d1046de7e08e80a471b84d1f09065a25941ded482e7f9877be248550e681e0270383cb9299f6caded507cbc0e917341bb137cc94a4
   languageName: node
   linkType: hard
 
