@@ -8,7 +8,7 @@
     "@redwoodjs/auth-dbauth-api": "7.1.2",
     "@redwoodjs/graphql-server": "7.1.2",
     "graphql-scalars": "1.22.2",
-    "nodemailer": "6.9.3",
+    "nodemailer": "6.9.13",
     "stripe": "12.18.0"
   }
 }
