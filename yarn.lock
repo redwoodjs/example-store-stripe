@@ -5727,20 +5727,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:^7.1.14":
-  version: 7.20.1
-  resolution: "@types/babel__core@npm:7.20.1"
-  dependencies:
-    "@babel/parser": ^7.20.7
-    "@babel/types": ^7.20.7
-    "@types/babel__generator": "*"
-    "@types/babel__template": "*"
-    "@types/babel__traverse": "*"
-  checksum: c83402fc7ef8abd1f94ffe350b8bde9a35ccb6c3624bc8e39b6a7e1a675d112f6b70ac1b05391a579ca3b126baffe66b0b94f954edef086c4482b97d293c3659
-  languageName: node
-  linkType: hard
-
-"@types/babel__core@npm:^7.20.5":
+"@types/babel__core@npm:^7.1.14, @types/babel__core@npm:^7.20.5":
   version: 7.20.5
   resolution: "@types/babel__core@npm:7.20.5"
   dependencies:
@@ -16539,10 +16526,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"open-props@npm:1.5.10":
-  version: 1.5.10
-  resolution: "open-props@npm:1.5.10"
-  checksum: 6cd8e2ec43a9bebb98097e8305e8d7b9b365c6b914801689a8bd0dc2383c8895c19447b0cda79d37d141b72ed4e2ac8733a0e18d022924f43f27ea99ad02a2e7
+"open-props@npm:1.7.0":
+  version: 1.7.0
+  resolution: "open-props@npm:1.7.0"
+  checksum: 88df4f3e358cfeb8dd07c1cabde643d75dcdfb18c3a8e126d671b43e4ecd436b0114bea766d7d7a462f3b154253d0e6279dc2682390c8c4d1dc697649303aa79
   languageName: node
   linkType: hard
 
@@ -21382,7 +21369,7 @@ __metadata:
     "@xstate/immer": 0.3.3
     "@xstate/react": 3.2.2
     immer: 10.0.2
-    open-props: 1.5.10
+    open-props: 1.7.0
     prop-types: 15.8.1
     react: 18.2.0
     react-dom: 18.2.0
