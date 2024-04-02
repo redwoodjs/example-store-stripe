@@ -10637,15 +10637,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enquirer@npm:2.3.6":
-  version: 2.3.6
-  resolution: "enquirer@npm:2.3.6"
-  dependencies:
-    ansi-colors: ^4.1.1
-  checksum: 8e070e052c2c64326a2803db9084d21c8aaa8c688327f133bf65c4a712586beb126fd98c8a01cfb0433e82a4bd3b6262705c55a63e0f7fb91d06b9cedbde9a11
-  languageName: node
-  linkType: hard
-
 "enquirer@npm:2.4.1":
   version: 2.4.1
   resolution: "enquirer@npm:2.4.1"
@@ -18735,7 +18726,7 @@ __metadata:
   dependencies:
     "@playwright/test": 1.35.1
     "@redwoodjs/core": 7.1.2
-    enquirer: 2.3.6
+    enquirer: 2.4.1
     styled-system: 5.1.5
   languageName: unknown
   linkType: soft
