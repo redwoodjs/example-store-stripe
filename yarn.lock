@@ -5581,15 +5581,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:14.4.3":
-  version: 14.4.3
-  resolution: "@testing-library/user-event@npm:14.4.3"
-  peerDependencies:
-    "@testing-library/dom": ">=7.21.4"
-  checksum: 28e1e4ed2fdaa9486e203c6789386be228e305abd3fa41f38c828af415fd4a4e80f4de88de0e502ff11c4b4926f221b874a2a45bcc8170d30714e12dad2c1bd0
-  languageName: node
-  linkType: hard
-
 "@testing-library/user-event@npm:14.5.2":
   version: 14.5.2
   resolution: "@testing-library/user-event@npm:14.5.2"
@@ -21365,7 +21356,7 @@ __metadata:
     "@redwoodjs/vite": 7.1.2
     "@redwoodjs/web": 7.1.2
     "@stripe/stripe-js": 1.54.2
-    "@testing-library/user-event": 14.4.3
+    "@testing-library/user-event": 14.5.2
     "@xstate/immer": 0.3.3
     "@xstate/react": 3.2.2
     immer: 10.0.4
