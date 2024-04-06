@@ -4171,19 +4171,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.35.1":
-  version: 1.35.1
-  resolution: "@playwright/test@npm:1.35.1"
+"@playwright/test@npm:1.43.0":
+  version: 1.43.0
+  resolution: "@playwright/test@npm:1.43.0"
   dependencies:
-    "@types/node": "*"
-    fsevents: 2.3.2
-    playwright-core: 1.35.1
-  dependenciesMeta:
-    fsevents:
-      optional: true
+    playwright: 1.43.0
   bin:
     playwright: cli.js
-  checksum: 5b28eece322645d05d2da286a2a023f99830df4ab8779ed15229c36fa0fdd7351fb2bc067446e0b1d8c719b60793658bad247308e3460c8dac9177d724a22dc3
+  checksum: 097dc9db5047d964ba1d1a1776b3298d999c77c64ef3f96613ff76ea885787e3cd120589790daa7fd20adca52abcf30db52be59d64ab4faf9b118840f3b0d031
   languageName: node
   linkType: hard
 
@@ -17059,12 +17054,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.35.1":
-  version: 1.35.1
-  resolution: "playwright-core@npm:1.35.1"
+"playwright-core@npm:1.43.0":
+  version: 1.43.0
+  resolution: "playwright-core@npm:1.43.0"
   bin:
     playwright-core: cli.js
-  checksum: 378caaf452546554b01993006abf556fb2f35369355ff6cf462148ed154a177ff1cdcf7f90035c3e7cef3522435602fd4517f2f1a0a75eef92c4db4efdc24b02
+  checksum: 3afdcc79176e0c872b3bb66994ef6288b10819dfb800234b81134a35daffc8100596d65ccff10faa8941a450a259a78f446db570898e53031abba7f542602c6a
+  languageName: node
+  linkType: hard
+
+"playwright@npm:1.43.0":
+  version: 1.43.0
+  resolution: "playwright@npm:1.43.0"
+  dependencies:
+    fsevents: 2.3.2
+    playwright-core: 1.43.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    playwright: cli.js
+  checksum: 82506d3937416439d42ed7940e03b62225651a049792b7c122cd1fb4318674e5789dbcd38e31c8e2f41d99e3b7dc9aa0898bfdd26dff5456eb3f89a166252bd8
   languageName: node
   linkType: hard
 
@@ -18662,7 +18672,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@playwright/test": 1.35.1
+    "@playwright/test": 1.43.0
     "@redwoodjs/core": 7.3.0
     enquirer: 2.4.1
     styled-system: 5.1.5
