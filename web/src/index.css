@@ -1,0 +1,21 @@
+* {
+  font-family:Arial, Helvetica, sans-serif
+}
+
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-body {
+ flex: 1;
+}
+
+.page-footer{
+
+}
+
+.page-header {
+
+}
