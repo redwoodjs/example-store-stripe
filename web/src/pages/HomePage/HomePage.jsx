@@ -32,7 +32,7 @@ const HomePage = () => {
       <StripeProvider
         customer={{
           id:
-            isAuthenticated && currentUser.stripeId !== undefined
+            isAuthenticated && currentUser?.stripeId !== undefined
               ? currentUser.stripeId
               : '',
         }}
