@@ -1,16 +1,17 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 
 import { StripeProvider } from '@redwoodjs-stripe/web'
 
 import { Metadata } from '@redwoodjs/web'
 
 import { useAuth } from 'src/auth'
-import CartButton from 'src/components/Cart/Cart'
-import Cart from 'src/components/CartDropdown/CartDropdown'
+// import CartButton from 'src/components/Cart/Cart'
+// import Cart from 'src/components/CartDropdown/CartDropdown'
+import RwsCart from 'src/components/RWSCart/RWSCart'
 import StripeItemsCell from 'src/components/StripeItemsCell/StripeItemsCell'
 
 const HomePage = () => {
-  const [isCartVisible, setCartVisibilty] = useState(false)
+  // const [isCartVisible, setCartVisibilty] = useState(false)
 
   /*
   USERMAPPING
@@ -19,9 +20,9 @@ const HomePage = () => {
   */
   const { isAuthenticated, currentUser } = useAuth()
 
-  const onCartButtonClick = () => {
-    setCartVisibilty(!isCartVisible)
-  }
+  // const onCartButtonClick = () => {
+  //   setCartVisibilty(!isCartVisible)
+  // }
 
   return (
     <>
@@ -38,13 +39,13 @@ const HomePage = () => {
         }}
       >
         <Metadata title="Home" description="Home page" />
-
-        {/* Stripe Checkout is managed inside of the Cart component */}
+        <RwsCart />
+        {/* Stripe Checkout is managed inside of the Cart component }
         <CartButton
           isCartVisible={isCartVisible}
           onCartButtonClick={onCartButtonClick}
         />
-        {isCartVisible && <Cart />}
+        {isCartVisible && <Cart />*/}
 
         <div>Products</div>
         <StripeItemsCell

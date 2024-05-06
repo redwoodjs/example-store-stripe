@@ -1,9 +1,10 @@
+import styles from './styles.module.css'
+
 const RwsCart = () => {
   return (
-    <div>
-      <h2>{'RwsCart'}</h2>
-      <p>{'Find me in ./web/src/components/RWSCart/RWSCart.jsx'}</p>
-    </div>
+    <>
+      <button className={styles.rwsButton}>Cart</button>
+    </>
   )
 }
 
