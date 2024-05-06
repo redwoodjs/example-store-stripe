@@ -1,5 +1,7 @@
 import { useStripeCart, useStripeCheckout } from '@redwoodjs-stripe/web'
 
+import './styles.css'
+
 const CartDropdown = () => {
   const { checkout } = useStripeCheckout()
   const { cart, clearCart } = useStripeCart()
