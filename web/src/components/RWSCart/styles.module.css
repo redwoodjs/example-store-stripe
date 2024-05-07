@@ -1,4 +1,11 @@
 .rwsButton {
-  background-color: blueviolet;
-  font-family:'Courier New', Courier, monospace;
+  background-color: transparent;
+  border: solid black 1px;
+  border-radius: 2px;
+}
+
+.rwsButton:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }
