@@ -1,11 +1,42 @@
+/* .rwsCounter {
+  position: absolute;
+  bottom: 0;
+  right: -16px;
+  display: block;
+  background: #404040;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+} */
+
+/* BUTTON */
 .rwsButton {
+  display: inline;
+  position: relative;
   background-color: transparent;
-  border: solid black 1px;
+  color: #0f192c;
+  padding: 5px 7px;
+  border: none;
   border-radius: 2px;
+  transition: 0.25s ease-in-out;
 }
 
 .rwsButton:hover {
-  background-color: black;
-  color: white;
   cursor: pointer;
+  color: #989797;
+}
+
+.rwsButton::after {
+  display: block;
+  position: absolute;
+  right: -16px;
+  line-height: 20px;
+  bottom: 13%;
+  content:  attr(data-counter) ;
+  background-color: hotpink;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
 }
