@@ -4554,13 +4554,13 @@ __metadata:
   linkType: hard
 
 "@redwoodjs-stripe/web@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "@redwoodjs-stripe/web@npm:1.0.7"
+  version: 1.0.8
+  resolution: "@redwoodjs-stripe/web@npm:1.0.8"
   peerDependencies:
-    "@redwoodjs/web": ^5.4.3
-    react: ^18.2.0
-    react-dom: ^18.2.0
-  checksum: 0d50149b98729359d7958bbfd04dbc5d43a3efcf7335f16c9bdc14d81f324b4e1107923e1f729a719383ead1700440968fb7f892aac54a410a3ac493f88e86e2
+    "@redwoodjs/web": ">=5.4.3"
+    react: ">=18.2.0"
+    react-dom: ">=18.2.0"
+  checksum: 3d1b10c8257ef42bc419aa6789235460184d47896ba4fff514c02092f4cc130ffd94c0465a0781fb034544c6dc2c50b4d86aa1f9b46eb54d04fe5a332a061074
   languageName: node
   linkType: hard
 
