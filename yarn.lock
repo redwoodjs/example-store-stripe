@@ -4545,11 +4545,11 @@ __metadata:
   linkType: hard
 
 "@redwoodjs-stripe/api@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "@redwoodjs-stripe/api@npm:1.0.7"
+  version: 1.0.8
+  resolution: "@redwoodjs-stripe/api@npm:1.0.8"
   dependencies:
-    stripe: ^11.18.0
-  checksum: 52ca75417ef0ac070b19108f5dd798c587e69bd5f14dbb9787e4e00efb0086bc5b057dde41a04c454fb60ec20270957e9dc6da18a5b95fb05d4a9e4ad4578c53
+    stripe: ">=11.18.0"
+  checksum: b10b602ea456c998007c15b01ce2ed4bd2da12988fb45e4dfd883f8c9f91796682cbeca65d819208451f857548b103532cf834dc19822a5df79c289bf14162db
   languageName: node
   linkType: hard
 
@@ -19764,13 +19764,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stripe@npm:^11.18.0":
-  version: 11.18.0
-  resolution: "stripe@npm:11.18.0"
+"stripe@npm:>=11.18.0":
+  version: 15.12.0
+  resolution: "stripe@npm:15.12.0"
   dependencies:
     "@types/node": ">=8.1.0"
     qs: ^6.11.0
-  checksum: aa5e269cc892970bc6aeb087ba39bc0537cae7e90ab959a680f646ea495ae528c35ea53385b19801b7ea3af0f0fb1ab8df0651636cb9a21b3bd796b4bd5cc00e
+  checksum: 95de07b108b98388d2ead2dedc3fc371df55287c9e926385f95890c680d655234ba2832a23e11e283e946d44dac01868eec823ccf878628eb75f5baa67f08175
   languageName: node
   linkType: hard
 
