@@ -8,13 +8,15 @@ import { MetaTags } from '@redwoodjs/web'
 import CheckoutSuccessCell from 'src/components/CheckoutSuccessCell/CheckoutSuccessCell'
 
 const SuccessPage = () => {
-  const { clearCart } = useStripeCart()
+  const { clearCart, cart } = useStripeCart()
   const { sessionId } = useParams()
 
   // OnMount clear the cart contents
   useEffect(() => {
-    clearCart()
-  })
+    if (cart.length > 0) {
+      clearCart()
+    }
+  }, [clearCart, cart])
 
   return (
     <>
