@@ -6741,22 +6741,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xstate/react@npm:3.2.2":
-  version: 3.2.2
-  resolution: "@xstate/react@npm:3.2.2"
+"@xstate/react@npm:4.1.3":
+  version: 4.1.3
+  resolution: "@xstate/react@npm:4.1.3"
   dependencies:
     use-isomorphic-layout-effect: ^1.1.2
-    use-sync-external-store: ^1.0.0
+    use-sync-external-store: ^1.2.0
   peerDependencies:
-    "@xstate/fsm": ^2.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    xstate: ^4.37.2
+    xstate: ^5.18.2
   peerDependenciesMeta:
-    "@xstate/fsm":
-      optional: true
     xstate:
       optional: true
-  checksum: 3aab6169295fcbd77a217535d8674557165c5a931fc70c61824df89fdd0e54fe89468b7ca2690f78a3c0ad0612d1f9913b29c4667af06db0682d396a092c4f82
+  checksum: 6aa4b3601a12bd909e1a3e9b0c7f70f1d2b1a7216ebad5693c98b9b369d1236d2ad5c0fd7fb8a3d8454fd90faa89f9f3829bac4f85e5f25f0976649a6c5e1cdb
   languageName: node
   linkType: hard
 
@@ -20964,12 +20961,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:^1.0.0":
-  version: 1.2.0
-  resolution: "use-sync-external-store@npm:1.2.0"
+"use-sync-external-store@npm:^1.2.0":
+  version: 1.2.2
+  resolution: "use-sync-external-store@npm:1.2.2"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: ac4814e5592524f242921157e791b022efe36e451fe0d4fd4d204322d5433a4fc300d63b0ade5185f8e0735ded044c70bcf6d2352db0f74d097a238cebd2da02
+  checksum: 23b1597c10adf15b26ade9e8c318d8cc0abc9ec0ab5fc7ca7338da92e89c2536abd150a5891bf076836c352fdfa104fc7231fb48f806fd9960e0cbe03601abaf
   languageName: node
   linkType: hard
 
@@ -21285,7 +21282,7 @@ __metadata:
     "@stripe/stripe-js": 1.54.2
     "@testing-library/user-event": 14.5.2
     "@xstate/immer": 0.3.3
-    "@xstate/react": 3.2.2
+    "@xstate/react": 4.1.3
     immer: 10.1.1
     open-props: 1.7.5
     prop-types: 15.8.1
@@ -21293,7 +21290,7 @@ __metadata:
     react-dom: 18.3.1
     react-feather: 2.0.10
     styled-components: 6.1.12
-    xstate: 4.38.0
+    xstate: 5.18.2
   languageName: unknown
   linkType: soft
 
@@ -21873,10 +21870,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xstate@npm:4.38.0":
-  version: 4.38.0
-  resolution: "xstate@npm:4.38.0"
-  checksum: afd9f9964e6f0ccd9c86549f7000a4e67e477fdab60fc3fefb08752048dee0983d83ad1fbcf7b934e5745de2eb352163623a89f5f17b82ff4f7298bfa2791e38
+"xstate@npm:5.18.2":
+  version: 5.18.2
+  resolution: "xstate@npm:5.18.2"
+  checksum: 595f7db52406d1c6554f69b682595503a3dafea58c50cb4e3447327d35cfeada98e891d02834ae6731dcdb696161eb1a73021e108dc6747f28d0d9b6700360b2
   languageName: node
   linkType: hard
 
