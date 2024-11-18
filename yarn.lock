@@ -4542,13 +4542,16 @@ __metadata:
   linkType: hard
 
 "@redwoodjs-stripe/web@npm:^1.0.7":
-  version: 1.0.8
-  resolution: "@redwoodjs-stripe/web@npm:1.0.8"
+  version: 1.0.11
+  resolution: "@redwoodjs-stripe/web@npm:1.0.11"
   peerDependencies:
-    "@redwoodjs/web": ">=5.4.3"
+    "@apollo/client": ">=3.10.7"
+    "@redwoodjs/web": ">=7.7.1"
+    graphql: ">=16.9.0"
+    graphql-tag: ">=2.12.6"
     react: ">=18.2.0"
     react-dom: ">=18.2.0"
-  checksum: 3d1b10c8257ef42bc419aa6789235460184d47896ba4fff514c02092f4cc130ffd94c0465a0781fb034544c6dc2c50b4d86aa1f9b46eb54d04fe5a332a061074
+  checksum: 659e49306dcac02d746df8c4550de4b4f1a13df26ae09d2a75b1d3b70d3d39fe6334eead3c76d85d439a7e7ae6022169d9f7db297e0f7f54198b191f15179a6c
   languageName: node
   linkType: hard
 
