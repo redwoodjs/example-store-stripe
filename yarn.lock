@@ -4533,11 +4533,14 @@ __metadata:
   linkType: hard
 
 "@redwoodjs-stripe/api@npm:^1.0.7":
-  version: 1.0.8
-  resolution: "@redwoodjs-stripe/api@npm:1.0.8"
+  version: 1.0.11
+  resolution: "@redwoodjs-stripe/api@npm:1.0.11"
   dependencies:
+    "@redwoodjs/testing": ^7.7.2
     stripe: ">=11.18.0"
-  checksum: b10b602ea456c998007c15b01ce2ed4bd2da12988fb45e4dfd883f8c9f91796682cbeca65d819208451f857548b103532cf834dc19822a5df79c289bf14162db
+  peerDependencies:
+    "@redwoodjs/api": ">=7.7.2"
+  checksum: b3dbbadb2a47d4d737c3113631c5cf3f4ad253fee9195104f10cb3f49f61c2b21adce897c824cb44658fe1d659658348686583ebd5b4c82d7fa2f4a31e94e918
   languageName: node
   linkType: hard
 
@@ -5076,7 +5079,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs/testing@npm:7.7.4":
+"@redwoodjs/testing@npm:7.7.4, @redwoodjs/testing@npm:^7.7.2":
   version: 7.7.4
   resolution: "@redwoodjs/testing@npm:7.7.4"
   dependencies:
