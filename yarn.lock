@@ -7142,7 +7142,7 @@ __metadata:
     "@redwoodjs/api": 7.7.4
     "@redwoodjs/auth-dbauth-api": 7.7.4
     "@redwoodjs/graphql-server": 7.7.4
-    graphql-scalars: 1.23.0
+    graphql-scalars: 1.24.0
     nodemailer: 6.9.16
     stripe: 12.18.0
   languageName: unknown
@@ -12562,6 +12562,17 @@ __metadata:
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: 7666c305b8367528c4fbb583a2731d93d52f36043d71f4957ecc1d2db71d710d268e25535243beb1b2497db921daa94d3cfa83daaf4a3101a667f358ddbf3436
+  languageName: node
+  linkType: hard
+
+"graphql-scalars@npm:1.24.0":
+  version: 1.24.0
+  resolution: "graphql-scalars@npm:1.24.0"
+  dependencies:
+    tslib: ^2.5.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: c4a3b8d3e65aad77bd27f21bf2619edec664f4e399c94bae412dc89f7687c4494ac84409224c8acf1f0431459c6ec76a49a193b1cc1f285878609fc0b4bb903e
   languageName: node
   linkType: hard
 
