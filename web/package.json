@@ -34,6 +34,6 @@
   },
   "devDependencies": {
     "@redwoodjs/vite": "7.7.4",
-    "@testing-library/user-event": "14.6.0"
+    "@testing-library/user-event": "14.6.1"
   }
 }
