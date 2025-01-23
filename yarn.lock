@@ -7152,7 +7152,7 @@ __metadata:
     "@redwoodjs/auth-dbauth-api": 7.7.4
     "@redwoodjs/graphql-server": 7.7.4
     graphql-scalars: 1.24.0
-    nodemailer: 6.9.16
+    nodemailer: 6.10.0
     stripe: 12.18.0
   languageName: unknown
   linkType: soft
@@ -16141,10 +16141,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemailer@npm:6.9.16":
-  version: 6.9.16
-  resolution: "nodemailer@npm:6.9.16"
-  checksum: 9fd73ab4ab5b81544c3c9820afbe386369aba442f997b2f58d171222a898a7aed580fc100bfe6eebc194f18ba6e169d67ee40ca64d32d69022d89e575cef97a4
+"nodemailer@npm:6.10.0":
+  version: 6.10.0
+  resolution: "nodemailer@npm:6.10.0"
+  checksum: 39fd35d65b021b94c968eeac82a66dd843021b6ba53c659d01b1dd4cda73b6a2f96e20facfe500efa4b8d3f1cb23df10245c6c86b2bde5f806691ed17ce87826
   languageName: node
   linkType: hard
 
