@@ -16923,10 +16923,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picocolors@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "picocolors@npm:1.0.0"
-  checksum: 20a5b249e331c14479d94ec6817a182fd7a5680debae82705747b2db7ec50009a5f6648d0621c561b0572703f84dbef0858abcbd5856d3c5511426afcb1961f7
+"picocolors@npm:^1.0.0, picocolors@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "picocolors@npm:1.1.1"
+  checksum: e2e3e8170ab9d7c7421969adaa7e1b31434f789afb9b3f115f6b96d91945041ac3ceb02e9ec6fe6510ff036bcc0bf91e69a1772edc0b707e12b19c0f2d6bcf58
   languageName: node
   linkType: hard
 
@@ -17481,14 +17481,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.38, postcss@npm:^8.2.14, postcss@npm:^8.4.24, postcss@npm:^8.4.27, postcss@npm:^8.4.33":
-  version: 8.4.38
-  resolution: "postcss@npm:8.4.38"
+"postcss@npm:8.4.49, postcss@npm:^8.2.14, postcss@npm:^8.4.24, postcss@npm:^8.4.27, postcss@npm:^8.4.33":
+  version: 8.4.49
+  resolution: "postcss@npm:8.4.49"
   dependencies:
     nanoid: ^3.3.7
-    picocolors: ^1.0.0
-    source-map-js: ^1.2.0
-  checksum: 955407b8f70cf0c14acf35dab3615899a2a60a26718a63c848cf3c29f2467b0533991b985a2b994430d890bd7ec2b1963e36352b0774a19143b5f591540f7c06
+    picocolors: ^1.1.1
+    source-map-js: ^1.2.1
+  checksum: f1b3f17aaf36d136f59ec373459f18129908235e65dbdc3aee5eef8eba0756106f52de5ec4682e29a2eab53eb25170e7e871b3e4b52a8f1de3d344a514306be3
   languageName: node
   linkType: hard
 
@@ -19349,10 +19349,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-js@npm:^1.0.1, source-map-js@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "source-map-js@npm:1.2.0"
-  checksum: 7e5f896ac10a3a50fe2898e5009c58ff0dc102dcb056ed27a354623a0ece8954d4b2649e1a1b2b52ef2e161d26f8859c7710350930751640e71e374fe2d321a4
+"source-map-js@npm:^1.0.1, source-map-js@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "source-map-js@npm:1.2.1"
+  checksum: 7bda1fc4c197e3c6ff17de1b8b2c20e60af81b63a52cb32ec5a5d67a20a7d42651e2cb34ebe93833c5a2a084377e17455854fee3e21e7925c64a51b6a52b0faf
   languageName: node
   linkType: hard
 
@@ -19849,23 +19849,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-components@npm:6.1.14":
-  version: 6.1.14
-  resolution: "styled-components@npm:6.1.14"
+"styled-components@npm:6.1.15":
+  version: 6.1.15
+  resolution: "styled-components@npm:6.1.15"
   dependencies:
     "@emotion/is-prop-valid": 1.2.2
     "@emotion/unitless": 0.8.1
     "@types/stylis": 4.2.5
     css-to-react-native: 3.2.0
     csstype: 3.1.3
-    postcss: 8.4.38
+    postcss: 8.4.49
     shallowequal: 1.1.0
     stylis: 4.3.2
     tslib: 2.6.2
   peerDependencies:
     react: ">= 16.8.0"
     react-dom: ">= 16.8.0"
-  checksum: a1b982dda8e9a4e6872e293ac6845fd1d0747abd64862bdd694975e75bc4719ecbbd1636cd7819b59ad30e7a18d95d02f5de8a56e0053117d34394e02d7a8ebc
+  checksum: 7c29db75af722599e10962ef74edd86423275385a3bf6baeb76783dfacc3de7608d1cc07b0d5866986e5263d60f0801b0d1f5b3b63be1af23bed68fdca8eaab6
   languageName: node
   linkType: hard
 
@@ -21317,7 +21317,7 @@ __metadata:
     react: 18.3.1
     react-dom: 18.3.1
     react-feather: 2.0.10
-    styled-components: 6.1.14
+    styled-components: 6.1.15
     xstate: 4.38.0
   languageName: unknown
   linkType: soft
